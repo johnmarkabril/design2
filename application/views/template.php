@@ -5,8 +5,24 @@
 	</head>
 	<body>
 
-		<div class="container" style="border: 1px solid;">
-			<?php $this->load->view("common/navtop_customer.php"); ?>
+		<div class="container">
+			<div class="panel panel-default" style="border-radius: 0px;border:0px;">
+			  	<div class="panel-body">
+			    	<div class="container-fluid">
+	    				
+	    				<?php 
+	    					$this->load->view('common/navtop_customer.php');
+	    					if ($this->uri->segment(1) == ""){
+	    						$this->load->view('templatecontent.php');
+	    					}else{
+	    						$this->load->view('linkcontent.php');
+	    					} 
+	    				?>
+
+    					
+			    	</div>
+			  	</div>
+			</div>
 		</div>
 
 

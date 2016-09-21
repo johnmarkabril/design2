@@ -1,8 +1,8 @@
 /* YOUR CUSTOM STYLES */
 @charset "UTF-8";
 
-h1, h2, h3, h4, h5, h6 {
-font-weight: 100; }
+/*h1, h2, h3, h4, h5, h6 {
+font-weight: 100; }*/
 
 h1 {
 font-size: 30px; }
@@ -22,13 +22,18 @@ font-size: 12px; }
 h6 {
 font-size: 10px; }
 
-h3, h4, h5 {
+/*h3, h4, h5 {
   margin-top: 5px;
   font-weight: 600; 
-}
+}*/
 
 body{
 	background-color: #ffffff;
+    background-image: url('/design2/public/img/wooden.jpg');
+}
+
+a {
+    color: black;
 }
 
 .border-bot{
@@ -40,7 +45,7 @@ body{
 
 
 /*NAV BAR CENTER*/
-/*.navbar .navbar-nav {
+.navbar .navbar-nav {
   display: inline-block;
   float: none;
   vertical-align: top;
@@ -48,18 +53,23 @@ body{
 
 .navbar .navbar-collapse {
   text-align: center;
-}*/
+}
 /*END OF NAV BAR CENTER*/
 
 /*HOVER NAVTOP 2*/
 
-.nav2 ul.nav li:hover{ 
+/*.nav2 ul.nav li:hover{ 
     color: #ffffff !important; 
     background-color: #94c724 ;
+}*/
+
+.navbar-default .navbar-nav > li > a:hover,.nav2 .navbar-default .navbar-nav > li > a:focus {
+    /*background-color: #FFFF00;*/
+    color: #FF6BAE;
 }
 
-.nav2 a:hover {
-    text-decoration: none;
+a:hover {
+    text-decoration: none;color: #FF6BAE;
 }
 
 /* END HOVER NAVTOP2*/
@@ -69,6 +79,11 @@ body{
     display: block;
     width: 100vw;
     height: 100vh;
+}
+
+.green-hover > a:hover {
+    color: #8DB9AD;
+    text-decoration: none;
 }
 
 .weightninehund{
@@ -95,6 +110,10 @@ body{
 	text-align: center;
 }
 
+.pad-left-twentyfive {
+    padding-left: 25px;
+}
+
 .no-padding-top-bottom {
 	padding-top: 0px;
 	padding-bottom: 0px;
@@ -107,6 +126,11 @@ body{
 
 .pad-right-ten{
 	padding-right: 10px;
+}
+
+.no-pad-margin {
+    padding: 0px;
+    margin: 0px;
 }
 
 .navbar-form-custom .form-control {
@@ -157,4 +181,99 @@ body{
     border: none;
     border-bottom: 1px solid #d1dade; 
     margin-bottom: 20px;
+}
+
+.no-pad-left{
+    padding-left: 0px;
+}
+
+.pad-top{
+    padding-top: 20px;
+}
+
+.font-asap{
+    font-family: Asap;
+}
+
+.font-twelve {
+    font-size: 12px;
+}
+
+.font-seventen {
+    font-size: 17px;
+}
+
+.no-border{
+    border-radius: 0px;
+    border: 0px;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.color-white{
+    color: #FFFFFF;
+}
+
+.no-pad {
+    padding: 0px;
+}
+
+.no-mar {
+    margin: 0px;
+}
+
+.pad-top-ten {
+    padding-top: 10px;
+}
+
+.no-pad-bot {
+    padding-bottom: 0px;
+}
+
+.no-mar-bot{
+    margin-bottom: 0px;
+}
+
+.pad-ten {
+    padding: 10px;
+}
+
+.font-ten {
+    font-size: 10px;
+}
+
+.justify-text {
+    text-align: justify;
+}
+
+.border-right-dotted {
+    border: 2px dotted;
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+.pad-left {
+    padding-left: 10px;
+}
+
+.pad-right {
+    padding-right: 10px;
+}
+
+.border-dashed-bot{
+    border: 2px dashed;
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+}
+
+.admin-hover-black > a:hover {
+    color: black;
+}
+
+.pad-top-fiften {
+    padding-top: 15px;
 }
