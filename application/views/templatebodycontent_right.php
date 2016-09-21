@@ -1,26 +1,35 @@
-<div class="panel panel-default no-border no-mar-bot">
-    <div class="panel-heading no-border"  style="background-color: #9DE0D0;">
-        <div style="color: #FFFFFF; font-size: 17px;">CATEGORIES</div>
-    </div>
-    <div class="panel-body no-pad-bot">
-        <div class="row">
-            <div class="green-hover pad-left-twentyfive"><a href="#" class="">Bread</a></div>
-            <hr/>
-            <div class="green-hover pad-left-twentyfive"><a href="#" class="">Cakes</a></div>
-            <hr/>
-            <div class="green-hover pad-left-twentyfive"><a href="#" class="">Candy</a></div>
-            <hr/>
-            <div class="green-hover pad-left-twentyfive"><a href="#" class="">Cookies</a></div>
-            <hr/>
-            <div class="green-hover pad-left-twentyfive"><a href="#" class="">Custard</a></div>
-            <hr/>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default no-border no-mar-bot" >
+        <div class="panel-heading no-border"  style="background-color: #9DE0D0;">
+            <div class="font-seventen color-white text-center">
+                <span class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    CATEGORIES
+                </span>
+            </div>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body no-pad-bot">
+                <div class="row">
+                    <div class="green-hover pad-left-twentyfive"><a href="#" class="">Bread</a></div>
+                    <hr/>
+                    <div class="green-hover pad-left-twentyfive"><a href="#" class="">Cakes</a></div>
+                    <hr/>
+                    <div class="green-hover pad-left-twentyfive"><a href="#" class="">Candy</a></div>
+                    <hr/>
+                    <div class="green-hover pad-left-twentyfive"><a href="#" class="">Cookies</a></div>
+                    <hr/>
+                    <div class="green-hover pad-left-twentyfive"><a href="#" class="">Custard</a></div>
+                    <hr/>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
+
 <div class="panel panel-default no-border">
     <div class="panel-heading no-border" style="background-color: #FF426F;">
-        <div class="font-seventen color-white">POPULAR</div>
+        <div class="font-seventen color-white text-center">POPULAR</div>
     </div>
     <div class="panel-body no-pad">
         <div class="row">
@@ -57,7 +66,7 @@
 
 <div class="panel panel-default no-border">
     <div class="panel-heading no-border" style="background-color: #919191;">
-        <div class="font-seventen color-white">ABOUT OUR BLOG</div>
+        <div class="font-seventen color-white text-center">ABOUT OUR BLOG</div>
     </div>
     <div class="panel-body">
         <div class="row text-center">
