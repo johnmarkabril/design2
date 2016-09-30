@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Template extends CI_Controller 
+class Recipes extends CI_Controller 
 {
 	public function __construct()
     {
@@ -14,9 +14,8 @@ class Template extends CI_Controller
 	{
 		$details = array (
 			'posted_content'	=>	$this->Postcontent_model->get_content(),
-			'curpage'			=>	'home'
+			'curpage'			=>	'recipes'
 		);
-
 		$this->load->view('template.php', $details);
 	}
 }

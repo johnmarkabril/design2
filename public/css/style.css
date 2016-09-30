@@ -232,6 +232,10 @@ a:hover {
     padding-bottom: 0px;
 }
 
+.no-pad-top {
+    padding-top: 0px;
+}
+
 .no-mar-bot{
     margin-bottom: 0px;
 }
@@ -276,4 +280,20 @@ a:hover {
 
 .pad-top-fiften {
     padding-top: 15px;
+}
+
+.pad-top-ten {
+    padding-top: 10px;
+}
+
+.mar-top-ten {
+    margin-top: 10px;
+}
+
+.border-rad-ten {
+    border-radius: 10px;
+}
+
+.display-none{
+    display: none;
 }
