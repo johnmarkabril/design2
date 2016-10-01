@@ -4,6 +4,10 @@
 
 <script src="<?php echo base_url();?>public/js/plugins/toastr/toastr.min.js"></script>
 
+<!-- GOOGLE MAP API -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5h8RE_Re9V9PJ-ROp7TKXQBKbMnWXDVE&callback=initMap">
+</script>
+
 <script>
 	// NOTIFY WHEN THE EMAIL OR PASSWORD IS INCORRECT
 	<?php 
@@ -32,6 +36,7 @@
             var comment_email   =   $('#comment_email').val();
             var comment_here    =   $('#comment_here').val();
             var post_no         =   $('#post_no').val();
+            var timedate         =   $('#timedate').val();
 
             if(comment_name == ''){
                 toastr.error('PLEASE TYPE YOUR NAME!');
@@ -51,7 +56,7 @@
                 html += '               </div>';
                 html += '               <div class="col-md-10"><div class="justify-text">'+comment_here+'</div></div>';
                 html += '           </div>';
-                html += '           <div class="pull-right"><span style="padding-right: 20px;color: #FF4785;">SEPTEMBER 17, 2016</span>';
+                html += '           <div class="pull-right"><span style="padding-right: 20px;color: #FF4785;">'+timedate+'</span>';
                 html += '               <span style="padding-right: 20px;"><a href="#"><b>reply</b></a></span>';
                 html += '           </div>';
                 html += '       </div>';
@@ -66,9 +71,10 @@
                     method:"POST",
                     data:{
                         comment_name    :comment_name,
-                        comment_email   :comment_email,
                         comment_here    :comment_here,
+                        comment_email   :comment_email,
                         post_no         :post_no,
+                        timedate   :timedate,
                     },
                     success:function(data)
                     {
@@ -77,11 +83,20 @@
                         toastr.error("ERROR");
                     }
                 })
-
                 
             }
         }); // END OF LINK COMMENT FORM BUTTON SUBMIT
-
     });
+
+    // GOOGLE MAP API CODE START
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+    }
+    
+    // GOOGLE MAP API CODE END
 
 </script>

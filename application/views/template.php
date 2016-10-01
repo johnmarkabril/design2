@@ -10,7 +10,6 @@
 			    	<div class="container-fluid">
 	    				<?php 
 	    					$this->load->view('common/navtop_customer.php');
-
 	    					if ($curpage == 'home'){
 	    						$this->load->view('templatecontent.php');
 	    					}else if ($curpage == 'recipes'){
@@ -22,6 +21,7 @@
 			</div>
 		</div>
 
+		<!-- <div id="map"></div> -->
 	
 		<?php $this->load->view("common/js/js_files_includes.php"); ?>
 	</body>
