@@ -29,12 +29,13 @@ class Post extends CI_Controller
 		$comment_email	= $this->input->post('comment_email');
 		$comment_here	= $this->input->post('comment_here');
 		$post_no	= $this->input->post('post_no');
+		$timedate	= $this->input->post('timedate');
 
 		$params = array(
 			'NO'			=> '',
 			'NAME' 			=> $comment_name,
 			'EMAIL'			=> $comment_email,
-			'DATECOMMENT'	=> '',
+			'DATECOMMENT'	=> $timedate,
 			'COMMENTHERE'	=> $comment_here,
 			'POSTNO'		=> $post_no,
 			'TEMPLATENAME'	=> 'DESIGN2'
