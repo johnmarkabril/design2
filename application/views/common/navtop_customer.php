@@ -21,7 +21,7 @@
 				                <a href="#" class="weightninehund">BLOG</a>
 				            </li>
 				            <li class="text-center">
-				                <a href="#" class="weightninehund">CONTACTS</a>
+				                <a href="<?php echo base_url();?>contacts" class="weightninehund">CONTACTS</a>
 				            </li>
 				            <li class="text-center">
 				                <a href="#" class="weightninehund"  data-toggle="modal" data-target="#loginModal">ACCOUNT</a>

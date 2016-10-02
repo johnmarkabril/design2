@@ -25,7 +25,7 @@
 				<div>
 					<textarea style="max-width: 100%;height: 150px;max-height: 150px;" id="comment_here" class="form-control" placeholder="* YOUR COMMENT HERE!" required></textarea>
 				</div>
-				<button id="btn_submit_comment" class="btn btn-success btn-lg no-border">SUBMIT COMMENT</button>
+				<button id="btn_submit_comment" class="btn btn-default btn-lg no-border">SUBMIT COMMENT</button>
 			</div>
 		</div>
 <?php
@@ -51,7 +51,7 @@
 				<div>
 					<textarea style="max-width: 100%;height: 150px;max-height: 150px;" id="comment_here" class="form-control" placeholder="* YOUR COMMENT HERE!" required></textarea>
 				</div>
-				<button id="btn_submit_comment" class="btn btn-success btn-lg no-border">SUBMIT COMMENT</button>
+				<button id="btn_submit_comment" class="btn btn-default btn-lg no-border">SUBMIT COMMENT</button>
 			</div>
 		</div>
 <?php        

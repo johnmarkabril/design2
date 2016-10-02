@@ -14,6 +14,8 @@
 	    						$this->load->view('templatecontent.php');
 	    					}else if ($curpage == 'recipes'){
 	    						$this->load->view('user/recipes/template_recipes.php');
+	    					}else if ($curpage == 'contacts'){
+	    						$this->load->view('user/contacts/template_contacts.php');
 	    					}
 	    				?>
 			    	</div>

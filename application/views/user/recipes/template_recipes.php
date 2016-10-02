@@ -2,7 +2,7 @@
 	<h1>Recipes</h1>
 </div>
 <hr>
-	<h5> <a href="<?php echo base_url();?>">Home</a> / <span style="color: #FF65AE;">Recipes</span> </span></a></h5>
+	<h5> <a href="<?php echo base_url();?>">HOME</a> / <span style="color: #FF65AE;">RECIPES</span> </span></a></h5>
 <hr>
 
 
