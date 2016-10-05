@@ -29,6 +29,11 @@
         $('[data-toggle="tooltip"]').tooltip(); 
         $('[data-toggle="popover"]').popover();
 
+        // IF THE SESSION IS EMPTY AND CLICK THE SUBMIT COMMENT BUTTON
+        $('#btn_disabled_comment').click(function(){
+            toastr.error('Please login!');
+        });
+
         // LINK COMMENT FORM BUTTON SUBMIT
         $('#btn_submit_comment').click(function(){
 
@@ -79,6 +84,7 @@
                     success:function(data)
                     {
                         toastr.success("COMMENT POSTED!");
+                        $('#comment_here').val("");
                     },error:function(){
                         toastr.error("ERROR");
                     }
@@ -86,6 +92,12 @@
                 
             }
         }); // END OF LINK COMMENT FORM BUTTON SUBMIT
+
+        // START OF CONTACT RIGHT FORM BUTTON SUBMIT
+        $('#btn_fc_submit_comment').click(function(){
+            $name   =   $('#cf_name').val();
+            $email  =   $('#cf_email').val();
+        });
     });
 
     // GOOGLE MAP API CODE START

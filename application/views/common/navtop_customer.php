@@ -15,10 +15,10 @@
 				                <a href="<?php echo base_url();?>recipes" class="weightninehund">RECIPES</a>
 				            </li>
 				            <li class="text-center">
-				                <a href="#" class="weightninehund">SERVICES</a>
+				                <a href="<?php echo base_url();?>services" class="weightninehund">SERVICES</a>
 				            </li>
 				            <li class="text-center">
-				                <a href="#" class="weightninehund">BLOG</a>
+				                <a href="<?php echo base_url();?>events" class="weightninehund">EVENTS</a>
 				            </li>
 				            <li class="text-center">
 				                <a href="<?php echo base_url();?>contacts" class="weightninehund">CONTACTS</a>

@@ -11,6 +11,7 @@ class Postcontent_model extends CI_Model
 	public $dbno 				= "NO";
 	public $postno 				= "POSTNO";
 	public $order 				= "DESC";
+	public $command 			= "COMMAND";
 
 	function __construct()
 	{
@@ -18,8 +19,8 @@ class Postcontent_model extends CI_Model
 	}
 
 	function get_content(){
-		// " SELECT * FROM users WHERE EMAIL = '$c_email' AND PASSWORD = '$c_password' "
 		$row = 	$this->db->where($this->templatename, 'DESIGN2')
+						 ->where($this->command, 'FREE')
 				 		 ->get($this->table);
 		return $row->result();
 	}

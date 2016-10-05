@@ -16,7 +16,12 @@
 	    						$this->load->view('user/recipes/template_recipes.php');
 	    					}else if ($curpage == 'contacts'){
 	    						$this->load->view('user/contacts/template_contacts.php');
+	    					}else if ($curpage == 'services'){
+	    						$this->load->view('user/services/template_services.php');
+	    					}else if ($curpage == 'events'){
+	    						$this->load->view('user/events/template_events.php');
 	    					}
+	    					$this->load->view('templatefooter.php');
 	    				?>
 			    	</div>
 			  	</div>

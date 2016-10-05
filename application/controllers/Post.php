@@ -19,8 +19,15 @@ class Post extends CI_Controller
 			'comment_post_numrow'	=> $this->Postcontent_model->get_comment_per_post_numrow($param1),
 			'curpage'				=> 'home'
 		);
-		$data['content'] = $this->load->view('linkcontent.php',$details,TRUE);
-		$this->load->view('template.php',$data);
+		$command = $details['link_data'][0]->COMMAND;
+		if($command == "FREE"){
+			$data['content'] = $this->load->view('linkcontent.php',$details,TRUE);
+			$this->load->view('template.php',$data);
+		}elseif($command == "SELL"){
+			redirect ('/');
+		}
+		// $data['content'] = $this->load->view('linkcontent.php',$details,TRUE);
+		// $this->load->view('template.php',$data);
 	}
 
 	public function insert_comment_cont()

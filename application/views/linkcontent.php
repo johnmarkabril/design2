@@ -6,7 +6,15 @@
 	<div class="row col-md-12">
 		<div><img src="<?php echo base_url(); ?>public/img/<?php print_r($x->IMAGEURL); ?>" class="img-responsive" /></div>
 		<div>
-			<h4 class="justify-text"><?php print_r($x->DESCRIPTION); ?></h4>
+			<h4 class="justify-text">
+				<?php 
+					$desc = explode('|', $x->DESCRIPTION);
+					foreach($desc as $xy){ ?>
+					<div class="pad-top-fiften">
+						<?php echo $xy; ?>
+					</div>
+				<?php } ?>
+			</h4>
 		</div>
 
 			<!-- <div class="row">
@@ -34,11 +42,31 @@
 	</div>
 </div>
 
-<div class="panel panel-default no-border pad-top" >
+<div class="row">
+<div class="text-center">
+	<h2 style="font-weight: bold;">Ingredients</h2>
+</div>
+	<div class="col-xs-12 font-ten">
+		<?php $recipe = explode('|',$x->RECIPES); ?>
+		<?php 
+				foreach($recipe as $rec) {
+		?>
+					<div class="col-xs-6">
+						<h5><?php echo $rec; ?></h5>
+					</div>
+		<?php 
+				}
+		?>
+	</div>
+</div>
+
+<hr/>
+
+<div class="panel panel-default no-border " >
     <div class="panel-body" style="background-color: #f5f4f6;">
     	<div class="row">
 		    <div class="col-md-12">
-		       	<div class="col-md-2">
+		       	<div class="col-sm-2">
 		       		<img class="img-responsive text-center full-width" src="<?php echo base_url(); ?>public/img/prof4.png"/>
 		       	</div>
 		       	<div class="col-md-10">
@@ -65,7 +93,7 @@
 		        <div class="panel-body" style="background-color: #f5f4f6;">
 		            <div class="row">
 		                <div class="col-md-12">
-		                    <div class="col-md-2">
+		                    <div class="col-sm-2">
 		                        <div><img class="img-responsive  full-width text-center" src="<?php echo base_url(); ?>public/img/prof4.png"/></div>
 		                        <div class="text-center"><?php echo $y->NAME; ?></div>
 		                    </div>

@@ -36,6 +36,10 @@ a {
     color: black;
 }
 
+.color-black {
+    color: #000000;
+}
+
 .border-bot{
     border: 1px solid;
     border-top: 0px;
@@ -187,8 +191,20 @@ a:hover {
     padding-left: 0px;
 }
 
+.pad-bot{
+    padding-bottom: 20px;
+}
+
 .pad-top{
     padding-top: 20px;
+}
+
+.pad-top-ten {
+    padding-top: 10px;
+}
+
+.pad-top-fiften {
+    padding-top: 15px;
 }
 
 .font-asap{
@@ -296,4 +312,51 @@ a:hover {
 
 .display-none{
     display: none;
+}
+
+.design-price-recipe{
+    width: auto;
+    padding: 5px;
+    position:absolute;
+    right: 30;
+    top: 0;
+    border-radius: 5px; 
+    background-color: #9DE0D0; 
+    opacity: 1;
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+}
+
+.color-pink{
+     color: #FF65AE;
+}
+
+#temp_serv > img:hover{
+    border: 1px solid;
+}
+
+.title-events{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.jumbo-events-custom {
+    padding: 15px;  
+}
+
+.bgcolor-events-orange {
+    background-color: #e5ba5a;
+}
+
+.bgcolor-events-pink {
+    background-color: #ff6f6f;
+}
+
+.bgcolor-events-blue {
+    background-color: #2980b9;
+}
+
+.bgcolor-events-green {
+    background-color: #27ae60;
 }
