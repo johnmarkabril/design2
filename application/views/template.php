@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title></title>
+		<title><?php echo $title; ?></title>
 		<?php $this->load->view("common/css/css_files_includes.php"); ?>
 	</head>
 	<body>
@@ -10,17 +10,32 @@
 			    	<div class="container-fluid">
 	    				<?php 
 	    					$this->load->view('common/navtop_customer.php');
-	    					if ($curpage == 'home'){
+	    					if ($curpage == 'home')
+	    					{
 	    						$this->load->view('templatecontent.php');
-	    					}else if ($curpage == 'recipes'){
+	    					}
+	    					else if ($curpage == 'recipes')
+	    					{
 	    						$this->load->view('user/recipes/template_recipes.php');
-	    					}else if ($curpage == 'contacts'){
+	    					}
+	    					else if ($curpage == 'contacts')
+	    					{
 	    						$this->load->view('user/contacts/template_contacts.php');
-	    					}else if ($curpage == 'services'){
+	    					}
+	    					else if ($curpage == 'services')
+	    					{
 	    						$this->load->view('user/services/template_services.php');
-	    					}else if ($curpage == 'events'){
+	    					}
+	    					else if ($curpage == 'events')
+	    					{
 	    						$this->load->view('user/events/template_events.php');
 	    					}
+	    					else if ($curpage == 'signup')
+	    					{
+	    						$this->load->view('signup.php');
+	    					}
+
+
 	    					$this->load->view('templatefooter.php');
 	    				?>
 			    	</div>

@@ -98,6 +98,102 @@
             $name   =   $('#cf_name').val();
             $email  =   $('#cf_email').val();
         });
+
+        function randomString() {
+            var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+            var string_length = 8;
+            var randomstring = '';
+            for (var i=0; i<string_length; i++) {
+                var rnum = Math.floor(Math.random() * chars.length);
+                randomstring += chars.substring(rnum,rnum+1);
+            }
+            return randomstring;
+        }
+
+        // START PERSONAL TAB - PROCEED
+        $('#btn-pres1-proceed').click(function(){
+            var su_fname    =   $('#su_fname').val();
+            var su_lname    =   $('#su_lname').val();
+            var su_uname    =   $('#su_uname').val();
+            var su_cpnum    =   $('#su_cpnum').val();
+
+            var fname_check = /^[\w\.\s]{1,50}$/.test(su_fname);
+            var lname_check = /^[\w\.\s]{1,50}$/.test(su_lname);
+            var uname_check = /^\w+$/.test(su_uname);
+            var cpnum_check = /^(0|\[0-9]{1,5})?([7-9][0-9]{9})$/.test(su_cpnum);
+
+            if(fname_check){
+                if(lname_check){
+                    if(uname_check){
+                        if(cpnum_check){
+                            disable_pointer_events();
+                            $('#pres2').css({pointerEvents: "auto"});
+                            toastr.success('Please click the second tab to proceed');
+                        }else{
+                            toastr.error('Invalid Cellphone Number');
+                        }
+                    }else{
+                        toastr.error('Invalid Username');
+                    }
+                }else{
+                    toastr.error('Invalid Last Name');
+                }
+            }else{
+                toastr.error('Invalid First Name');
+            }
+        }) // END PERSONAL TAB - PROCEED
+
+        $('#btn-pres2-back').click(function(){
+            disable_pointer_events();
+            $('#pres1').css({pointerEvents: "auto"});
+            toastr.success('Please click the first tab to go back');
+        })
+
+
+        // START ACCOUNT TAB - PROCEED
+        $('#btn-pres2-proceed').click(function(){
+            var su_email        =   $('#su_email').val();
+            var su_pword        =   $('#su_pword').val();
+            var su_conpword     =   $('#su_conpword').val();
+
+            var email_check     =   /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(su_email);
+
+            if(email_check){
+                if(su_pword.length >= 8){
+                    if(su_pword == su_conpword){
+                        disable_pointer_events();
+                        $('#pres3').css({pointerEvents: "auto"});
+                        toastr.success('Please click the third tab to proceed');
+                        // <?php
+                        //     $to      = 'johnmarkabril@gmail.com'; // Send email to our user
+                        //     $subject = 'Signup | Verification'; // Give the email a subject 
+                        //     $message = 'aYiaQ1';
+                        //     $headers = 'From:noreply@yourwebsite.com'; // Set from headers
+                        //     mail($to, $subject, $message, $headers); // Send our email
+                        // ?>
+                    }else{
+                        toastr.error("Password doesn't match");
+                    }
+                }else{
+                    toastr.error('Minimum of 8 characters for Password');
+                }
+            }else{
+                toastr.error('Invalid Email Address');
+            }
+        }) // END ACCOUNT TAB - PROCEED
+
+        $('#btn-pres3-proceed').click(function(){
+            disable_pointer_events();
+            $('#pres4').css({pointerEvents: "auto"});
+            toastr.success('Please click the last tab to complete the registration');
+        })
+
+        function disable_pointer_events(){
+            $('#pres1').css({pointerEvents: "none"});
+            $('#pres2').css({pointerEvents: "none"});
+            $('#pres3').css({pointerEvents: "none"});
+            $('#pres4').css({pointerEvents: "none"});
+        }
     });
 
     // GOOGLE MAP API CODE START

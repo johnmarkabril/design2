@@ -15,7 +15,8 @@ class Services extends CI_Controller
 		$details = array (
 			'services_content_db'	=>	$this->Services_model->get_services(),
 			'curpage'				=>	'services',
-			'servicesformat'		=>	'no'
+			'servicesformat'		=>	'no',
+			'title'					=>	'Services'
 		);
 
 		$data['content'] = $this->load->view('user/services/template_services.php',$details,TRUE);

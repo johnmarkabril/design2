@@ -260,6 +260,10 @@ a:hover {
     padding: 10px;
 }
 
+.color-red {
+    color: red;
+}
+
 .font-ten {
     font-size: 10px;
 }
@@ -359,4 +363,25 @@ a:hover {
 
 .bgcolor-events-green {
     background-color: #27ae60;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.wid-seventy {
+    width: 70%;
+}
+
+.wid-twentyfive {
+    width: 25%;
+}
+
+.no-bor-left-right {
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.text-left {
+    text-align: left;
 }

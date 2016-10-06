@@ -15,7 +15,8 @@ class Recipes extends CI_Controller
 	{
 		$details = array (
 			'recipes_content'	=>	$this->Recipes_model->get_content(),
-			'curpage'			=>	'recipes'
+			'curpage'			=>	'recipes',
+			'title'				=>	'Recipes'
 		);
 		$data['content'] = $this->load->view('user/recipes/template_recipes.php', $details, TRUE);
 		$this->load->view('template.php', $data);

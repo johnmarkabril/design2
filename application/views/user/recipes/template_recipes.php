@@ -12,7 +12,7 @@
 			<div class="panel panel-default no-border" style="background-color: #F6F6F6;">
 				<div class="panel-body text-center">
 					<div class="design-price-recipe">₱ <?php echo $recipe->PRICE;?></div>
-				    <img src="<?php echo base_url(); ?>public/img/r3.jpg" class="img-responsive" />
+				    <img src="<?php echo base_url(); ?>public/img/<?php echo $recipe->IMAGEURL;?>" class="img-responsive" />
 				    <div>
 				    	<a href="" style="color: #FF65AE;"><?php echo $recipe->TITLE;?></a>
 				    </div>
