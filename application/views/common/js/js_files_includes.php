@@ -110,17 +110,21 @@
             return randomstring;
         }
 
+        var su_fname    =   $('#su_fname');
+        var su_lname    =   $('#su_lname');
+        var su_uname    =   $('#su_uname');
+        var su_cpnum    =   $('#su_cpnum');
+        var su_email        =   $('#su_email');
+        var su_pword        =   $('#su_pword');
+        var su_conpword     =   $('#su_conpword');
+        var su_emailcode    =   $('#su_emailcode');
+
         // START PERSONAL TAB - PROCEED
         $('#btn-pres1-proceed').click(function(){
-            var su_fname    =   $('#su_fname').val();
-            var su_lname    =   $('#su_lname').val();
-            var su_uname    =   $('#su_uname').val();
-            var su_cpnum    =   $('#su_cpnum').val();
-
-            var fname_check = /^[\w\.\s]{1,50}$/.test(su_fname);
-            var lname_check = /^[\w\.\s]{1,50}$/.test(su_lname);
-            var uname_check = /^\w+$/.test(su_uname);
-            var cpnum_check = /^(0|\[0-9]{1,5})?([7-9][0-9]{9})$/.test(su_cpnum);
+            var fname_check = /^[a-zA-Z-_]+( [a-zA-Z-_]+)*$/.test(su_fname.val());
+            var lname_check = /^[a-zA-Z-_]+( [a-zA-Z-_]+)*$/.test(su_lname.val());
+            var uname_check = /^\w+$/.test(su_uname.val());
+            var cpnum_check = /^(0|\[0-9]{1,5})?([7-9][0-9]{9})$/.test(su_cpnum.val());
 
             if(fname_check){
                 if(lname_check){
@@ -152,25 +156,38 @@
 
         // START ACCOUNT TAB - PROCEED
         $('#btn-pres2-proceed').click(function(){
-            var su_email        =   $('#su_email').val();
-            var su_pword        =   $('#su_pword').val();
-            var su_conpword     =   $('#su_conpword').val();
 
-            var email_check     =   /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(su_email);
+            var email_check     =   /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(su_email.val());
 
+            var random_code     = randomString();
             if(email_check){
-                if(su_pword.length >= 8){
-                    if(su_pword == su_conpword){
+                if(su_pword.val().length >= 8){
+                    if(su_pword.val() == su_conpword.val()){
                         disable_pointer_events();
                         $('#pres3').css({pointerEvents: "auto"});
                         toastr.success('Please click the third tab to proceed');
-                        // <?php
-                        //     $to      = 'johnmarkabril@gmail.com'; // Send email to our user
-                        //     $subject = 'Signup | Verification'; // Give the email a subject 
-                        //     $message = 'aYiaQ1';
-                        //     $headers = 'From:noreply@yourwebsite.com'; // Set from headers
-                        //     mail($to, $subject, $message, $headers); // Send our email
-                        // ?>
+
+                        // $.ajax({
+                        //     url: "<?php echo base_url(); ?>signup/insert_verify_no",
+                        //     method:"POST",
+                        //     data:{
+                        //         random_code     :   random_code,
+                        //         su_fname        :   su_fname.val(),
+                        //         su_lname        :   su_lname.val(),
+                        //         su_uname        :   su_uname.val(),
+                        //         su_cpnum        :   su_cpnum.val(),
+                        //         su_email        :   su_email.val(),
+                        //         su_pword        :   su_pword.val()
+                        //     },
+                        //     success:function(data)
+                        //     {
+                        //         // toastr.success(data);
+                        //         // alert(data);
+                        //     },error:function(){
+                        //         toastr.error("ERROR");
+                        //     }
+                        // })
+
                     }else{
                         toastr.error("Password doesn't match");
                     }
@@ -183,9 +200,42 @@
         }) // END ACCOUNT TAB - PROCEED
 
         $('#btn-pres3-proceed').click(function(){
-            disable_pointer_events();
-            $('#pres4').css({pointerEvents: "auto"});
-            toastr.success('Please click the last tab to complete the registration');
+            if(su_emailcode.val().length > 0){
+                $.ajax({
+                    url: "<?php echo base_url(); ?>signup/check_verification",
+                    method:"POST",
+                    data:{
+                        su_fname        :   su_fname.val(),
+                        su_lname        :   su_lname.val(),
+                        su_uname        :   su_uname.val(),
+                        su_cpnum        :   su_cpnum.val(),
+                        su_email        :   su_email.val(),
+                        su_pword        :   su_pword.val(),
+                        su_emailcode    :   su_emailcode.val()
+                    },
+                    success:function(data)
+                    {
+                        // alert(data);
+                        if(data == 'TRUE'){
+                            disable_pointer_events();
+                            $('#su_emailcode').css({pointerEvents: "none"});
+                            $('#pres4').css({pointerEvents: "auto"});
+                            toastr.success('Please click the last tab to complete the registration');
+                        }else{
+                            toastr.error('Invalid Verification Code');
+                        }
+                    },error:function(){
+                        toastr.error("ERROR");
+                    }
+                })
+                // alert(asdf)
+            }else{
+                toastr.error('Please input your verification code');
+            }
+
+            // disable_pointer_events();
+            // $('#pres4').css({pointerEvents: "auto"});
+            // toastr.success('Please click the last tab to complete the registration');
         })
 
         function disable_pointer_events(){

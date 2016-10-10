@@ -6,7 +6,7 @@
 			<div><a href="<?php echo base_url(); ?>post/link/<?php echo $pst_cntn->NO; ?>"><h2><?php echo $pst_cntn->TITLE; ?></h2></a></div>
 			<div class="row">
 				<div class="col-md-6">
-					<a href="<?php echo base_url(); ?>post/link/<?php echo $pst_cntn->NO; ?>"><img src="public/img/<?php echo $pst_cntn->IMAGEURL; ?>" class="img-responsive" /></a>
+					<a href="<?php echo base_url(); ?>post/link/<?php echo $pst_cntn->NO; ?>"><img src="<?php echo base_url(); ?>public/img/<?php echo $pst_cntn->IMAGEURL; ?>" class="img-responsive" /></a>
 				</div>
 				<div class="col-md-6">
 					<div class="pad-ten">
@@ -63,5 +63,8 @@
 			</h5>
 			<hr/>
 		</div>
+		
 	<?php } ?>
 </div>
+
+<h6><?php echo $links;?></h6>

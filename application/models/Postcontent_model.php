@@ -18,11 +18,19 @@ class Postcontent_model extends CI_Model
 		parent::__construct();
 	}
 
-	function get_content(){
+	function get_content($limit, $start){
+		$row = 	$this->db->where($this->templatename, 'DESIGN2')
+						 ->where($this->command, 'FREE')
+						 ->limit($limit, $start)
+				 		 ->get($this->table);
+		return $row->result();
+	}
+
+	function posted_content_numrows(){
 		$row = 	$this->db->where($this->templatename, 'DESIGN2')
 						 ->where($this->command, 'FREE')
 				 		 ->get($this->table);
-		return $row->result();
+		return $row->num_rows();
 	}
 
 	function get_specific_content($no){

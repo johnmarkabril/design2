@@ -6,13 +6,16 @@ if (!defined('BASEPATH'))
 class Users_model extends CI_Model
 {
 
-	public $table			= 'user';
-	public $user_id			= 'USER_ID';
-	public $password		= 'PASSWORD';
-	public $activated		= 'ACTIVATED';
-	public $email			= 'EMAIL';
-	public $acc_type		= 'ACCOUNT_TYPE';
-	public $templatename	= 'TEMPLATENAME';
+	public $table					= 'user';
+	public $user_id					= 'USER_ID';
+	public $password				= 'PASSWORD';
+	public $activated				= 'ACTIVATED';
+	public $email					= 'EMAIL';
+	public $uname					= 'USERNAME';
+	public $acc_type				= 'ACCOUNT_TYPE';
+	public $templatename			= 'TEMPLATENAME';
+	public $verified				= 'VERIFIED';
+	public $verificationcode		= 'VERIFICATIONCODE';
 
 	function __construct()
 	{
@@ -25,6 +28,7 @@ class Users_model extends CI_Model
 				 		 ->where($this->password, md5($c_password))
 				 		 ->where($this->activated, 0)
 				 		 ->where($this->templatename, 'DESIGN2')
+				 		 ->where($this->verified, 'YES')
 				  		 ->limit(1)
 				 		 ->get($this->table);
 
@@ -33,5 +37,30 @@ class Users_model extends CI_Model
 		}else{
 			return false;
 		}
+	}
+
+	function insert_new_user($params){
+		$this->db->insert($this->table, $params);
+	}
+
+	function check_verification_code($su_emailcode, $su_uname, $su_pword, $su_email, $params){
+		$row = 	$this->db->where($this->email, $su_email)
+						 ->where($this->uname, $su_uname)
+						 ->where($this->password, $su_pword)
+				 		 ->where($this->verificationcode, $su_emailcode)
+				 		 ->where($this->templatename, 'DESIGN2')
+				 		 ->where($this->verified, 'NO')
+				 		 ->get($this->table);
+
+		if($row->num_rows() == 1){
+			update_verified($su_email, $params);
+		}else{
+			echo "FALSE";
+		}
+	}
+
+	function update_verified($su_email, $params){
+        $this->db->where($this->email, $su_email);	
+        $this->db->update($this->table, $params); 
 	}
 }

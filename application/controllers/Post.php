@@ -17,7 +17,8 @@ class Post extends CI_Controller
 			'link_data' 			=> $this->Postcontent_model->get_specific_content($param1),
 			'comment_post'			=> $this->Postcontent_model->get_comment_per_post($param1),
 			'comment_post_numrow'	=> $this->Postcontent_model->get_comment_per_post_numrow($param1),
-			'curpage'				=> 'home'
+			'curpage'				=> 'home',
+			'title'					=>	'Post'
 		);
 		$command = $details['link_data'][0]->COMMAND;
 		if($command == "FREE"){

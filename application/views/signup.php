@@ -50,7 +50,7 @@
 		    				</div>
 		    				<div class="col-sm-6">
 		    					<h5 class="no-mar-bot"><span class="color-red">* </span>Phone Number</h5>
-		    					<input type="text" class="form-control full-width" id="su_cpnum" placeholder="09*********"/>
+		    					<input type="text" class="form-control full-width" maxlength="11" id="su_cpnum" placeholder="09*********"/>
 		    				</div>
 		    				<div class="col-sm-12">
 		    					<button type="button" id="btn-pres1-proceed" class="btn btn-info full-width">Proceed</button>
