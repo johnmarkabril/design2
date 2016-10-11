@@ -167,26 +167,26 @@
                         $('#pres3').css({pointerEvents: "auto"});
                         toastr.success('Please click the third tab to proceed');
 
-                        // $.ajax({
-                        //     url: "<?php echo base_url(); ?>signup/insert_verify_no",
-                        //     method:"POST",
-                        //     data:{
-                        //         random_code     :   random_code,
-                        //         su_fname        :   su_fname.val(),
-                        //         su_lname        :   su_lname.val(),
-                        //         su_uname        :   su_uname.val(),
-                        //         su_cpnum        :   su_cpnum.val(),
-                        //         su_email        :   su_email.val(),
-                        //         su_pword        :   su_pword.val()
-                        //     },
-                        //     success:function(data)
-                        //     {
-                        //         // toastr.success(data);
-                        //         // alert(data);
-                        //     },error:function(){
-                        //         toastr.error("ERROR");
-                        //     }
-                        // })
+                        $.ajax({
+                            url: "<?php echo base_url(); ?>signup/insert_verify_no",
+                            method:"POST",
+                            data:{
+                                random_code     :   random_code,
+                                su_fname        :   su_fname.val(),
+                                su_lname        :   su_lname.val(),
+                                su_uname        :   su_uname.val(),
+                                su_cpnum        :   su_cpnum.val(),
+                                su_email        :   su_email.val(),
+                                su_pword        :   su_pword.val()
+                            },
+                            success:function(data)
+                            {
+                                // toastr.success(data);
+                                // alert(data);
+                            },error:function(){
+                                toastr.error("ERROR");
+                            }
+                        })
 
                     }else{
                         toastr.error("Password doesn't match");

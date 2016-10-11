@@ -43,7 +43,7 @@ class Users_model extends CI_Model
 		$this->db->insert($this->table, $params);
 	}
 
-	function check_verification_code($su_emailcode, $su_uname, $su_pword, $su_email, $params){
+	function check_verification_code($su_emailcode, $su_uname, $su_pword, $su_email){
 		$row = 	$this->db->where($this->email, $su_email)
 						 ->where($this->uname, $su_uname)
 						 ->where($this->password, $su_pword)
@@ -52,15 +52,20 @@ class Users_model extends CI_Model
 				 		 ->where($this->verified, 'NO')
 				 		 ->get($this->table);
 
-		if($row->num_rows() == 1){
-			update_verified($su_email, $params);
-		}else{
-			echo "FALSE";
-		}
+				 return $row->result();
+		// if($row->num_rows() == 1){
+		// 	$row->result();
+		// 	// print_r();
+			
+		// 	echo "TRUE";
+		// }else{
+		// 	echo "FALSE";
+		// }
 	}
 
-	function update_verified($su_email, $params){
-        $this->db->where($this->email, $su_email);	
+	function update_verified($su_emailcode,$su_email, $params){
+        $this->db->where($this->verificationcode, $su_emailcode);	
+        // $this->db->where($this->email, $su_email);	
         $this->db->update($this->table, $params); 
 	}
 }
