@@ -34,6 +34,10 @@
 	    					{
 	    						$this->load->view('signup.php');
 	    					}
+	    					else if ($curpage == 'categories')
+	    					{
+	    						$this->load->view('user/categories/categories_content.php');
+	    					}
 
 
 	    					$this->load->view('templatefooter.php');

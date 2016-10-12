@@ -10,16 +10,10 @@
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
             <div class="panel-body no-pad-bot">
                 <div class="row">
-                    <div class="green-hover pad-left-twentyfive"><a href="#" class="">Bread</a></div>
-                    <hr/>
-                    <div class="green-hover pad-left-twentyfive"><a href="#" class="">Cakes</a></div>
-                    <hr/>
-                    <div class="green-hover pad-left-twentyfive"><a href="#" class="">Candy</a></div>
-                    <hr/>
-                    <div class="green-hover pad-left-twentyfive"><a href="#" class="">Cookies</a></div>
-                    <hr/>
-                    <div class="green-hover pad-left-twentyfive"><a href="#" class="">Custard</a></div>
-                    <hr/>
+                    <?php foreach ($categories_content as $catcon) { ?>
+                        <div class="green-hover pad-left-twentyfive"><a href="<?php echo base_url(); ?>categories/name/<?php echo $catcon->CATNAME; ?>" class=""><?php echo $catcon->CATNAME; ?></a></div>
+                        <hr/>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -29,37 +23,25 @@
 
 <div class="panel panel-default no-border">
     <div class="panel-heading no-border" style="background-color: #FF426F;">
-        <div class="font-seventen color-white text-center">POPULAR</div>
+        <div class="font-seventen color-white text-center">NEW CUPCAKES</div>
     </div>
     <div class="panel-body no-pad">
         <div class="row">
-            <div class="col-md-12 pad-top">
-                <div class="col-md-4">
-                    <a class="cursor-pointer"><img src="<?php echo base_url();?>public/img/post-4.jpg" class="img-responsive"></a>
+            <?php 
+                foreach ($popular_content as $popcont) {
+                ?>
+                <div class="col-md-12 pad-top">
+                    <div class="col-md-4">
+                        <a class="cursor-pointer"><img src="<?php echo base_url();?>public/img/<?php echo $popcont->IMAGEURL;?>" class="img-responsive"></a>
+                    </div>
+                    <div class="col-md-8 font-twelve text-center">
+                        <div><?php echo $popcont->DATE; ?></div>
+                        <div><?php echo substr($popcont->DESCRIPTION, 0, 100). "..." ?></div>
+                    </div>
                 </div>
-                <div class="col-md-8 font-twelve text-center">
-                    <div>January 15, 2016 8:29 pm</div>
-                    <div>Aenean non ummy hendrer iauris hasellllus portausce</div>
-                </div>
-            </div>
-            <div class="col-md-12 pad-top">
-                <div class="col-md-4">
-                    <a class="cursor-pointer"><img src="<?php echo base_url();?>public/img/post-5.jpg" class="img-responsive"></a>
-                </div>
-                <div class="col-md-8 font-twelve text-center">
-                    <div>February 2, 2016 8:30 pm</div>
-                    <div>Praesent vestibu lum molesti enean non ummy hendreria</div>
-                </div>
-            </div>
-            <div class="col-md-12 pad-top">
-                <div class="col-md-4">
-                    <a class="cursor-pointer"><img src="<?php echo base_url();?>public/img/post-6.jpg" class="img-responsive"></a>
-                </div>
-                <div class="col-md-8 font-twelve text-center">
-                    <div>January 14, 2016 8:25 pm</div>
-                    <div>Lorem ipsum dolor sit amet Consec tetuer adipiscing</div>
-                </div>
-            </div>
+            <?php
+                }
+            ?>
         </div>
     </div>
 </div>

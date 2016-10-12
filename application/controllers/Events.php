@@ -7,13 +7,17 @@ class Events extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Users_model');
-        $this->load->model('Postcontent_model');    
+        $this->load->model('Postcontent_model');      
+        $this->load->model('Recipes_model');  
+        $this->load->model('Categories_model');  
     }
 
 	public function index()
 	{
 		$details = array (
 			// 'posted_content'	=>	$this->Postcontent_model->get_content(),
+			'popular_content'			=>	$this->Recipes_model->get_content_popular(),
+			'categories_content'		=>  $this->Categories_model->get_content(),
 			'curpage'			=>	'events',
 			'title'				=>	'Events'
 		);

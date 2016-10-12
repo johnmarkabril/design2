@@ -8,7 +8,8 @@ class Template extends CI_Controller
         parent::__construct();
         $this->load->model('Users_model');
         $this->load->model('Postcontent_model');    
-        $this->load->model('Recipes_model');   
+        $this->load->model('Recipes_model');    
+        $this->load->model('Categories_model');   
         $this->load->library('pagination');
     }
 
@@ -21,7 +22,9 @@ class Template extends CI_Controller
 	{
 		$details = array (
 			// 'posted_content'			=>	$this->Postcontent_model->get_content(),
-			'recipes_content'			=>	$this->Recipes_model->get_content(),
+			'recipes_content'			=>	$this->Recipes_model->get_content(null),
+			'popular_content'			=>	$this->Recipes_model->get_content_popular(),
+			'categories_content'		=>  $this->Categories_model->get_content(),
 			// 'posted_content_num_rows'	=>	sizeof($this->Postcontent_model->get_content()) % 2,
 			'curpage'					=>	'home',
 			'title'						=>	'Home',

@@ -13,14 +13,28 @@ class Recipes extends CI_Controller
 
 	public function index()
 	{
+		$this->option(null);
+	}
+
+	public function option($categ = null)
+	{
+		$selectname = "Option --";
+
+		if ($categ == "ascending"){
+			$selectname = "Lowest to Highest Price";
+		}else if ($categ == "descending"){
+			$selectname = "Highest to Lowest Price";
+		}else if ($categ == "alphabetical"){
+			$selectname = "Alphabetically";
+		}
+		
 		$details = array (
-			'recipes_content'	=>	$this->Recipes_model->get_content(),
+			'recipes_content'	=>	$this->Recipes_model->get_content($categ),
 			'curpage'			=>	'recipes',
-			'title'				=>	'Recipes'
+			'title'				=>	'Recipes',
+			'selectname'		=> 	$selectname
 		);
 		$data['content'] = $this->load->view('user/recipes/template_recipes.php', $details, TRUE);
 		$this->load->view('template.php', $data);
 	}
-
-
 }

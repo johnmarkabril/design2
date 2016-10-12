@@ -385,3 +385,7 @@ a:hover {
 .text-left {
     text-align: left;
 }
+
+#cat-con > img:hover {
+    border-radius: 50px;
+}

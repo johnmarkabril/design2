@@ -12,6 +12,7 @@ class Postcontent_model extends CI_Model
 	public $postno 				= "POSTNO";
 	public $order 				= "DESC";
 	public $command 			= "COMMAND";
+	public $date 				= "DATE";
 
 	function __construct()
 	{
@@ -22,10 +23,18 @@ class Postcontent_model extends CI_Model
 		$row = 	$this->db->where($this->templatename, 'DESIGN2')
 						 ->where($this->command, 'FREE')
 						 ->limit($limit, $start)
+						 ->order_by($this->dbno, $this->order)
 				 		 ->get($this->table);
 		return $row->result();
 	}
 
+	function get_content_cat(){
+		$row = 	$this->db->where($this->templatename, 'DESIGN2')
+						 ->where($this->command, 'FREE')
+						 // ->limit($limit, $start)
+				 		 ->get($this->table);
+		return $row->result();
+	}
 	function posted_content_numrows(){
 		$row = 	$this->db->where($this->templatename, 'DESIGN2')
 						 ->where($this->command, 'FREE')

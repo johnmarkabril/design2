@@ -33,7 +33,7 @@ class Signup extends CI_Controller
 		$su_uname		= 	$_POST['su_uname'];
 		$su_cpnum		= 	$_POST['su_cpnum'];
 		$su_email		= 	$_POST['su_email'];
-		$su_pword		= 	$_POST['su_pword'];
+		$su_pword		= 	md5($_POST['su_pword']);
 
 		$params = array (
 			'USER_ID'			=>		'',
@@ -41,16 +41,18 @@ class Signup extends CI_Controller
 			'USERNAME'			=>		$su_uname,
 			'PHONENUMBER'		=>		$su_cpnum,
 			'EMAIL'				=>		$su_email,
-			'PASSWORD'			=>		md5($su_pword),
+			'PASSWORD'			=>		$su_pword,
 			'ACCOUNT_TYPE'		=>		'User',
 			'REG_TIME'			=>		'',
 			'ACTIVATED'			=>		0,
 			'TEMPLATENAME'		=>		'DESIGN2',
 			'VERIFIED'			=>		'NO',
-			'VERIFICATIONCODE'	=>		$random_code,
+			'VERIFICATIONCODE'	=>		$random_code
 		);
 
 		$this->Users_model->insert_new_user($params);
+
+		// print_r($params);
 	}
 
 	public function check_verification()

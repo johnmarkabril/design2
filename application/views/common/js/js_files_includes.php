@@ -160,13 +160,10 @@
             var email_check     =   /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(su_email.val());
 
             var random_code     = randomString();
+            
             if(email_check){
-                if(su_pword.val().length >= 8){
+                if(su_pword.val().length >= 7){
                     if(su_pword.val() == su_conpword.val()){
-                        disable_pointer_events();
-                        $('#pres3').css({pointerEvents: "auto"});
-                        toastr.success('Please click the third tab to proceed');
-
                         $.ajax({
                             url: "<?php echo base_url(); ?>signup/insert_verify_no",
                             method:"POST",
@@ -181,6 +178,9 @@
                             },
                             success:function(data)
                             {
+                                disable_pointer_events();
+                                $('#pres3').css({pointerEvents: "auto"});
+                                toastr.success('Please click the third tab to proceed');
                                 // toastr.success(data);
                                 // alert(data);
                             },error:function(){
