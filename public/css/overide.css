@@ -1,0 +1,31 @@
+.ibox-content{
+padding-left: 0px;
+padding-right: 0px;
+padding-top:10px;
+padding: 5px;
+
+}
+
+
+#whitefont{
+	color:white;
+}
+.left{
+	background-color: red;
+}
+
+.right{
+	background-color: orange;
+}
+
+.ibox-title,.ibox-content{
+	background-color:transparent;
+}
+
+
+.ibox:hover{
+	
+	background-color: blue;
+	color: white;
+
+}

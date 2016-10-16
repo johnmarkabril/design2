@@ -23,6 +23,12 @@
         	toastr.success("LOGIN SUCCESSFUL!");
     <?php } ?>
     
+    <?php
+        if($this->session->flashdata('attempt_open')){
+        ?>
+            toastr.error("ATTEMPTING TO OPEN A PAGE. PLEASE LOGIN!");
+    <?php } ?>
+
     $(document).ready(function(){
         
         // TOOLTIP AND POPOVER

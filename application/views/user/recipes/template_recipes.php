@@ -42,7 +42,16 @@
 				    		}
 				    	?>
 				    </div>
-				    <div class="btn btn-default">Buy Now</div>
+
+				    <form method="POST">
+				    	<?php if(!$this->session->userdata('log_sess')){ ?>
+						    <input type="text" name="txtno" value="<?php echo $recipe->NO; ?>" hidden disabled/>
+						    <button type="submit" class="btn btn-default" disabled>Buy Now</button>
+						<?php } else { ?>
+						    <input type="text" name="txtno" value="<?php echo $recipe->NO; ?>" hidden/>
+						    <button type="submit" class="btn btn-default">Buy Now</button>
+						<?php } ?>
+				    </form>
 				</div>
 			</div>
 		</div>

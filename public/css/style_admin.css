@@ -1,0 +1,22 @@
+.navbar-default .nav > li > a:hover,
+.navbar-default .nav > li > a:focus {
+  background-color: #293846;
+  color: white;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.half-width {
+	width: 50%;
+}
+
+.cus-img-width-mes {
+	width: 128px;
+	height: 128px;
+}
+
+.no-margin-bottom {
+	margin-bottom: 0px;
+}

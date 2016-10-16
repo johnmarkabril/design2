@@ -22,11 +22,18 @@ class Login extends CI_Controller
 			$c_email = set_value('login_email');
 			$c_password = set_value('login_password');
 			$valid = $this->Users_model->check_email_pass($c_email, $c_password);
-			// print_r($valid);
+			// print_r($valid->ACCOUNT_TYPE);
+			$this->session->set_userdata('account_type', $valid->ACCOUNT_TYPE);
 			if($valid != false){
-				$data = $this->session->set_userdata('log_sess',$valid);
-				$this->session->set_flashdata('success_message', 'This is my message');
-				redirect('/');
+				if ($_SESSION['account_type'] == "User") {
+					$data = $this->session->set_userdata('log_sess',$valid);
+					$this->session->set_flashdata('success_message', 'This is my message');
+					redirect('/');
+				}else if ($_SESSION['account_type'] == "Administrator"){
+					$data = $this->session->set_userdata('log_sess',$valid);
+					$this->session->set_flashdata('success_message', 'This is my message');
+					redirect('admin/dashboard');
+				}
 			}else{
 				$this->session->set_flashdata('error_message', 'This is my message');
 				redirect('/');

@@ -15,7 +15,11 @@ class Template extends CI_Controller
 
 	public function index()
 	{
-		$this->page();
+		if ($this->session->userdata('account_type') == "Administrator"){
+			redirect('admin/dashboard');
+		} else {
+			$this->page();
+		}
 	}
 
 	public function page()

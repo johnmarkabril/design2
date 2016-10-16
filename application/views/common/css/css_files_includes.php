@@ -6,6 +6,12 @@
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/bootstrap.min.css"/>
 
+<link href="<?php echo base_url();?>public/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+<link href="<?php echo base_url();?>public/css/animate.css" rel="stylesheet">
+
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/style.css">
+
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/style_user.css">
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/toastr/toastr.min.css">
