@@ -38,7 +38,7 @@
 
                             if ( $curpage == 'Dashboard' ) {
                                 $dashactive = "active";
-                            } else if ( $curpage == 'Product' ) {
+                            } else if ( $curpage == 'Product List' ) {
                                 $dashproduct = "active";
                             } else if ( $curpage == 'User' ) {
                                 $dashuser = "active";
@@ -57,6 +57,14 @@
                                 <li><a href="<?php echo base_url();?>admin/message/inbox">Inbox</a></li>
                                 <li></li>
                             </ul>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="<?php echo base_url();?>admin/message/composemail">Compose Mail</a></li>
+                                <li></li>
+                            </ul>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="<?php echo base_url();?>admin/message/sentmail">Sent Mail</a></li>
+                                <li></li>
+                            </ul>
                         </li>
 
                         <li class="<?php echo $dashnotif; ?>">
@@ -66,14 +74,17 @@
                         <li class="<?php echo $dashproduct; ?>">
                             <a href="#"><i class="fa fa-product-hunt"></i> <span class="nav-label">Product Management </span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/product">Product 1.1</a></li>
+                                <li><a href="<?php echo base_url();?>admin/product/product_list">Product Category</a></li>
+                                <li><a href="<?php echo base_url();?>admin/product/product_list">Product List</a></li>
+                                <li><a href="<?php echo base_url();?>admin/product">Product Sales</a></li>
+                                <li><a href="<?php echo base_url();?>admin/product">View Product</a></li>
                             </ul>
                         </li>
 
                         <li class="<?php echo $dashuser; ?>">
                             <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">User Management </span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/user">User 1.1</a></li>
+                                <li><a href="<?php echo base_url();?>admin/user">Accounts</a></li>
                             </ul>
                         </li>
                         

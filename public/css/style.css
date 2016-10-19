@@ -167,7 +167,7 @@ h5 {
   transition: all 0.5s;
 }
 .nav > li.active {
-  border-left: 4px solid #19aa8d;
+  border-left: 4px solid #FF6BAE;
   background: #293846;
 }
 .nav.nav-second-level > li.active {
@@ -363,7 +363,7 @@ body.canvas-menu .logo-element {
 }
 body.mini-navbar .nav-header {
   padding: 0;
-  background-color: #1ab394;
+  background-color: #FF6BAE;
 }
 body.canvas-menu .nav-header {
   padding: 33px 25px;
@@ -3244,7 +3244,7 @@ body.full-height-layout #page-wrapper {
   height: 100%;
 }
 #page-wrapper {
-  height: 100%;
+  height: auto;
 }
 body.boxed-layout {
   background: url('patterns/shattered.png');

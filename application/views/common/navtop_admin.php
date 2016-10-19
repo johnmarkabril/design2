@@ -1,9 +1,11 @@
 <nav class="navbar navbar-static-top no-margin-bottom" role="navigation">
-	<div class="navbar-header">
-	    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-	</div>
+	<ul class="nav navbar-top-links navbar-left text-center">
+        <h2 class="pad-left text-color-def text-bold">BEST CAKES</h2>
+    </ul>
 
-	<ul class="nav navbar-top-links navbar-right">
+	<ul class="nav navbar-top-links navbar-right text-center">
+
+        <a class="navbar-minimalize" href="#"><i class="fa fa-bars"></i> </a>
         <li class="dropdown">
             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                 <i class="fa fa-bell"></i>  <span class="label label-warning">1</span>
@@ -24,9 +26,7 @@
             </ul>
         </li>
         <li>
-            <a href="<?php echo base_url(); ?>logout">
-                <i class="fa fa-sign-out"></i> Log out
-            </a>
+            <a href="<?php echo base_url(); ?>logout">Log out</a>
         </li>
     </ul>
 </nav>

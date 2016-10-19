@@ -22,12 +22,15 @@
 	        	<div class="row border-bottom">
 			    	<?php $this->load->view('common/navtop_admin.php'); ?>
 		        </div>
+
 		        <div class="wrapper wrapper-content">
+		        	ADMIN / <?php echo strtoupper($curpage); ?>
+				<hr/>
 		        	<?php 
 		        		if ( $curpage == 'Dashboard' ) {
 		        			$this->load->view('admin/dashboard.php');
-		        		} else if ( $curpage == 'Product' ) {
-		        			$this->load->view('admin/product.php');
+		        		} else if ( $curpage == 'Product List' ) {
+		        			$this->load->view('admin/product/productlist.php');
 		        		} else if ( $curpage == 'User' ) {
 		        			$this->load->view('admin/user.php');
 		        		} else if ( $curpage == 'Inbox' ) {

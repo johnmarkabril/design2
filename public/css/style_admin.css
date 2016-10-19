@@ -20,3 +20,15 @@
 .no-margin-bottom {
 	margin-bottom: 0px;
 }
+
+.pad-left {
+	padding-left: 20px;
+}
+
+.text-bold {
+	font-weight: bold;
+}
+
+.text-color-def {
+	color: #FF6BAE;
+}
