@@ -13,6 +13,7 @@
 <script src="<?php echo base_url();?>public/js/inspinia.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/pace/pace.min.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/toastr/toastr.min.js"></script>
+<script src="<?php echo base_url();?>public/js/plugins/list/list.min.js"></script>
 
 
 
@@ -22,5 +23,12 @@ $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip(); 
     $('[data-toggle="popover"]').popover();
          
+    // SEARCH
+    var options = {
+	  valueNames: [ 'l_name', 'l_prodname', 'l_date' ]
+	};
+
+	var userList = new List('customer_purchase', options);   
+	// END OF SEARCH 
 });
 </script>

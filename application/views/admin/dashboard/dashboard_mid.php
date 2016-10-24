@@ -4,75 +4,37 @@
             <div class="ibox-title">
                 <h5>Customer Order and Transaction Table </h5>
             </div>
-            <div class="ibox-content">
+            <div class="ibox-content" id="customer_purchase" style="height: 360px;">
                 <div class="row">
-                    <div class="col-sm-9 m-b-xs">
-                        <div data-toggle="buttons" class="btn-group">
-                            <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Day </label>
-                            <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> Week </label>
-                            <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> Month </label>
+                    <div class="col-sm-3 pull-right pad-bot-fiften">
+                        <div class="input-group full-width">
+                            <input type="text" placeholder="Search" class="input-sm form-control search">
                         </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                                            <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
                     </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>#</th>
                             <th>Name </th>
                             <th>Order Name </th>
                             <th>Phone </th>
                             <th>Address </th>
                             <th>Category </th>
                             <th>Date</th>
-                            <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="list">
+                        <?php foreach($get_content as $gc) : ?>
                         <tr>
-                            <td>4</td>
-                            <td>Anna Jordan</td>
-                            <td>Strawberry Filled Cupcakes</td>
-                            <td>(016977) 0648</td>
-                            <td>Tellus Ltd</td>
-                            <td>Cupcake</td>
-                            <td>Jul 22, 2013</td>
-                            <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                            <td class="l_name"><?php echo $gc->NAME;?></td>
+                            <td class="l_prodname"><?php echo $gc->PRODUCT_NAME;?></td>
+                            <td class="l_cellno"><?php echo $gc->PHONE;?></td>
+                            <td class="l_address"><?php echo $gc->ADDRESS;?></td>
+                            <td class="l_cat"><?php echo $gc->PRODUCT_CATEGORY;?></td>
+                            <td class="l_date"><?php echo $gc->DATE;?></td>
                         </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>John Smith</td>
-                            <td>Icee Cupcakes</td>
-                            <td>0800 1111</td>
-                            <td>Erat Volutpat</td>
-                            <td>Cupcake</td>
-                            <td>Jul 18, 2013</td>
-                            <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Alice Jackson</td>
-                            <td>Boston Cream Cupcakes</td>
-                            <td>0500 780909</td>
-                            <td>Nec Euismod In Company</td>
-                            <td>Cupcake</td>
-                            <td>Jul 16, 2013</td>
-                            <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Patrick Smith</td>
-                            <td>Speacial Mocha Cupcakes</td>
-                            <td>0800 051213</td>
-                            <td>Inceptos Hymenaeos Ltd</td>
-                            <td>Cupcake</td>
-                            <td>Jul 14, 2013</td>
-                            <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                        </tr>
+                        <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

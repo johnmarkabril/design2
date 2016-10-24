@@ -38,6 +38,10 @@
 	    					{
 	    						$this->load->view('user/categories/categories_content.php');
 	    					}
+	    					else if ($curpage == 'recipedetail')
+	    					{
+	    						$this->load->view('user/recipes/recipes_content.php');
+	    					}
 
 
 	    					$this->load->view('templatefooter.php');

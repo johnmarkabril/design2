@@ -29,6 +29,14 @@
 	font-weight: bold;
 }
 
+.pad-bot-fiften {
+	padding-bottom: 15px;
+}
+
 .text-color-def {
 	color: #FF6BAE;
+}
+
+.full-width {
+	width: 100%;
 }

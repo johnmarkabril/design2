@@ -37,4 +37,18 @@ class Recipes extends CI_Controller
 		$data['content'] = $this->load->view('user/recipes/template_recipes.php', $details, TRUE);
 		$this->load->view('template.php', $data);
 	}
+
+	public function sell($no)
+	{
+		$details = array (
+			'curpage'			=> 'recipedetail',
+			'title'				=> 'Recipe Detail',
+			'recipe_detail'		=> $this->Recipes_model->get_specific_prod_sell($no),
+			'paypal_url'		=> 'https://www.sandbox.paypal.com/cgi-bin/webscr',
+			'paypal_id'			=> 'johnmarkabril@gmail.com'
+		);
+
+		$data['content'] = $this->load->view('user/recipes/recipes_content.php', $details, TRUE);
+		$this->load->view('template.php', $data);
+	}
 }

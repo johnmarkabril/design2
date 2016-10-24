@@ -67,5 +67,12 @@ class Postcontent_model extends CI_Model
 				 		 ->get($this->tablecomment);
 		return $row->num_rows();
 	}
+
+	function get_all_num_comment()
+	{
+		$row = 	$this->db->where($this->templatename, 'DESIGN2')
+				 		 ->get($this->tablecomment);
+		return $row->num_rows();
+	}
 	
 }

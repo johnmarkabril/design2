@@ -71,11 +71,27 @@
                             <a href="<?php echo base_url();?>admin/notification"><i class="fa fa-bell"></i> <span class="nav-label">Notification</span></a>
                         </li>
 
+                        <li class="">
+                            <a href="#"><i class="fa fa-area-chart"></i> <span class="nav-label">Statistics</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="#">Reports</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="#">Advertisements</a></li>
+                                <li><a href="#">PayPal Payments</a></li>
+                            </ul>
+                        </li>
+
                         <li class="<?php echo $dashproduct; ?>">
                             <a href="#"><i class="fa fa-product-hunt"></i> <span class="nav-label">Product Management </span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li><a href="<?php echo base_url();?>admin/product/product_list">Product Category</a></li>
                                 <li><a href="<?php echo base_url();?>admin/product/product_list">Product List</a></li>
+                                <li><a href="<?php echo base_url();?>admin/product">Product Report</a></li>
                                 <li><a href="<?php echo base_url();?>admin/product">Product Sales</a></li>
                                 <li><a href="<?php echo base_url();?>admin/product">View Product</a></li>
                             </ul>
@@ -85,6 +101,9 @@
                             <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">User Management </span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li><a href="<?php echo base_url();?>admin/user">Accounts</a></li>
+                            </ul>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="<?php echo base_url();?>admin/user">Co-Administrator</a></li>
                             </ul>
                         </li>
                         

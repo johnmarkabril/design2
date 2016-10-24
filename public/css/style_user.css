@@ -265,6 +265,10 @@ a:hover {
     border-right: 0px;
 }
 
+.bor-top-no {
+    border-top: 0px;
+}
+
 .admin-hover-black > a:hover {
     color: black;
 }

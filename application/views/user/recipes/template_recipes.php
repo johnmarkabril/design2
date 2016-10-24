@@ -4,6 +4,7 @@
 <hr>
     <h5> <a href="<?php echo base_url();?>">HOME</a> / <span style="color: #FF65AE;">RECIPES</span> </span></a></h5>
 <hr>
+
 <div class="col-md-12">
     <div class="col-md-12 pad-bot">
     <div class="pull-right dropdown">
@@ -34,7 +35,7 @@
                             ₱ <?php echo $recipe->PRICE;?>
                         </span>
                         <small class="text-muted"><?php echo $recipe->CATEGORIES; ?></small>
-                            <a href="#" class="product-name"> <?php echo $recipe->TITLE;?></a>
+                            <a class="product-name" href="<?php echo base_url(); ?>recipes/sell/<?php echo $recipe->NO; ?>"> <?php echo $recipe->TITLE;?></a>
                         <div class="small m-t-xs">
                             <?php 
                             $desc = substr($recipe->DESCRIPTION, 0, 150);
@@ -52,10 +53,11 @@
                             <form method="POST">
                                 <?php if(!$this->session->userdata('log_sess')){ ?>
                                     <input type="text" name="txtno" value="<?php echo $recipe->NO; ?>" hidden disabled/>
-                                    <button type="submit"  class="btn btn-xs btn-outline btn-primary">Buy Now <i class="fa fa-long-arrow-right"></i></button>
+                                    <a  data-toggle="modal" data-target="#loginModal" class="btn btn-xs btn-outline btn-primary">Buy Now <i class="fa fa-long-arrow-right"></i></a>
                                 <?php } else { ?>
                                     <input type="text" name="txtno" value="<?php echo $recipe->NO; ?>" hidden/>
-                                    <button type="submit"  class="btn btn-xs btn-outline btn-primary">Buy Now <i class="fa fa-long-arrow-right"></i></button>
+                                    <!-- <button type="submit" class="btn btn-xs btn-outline btn-primary">Buy Now <i class="fa fa-long-arrow-right"></i></button> -->
+                                    <a class="btn btn-xs btn-outline btn-primary" href="<?php echo base_url(); ?>recipes/sell/<?php echo $recipe->NO; ?>">View Detail</a>
                                 <?php } ?>
                             </form>
                         </div>
