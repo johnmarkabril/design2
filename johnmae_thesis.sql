@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2016 at 02:31 PM
+-- Generation Time: Nov 02, 2016 at 06:34 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -420,7 +420,8 @@ INSERT INTO `comment_section_post` (`NO`, `NAME`, `EMAIL`, `COMMENTHERE`, `DATEC
 (370, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'I piped mine into the cupcake liners. Worked very well!', 'October 10, 2016 10:25 PM', '55', 'DESIGN2'),
 (371, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'and, when i did make these as cupcakes a few different times, they were TOO DIE FOR!!! i & my fam (none of whom are vegan) are HUGE lemon fans & these were INCREDIBLE!!!', 'October 11, 2016 12:24 AM', '25', 'DESIGN2'),
 (372, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'Pretty good! I was sceptical at first, because the batter was runny, and looked pale and almost unappetising after cooked. But I gave it a chance, and dressed it up with frosting to look pretty. The cake was actually really delicious, light and almost refreshing.', 'October 11, 2016 12:24 AM', '25', 'DESIGN2'),
-(373, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'I made these for a big family on Easter yesterday and they were a huge hit. They were all shocked they were vegan and so very light. The cake turned out perfect, light and mild in lemon flavor. The icing was a no go the first time as it separated and went clumpy when I followed the directions to the letter. I remade the icing by mixing the sugar with just a little milk, adding vanilla and more margarine. I figured the lemon was causing the separation so I omitted that.', 'October 11, 2016 12:24 AM', '25', 'DESIGN2');
+(373, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'I made these for a big family on Easter yesterday and they were a huge hit. They were all shocked they were vegan and so very light. The cake turned out perfect, light and mild in lemon flavor. The icing was a no go the first time as it separated and went clumpy when I followed the directions to the letter. I remade the icing by mixing the sugar with just a little milk, adding vanilla and more margarine. I figured the lemon was causing the separation so I omitted that.', 'October 11, 2016 12:24 AM', '25', 'DESIGN2'),
+(374, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'This is so delicious. Great recipe.', 'October 16, 2016 4:45 PM', '55', 'DESIGN2');
 
 -- --------------------------------------------------------
 
@@ -451,8 +452,8 @@ INSERT INTO `posted` (`NO`, `NAME`, `ACCOUNT_TYPE`, `TITLE`, `IMAGEURL`, `DESCRI
 (1, 'Jm Abril', 'User', 'Heart Cupcakes', 'post-1.jpg', 'These heart-in-the-middle cupcakes are so cute and are easy to make! Change the center shape for lots of different holidays and celebrations.', 'September 17, 2016 06:45 PM', 'DESIGN2', '1 Box|Cake Mix|3 Pieces|Large Eggs|1/2 Cup|Melted Butter(not margarine)|1 Cup|Water', 'FREE', '', 'CUPCAKES'),
 (2, 'Mae Gregorio', 'Administrator', 'Pink Lemon Cupcakes', 'post-2.jpg', 'Today''s post comes to you compliments of the fact that I can''t actually raise my arms higher than the keyboard. Last week has been a whirlwind of activity including work, showing an out-of-town guest around the city, more work, running after my amazing sister as she did the Chicago Triathlon (to take pictures, of course, no way am I doing THAT anytime soon), and helping move a friend''s parents halfway across town. It is not an understatement when I say that everything hurts. For example, did you know that the muscles in your fingers could be sore? I surely didn''t. Somewhere in that insanity I had also found time to make two dozen lemon cupcakes for a bridal shower for a friend at work.|I hadn''t actually had time to go grocery shopping in weeks, so the fact that these cupcakes came out with all my substitutions and tweaks is actually a bit of a miracle, but they came out great, tender and just the right combination of tart and sweet, and were devoured by my coworkers in just a few minutes. ', 'September 22, 2016  02:16 PM', 'DESIGN2', '2 1/4 cups|flour|1 Tbsp|baking powder|1/2 tsp|salt|1 cup|milk (I used 1%)lemon zest from two lemons|1/4 cup|lemon juice, from the two lemons you zested|4 pieces|large egg whites|1 1/2 cups|sugar|8 Tbsps|(1 stick) unsalted butter, at room temp|1 tsp|vanilla extract\n1/2 teaspoon lemon extract (or lemon oil if you have it)', 'FREE', '', 'CUPCAKES'),
 (3, 'Mae Gregorio', 'Administrator', 'Vegan Vanilla Cupcake Recipe', 'post-3.jpg', 'I also think that these would make a perfect Valentines Day gift! Decorate with cute little vegan heart-shaped lollies for a romantic edible gift!|Ok... when I first undertook a vegan lifestyle I asked myself, "Will I ever be able to eat another cupcake?". I shuddered at the thought so I developed this FAIL-PROOF cupcake recipe. I had published this on Veggieful a few months ago but I decided to revamp the page and change the frosting recipes. So, lets cut to the chase... these are most delicious and the fluffiest vegan cupcakes I have EVER eaten! I am not joking. I made a massive batch of these the other day for recipe-testing purposes. One half went to Jerome''s work and the other half went to our friends and family. There were many compliments and amazed responses to these easy cupcakes... my mum said that they were the "best cupcakes" she had "ever eaten" while Jerome''s co-worker stated that they were the "fluffiest" cupcakes she had ever had... little did she know that they were vegan! Tee hee hee. I find that when I make these for others, there are a number of things guaranteed... Firstly, you will be asked for the recipe. Secondly, they will devour it in seconds and lastly, they will be talking about them for days. As I said above, these are a fail-proof recipe... meaning, I have never had a problem with them, they always work out and they never fail to impress others. Every person needs an amazing cupcake recipe... and this is it! Check out our frosting and icing recipes.', 'September 22, 2016  02:16 PM', 'DESIGN2', '1 cup|all-purpose flour, sifted|2 teaspoons|baking powder|pinch|salt|½ cup|vegan white sugar|1/4 cup|plain-flavoured oil|¾ cup|Soy Milky Lite|1 teaspoon|vanilla extract|½ tablespoon|apple cider vinegar', 'FREE', '', 'CUPCAKES'),
-(4, 'Mae Gregorio', 'Administrator', 'Icee Cupcakes', 'r1.jpg', 'Softball season is officially over. It’s kind of sad, really, because Jordan loved it so much. I will not miss having to get dinner ready for her at 4:00 and packing it up in a cooler for Mel and I. Nor will I miss the post-school night-game whining.\r\n|\r\nI will miss watching Jordan learn how to catch. And watching her hit, without a tee, for entire games.\r\n|\r\nLast weekend I volunteered to host the end-of-the-year softball party. For 12 first-graders, their parents, and siblings.\r\n|\r\nYes, I’m certifiably insane.\r\n|\r\nBut I love doing it. Even when I was going crazy on Friday trying to get the house clean and do last minute prep and make eight dozen mini cupcakes, when I was growling “why do I do this???” at my husband, I still was having fun.\r\n|\r\nFor the cupcakes, I decided to go with a “softball snack shack” theme. You know, that crap you buy while you’re bored out of your mind watching your kid play. Popcorn, hot cocoa, Icees, candy.\r\n|\r\nI made mini cupcakes out of two box mixes, one yellow cake and one chocolate. FYI, that makes a lot of minis. I had no idea how many it would make. Be prepared. Probably 3-4 dozen per box.\r\n|\r\n{Just because I majored in math, you didn’t expect me just know that a mix making 24 regular sized cupcakes would make a whole lot of mini ones, right?}\r\n|\r\nI made one large batch of homemade buttercream and divided it into four portions to make the four flavors of cupcake.\r\n|\r\nThese ICEE cupcakes were the biggest hit. The frosting is made with cherry jell-o. Joan at Chocolate, Chocolate, and More used Jell-O in cupcakes awhile back and when brainstorming ideas, I came up with these.\r\n|\r\nThe straws are from Target. I may have * accidentally* brought home a couple extra with my diet Pepsi fountain drink. Cut them in fourths and they are the perfect size for mini cupcakes.\r\n|\r\nHere is a link to the printable ICEE logo. I printed them on regular paper and attached them to a paper liner with double stick tape. Using those cute little paper cups would be great too, but I didn’t have any.\r\n|\r\nI must say, if you’re making cupcakes for a crowd, make minis. People eat more when food is miniature. I had no cupcakes left. The kids ate way too many, but hey, then I didn’t.', 'September 28, 2016 11:12 PM', 'DESIGN2', '1 box |yellow cake mix made and baked as directed in mini cupcake pans (about 4 dozen cupcakes)|\r\n1 cup| room temperature butter|\r\n4 cups| powdered sugar|\r\n1 teaspoon |vanilla|\r\n1 small box| cherry Jell-O mix|\r\n1-2 tablespoons| maraschino cherry juice (optional)|\r\n1 piece|Cream or milk if needed for consistency|\r\n1 piece|Red straws', 'SELL', '350.00', 'CUPCAKES'),
-(5, 'Mae Gregorio', 'Administrator', 'Strawberry Filled Cupcakes', 'r2.jpg', 'I love to find unique and fun cupcake recipes to try and thought these Strawberry Filled Cupcakes with Cream Cheese Frosting might be good. They turned out to be AMAZING! They are really easy to make, but look and taste like something straight out of a gourmet bakery.  |\r\nDefinitely a must-try recipe!', 'October 06, 2016 04:07 AM', 'DESIGN2', 'Boxed |cake mix (I use this kind)|\r\n3 pieces| Large Eggs|\r\n1/2 cup |melted butter (not margarine)|\r\n1 cup| water|\r\n\r\nOne jar| high-end strawberry jelly or preserves (my favorite)|\r\n2 oz |Cream Cheese|\r\n1/4 cup |powdered sugar|\r\n\r\n10 Tbsp |butter, slightly firm but not cold|\r\n10 oz |cream cheese, cold|\r\n2 1 /2 Tbsp |sour cream|\r\n1/2 tsp |vanilla extract|\r\n5 cups |powdered sugar|', 'SELL', '300.00', 'CUPCAKES'),
+(4, 'Mae Gregorio', 'Administrator', 'Icee Cupcakes', 'r1.jpg', 'Softball season is officially over. It’s kind of sad, really, because Jordan loved it so much. I will not miss having to get dinner ready for her at 4:00 and packing it up in a cooler for Mel and I. Nor will I miss the post-school night-game whining.\n|\nI will miss watching Jordan learn how to catch. And watching her hit, without a tee, for entire games.\n|\nLast weekend I volunteered to host the end-of-the-year softball party. For 12 first-graders, their parents, and siblings.\n|\nYes, I’m certifiably insane.\n|\nBut I love doing it. Even when I was going crazy on Friday trying to get the house clean and do last minute prep and make eight dozen mini cupcakes, when I was growling “why do I do this???” at my husband, I still was having fun.\n|\nFor the cupcakes, I decided to go with a “softball snack shack” theme. You know, that crap you buy while you’re bored out of your mind watching your kid play. Popcorn, hot cocoa, Icees, candy.\n|\nI made mini cupcakes out of two box mixes, one yellow cake and one chocolate. FYI, that makes a lot of minis. I had no idea how many it would make. Be prepared. Probably 3-4 dozen per box.\n|\n{Just because I majored in math, you didn’t expect me just know that a mix making 24 regular sized cupcakes would make a whole lot of mini ones, right?}\n|\nI made one large batch of homemade buttercream and divided it into four portions to make the four flavors of cupcake.\n|\nThese ICEE cupcakes were the biggest hit. The frosting is made with cherry jell-o. Joan at Chocolate, Chocolate, and More used Jell-O in cupcakes awhile back and when brainstorming ideas, I came up with these.\n|\nThe straws are from Target. I may have * accidentally* brought home a couple extra with my diet Pepsi fountain drink. Cut them in fourths and they are the perfect size for mini cupcakes.\n|\nHere is a link to the printable ICEE logo. I printed them on regular paper and attached them to a paper liner with double stick tape. Using those cute little paper cups would be great too, but I didn’t have any.\n|\nI must say, if you’re making cupcakes for a crowd, make minis. People eat more when food is miniature. I had no cupcakes left. The kids ate way too many, but hey, then I didn’t.', 'September 28, 2016 11:12 PM', 'DESIGN2', '1 box |yellow cake mix made and baked as directed in mini cupcake pans (about 4 dozen cupcakes)|\r\n1 cup| room temperature butter|\r\n4 cups| powdered sugar|\r\n1 teaspoon |vanilla|\r\n1 small box| cherry Jell-O mix|\r\n1-2 tablespoons| maraschino cherry juice (optional)|\r\n1 piece|Cream or milk if needed for consistency|\r\n1 piece|Red straws', 'SELL', '350.00', 'CUPCAKES'),
+(5, 'Mae Gregorio', 'Administrator', 'Strawberry Filled Cupcakes', 'r2.jpg', 'I love to find unique and fun cupcake recipes to try and thought these Strawberry Filled Cupcakes with Cream Cheese Frosting might be good. They turned out to be AMAZING! They are really easy to make, but look and taste like something straight out of a gourmet bakery.  |\nDefinitely a must-try recipe!', 'October 06, 2016 04:07 AM', 'DESIGN2', 'Boxed |cake mix (I use this kind)|\r\n3 pieces| Large Eggs|\r\n1/2 cup |melted butter (not margarine)|\r\n1 cup| water|\r\n\r\nOne jar| high-end strawberry jelly or preserves (my favorite)|\r\n2 oz |Cream Cheese|\r\n1/4 cup |powdered sugar|\r\n\r\n10 Tbsp |butter, slightly firm but not cold|\r\n10 oz |cream cheese, cold|\r\n2 1 /2 Tbsp |sour cream|\r\n1/2 tsp |vanilla extract|\r\n5 cups |powdered sugar|', 'SELL', '300.00', 'CUPCAKES'),
 (6, 'Mae Gregorio', 'Administrator', 'Apple Cupcakes', 'post-9.jpg', 'In-season Red Delicious apples are the inspiration for these adorable fall treats.', 'October 09, 2016 02:05 PM', 'DESIGN2', '1 piece|Cupcakes (homemade or storebought) with red cupcake liners|\r\n1 piece|Unfrosted mini doughnuts|\r\n1 piece|Red-tinted buttercream frosting|\r\n1 piece|Red sanding sugar|\r\n1 piece|Pretzel sticks|\r\n1 piece|Green sour strap candy', 'FREE', '', 'CUPCAKES'),
 (7, 'Mae Gregorio', 'Administrator', 'S’MORE CUPCAKES', 'post-10.jpg', 'There''s no getting around the fact that these cupcakes take a little leg work, but one bite will prove they''re worth it, with a graham cracker and chocolate crust layered with a chocolate cake and finished with fluffy marshmallow topping.', 'October 09, 2016 02:17 PM', 'DESIGN2', '6 pieces | graham cracker boards (oblongs)	|\n2 tbsp.  | each sugar and melted butter	|\n½ 		 | c. mini semisweet chocolate chips	|\n2¼ | c. all-purpose flour |\n1½ | c. sugar |\n¾ | c. unsweetened cocoa powder |\n¾ tsp. | baking soda |\n¼ tsp.|  salt |\n1¼  | c. buttermilk |\n2 piece  | large eggs |\n½  | c. each canola oil and water |\n1 tbsp. |  Tbsp vanilla extract |\n6 pieces |large egg whites|\n1½| c. sugar|\n½ tsp. |cream of tartar|\n1 tsp.| vanilla extract|\n1 piece|Small handheld butane torch\n', 'FREE', '', 'CUPCAKES'),
 (8, 'Mae Gregorio', 'Administrator', 'LEMON-HONEY CUPCAKES', 'lemon-honey.jpg', 'Guests will be buzzing about these fluffy cupcakes, which have grated lemon zest, lemon juice and honey not only in the batter, but in the luscious frosting as well. Add a little sparkle by finishing them with a sprinkling of sanding sugar or a candy bee.', 'October 10, 2016 04:20 PM', 'DESIGN2', '2¾ c.| all-purpose flour|\r\n¾ tsp.| each baking powder and baking soda|\r\n½ tsp.| salt|\r\n½ c.| reduced-fat sour cream|\r\n¼ c.| milk|\r\n1½ tbsp.| grated lemon zest|\r\n4 tbsp.| lemon juice|\r\n¾ c.| unsalted butter|\r\n¾ c.| honey|\r\n¼ c.| sugar|\r\n3| large eggs|\r\n1 c.| unsalted butter|\r\n¼ c.| honey|\r\n1½ tbsp.| grated lemon zest|\r\n4 c.| confectioners’ sugar|\r\n7 tsp. to 8 tsp| lemon juice|\r\nFew drops| yellow food color|\r\n1pc| Tootsie Roll|\r\n2 piece| of string|\r\n1pc| Yellow peanut M&M|\r\n1pc| Brown food marker|\r\n1pc| Clear spice drop candies|\r\n1pc| Small cookie cutter|\r\n', 'SELL', '250.00', 'CUPCAKES'),
@@ -504,6 +505,32 @@ INSERT INTO `posted` (`NO`, `NAME`, `ACCOUNT_TYPE`, `TITLE`, `IMAGEURL`, `DESCRI
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `purchase_product`
+--
+
+CREATE TABLE `purchase_product` (
+  `NO` int(11) NOT NULL,
+  `NAME` varchar(500) NOT NULL,
+  `PRODUCT_NAME` varchar(100) NOT NULL,
+  `PRODUCT_CATEGORY` varchar(100) NOT NULL,
+  `PRICE` varchar(100) NOT NULL,
+  `PHONE` varchar(50) NOT NULL,
+  `ADDRESS` varchar(100) NOT NULL,
+  `DATE` varchar(100) NOT NULL,
+  `IMAGEURL` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `purchase_product`
+--
+
+INSERT INTO `purchase_product` (`NO`, `NAME`, `PRODUCT_NAME`, `PRODUCT_CATEGORY`, `PRICE`, `PHONE`, `ADDRESS`, `DATE`, `IMAGEURL`) VALUES
+(1, 'Mark Abril', 'Special Mocha Cupcakes', 'Cupcakes', '150.00', '09208317004', '655 D. Guillermo St. Gagalangin Tondo, Manila', 'October 20, 2016 10:17 AM', 'special-mocha.jpg'),
+(2, 'Farrah Gregorio', 'Lemon-Honey Cupcakes', 'Cupcakes', '250.00', '09292704546', '655 D. Guillermo St. Gagalangin Tondo, Manila', 'October 22, 2016 10:47 AM', 'lemon-honey.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `services`
 --
 
@@ -544,20 +571,23 @@ CREATE TABLE `user` (
   `ACTIVATED` tinyint(4) NOT NULL,
   `TEMPLATENAME` varchar(50) NOT NULL,
   `VERIFIED` varchar(50) NOT NULL,
-  `VERIFICATIONCODE` varchar(50) NOT NULL
+  `VERIFICATIONCODE` varchar(50) NOT NULL,
+  `PERMISSION` varchar(5000) NOT NULL,
+  `IMAGEURL` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASSWORD`, `ACCOUNT_TYPE`, `REG_TIME`, `ACTIVATED`, `TEMPLATENAME`, `VERIFIED`, `VERIFICATIONCODE`) VALUES
-(1, 'John Mark C. Abril', '', '', 'johnmarkabril@gmail.com', '34c87211821751f911c058bbf0cfb822', 'Administrator', '2016-07-31 06:13:37', 0, 'MAIN', '', ''),
-(2, 'Farrah Mae Gregorio', '', '', 'frrhmgrgrio@gmail.com', '19a2be974580740e9ec96ab7fc016d1b', 'User', '2016-07-31 11:59:26', 0, 'MAIN', '', ''),
-(3, 'Jm Abril', 'jmabril17', '09208317004', 'johnmark_abri12l@yahoo.com', '89daf6d74eeceabf2e74efe50f41c9b2', 'User', '2016-09-21 19:25:23', 0, 'DESIGN2', 'YES', ''),
-(4, 'Mae Gregorio', 'gregs17', '09306625692', 'maegregorio@gmail.com', '7950b6bd370f715554900616819ffc4e', 'Administrator', '2016-09-21 19:43:18', 0, 'DESIGN2', 'YES', ''),
-(18, 'Testing First Name Testing Last Name', 'Testinguname123', '09123456789', 'testing@testing.com', '7f2ababa423061c509f4923dd04b6cf1', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', ''),
-(23, 'John Doe', 'Johndoe123', '09123654789', 'johndoe@example.com', 'bb2d91d0fbbebe8719509ed0f865c63f', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '');
+INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASSWORD`, `ACCOUNT_TYPE`, `REG_TIME`, `ACTIVATED`, `TEMPLATENAME`, `VERIFIED`, `VERIFICATIONCODE`, `PERMISSION`, `IMAGEURL`) VALUES
+(1, 'John Mark C. Abril', '', '', 'johnmarkabril@gmail.com', '34c87211821751f911c058bbf0cfb822', 'Administrator', '2016-07-31 06:13:37', 0, 'MAIN', '', '', '', ''),
+(2, 'Farrah Mae Gregorio', '', '', 'frrhmgrgrio@gmail.com', '19a2be974580740e9ec96ab7fc016d1b', 'User', '2016-07-31 11:59:26', 0, 'MAIN', '', '', '', ''),
+(3, 'Jm Abril', 'jmabril17', '09208317004', 'johnmark_abri12l@yahoo.com', '89daf6d74eeceabf2e74efe50f41c9b2', 'User', '2016-09-21 19:25:23', 0, 'DESIGN2', 'YES', '', '', 'prof3.jpg'),
+(4, 'Mae Gregorio', 'gregs17', '09306625692', 'maegregorio@gmail.com', '7950b6bd370f715554900616819ffc4e', 'Administrator', '2016-09-21 19:43:18', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Notification|Statistics|Settings|Product_Management|User_Management|', 'prof1.jpg'),
+(18, 'Testing First Name Testing Last Name', 'Testinguname123', '09123456789', 'testing@testing.com', '7f2ababa423061c509f4923dd04b6cf1', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', ''),
+(23, 'John Doe', 'Johndoe123', '09123654789', 'johndoe@example.com', 'bb2d91d0fbbebe8719509ed0f865c63f', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', ''),
+(24, 'Vincent Barcelona', 'vincent123', '09321654987', 'vincent@gmail.com', '52fee26031644aacd7c23ade329939f0', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -579,6 +609,12 @@ ALTER TABLE `comment_section_post`
 -- Indexes for table `posted`
 --
 ALTER TABLE `posted`
+  ADD PRIMARY KEY (`NO`);
+
+--
+-- Indexes for table `purchase_product`
+--
+ALTER TABLE `purchase_product`
   ADD PRIMARY KEY (`NO`);
 
 --
@@ -607,12 +643,17 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comment_section_post`
 --
 ALTER TABLE `comment_section_post`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=374;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=375;
 --
 -- AUTO_INCREMENT for table `posted`
 --
 ALTER TABLE `posted`
   MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+--
+-- AUTO_INCREMENT for table `purchase_product`
+--
+ALTER TABLE `purchase_product`
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `services`
 --
@@ -622,7 +663,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
