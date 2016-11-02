@@ -13,6 +13,7 @@ class Product_List extends CI_Controller
 	{
 		$details = array (
 			'curpage'	=> 	'Product List',
+			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'title'		=> 	'Product List'
 		);
 

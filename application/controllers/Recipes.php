@@ -40,6 +40,8 @@ class Recipes extends CI_Controller
 
 	public function sell($no)
 	{
+		if ($this->session->userdata('account_type') == 'User')
+		{
 		$details = array (
 			'curpage'			=> 'recipedetail',
 			'title'				=> 'Recipe Detail',
@@ -50,5 +52,8 @@ class Recipes extends CI_Controller
 
 		$data['content'] = $this->load->view('user/recipes/recipes_content.php', $details, TRUE);
 		$this->load->view('template.php', $data);
+		}else{
+			redirect('/');
+		}
 	}
 }

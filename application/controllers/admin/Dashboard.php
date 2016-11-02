@@ -23,14 +23,16 @@ class Dashboard extends CI_Controller
 		$details = array (
 			'curpage'			=> 	'Dashboard',
 			'title'				=> 	'Dashboard',
+			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'get_content'		=>	$this->Purchaseproduct_model->get_content(),
 			'get_num_content'	=>	$this->Purchaseproduct_model->get_num_content(),
 			'user_activity'		=>	$this->Purchaseproduct_model->get_num_content() + $this->Postcontent_model->get_all_num_comment(),
 			'get_income'		=>	$ctr
 		);
 
-		$data['content']	= $this->load->view('admin/dashboard/dashboard_mid.php', $details, TRUE);
-		$data['content']	= $this->load->view('admin/dashboard/dashboard_top.php', $details, TRUE);
+		$data['content']	= 	$this->load->view('admin/dashboard/dashboard_mid.php', $details, TRUE);
+		$data['content']	= 	$this->load->view('admin/dashboard/dashboard_top.php', $details, TRUE);
+		$data['content']	= 	$this->load->view('common/navside_admin.php', $details, TRUE);
 		$this->load->view('admin/template_admin.php', $data);
 	}
 

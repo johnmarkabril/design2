@@ -42,6 +42,14 @@
 	    					{
 	    						$this->load->view('user/recipes/recipes_content.php');
 	    					}
+	    					else if ($curpage == 'profile')
+	    					{
+	    						$this->load->view('user/profile/profile_content.php');
+	    					}
+	    					else if ($curpage == 'success')
+	    					{
+	    						$this->load->view('user/success/success.php');
+	    					}
 
 
 	    					$this->load->view('templatefooter.php');

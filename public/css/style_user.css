@@ -364,3 +364,11 @@ a:hover {
 #cat-con > img:hover {
     border-radius: 50px;
 }
+
+.mar-ten {
+    margin: 10px;
+}
+
+.bor-rad {
+    border-radius: 5px;
+}

@@ -13,6 +13,7 @@ class Inbox extends CI_Controller
 	{
 		$details = array (
 			'curpage'	=> 	'Inbox',
+			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'title'		=> 	'Inbox'
 		);
 
