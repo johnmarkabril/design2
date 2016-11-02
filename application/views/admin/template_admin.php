@@ -35,6 +35,8 @@
 		        			$this->load->view('admin/user.php');
 		        		} else if ( $curpage == 'Inbox' ) {
 		        			$this->load->view('admin/message/inbox.php');
+		        		} else if ( $curpage == 'ComposeMail' ) {
+		        			$this->load->view('admin/message/compose_mail.php');
 		        		}
 		        	?>
 		        </div>
