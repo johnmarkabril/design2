@@ -15,3 +15,9 @@
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/style_admin.css">
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/toastr/toastr.min.css">
+
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/iCheck/custom.css">
+
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/summernote/summernote.css">
+
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/summernote/summernote-bs3.css">

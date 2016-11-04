@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>Customer Order and Transaction Table </h5>
+                <h5>Daily Feed </h5>
             </div>
             <div class="ibox-content" id="customer_purchase" style="height: 360px;">
                 <div class="row">

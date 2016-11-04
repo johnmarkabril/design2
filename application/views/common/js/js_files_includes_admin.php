@@ -14,7 +14,8 @@
 <script src="<?php echo base_url();?>public/js/plugins/pace/pace.min.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/toastr/toastr.min.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/list/list.min.js"></script>
-
+<script src="<?php echo base_url();?>public/js/plugins/iCheck/icheck.min.js"></script>
+<script src="<?php echo base_url();?>public/js/plugins/summernote/summernote.min.js"></script>
 
 
 <script>
@@ -22,7 +23,7 @@ $(document).ready(function() {
 
     $('[data-toggle="tooltip"]').tooltip(); 
     $('[data-toggle="popover"]').popover();
-         
+        
     // SEARCH
     var options = {
 	  valueNames: [ 'l_name', 'l_prodname', 'l_date' ]
@@ -30,5 +31,22 @@ $(document).ready(function() {
 
 	var userList = new List('customer_purchase', options);   
 	// END OF SEARCH 
+
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+
+            $('.summernote').summernote();
 });
+
+        var edit = function() {
+            $('.click2edit').summernote({focus: true});
+        };
+        var save = function() {
+            var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
+            $('.click2edit').destroy();
+        };
 </script>
