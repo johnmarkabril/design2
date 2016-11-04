@@ -46,8 +46,8 @@ class Recipes extends CI_Controller
 			'curpage'			=> 'recipedetail',
 			'title'				=> 'Recipe Detail',
 			'recipe_detail'		=> $this->Recipes_model->get_specific_prod_sell($no),
-			'paypal_url'		=> 'https://www.sandbox.paypal.com/cgi-bin/webscr',
-			'paypal_id'			=> 'johnmarkabril@gmail.com'
+			'paypal_url'		=> 'https://www.paypal.com/cgi-bin/webscr',
+			'paypal_id'			=> 'jmaethesis@gmail.com'
 		);
 
 		$data['content'] = $this->load->view('user/recipes/recipes_content.php', $details, TRUE);
