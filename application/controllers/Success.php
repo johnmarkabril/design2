@@ -11,12 +11,13 @@ class Success extends CI_Controller
         $this->load->model('Recipes_model');   
     }
 
-	public function index()
+	public function purchase($no)
 	{
 		if ($this->session->userdata('log_sess')){
 			$details = array (
 				'curpage'			=>	'success',
-				'title'				=>	'Purchased Success'
+				'title'				=>	'Purchased Success',
+				'prod_sell'			=>	$this->Recipes_model->get_specific_prod_sell($no)
 			);
 
 			$data['content'] = $this->load->view('user/success/success.php', $details, TRUE);

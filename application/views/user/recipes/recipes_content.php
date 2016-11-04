@@ -89,23 +89,21 @@
                             </p>
                             <div class="text-center">
 
-	                			<form action='<?php echo $paypal_url; ?>' method='post' name='frmPayPal1'>
+                            	<form action="<?php echo $paypal_url; ?>" method="post" name="frmPayPal1">
+                            		<input type='hidden' name='business' value='<?php echo $paypal_id;?>'>
+									<input type="hidden" name="cmd" value="_s-xclick">
 
-				                    <input type='hidden' name='business' value='<?php echo $paypal_id;?>'>
-				                    <input type='hidden' name='cmd' value='_xclick'>
-				                    
 				                    <input type='hidden' name='item_name' value='<?php echo $rd->TITLE;?>'>
-                   					<input type='hidden' name='item_number' value='<?php echo $rd->NO;?>'>
-                    				<input type='hidden' name='amount' value='<?php echo $rd->PRICE;?>'>
-				                    
-				                    <input type='hidden' name='no_shipping' value='1'>
-				                    <input type='hidden' name='currency_code' value='PHP'>
-				                    <input type='hidden' name='handling' value='0'>
+                   					<input type='hidden' name='amount' value='<?php echo $rd->PRICE;?>'>
 
-		                            <button type="submit" class="btn btn-outline btn-success" >
-		                                <img src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" class="img-responsive" />
-		                            </button>
-		                        </form>
+									<input type="hidden" name="hosted_button_id" value="2BQD69RL63YWL">
+
+									<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                            		
+								</form>
+
+	                			
                             </div>
                         </div>
 
