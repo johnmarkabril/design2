@@ -5,7 +5,7 @@
     <div class="pad-top-ten"><?php print_r($user_data_logsess->EMAIL); ?></div>
 </center>
 <div class="panel-heading no-border mar-top-ten cursor-pointer" style="background-color: #9DE0D0;">
-    <a href="<?php echo base_url(); ?>profile">
+    <a href="<?php echo base_url(); ?>profile/account/<?php echo $user_data_logsess->USERNAME;?>">
         <div class="font-seventen color-white text-center">PROFILE</div>
     </a>
 </div>

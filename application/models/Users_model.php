@@ -68,4 +68,13 @@ class Users_model extends CI_Model
         // $this->db->where($this->email, $su_email);	
         $this->db->update($this->table, $params); 
 	}
+
+	function get_specific_data($uname) {
+		$row =	$this->db->where($this->uname, $uname)
+						->where($this->templatename, 'DESIGN2')
+						->limit(1)
+						->get($this->table);
+
+				return $row->result();
+	}
 }

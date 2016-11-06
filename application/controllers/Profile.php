@@ -10,11 +10,11 @@ class Profile extends CI_Controller
         $this->load->model('Postcontent_model');    
     }
 
-	public function index()
+	public function account($uname)
 	{
 		if ($this->session->userdata('log_sess') != null){
 			$details = array (
-				// 'posted_content'	=>	$this->Postcontent_model->get_content(),
+				'specific_account'	=>	$this->Users_model->get_specific_data($uname),
 				'curpage'			=>	'profile',
 				'title'				=>	'Profile'
 			);
@@ -24,7 +24,5 @@ class Profile extends CI_Controller
 			$this->session->set_flashdata('attempt_open', 'This is my message');
 			redirect('/');
 		}
-
-		
 	}
 }
