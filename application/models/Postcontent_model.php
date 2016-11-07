@@ -13,6 +13,7 @@ class Postcontent_model extends CI_Model
 	public $order 				= "DESC";
 	public $command 			= "COMMAND";
 	public $date 				= "DATE";
+	public $uname 				= "USERNAME";
 
 	function __construct()
 	{
@@ -75,4 +76,15 @@ class Postcontent_model extends CI_Model
 		return $row->num_rows();
 	}
 	
+	function posted_num_spec($uname){
+		$row = 	$this->db->where($this->uname, $uname)
+				 		 ->get($this->table);
+		return $row->num_rows();
+	}
+	
+	function posted_spec($uname){
+		$row = 	$this->db->where($this->uname, $uname)
+				 		 ->get($this->table);
+		return $row->result();
+	}
 }

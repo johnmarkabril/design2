@@ -8,6 +8,7 @@ class Purchaseproduct_model extends CI_Model
 	public $table 	= 'purchase_product';
 	public $no 		= 'NO';
 	public $desc	= 'DESC';
+	public $uname	= 'USERNAME';
 
 	function __construct()
 	{
@@ -28,5 +29,17 @@ class Purchaseproduct_model extends CI_Model
 						 ->get($this->table);
 						 
 			return $row->num_rows();
+	}
+	
+	function purchased_num_spec($uname){
+		$row = 	$this->db->where($this->uname, $uname)
+				 		 ->get($this->table);
+		return $row->num_rows();
+	}
+	
+	function purchased_spec($uname){
+		$row = 	$this->db->where($this->uname, $uname)
+				 		 ->get($this->table);
+		return $row->result();
 	}
 }

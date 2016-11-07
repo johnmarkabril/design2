@@ -6,7 +6,8 @@
 			<center>
 				<img style="width:150px;height:150px;" class="img-responsive" src="<?php echo base_url(); ?>public/img/prof/<?php echo $sa->IMAGEURL; ?>" />
 				<h3><?php echo $sa->NAME; ?></h3>
-				<span class="glyphicon glyphicon-map-marker"></span> Manila, Philippines
+				<span class="glyphicon glyphicon-map-marker"></span> 
+				<?php foreach ($get_location as $gl) { echo $gl->PLACE; } ?>
 			</center>
 		</div>
 
@@ -22,19 +23,29 @@
 		<div>
 			<hr/>
 			Subscribers
-			<div style="float: right;">15,194</div>
+			<div style="float: right;">
+				<?php
+					foreach ($num_subscriber as $ns){
+						$subscribers = explode("|", $ns->SUBSCRIBER);
+					}
+					foreach ($subscribers as $subs_num) {
+						$subscriber_ctr += 1;
+					}
+						echo $subscriber_ctr-1;
+				?>
+			</div>
 		</div>
 
 		<div>
 			<hr/>
 			Posted Recipes
-			<div style="float: right;">457</div>
+			<div style="float: right;"><?php echo $num_posted;?></div>
 		</div>
 
 		<div>
 			<hr/>
 			Purchased Recipes
-			<div style="float: right;">113</div>
+			<div style="float: right;"><?php echo $num_purchased;?></div>
 		</div>
 
 		<hr/>
@@ -64,3 +75,5 @@
 <?php
 	endforeach;
 ?>
+<div class="clearfix"></div>
+<div class="pad-top"></div>
