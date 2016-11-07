@@ -25,15 +25,16 @@ class Post extends CI_Controller
 			'curpage'				=> 'home',
 			'title'					=>	'Post'
 		);
-		$command = $details['link_data'][0]->COMMAND;
-		if($command == "FREE"){
-			$data['content'] = $this->load->view('linkcontent.php',$details,TRUE);
-			$this->load->view('template.php',$data);
-		}elseif($command == "SELL"){
-			redirect ('/');
+
+		foreach ($details['link_data'] as $ld) {
+			$command = $ld->COMMAND;
+			if($command == "FREE"){
+				$data['content'] = $this->load->view('linkcontent.php',$details,TRUE);
+				$this->load->view('template.php',$data);
+			}elseif($command == "SELL"){
+				redirect ('/');
+			}
 		}
-		// $data['content'] = $this->load->view('linkcontent.php',$details,TRUE);
-		// $this->load->view('template.php',$data);
 	}
 
 	public function insert_comment_cont()

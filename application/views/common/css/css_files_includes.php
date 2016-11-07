@@ -19,3 +19,7 @@
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/dropzone/basic.css">
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/dropzone/dropzone.css">
+
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/iCheck/custom.css">
+
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/animate.css">

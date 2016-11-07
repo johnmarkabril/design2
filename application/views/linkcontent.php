@@ -16,29 +16,6 @@
 				<?php } ?>
 			</h4>
 		</div>
-
-			<!-- <div class="row">
-				<div class="col-md-12">
-					<div class="col-md-4 text-center pad-top">
-						<span style="color: #95BAAE;">
-							POSTED BY 
-						</span>
-						<span class="admin-hover-black">
-							<a href="#"><?php print_r($x->NAME); ?></a>
-						</span>
-					</div>
-					<div class="col-md-4 text-center pad-top">
-						<span class="admin-hover-black">
-							<a href="#" style="color: #FF4785;">NO COMMENTS</a>
-						</span>
-					</div>
-					<div class="col-md-4 text-center pad-top">
-						<span class="admin-hover-black">
-							<a href="#">PERMALINK</a>
-						</span>
-					</div>
-				</div>
-			</div> -->
 	</div>
 </div>
 
