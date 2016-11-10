@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-md-4">
-        <div class="widget lazur-bg no-padding">
+    <div class="col-md-4 padding-bottom">
+        <div class="widget lazur-bg no-padding no-margins">
             <div class="p-m">
                 <h3 class="font-bold no-margins">
                     Total Sales Gross
@@ -10,8 +10,8 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="widget lazur-bg no-padding">
+    <div class="col-md-4 padding-bottom">
+        <div class="widget lazur-bg no-padding no-margins">
             <div class="p-m">
                 <h3 class="font-bold no-margins">
                     Current Month
@@ -21,8 +21,8 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="widget lazur-bg no-padding">
+    <div class="col-md-4 padding-bottom">
+        <div class="widget lazur-bg no-padding no-margins">
             <div class="p-m">
                 <h3 class="font-bold no-margins">
                     Current Year

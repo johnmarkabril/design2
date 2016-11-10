@@ -1,6 +1,6 @@
         <div class="row">
-            <div class="col-md-12">
-                <div class="ibox loat-e-margins">
+            <div class="col-md-12 padding-bottom">
+                <div class="ibox loat-e-margins no-margins">
                     <div class="ibox-title">
                         <h5>Regional Stat</h5>
                     </div>

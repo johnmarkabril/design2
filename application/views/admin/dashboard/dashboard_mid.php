@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-lg-12">
-        <div class="ibox float-e-margins">
+    <div class="col-md-12 padding-bottom">
+        <div class="ibox float-e-margins no-margins">
             <div class="ibox-title">
                 <h5>Daily Feed </h5>
             </div>

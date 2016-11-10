@@ -44,6 +44,8 @@
                     $dashuser = "active";
                 } else if ( $curpage == 'Inbox' ) {
                     $dashinbox  = "active";
+                } else if ( $curpage == 'Notification' ) {
+                    $dashnotif  = "active";
                 }
             ?>
 

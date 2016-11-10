@@ -8,6 +8,9 @@
 <script src="<?php echo base_url();?>public/js/inspinia.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/pace/pace.min.js"></script>
 
+<!-- DROPZONE -->
+<script src="<?php echo base_url();?>public/js/plugins/dropzone/dropzone.js"></script>
+
 <!-- GOOGLE MAP API -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5h8RE_Re9V9PJ-ROp7TKXQBKbMnWXDVE&callback=initMap">
 </script>
@@ -264,7 +267,33 @@
           zoom: 18
         });
     }
-    
     // GOOGLE MAP API CODE END
 
+    // DROPZONE START
+    $(document).ready(function(){
+        Dropzone.options.myAwesomeDropzone = {
+
+            autoProcessQueue: false,
+            uploadMultiple: true,
+            parallelUploads: 100,
+            maxFiles: 100,
+
+            init: function() {
+                var myDropzone = this;
+
+                this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    myDropzone.processQueue();
+                });
+                this.on("sendingmultiple", function() {
+                });
+                this.on("successmultiple", function(files, response) {
+                });
+                this.on("errormultiple", function(files, response) {
+                });
+            }
+        }
+    });
+    // DROPZONE END
 </script>
