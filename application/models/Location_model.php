@@ -21,4 +21,7 @@ class Location_model extends CI_Model
 		return $row->result();
 	}
 	
+	function insert_user_location($params){
+		$this->db->insert($this->table, $params);
+	}
 }

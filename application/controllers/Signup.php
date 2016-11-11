@@ -8,7 +8,8 @@ class Signup extends CI_Controller
         parent::__construct();
         $this->load->model('Users_model');
         $this->load->model('Postcontent_model');    
-        $this->load->model('Recipes_model');   
+        $this->load->model('Recipes_model');     
+        $this->load->model('Location_model');   
     }
 
 	public function index()
@@ -47,10 +48,20 @@ class Signup extends CI_Controller
 			'ACTIVATED'			=>		0,
 			'TEMPLATENAME'		=>		'DESIGN2',
 			'VERIFIED'			=>		'NO',
-			'VERIFICATIONCODE'	=>		$random_code
+			'VERIFICATIONCODE'	=>		$random_code,
+			'PERMISSION'		=>		'',
+			'SKILLS'			=>		'',
+			'IMAGEURL'			=>		'firstprof.png'
+		);
+
+		$params_loc = array (
+			'NO'			=>		'',
+			'USERNAME'		=>		$su_uname,
+			'PLACE'			=>		'Philippines'
 		);
 
 		$this->Users_model->insert_new_user($params);
+		$this->Location_model->insert_user_location($params_loc);
 
 		// print_r($params);
 	}
@@ -93,5 +104,7 @@ class Signup extends CI_Controller
 		}else{
 			echo "FALSE";
 		}
+		// print_r($su_emailcode . " - " . $su_uname . " - " . $su_pword . " - " . $su_email );
+		// print_r($checking);
 	}
 }

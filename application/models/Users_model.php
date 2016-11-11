@@ -53,14 +53,6 @@ class Users_model extends CI_Model
 				 		 ->get($this->table);
 
 				 return $row->result();
-		// if($row->num_rows() == 1){
-		// 	$row->result();
-		// 	// print_r();
-			
-		// 	echo "TRUE";
-		// }else{
-		// 	echo "FALSE";
-		// }
 	}
 
 	function update_verified($su_emailcode,$su_email, $params){

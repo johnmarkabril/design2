@@ -20,4 +20,7 @@
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/iCheck/custom.css">
 
+
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/steps/jquery.steps.css">
+
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/animate.css">

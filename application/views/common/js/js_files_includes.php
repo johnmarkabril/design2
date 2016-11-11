@@ -11,6 +11,12 @@
 <!-- DROPZONE -->
 <script src="<?php echo base_url();?>public/js/plugins/dropzone/dropzone.js"></script>
 
+<!-- Steps -->
+<script src="<?php echo base_url();?>public/js/plugins/staps/jquery.steps.min.js"></script>
+
+<!-- Jquery Validate -->
+<script src="<?php echo base_url();?>public/js/plugins/validate/jquery.validate.min.js"></script>
+
 <!-- GOOGLE MAP API -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5h8RE_Re9V9PJ-ROp7TKXQBKbMnWXDVE&callback=initMap">
 </script>
@@ -112,151 +118,6 @@
             $email  =   $('#cf_email').val();
         });
 
-        function randomString() {
-            var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
-            var string_length = 8;
-            var randomstring = '';
-            for (var i=0; i<string_length; i++) {
-                var rnum = Math.floor(Math.random() * chars.length);
-                randomstring += chars.substring(rnum,rnum+1);
-            }
-            return randomstring;
-        }
-
-        var su_fname    =   $('#su_fname');
-        var su_lname    =   $('#su_lname');
-        var su_uname    =   $('#su_uname');
-        var su_cpnum    =   $('#su_cpnum');
-        var su_email        =   $('#su_email');
-        var su_pword        =   $('#su_pword');
-        var su_conpword     =   $('#su_conpword');
-        var su_emailcode    =   $('#su_emailcode');
-
-        // START PERSONAL TAB - PROCEED
-        $('#btn-pres1-proceed').click(function(){
-            var fname_check = /^[a-zA-Z-_]+( [a-zA-Z-_]+)*$/.test(su_fname.val());
-            var lname_check = /^[a-zA-Z-_]+( [a-zA-Z-_]+)*$/.test(su_lname.val());
-            var uname_check = /^\w+$/.test(su_uname.val());
-            var cpnum_check = /^(0|\[0-9]{1,5})?([7-9][0-9]{9})$/.test(su_cpnum.val());
-
-            if(fname_check){
-                if(lname_check){
-                    if(uname_check){
-                        if(cpnum_check){
-                            disable_pointer_events();
-                            $('#pres2').css({pointerEvents: "auto"});
-                            toastr.success('Please click the second tab to proceed');
-                        }else{
-                            toastr.error('Invalid Cellphone Number');
-                        }
-                    }else{
-                        toastr.error('Invalid Username');
-                    }
-                }else{
-                    toastr.error('Invalid Last Name');
-                }
-            }else{
-                toastr.error('Invalid First Name');
-            }
-        }) // END PERSONAL TAB - PROCEED
-
-        $('#btn-pres2-back').click(function(){
-            disable_pointer_events();
-            $('#pres1').css({pointerEvents: "auto"});
-            toastr.success('Please click the first tab to go back');
-        })
-
-
-        // START ACCOUNT TAB - PROCEED
-        $('#btn-pres2-proceed').click(function(){
-
-            var email_check     =   /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(su_email.val());
-
-            var random_code     = randomString();
-            
-            if(email_check){
-                if(su_pword.val().length >= 7){
-                    if(su_pword.val() == su_conpword.val()){
-                        $.ajax({
-                            url: "<?php echo base_url(); ?>signup/insert_verify_no",
-                            method:"POST",
-                            data:{
-                                random_code     :   random_code,
-                                su_fname        :   su_fname.val(),
-                                su_lname        :   su_lname.val(),
-                                su_uname        :   su_uname.val(),
-                                su_cpnum        :   su_cpnum.val(),
-                                su_email        :   su_email.val(),
-                                su_pword        :   su_pword.val()
-                            },
-                            success:function(data)
-                            {
-                                disable_pointer_events();
-                                $('#pres3').css({pointerEvents: "auto"});
-                                toastr.success('Please click the third tab to proceed');
-                                // toastr.success(data);
-                                // alert(data);
-                            },error:function(){
-                                toastr.error("ERROR");
-                            }
-                        })
-
-                    }else{
-                        toastr.error("Password doesn't match");
-                    }
-                }else{
-                    toastr.error('Minimum of 8 characters for Password');
-                }
-            }else{
-                toastr.error('Invalid Email Address');
-            }
-        }) // END ACCOUNT TAB - PROCEED
-
-        $('#btn-pres3-proceed').click(function(){
-            if(su_emailcode.val().length > 0){
-                $.ajax({
-                    url: "<?php echo base_url(); ?>signup/check_verification",
-                    method:"POST",
-                    data:{
-                        su_fname        :   su_fname.val(),
-                        su_lname        :   su_lname.val(),
-                        su_uname        :   su_uname.val(),
-                        su_cpnum        :   su_cpnum.val(),
-                        su_email        :   su_email.val(),
-                        su_pword        :   su_pword.val(),
-                        su_emailcode    :   su_emailcode.val()
-                    },
-                    success:function(data)
-                    {
-                        // alert(data);
-                        if(data == 'TRUE'){
-                            disable_pointer_events();
-                            $('#su_emailcode').css({pointerEvents: "none"});
-                            $('#pres4').css({pointerEvents: "auto"});
-                            toastr.success('Please click the last tab to complete the registration');
-                        }else{
-                            toastr.error('Invalid Verification Code');
-                        }
-                    },error:function(){
-                        toastr.error("ERROR");
-                    }
-                })
-                // alert(asdf)
-            }else{
-                toastr.error('Please input your verification code');
-            }
-
-            // disable_pointer_events();
-            // $('#pres4').css({pointerEvents: "auto"});
-            // toastr.success('Please click the last tab to complete the registration');
-        })
-
-        function disable_pointer_events(){
-            $('#pres1').css({pointerEvents: "none"});
-            $('#pres2').css({pointerEvents: "none"});
-            $('#pres3').css({pointerEvents: "none"});
-            $('#pres4').css({pointerEvents: "none"});
-        }
     });
 
     // GOOGLE MAP API CODE START
@@ -296,4 +157,179 @@
         }
     });
     // DROPZONE END
+
+    // FORM WIZARD WITH VALIDATION CODE
+    $(document).ready(function(){
+
+        function randomString() {
+            var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+            var string_length = 8;
+            var randomstring = '';
+            for (var i=0; i<string_length; i++) {
+                var rnum = Math.floor(Math.random() * chars.length);
+                randomstring += chars.substring(rnum,rnum+1);
+            }
+            return randomstring;
+        }
+
+        $("#wizard").steps();
+        $("#form").steps({
+            bodyTag: "fieldset",
+            onStepChanging: function (event, currentIndex, newIndex)
+            {
+                var su_fname        =   $('#su_fname').val();
+                var su_lname        =   $('#su_lname').val();
+                var su_uname        =   $('#su_uname').val();
+                var su_cpnum        =   $('#su_cpnum').val();
+                var su_email        =   $('#su_email').val();
+                var su_pword        =   $('#password').val();
+                var su_conpword     =   $('#confirm ').val();
+                var su_emailcode    =   $('#su_emailcode').val();
+                var random_code     =   randomString();
+
+                var fname_check = /^[a-zA-Z-_]+( [a-zA-Z-_]+)*$/.test(su_fname);
+                var lname_check = /^[a-zA-Z-_]+( [a-zA-Z-_]+)*$/.test(su_lname);
+                var uname_check = /^\w+$/.test(su_uname);
+                var cpnum_check = /^(0|\[0-9]{1,5})?([7-9][0-9]{9})$/.test(su_cpnum);
+
+                // Always allow going backward even if the current step contains invalid fields!
+                if (currentIndex > newIndex)
+                {
+                    return true;
+                }
+
+                // Warning steps if the user didn't complete all fields in step 1
+                if (newIndex === 1) {
+                    if (!fname_check){
+                        toastr.error("Incorrect first name format!");
+                    }else{
+                        if (!lname_check){
+                            toastr.error("Incorrect last name format!");
+                        }else{
+                            if (!uname_check) {
+                                toastr.error("Incorrect username format!");
+                                return false;
+                            }else{
+                                if (!cpnum_check){
+                                    toastr.error("Invalid cellphone number!");
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (newIndex === 2) {
+                    if (su_email && su_pword && su_conpword){
+                        $.ajax({
+                            url: "<?php //echo base_url(); ?>signup/insert_verify_no",
+                            method:"POST",
+                            data:{
+                                random_code     :   random_code,
+                                su_fname        :   su_fname,
+                                su_lname        :   su_lname,
+                                su_uname        :   su_uname,
+                                su_cpnum        :   su_cpnum,
+                                su_email        :   su_email,
+                                su_pword        :   su_pword
+                            },
+                            success:function(data)
+                            {
+                                toastr.success("We sent you an email verification code on your mail account");
+                            },error:function(){
+                                toastr.error("ERROR");
+                                return false;
+                            }
+                        });
+                    }else{
+                        return false;
+                    }
+                }
+
+                if (newIndex === 3) {
+                    $.ajax({
+                            url: "<?php echo base_url(); ?>signup/check_verification",
+                            method:"POST",
+                            data:{
+                                su_fname        :   su_fname,
+                                su_lname        :   su_lname,
+                                su_uname        :   su_uname,
+                                su_cpnum        :   su_cpnum,
+                                su_email        :   su_email,
+                                su_pword        :   su_pword,
+                                su_emailcode    :   su_emailcode
+                            },
+                            success:function(data)
+                            {
+                                // alert(data);
+                                if(data == 'TRUE'){
+                                    $('#newRegname').text(su_fname + " " + su_lname);
+                                    toastr.success('Registration done!');
+                                }else{
+                                    console.log(data);
+                                    toastr.error('Invalid Verification Code');
+                                    return false;
+                                }
+                            },error:function(){
+                                toastr.error("ERROR");
+                                return false;
+                            }
+                        });
+                }
+
+
+                var form = $(this);
+
+                // Clean up if user went backward before
+                if (currentIndex < newIndex)
+                {
+                    // To remove error styles
+                    $(".body:eq(" + newIndex + ") label.error", form).remove();
+                    $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                }
+
+                // Disable validation on fields that are disabled or hidden.
+                form.validate().settings.ignore = ":disabled,:hidden";
+
+                // Start validation; Prevent going forward if false
+                return form.valid();
+            },
+            onStepChanged: function (event, currentIndex, priorIndex)
+            {
+                // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                if (currentIndex === 2 && priorIndex === 3)
+                {
+                    $(this).steps("previous");
+                }
+            },
+            onFinishing: function (event, currentIndex)
+            {
+                var form = $(this);
+
+                // Disable validation on fields that are disabled.
+                // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                form.validate().settings.ignore = ":disabled";
+
+                // Start validation; Prevent form submission if false
+                return form.valid();
+            },
+            onFinished: function (event, currentIndex)
+            {
+                var form = $(this);
+
+                    // Submit form input
+                form.submit();
+            }
+        }).validate({
+            errorPlacement: function (error, element)
+            {
+                element.before(error);
+            },
+            rules: {
+                confirm: {
+                    equalTo: "#password"
+                }
+            }
+        });
+    });
 </script>

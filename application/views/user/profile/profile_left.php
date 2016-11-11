@@ -25,13 +25,17 @@
 			Subscribers
 			<div style="float: right;">
 				<?php
-					foreach ($num_subscriber as $ns){
-						$subscribers = explode("|", $ns->SUBSCRIBER);
+					if (empty($num_subscriber)){
+						echo 0;
+					}else{
+						foreach ($num_subscriber as $ns){
+							$subscribers = explode("|", $ns->SUBSCRIBER);
+						}
+						foreach ($subscribers as $subs_num) {
+							$subscriber_ctr += 1;
+						}
+							echo $subscriber_ctr-1;
 					}
-					foreach ($subscribers as $subs_num) {
-						$subscriber_ctr += 1;
-					}
-						echo $subscriber_ctr-1;
 				?>
 			</div>
 		</div>

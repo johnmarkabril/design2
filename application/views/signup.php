@@ -1,116 +1,93 @@
-<div class="text-center">
-	<h3 class="text-bold">Create your Account</h3>
+<div class="col-md-12">
+    <h2 class="text-center">
+        Create your account
+    </h2>
+    <p class="text-center">
+        This example show how to use Steps with jQuery Validation plugin.
+    </p>
+
+    <form id="form" action="#" class="wizard-big">
+        <h1>Personal</h1>
+        <fieldset>
+            <h2>Personal Information</h2>
+            <div class="row">
+                <div class="col-md-12 text-left pad-top">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>* First Name</label>
+                            <input type="text" class="form-control required" id="su_fname" name="firstName" placeholder="John"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>* Surname</label>
+                            <input type="text" class="form-control required" id="su_lname" name="surName" placeholder="Doe"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>* Username</label>
+                            <input type="text" class="form-control required" id="su_uname" name="userName" placeholder="Johndoe123"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>* Phone Number</label>
+                            <input type="text" class="form-control required" maxlength="11" id="su_cpnum" placeholder="09*********"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <h1>Profile</h1>
+        <fieldset>
+            <h2>Profile Information</h2>
+            <div class="row">
+                <div class="col-md-12 text-left pad-top">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>* Email Address</label>
+                            <input type="text" class="form-control full-width required email" id="su_email" name="email" placeholder="johndoe@example.com"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>* Password</label>
+                            <input type="password" class="form-control full-width required" id="password" name="password" minlength="8" placeholder="********"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>* Confirm Password</label>
+                            <input type="password" class="form-control full-width required" id="confirm" name="confirm" minlength="8" placeholder="********"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <h1>Verification</h1>
+        <fieldset>
+            <h2>Email Verification</h2>
+            <div class="col-md-12 text-left pad-top">
+                <div class="form-group">
+                    <h3 class="text-center">* Email Verification Code:</h3>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control text-center text-bold required" id="su_emailcode" name="emailVerification" style="font-size: 20px;"/>
+                    </div>
+                    <h5><div class="text-center"><a href="#">Resend the verification code</a></div></h5>
+                </div>
+            </div>
+        </fieldset>
+
+        <h1>Complete</h1>
+        <fieldset>
+            <div class="col-md-12 text-center pad-top">
+                <h2 class="text-bold"><div id="newRegname"></div></h2>
+                <h2>Thank you for signing up!</h2>
+                <h4>You can now log-in to our website. By clicking <a class="text-bold" class="weightninehund"  data-toggle="modal" data-target="#loginModal">this</a> or Account on upper right corner.</h4>
+            </div>
+        </fieldset>
+    </form>
 </div>
-<center>
-<div class="wid-seventy">
-	<div class="panel panel-default no-bor-left-right">
-		<div class="panel-body">
-		    <!-- Nav tabs -->
-		  	<ul class="nav nav-tabs" role="tablist">
-			    <li role="presentation" class="active wid-twentyfive">
-			    	<a href="#personal" aria-controls="personal" role="tab" data-toggle="tab" id="pres1">
-			    		<span class="glyphicon glyphicon-user"></span>
-			    	</a>
-			    </li>
-			    <li role="presentation" class="wid-twentyfive" style="pointer-events: none;" id="pres2">
-			    	<a href="#account" aria-controls="account" role="tab" data-toggle="tab">
-			    		<span class="glyphicon glyphicon-envelope"></span>
-			    	</a>
-			    </li>
-		    	<li role="presentation" class="wid-twentyfive" style="pointer-events: none;" id="pres3">
-		    		<a href="#verification" aria-controls="verification" role="tab" data-toggle="tab">
-		    			<span class="glyphicon glyphicon-lock"></span>
-		    		</a>
-		    	</li>
-		    	<li role="presentation" class="wid-twentyfive" style="pointer-events: none;" id="pres4">
-		    		<a href="#complete" aria-controls="complete" role="tab" data-toggle="tab">
-		    			<span class="glyphicon glyphicon-ok"></span>
-		    		</a>
-		    	</li>
-		  	</ul>
-
-		  <!-- Tab panes -->
-		  	<div class="tab-content">
-		  		
-		  		<!-- PERSONAL -->
-		    	<div role="tabpanel" class="tab-pane fade in active" id="personal">
-		    		<div class="row">
-		    			<div class="col-md-12 text-left pad-top">
-		    				<div class="col-sm-6">
-		    					<h5 class="no-mar-bot"><span class="color-red">* </span>First Name</h5>
-		    					<input type="text" class="form-control full-width" id="su_fname" placeholder="John"/>
-		    				</div>
-		    				<div class="col-sm-6">
-		    					<h5 class="no-mar-bot"><span class="color-red">* </span>Surname</h5>
-		    					<input type="text" class="form-control full-width" id="su_lname" placeholder="Doe"/>
-		    				</div>
-		    				<div class="col-sm-6">
-		    					<h5 class="no-mar-bot"><span class="color-red">* </span>Username</h5>
-		    					<input type="text" class="form-control full-width" id="su_uname" placeholder="Johndoe123"/>
-		    				</div>
-		    				<div class="col-sm-6">
-		    					<h5 class="no-mar-bot"><span class="color-red">* </span>Phone Number</h5>
-		    					<input type="text" class="form-control full-width" maxlength="11" id="su_cpnum" placeholder="09*********"/>
-		    				</div>
-		    				<div class="col-sm-12">
-		    					<button type="button" id="btn-pres1-proceed" class="btn btn-info full-width">Proceed</button>
-		    				</div>
-		    			</div>
-		    		</div>	
-		    	</div>
-
-		    	<!-- ACCOUNT -->
-		    	<div role="tabpanel" class="tab-pane fade " id="account">
-		    		<div class="row">
-		    			<div class="col-md-12 text-left pad-top">
-		    				<div class="col-sm-12">
-		    					<h5 class="no-mar-bot"><span class="color-red">* </span>Email Address</h5>
-		    					<input type="text" class="form-control full-width" id="su_email" placeholder="johndoe@example.com"/>
-		    				</div>
-		    				<div class="col-sm-6">
-		    					<h5 class="no-mar-bot"><span class="color-red">* </span>Password</h5>
-		    					<input type="password" class="form-control full-width" id="su_pword" minlength="8" placeholder="********"/>
-		    				</div>
-		    				<div class="col-sm-6">
-		    					<h5 class="no-mar-bot"><span class="color-red">* </span>Confirm Password</h5>
-		    					<input type="password" class="form-control full-width" id="su_conpword" minlength="8" placeholder="********"/>
-		    				</div>
-		    				<div class="col-sm-12">
-		    					<a class="btn btn-danger pull-left" id="btn-pres2-back"><span class="glyphicon glyphicon-menu-left"></span></a>
-		    					<a class="btn btn-info pull-right" id="btn-pres2-proceed"><span class="glyphicon glyphicon-menu-right"></span></a>
-		    				</div>
-		    			</div>
-		    		</div>	
-		    	</div>
-
-		    	<!-- VERIFICATION -->
-		    	<div role="tabpanel" class="tab-pane fade " id="verification">
-		    		<div class="row">
-		    			<div class="col-md-12 text-left pad-top">
-		    				<h3 class="text-center">Email Verification Code:</h3>
-		    				<div class="col-sm-12">
-		    					<input type="text" class="form-control full-width text-center text-bold" id="su_emailcode" style="font-size: 20px;"/>
-		    				</div>
-		    				<h5><div class="text-center"><a href="#">Resend the verification code</a></div></h5>
-		    				<div class="col-sm-12">
-		    					<button type="button" id="btn-pres3-proceed" class="btn btn-info full-width">Proceed</button>
-		    				</div>
-		    			</div>
-		    		</div>	
-		    	</div>
-
-		    	<!-- COMPLETE -->
-		    	<div role="tabpanel" class="tab-pane fade " id="complete">
-		    		<div class="row">
-		    			<div class="col-md-12 text-center pad-top">
-		    				<h2 class="text-bold">Thank you for signing up!</h2>
-		    				<h4>You can log-in now to our website.</h4>
-		    			</div>
-		    		</div>	
-		    	</div>
-		  	</div>
-		</div>
-	</div>
-  
-
-</div></center>
