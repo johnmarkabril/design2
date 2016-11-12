@@ -30,22 +30,44 @@
 
             <?php
 
-                $dashactive = '';
-                $dashnotif = '';
-                $dashproduct = '';
-                $dashuser = '';
-                $dashinbox = '';
+                $dashactive     = '';
+                $dashnotif      = '';
+                $dashproduct    = '';
+                $dashuser       = '';
+                $dashinbox      = '';
+                $dashreport     = '';
+                $dashsetting    = '';
 
                 if ( $curpage == 'Dashboard' ) {
                     $dashactive = "active";
-                } else if ( $curpage == 'Product List' ) {
-                    $dashproduct = "active";
-                } else if ( $curpage == 'User' ) {
-                    $dashuser = "active";
                 } else if ( $curpage == 'Inbox' ) {
                     $dashinbox  = "active";
                 } else if ( $curpage == 'Notification' ) {
                     $dashnotif  = "active";
+                } else if ( $curpage == 'Compose Message' ) {
+                    $dashinbox  = "active";
+                } else if ( $curpage == 'Local Inbox' ) {
+                    $dashinbox  = "active";
+                } else if ( $curpage == 'ComposeMail' ) {
+                    $dashinbox  = "active";
+                } else if ( $curpage == 'Reports' ) {
+                    $dashreport = "active";
+                } else if ( $curpage == 'Advertisements' ) {
+                    $dashsetting = "active";
+                } else if ( $curpage == 'Paypal Configuration' ) {
+                    $dashsetting = "active";
+                } else if ( $curpage == 'Product List' ) {
+                    $dashproduct = "active";
+                } else if ( $curpage == 'Product Category' ) {
+                    $dashproduct = "active";
+                } else if ( $curpage == 'Product Report' ) {
+                    $dashproduct = "active";
+                } else if ( $curpage == 'Product Sales' ) {
+                    $dashproduct = "active";
+                } else if ( $curpage == 'Accounts' ) {
+                    $dashuser = "active";
+                } else if ( $curpage == 'Co-Administrator' ) {
+                    $dashuser = "active";
                 }
             ?>
 
@@ -66,7 +88,7 @@
                         <li class="<?php echo $dashinbox; ?>">
                             <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Messages </span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/message/inbox">Inbox</a></li>
+                                <li><a href="<?php echo base_url();?>admin/message/inbox">Mail Inbox</a></li>
                                 <li></li>
                             </ul>
                             <ul class="nav nav-second-level collapse">
@@ -74,7 +96,11 @@
                                 <li></li>
                             </ul>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/message/sentmail">Sent Mail</a></li>
+                                <li><a href="<?php echo base_url();?>admin/message/local_inbox">Local Inbox</a></li>
+                                <li></li>
+                            </ul>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="<?php echo base_url();?>admin/message/compose_message">Compose Message</a></li>
                                 <li></li>
                             </ul>
                         </li>
@@ -91,10 +117,10 @@
 
             <?php   if ($permission == "Statistics") { ?>
             
-                        <li class="">
+                        <li class="<?php echo $dashreport; ?>">
                             <a href="#"><i class="fa fa-area-chart"></i> <span class="nav-label">Statistics</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="#">Reports</a></li>
+                                <li><a href="<?php echo base_url();?>admin/reports">Reports</a></li>
                             </ul>
                         </li>
 
@@ -102,11 +128,11 @@
 
             <?php   if ($permission == "Settings") { ?>
             
-                        <li class="">
+                        <li class="<?php echo $dashsetting; ?>">
                             <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="#">Advertisements</a></li>
-                                <li><a href="#">PayPal Configuration</a></li>
+                                <li><a href="<?php echo base_url();?>admin/advertisements">Advertisements</a></li>
+                                <li><a href="<?php echo base_url();?>admin/paypal_configuration">PayPal Configuration</a></li>
                             </ul>
                         </li>
 
@@ -117,11 +143,10 @@
                         <li class="<?php echo $dashproduct; ?>">
                             <a href="#"><i class="fa fa-product-hunt"></i> <span class="nav-label">Product Management </span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/product/product_list">Product Category</a></li>
+                                <li><a href="<?php echo base_url();?>admin/product/product_category">Product Category</a></li>
                                 <li><a href="<?php echo base_url();?>admin/product/product_list">Product List</a></li>
-                                <li><a href="<?php echo base_url();?>admin/product">Product Report</a></li>
-                                <li><a href="<?php echo base_url();?>admin/product">Product Sales</a></li>
-                                <li><a href="<?php echo base_url();?>admin/product">View Product</a></li>
+                                <li><a href="<?php echo base_url();?>admin/product/product_report">Product Report</a></li>
+                                <li><a href="<?php echo base_url();?>admin/product/product_sales">Product Sales</a></li>
                             </ul>
                         </li>
 
@@ -132,10 +157,10 @@
                         <li class="<?php echo $dashuser; ?>">
                             <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">User Management </span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/user">Accounts</a></li>
+                                <li><a href="<?php echo base_url();?>admin/accounts">Accounts</a></li>
                             </ul>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/user">Co-Administrator</a></li>
+                                <li><a href="<?php echo base_url();?>admin/co_administrator">Co-Administrator</a></li>
                             </ul>
                         </li>
 
