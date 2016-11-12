@@ -4,7 +4,15 @@
             <h3 class="font-bold no-margins">
                 Total User Activity
             </h3>
-            <small>Current month: 999</small>
+            <small>Current month: 
+            <?php
+            			if (empty($activity_month)) {
+                            echo "0";
+                        }else{
+                            echo $activity_month;
+                        }
+            ?>
+            </small>
             <h1 class="m-xs text-center"><?php print_r($user_activity); ?></h1>
         </div>
     </div>

@@ -5,7 +5,8 @@
                         <h4>Calendar Events</h4>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins text-center">INSERT GOOGLE CALENDAR</h1>
+                        
+                        <div id="calendar"></div>
                     </div>
                 </div>
             </div>

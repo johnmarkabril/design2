@@ -14,6 +14,7 @@ class Postcontent_model extends CI_Model
 	public $command 			= "COMMAND";
 	public $date 				= "DATE";
 	public $uname 				= "USERNAME";
+	public $datecomment			= "DATECOMMENT";
 
 	function __construct()
 	{
@@ -86,5 +87,11 @@ class Postcontent_model extends CI_Model
 		$row = 	$this->db->where($this->uname, $uname)
 				 		 ->get($this->table);
 		return $row->result();
+	}
+
+	function activity_month($d_m){
+		$row = $this->db->like($this->datecomment, $d_m)
+						->get($this->tablecomment);
+		return $row->num_rows();
 	}
 }

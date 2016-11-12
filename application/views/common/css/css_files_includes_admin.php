@@ -22,4 +22,8 @@
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/summernote/summernote-bs3.css">
 
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/fullcalendar/fullcalendar.css">
+    
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/fullcalendar/fullcalendar.print.css" media='print'>
+
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/animate.css">
