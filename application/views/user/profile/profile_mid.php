@@ -25,8 +25,12 @@
 							</div>
 					<?php
 						}else{
+					?>
+						<div id="new_recipe_section"></div>
+					<?php
 							foreach ($postedcont as $post) 
 					:?>
+
 						        <div class="col-md-4">
 						            <div class="ibox">
 						                <div class="ibox-content product-box">

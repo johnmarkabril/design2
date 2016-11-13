@@ -570,7 +570,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   }
 }
 .btn {
-  border-radius: 3px;
+  border-radius: 0px;
 }
 .float-e-margins .btn {
   margin-bottom: 5px;
@@ -961,7 +961,7 @@ button.dim {
   margin-right: 10px;
   position: relative;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 0px;
   font-weight: 600;
   margin-bottom: 20px !important;
 }
@@ -3370,7 +3370,8 @@ video {
   padding: 0 20px;
 }
 .wrapper-content {
-  padding: 20px 10px 40px;
+  padding: 20px;
+  padding-bottom: 0px;
 }
 #page-wrapper {
   padding: 0 15px;

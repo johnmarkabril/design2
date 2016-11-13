@@ -10,8 +10,8 @@ class Post extends CI_Controller
         $this->load->model('Users_model');
         $this->load->model('Postcontent_model');   
         $this->load->model('Recipes_model');    
-        $this->load->model('Categories_model');
-
+        $this->load->model('Categories_model');     
+        $this->load->model('Aboutmysite_model'); 
     }
 
 	public function link($param1)
@@ -20,6 +20,7 @@ class Post extends CI_Controller
 			'link_data' 			=> $this->Postcontent_model->get_specific_content($param1),
 			'comment_post'			=> $this->Postcontent_model->get_comment_per_post($param1),
 			'categories_content'		=>  $this->Categories_model->get_content(),
+			'get_content_active'		=>  $this->Aboutmysite_model->get_content_active(),
 			'comment_post_numrow'	=> $this->Postcontent_model->get_comment_per_post_numrow($param1),
 			'popular_content'			=>	$this->Recipes_model->get_content_popular(),
 			'curpage'				=> 'home',

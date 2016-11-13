@@ -46,23 +46,25 @@
     </div>
 </div>
 
-<div class="panel panel-default no-border">
-    <div class="panel-heading no-border" style="background-color: #919191;">
-        <div class="font-seventen color-white text-center">ABOUT OUR BLOG</div>
-    </div>
-    <div class="panel-body">
-        <div class="row text-center">
-            <div class="col-md-12 pad-ten">
-                LOREM IPSUM DOLOR SIT AMET, CONSEC TEER ADIPISCING. PRSENT VES TIBULUM.
+<?php if (!empty($get_content_active)) { ?>
+    <?php foreach ($get_content_active as $gca) : ?>
+        <div class="panel panel-default no-border">
+            <div class="panel-heading no-border" style="background-color: #919191;">
+                <div class="font-seventen color-white text-center">ABOUT OUR BLOG</div>
             </div>
-            <div class="col-md-12 pad-ten">
-                <img class="img-responsive" src="<?php echo base_url();?>public/img/page1-img1.jpg"/>
-            </div>
-            <div class=" pad-ten justify-text">
-                Lorem ipsum dolor sit amet, consec tetuer adipi scing. Praesent vestibu lum molestie lacuiirhs. Aenean non ummy hendreriauris. Phasellllus.
-
-                Lorem ipsum dolor sit amet, consec tetuer adipi scing. Praesent vestibu lum molestie lacuiirhs. Aenean non ummy hendreriauris. Phasellllus. porta. Fusce suscipit varius mium sociis totdnati bus et magis dis parturient montes, nascetur.
+            <div class="panel-body">
+                <div class="row text-center">
+                    <div class="col-md-12 pad-ten">
+                        <?php echo $gca->TITLE; ?>
+                    </div>
+                    <div class="col-md-12 pad-ten">
+                        <img class="img-responsive full-width" src="<?php echo base_url();?>public/img/<?php echo $gca->IMAGEURL;?>"/>
+                    </div>
+                    <div class=" pad-ten justify-text">
+                        <?php echo $gca->DESCRIPTION; ?>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    <?php endforeach; ?>
+<?php } ?>

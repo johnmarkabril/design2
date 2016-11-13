@@ -9,7 +9,8 @@ class Template extends CI_Controller
         $this->load->model('Users_model');
         $this->load->model('Postcontent_model');    
         $this->load->model('Recipes_model');    
-        $this->load->model('Categories_model');   
+        $this->load->model('Categories_model'); 
+        $this->load->model('Aboutmysite_model');   
         $this->load->library('pagination');
     }
 
@@ -29,6 +30,7 @@ class Template extends CI_Controller
 			'recipes_content'			=>	$this->Recipes_model->get_content(null),
 			'popular_content'			=>	$this->Recipes_model->get_content_popular(),
 			'categories_content'		=>  $this->Categories_model->get_content(),
+			'get_content_active'		=>  $this->Aboutmysite_model->get_content_active(),
 			// 'posted_content_num_rows'	=>	sizeof($this->Postcontent_model->get_content()) % 2,
 			'curpage'					=>	'home',
 			'title'						=>	'Home',
@@ -78,6 +80,7 @@ class Template extends CI_Controller
 
 		$data['content'] = $this->load->view('carouselimagescontent.php', $details, TRUE);
 		$data['content'] = $this->load->view('templatebodycontent_left.php', $data, TRUE);
+		$data['content'] = $this->load->view('templatebodycontent_right.php', $data, TRUE);
 		$this->load->view('template.php', $data);
 	}
 }

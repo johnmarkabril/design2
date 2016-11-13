@@ -45,7 +45,7 @@
         $('[data-toggle="tooltip"]').tooltip(); 
         $('[data-toggle="popover"]').popover();
         
-        // SEARCH
+        // SEARCH DASHBOARD
         var options = {
     	  valueNames: [ 'l_name', 'l_prodname', 'l_date' ]
     	};
@@ -53,6 +53,13 @@
     	var userList = new List('customer_purchase', options);   
     	// END OF SEARCH 
 
+        // SEARCH DASHBOARD
+        var options = {
+          valueNames: [ 'title' ]
+        };
+
+        var AMSList = new List('AboutMySiteList', options);   
+        // END OF SEARCH 
 
         $('.i-checks').iCheck({
             checkboxClass: 'icheckbox_square-green',
@@ -68,7 +75,7 @@
             var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
             $('.click2edit').destroy();
         };
-        
+
     });
     // GOOGLE MAP API CODE START
     var map;

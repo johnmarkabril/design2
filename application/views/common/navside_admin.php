@@ -16,11 +16,9 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="<?php echo base_url();?>admin/profile">Profile</a></li>
                         <li><a href="contacts.html">Contacts</a></li>
-                        <li><a href="mailbox.html">Mailbox</a></li>
-                        <li class="divider"></li>
-                        <li><a href="login.html">Logout</a></li>
+                        <li><a href="<?php echo base_url();?>admin/message/local_inbox">Local Inbox</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">
@@ -52,6 +50,8 @@
                     $dashinbox  = "active";
                 } else if ( $curpage == 'Reports' ) {
                     $dashreport = "active";
+                } else if ( $curpage == 'About My Site' ) {
+                    $dashsetting = "active";
                 } else if ( $curpage == 'Advertisements' ) {
                     $dashsetting = "active";
                 } else if ( $curpage == 'Paypal Configuration' ) {
@@ -131,6 +131,7 @@
                         <li class="<?php echo $dashsetting; ?>">
                             <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
+                                <li><a href="<?php echo base_url();?>admin/about_my_site">About My Site</a></li>
                                 <li><a href="<?php echo base_url();?>admin/advertisements">Advertisements</a></li>
                                 <li><a href="<?php echo base_url();?>admin/paypal_configuration">PayPal Configuration</a></li>
                             </ul>

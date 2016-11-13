@@ -13,7 +13,6 @@ class Profile extends CI_Controller
         $this->load->model('Purchaseproduct_model');   
 
     }
-
 	public function account($uname)
 	{
 		if ($this->session->userdata('log_sess') != null){
@@ -36,4 +35,39 @@ class Profile extends CI_Controller
 			redirect('/');
 		}
 	}
+
+	public function uploadImage(){
+        $uploadfile =  $_SERVER['DOCUMENT_ROOT']."/design2/public/img/".$_FILES["image"]["name"];
+        // $tar
+        move_uploaded_file($_FILES["image"]["name"], $uploadfile);
+        // echo $uploadfile;
+        // echo $tar;
+    }
+
+    public function addRecipe(){
+
+    	date_default_timezone_set("Asia/Manila");
+    	$date = date("F d, Y g:i A");
+
+    	$params = array (
+    		'NO'			=>	'',
+    		'NAME'			=>	$this->session->userdata('log_sess')->NAME,
+    		'USERNAME'		=>	$this->session->userdata('log_sess')->USERNAME,
+    		'ACCOUNT_TYPE'	=>	$this->session->userdata('log_sess')->ACCOUNT_TYPE,
+    		'TITLE'			=>	$this->input->post('title'),
+    		'IMAGEURL'		=>	substr($this->input->post('imageName'), 12),
+    		'DESCRIPTION'	=>	$this->input->post('descript'),
+    		'DATE'			=>	$date,
+    		'TEMPLATENAME'	=>	'design2',
+    		'RECIPES'		=>	$this->input->post('recipe'),
+    		'COMMAND'		=>	'FREE',
+    		'PRICE'			=>	'',
+    		'CATEGORIES'	=>	'CUPCAKES'
+    	);
+    	// print_r($params);
+    	$this->Postcontent_model->insert_new_recipe_free($params);
+    }
+
+    // public function index(){
+    // }
 }

@@ -332,4 +332,88 @@
             }
         });
     });
+    // END OF FORM WIZARD
+    
+    $(document).ready(function(){
+        $('#btn_upload').click(function(){
+            var title = $('#txt_title').val();
+            var imagefile = document.getElementById('file_img');
+            var imageName = $('#file_img').val();
+            var descript = $('#txt_descript').val();
+            var recipe = $('#txt_recipe').val();
+
+            file = imagefile.files[0];
+
+            if(file != undefined && title && descript && recipe) {
+                formData = new FormData();
+                formData.append("image", file);
+                if(!!file.type.match(/image.*/)){
+                    $.ajax ({
+                        url: "<?php echo base_url(); ?>profile/uploadImage",
+                        method: "POST",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success:function(data){
+                            insertData();
+                            // toastr.success(data);
+                        },
+                        error:function(){
+                            toastr.error("Error!");
+                        }
+                    });
+                }else{
+                    toastr.error("Not a valid image!");
+                }
+            }else {
+                toastr.error("Please fill up all fields!");
+            }
+        });
+
+        function insertData(){
+            var title = $('#txt_title').val();
+            var imageName = $('#file_img').val();
+            var descript = $('#txt_descript').val();
+            var recipe = $('#txt_recipe').val();
+
+            $.ajax ({
+                url: "<?php echo base_url(); ?>profile/addRecipe",
+                method: "POST",
+                data: {
+                    title       : title,
+                    imageName   : imageName,
+                    descript    : descript,
+                    recipe      : recipe
+                },
+                success:function(data){
+                    html =  '<div class="col-md-4">';
+                    html +=     '<div class="ibox">'
+                    html +=        '<div class="ibox-content product-box">'
+                    html +=             '<img class="img-responsive prod-prof" src="<?php echo base_url();?>public/img/banana-walnut.jpg"/>'
+                    html +=             '<div class="pad-top text-center">'
+                    html +=               '<a href="#">'+title+'</a>'
+                    html +=                        '</div>'
+                    html +=                        '<div style="padding: 20px;">'
+                    html +=                            '<a style="color: #a6a6a6;">'
+                    html +=                                '<span class="glyphicon glyphicon-paperclip"></span>'
+                    html +=                            '</a>'
+                    html +=                            '<a style="color: #a6a6a6; float: right; padding-left: 10px;">'
+                    html +=                                '<span class="glyphicon glyphicon-heart"></span>'
+                    html +=                                    '173'
+                    html +=                            '</a>'
+                    html +=                       '</div>'
+                    html +=                   '</div>'
+                    html +=            '</div>'
+                    html +=        '</div>'
+
+                    $('#new_recipe_section').prepend(html);
+                    // alert(data);
+                    toastr.success("New recipe has been posted!");
+                    },
+                error:function(){
+                    toastr.error("Error!");
+                }
+            });
+        }
+    });
 </script>

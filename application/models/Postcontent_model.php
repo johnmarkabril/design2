@@ -85,6 +85,7 @@ class Postcontent_model extends CI_Model
 	
 	function posted_spec($uname){
 		$row = 	$this->db->where($this->uname, $uname)
+						 ->order_by($this->dbno, "DESC")
 				 		 ->get($this->table);
 		return $row->result();
 	}
@@ -93,5 +94,9 @@ class Postcontent_model extends CI_Model
 		$row = $this->db->like($this->datecomment, $d_m)
 						->get($this->tablecomment);
 		return $row->num_rows();
+	}
+
+	function insert_new_recipe_free($params){
+		$this->db->insert($this->table, $params);
 	}
 }

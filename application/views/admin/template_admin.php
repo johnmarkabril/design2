@@ -41,6 +41,8 @@
 		        			$this->load->view('admin/message/compose_message.php');
 		        		} else if ( $curpage == 'Reports' ) {
 		        			$this->load->view('admin/reports/reports.php');
+		        		} else if ( $curpage == 'About My Site' ) {
+		        			$this->load->view('admin/settings/aboutmysite.php');
 		        		} else if ( $curpage == 'Advertisements' ) {
 		        			$this->load->view('admin/settings/advertisements.php');
 		        		} else if ( $curpage == 'Paypal Configuration' ) {
@@ -57,6 +59,8 @@
 		        			$this->load->view('admin/usermanagement/accounts.php');
 		        		} else if ( $curpage == 'Co-Administrator' ) {
 		        			$this->load->view('admin/usermanagement/co_administrator.php');
+		        		} else if ( $curpage == 'Profile' ) {
+		        			$this->load->view('admin/profile/profile.php');
 		        		}
 		        	?>
 		        </div>
