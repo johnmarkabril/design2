@@ -8,8 +8,6 @@
 	text-align: center;
 }
 
-
-
 .half-width {
 	width: 50%;
 }
@@ -25,6 +23,10 @@
 
 .pad-left {
 	padding-left: 20px;
+}
+
+.padding-top {
+	padding-top: 20px;
 }
 
 .padding-bottom {
@@ -53,4 +55,8 @@
 
 .full-height {
 	height: 100%; 	
+}
+
+.no-margin-bottom {
+	margin-bottom: 0px;
 }

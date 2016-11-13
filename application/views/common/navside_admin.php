@@ -56,11 +56,9 @@
                     $dashsetting = "active";
                 } else if ( $curpage == 'Paypal Configuration' ) {
                     $dashsetting = "active";
-                } else if ( $curpage == 'Product List' ) {
+                } else if ( $curpage == 'Product Grid' ) {
                     $dashproduct = "active";
                 } else if ( $curpage == 'Product Category' ) {
-                    $dashproduct = "active";
-                } else if ( $curpage == 'Product Report' ) {
                     $dashproduct = "active";
                 } else if ( $curpage == 'Product Sales' ) {
                     $dashproduct = "active";
@@ -87,38 +85,28 @@
 
                         <li class="<?php echo $dashinbox; ?>">
                             <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Messages </span><span class="fa arrow"></span></a>
-                            <?php foreach($permission_cntnt as $persub) : ?>
+                            <ul class="nav nav-second-level collapse">
+                                <?php foreach($permission_cntnt as $persub) : ?>
 
-                                <?php if ($persub == "Mail Inbox") { ?>
-                                    <ul class="nav nav-second-level collapse">
-                                        <li><a href="<?php echo base_url();?>admin/message/inbox">Mail Inbox</a></li>
-                                        <li></li>
-                                    </ul>
-                                <?php } ?>
+                                    <?php if ($persub == "Mail Inbox") { ?>
+                                            <li><a href="<?php echo base_url();?>admin/message/inbox">Mail Inbox</a></li>
+                                    <?php } ?>
 
-                                <?php if ($persub == "Local Inbox") { ?>
-                                    <ul class="nav nav-second-level collapse">
-                                        <li><a href="<?php echo base_url();?>admin/message/composemail">Compose Mail</a></li>
-                                        <li></li>
-                                    </ul>
-                                <?php } ?>
+                                    <?php if ($persub == "Local Inbox") { ?>
+                                            <li><a href="<?php echo base_url();?>admin/message/composemail">Compose Mail</a></li>
+                                    <?php } ?>
 
-                                <?php if ($persub == "Compose Message") { ?>
-                                    <ul class="nav nav-second-level collapse">
-                                        <li><a href="<?php echo base_url();?>admin/message/local_inbox">Local Inbox</a></li>
-                                        <li></li>
-                                    </ul>
-                                <?php } ?>
+                                    <?php if ($persub == "Compose Message") { ?>
+                                            <li><a href="<?php echo base_url();?>admin/message/local_inbox">Local Inbox</a></li>
+                                    <?php } ?>
 
-                                <?php if ($persub == "Compose Mail") { ?>
-                                    <ul class="nav nav-second-level collapse">
-                                        <li><a href="<?php echo base_url();?>admin/message/compose_message">Compose Message</a></li>
-                                        <li></li>
-                                    </ul>
+                                    <?php if ($persub == "Compose Mail") { ?>
+                                            <li><a href="<?php echo base_url();?>admin/message/compose_message">Compose Message</a></li>
 
-                                <?php } ?>
+                                    <?php } ?>
 
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
+                            </ul>
                         </li>
 
             <?php   } ?>
@@ -136,7 +124,13 @@
                         <li class="<?php echo $dashreport; ?>">
                             <a href="#"><i class="fa fa-area-chart"></i> <span class="nav-label">Statistics</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/reports">Reports</a></li>
+                                <?php foreach($permission_cntnt as $persub) : ?>
+
+                                    <?php if ($persub == "Reports") { ?>
+                                        <li><a href="<?php echo base_url();?>admin/reports">Reports</a></li>
+                                    <?php } ?>
+
+                                <?php endforeach; ?>
                             </ul>
                         </li>
 
@@ -174,10 +168,21 @@
                         <li class="<?php echo $dashproduct; ?>">
                             <a href="#"><i class="fa fa-product-hunt"></i> <span class="nav-label">Product Management </span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/product/product_category">Product Category</a></li>
-                                <li><a href="<?php echo base_url();?>admin/product/product_list">Product List</a></li>
-                                <li><a href="<?php echo base_url();?>admin/product/product_report">Product Report</a></li>
-                                <li><a href="<?php echo base_url();?>admin/product/product_sales">Product Sales</a></li>
+                                <?php foreach($permission_cntnt as $persub) : ?>
+
+                                    <?php if ($persub == "Product Category") { ?>
+                                        <li><a href="<?php echo base_url();?>admin/product/product_category">Product Category</a></li>
+                                    <?php } ?>
+
+                                    <?php if ($persub == "Product Grid") { ?>
+                                        <li><a href="<?php echo base_url();?>admin/product/product_grid">Product Grid</a></li>
+                                    <?php } ?>
+
+                                    <?php if ($persub == "Product Sales") { ?>
+                                        <li><a href="<?php echo base_url();?>admin/product/product_sales">Product Sales</a></li>
+                                    <?php } ?>
+                                    
+                                <?php endforeach; ?>
                             </ul>
                         </li>
 
@@ -188,10 +193,17 @@
                         <li class="<?php echo $dashuser; ?>">
                             <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">User Management </span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/accounts">Accounts</a></li>
-                            </ul>
-                            <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/co_administrator">Co-Administrator</a></li>
+                                <?php foreach($permission_cntnt as $persub) : ?>
+
+                                    <?php if ($persub == "Accounts") { ?>
+                                        <li><a href="<?php echo base_url();?>admin/accounts">Accounts</a></li>
+                                    <?php } ?>
+
+                                    <?php if ($persub == "Co-Administrator") { ?>
+                                        <li><a href="<?php echo base_url();?>admin/co_administrator">Co-Administrator</a></li>
+                                    <?php } ?>
+                                    
+                                <?php endforeach; ?>
                             </ul>
                         </li>
 

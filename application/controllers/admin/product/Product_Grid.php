@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Product_List extends CI_Controller 
+class Product_Grid extends CI_Controller 
 {
 	public function __construct()
     {
@@ -12,9 +12,9 @@ class Product_List extends CI_Controller
 	public function index()
 	{
 		$details = array (
-			'curpage'	=> 	'Product List',
+			'curpage'	=> 	'Product Grid',
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-			'title'		=> 	'Product List'
+			'title'		=> 	'Product Grid'
 		);
 
 		$this->load->view('admin/template_admin.php', $details);

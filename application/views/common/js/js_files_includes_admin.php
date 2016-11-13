@@ -35,12 +35,32 @@
 <script src="<?php echo base_url();?>public/js/plugins/fullcalendar/moment.min.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/fullcalendar/fullcalendar.min.js"></script>
 
+<!-- CHARTJS-->
+<script src="<?php echo base_url();?>public/js/plugins/chartJs/Chart.min.js"></script>
+<script src="<?php echo base_url();?>public/js/demo/chartjs-demo.js"></script>
+
+<!-- MORRIS -->
+<script src="<?php echo base_url();?>public/js/plugins/morris/raphael-2.1.0.min.js"></script>
+<script src="<?php echo base_url();?>public/js/plugins/morris/morris.js"></script>
+
+<!-- MORRIS DEMO DATA-->
+<script src="<?php echo base_url();?>public/js/demo/morris-demo.js"></script>
+
+<!-- FOOTABLE -->
+<script src="<?php echo base_url();?>public/js/plugins/footable/footable.all.min.js"></script>
+
 <!-- GOOGLE MAP -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5h8RE_Re9V9PJ-ROp7TKXQBKbMnWXDVE&callback=initMap">
 </script>
 
 
 <script>
+    // PAGE LEVEL SCRIPTS START
+    $(document).ready(function() {
+        $('.footable').footable();
+    });
+    //  END OF PAGE LEVEL SCRIPTS
+
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip(); 
         $('[data-toggle="popover"]').popover();

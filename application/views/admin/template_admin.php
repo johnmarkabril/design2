@@ -47,12 +47,10 @@
 		        			$this->load->view('admin/settings/advertisements.php');
 		        		} else if ( $curpage == 'Paypal Configuration' ) {
 		        			$this->load->view('admin/settings/paypal_configuration.php');
-		        		} else if ( $curpage == 'Product List' ) {
-		        			$this->load->view('admin/product/productlist.php');
+		        		} else if ( $curpage == 'Product Grid' ) {
+		        			$this->load->view('admin/product/product_grid.php');
 		        		} else if ( $curpage == 'Product Category' ) {
 		        			$this->load->view('admin/product/product_category.php');
-		        		} else if ( $curpage == 'Product Report' ) {
-		        			$this->load->view('admin/product/product_report.php');
 		        		} else if ( $curpage == 'Product Sales' ) {
 		        			$this->load->view('admin/product/product_sales.php');
 		        		} else if ( $curpage == 'Accounts' ) {
