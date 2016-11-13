@@ -87,22 +87,38 @@
 
                         <li class="<?php echo $dashinbox; ?>">
                             <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Messages </span><span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/message/inbox">Mail Inbox</a></li>
-                                <li></li>
-                            </ul>
-                            <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/message/composemail">Compose Mail</a></li>
-                                <li></li>
-                            </ul>
-                            <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/message/local_inbox">Local Inbox</a></li>
-                                <li></li>
-                            </ul>
-                            <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/message/compose_message">Compose Message</a></li>
-                                <li></li>
-                            </ul>
+                            <?php foreach($permission_cntnt as $persub) : ?>
+
+                                <?php if ($persub == "Mail Inbox") { ?>
+                                    <ul class="nav nav-second-level collapse">
+                                        <li><a href="<?php echo base_url();?>admin/message/inbox">Mail Inbox</a></li>
+                                        <li></li>
+                                    </ul>
+                                <?php } ?>
+
+                                <?php if ($persub == "Local Inbox") { ?>
+                                    <ul class="nav nav-second-level collapse">
+                                        <li><a href="<?php echo base_url();?>admin/message/composemail">Compose Mail</a></li>
+                                        <li></li>
+                                    </ul>
+                                <?php } ?>
+
+                                <?php if ($persub == "Compose Message") { ?>
+                                    <ul class="nav nav-second-level collapse">
+                                        <li><a href="<?php echo base_url();?>admin/message/local_inbox">Local Inbox</a></li>
+                                        <li></li>
+                                    </ul>
+                                <?php } ?>
+
+                                <?php if ($persub == "Compose Mail") { ?>
+                                    <ul class="nav nav-second-level collapse">
+                                        <li><a href="<?php echo base_url();?>admin/message/compose_message">Compose Message</a></li>
+                                        <li></li>
+                                    </ul>
+
+                                <?php } ?>
+
+                            <?php endforeach; ?>
                         </li>
 
             <?php   } ?>
@@ -130,11 +146,25 @@
             
                         <li class="<?php echo $dashsetting; ?>">
                             <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
+
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="<?php echo base_url();?>admin/about_my_site">About My Site</a></li>
-                                <li><a href="<?php echo base_url();?>admin/advertisements">Advertisements</a></li>
-                                <li><a href="<?php echo base_url();?>admin/paypal_configuration">PayPal Configuration</a></li>
+                                <?php foreach($permission_cntnt as $persub) : ?>
+
+                                    <?php if ($persub == "About My Site") { ?>
+                                        <li><a href="<?php echo base_url();?>admin/about_my_site">About My Site</a></li>
+                                    <?php } ?>
+
+                                    <?php if ($persub == "Advertisements") { ?>
+                                        <li><a href="<?php echo base_url();?>admin/advertisements">Advertisements</a></li>
+                                    <?php } ?>
+
+                                    <?php if ($persub == "PayPal Configuration") { ?>
+                                        <li><a href="<?php echo base_url();?>admin/paypal_configuration">PayPal Configuration</a></li>
+                                    <?php } ?>
+                                    
+                                <?php endforeach; ?>
                             </ul>
+
                         </li>
 
             <?php   } ?>
