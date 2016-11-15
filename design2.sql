@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2016 at 06:52 AM
+-- Generation Time: Nov 15, 2016 at 02:28 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -44,20 +44,52 @@ INSERT INTO `about_my_site` (`NO`, `TITLE`, `IMAGEURL`, `DESCRIPTION`, `ACTIVE`)
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `about_user`
+--
+
+CREATE TABLE `about_user` (
+  `NO` int(11) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `ABOUTUS` varchar(5000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `about_user`
+--
+
+INSERT INTO `about_user` (`NO`, `USERNAME`, `ABOUTUS`) VALUES
+(1, 'jmabril17', 'Take it one day at a time. Surround yourself with positivity. Create a vision board. Make SMART goals. Reward yourself. Believe in yourself. Acknowledge your positive attributes. Recognize your progress. Visualize accomplishing your goals. Be kind to yourself. Don''t compare yourself to others.'),
+(2, 'vincent123', 'We have to allow ourselves to be loved by the people who really love us, the people who really matter. Too much of the time, we are blinded by our own pursuits of people to love us, people that don''t even matter, while all that time we waste and the people who do love us have to stand on the sidewalk and watch us beg in the streets! It''s time to put an end to this. It''s time for us to let ourselves be loved.'),
+(3, 'angelozxc', 'I have come to accept the feeling of not knowing where I am going. And I have trained myself to love it. Because it is only when we are suspended in mid-air with no landing in sight, that we force our wings to unravel and alas begin our flight. And as we fly, we still may not know where we are going to. But the miracle is in the unfolding of the wings. You may not know where you''re going, but you know that so long as you spread your wings, the winds will carry you.'),
+(4, 'dave123', 'There is no such thing as a "broken family." Family is family, and is not determined by marriage certificates, divorce papers, and adoption documents. Families are made in the heart. The only time family becomes null is when those ties in the heart are cut. If you cut those ties, those people are not your family. If you make those ties, those people are your family. And if you hate those ties, those people will still be your family because whatever you hate will always be with you.'),
+(5, 'cielomacion', 'Pain is a pesky part of being human, I''ve learned it feels like a stab wound to the heart, something I wish we could all do without, in our lives here. Pain is a sudden hurt that can''t be escaped. But then I have also learned that because of pain, I can feel the beauty, tenderness, and freedom of healing. Pain feels like a fast stab wound to the heart. But then healing feels like the wind against your face when you are spreading your wings and flying through the air! We may not have wings growing out of our backs, but healing is the closest thing that will give us that wind against our faces.'),
+(6, 'marimar', 'They say a good love is one that sits you down, gives you a drink of water, and pats you on top of the head. But I say a good love is one that casts you into the wind, sets you ablaze, makes you burn through the skies and ignite the night like a phoenix; the kind that cuts you loose like a wildfire and you can''t stop running simply because you keep on burning everything that you touch! I say that''s a good love; one that burns and flies, and you run with it!'),
+(7, 'coleen', 'You can be the most beautiful person in the world and everybody sees light and rainbows when they look at you, but if you yourself don''t know it, all of that doesn''t even matter. Every second that you spend on doubting your worth, every moment that you use to criticize yourself; is a second of your life wasted, is a moment of your life thrown away. It''s not like you have forever, so don''t waste any of your seconds, don''t throw even one of your moments away.'),
+(8, 'merierose', 'You''ve got this life and while you''ve got it, you''d better kiss like you only have one moment, try to hold someone''s hand like you will never get another chance to, look into people''s eyes like they''re the last you''ll ever see, watch someone sleeping like there''s no time left, jump if you feel like jumping, run if you feel like running, play music in your head when there is none, and eat cake like it''s the only one left in the world!');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
   `NO` int(11) NOT NULL,
-  `CATNAME` varchar(50) NOT NULL
+  `CATNAME` varchar(50) NOT NULL,
+  `STATUS` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`NO`, `CATNAME`) VALUES
-(1, 'Cupcakes');
+INSERT INTO `categories` (`NO`, `CATNAME`, `STATUS`) VALUES
+(1, 'CUPCAKES', 'Enabled'),
+(2, 'BREAD', 'Enabled'),
+(3, 'CAKES', 'Enabled'),
+(4, 'CANDIES', 'Enabled'),
+(5, 'FRAPPE', 'Disabled'),
+(7, 'COOKIES', 'Enabled');
 
 -- --------------------------------------------------------
 
@@ -442,7 +474,8 @@ INSERT INTO `comment_section_post` (`NO`, `NAME`, `EMAIL`, `COMMENTHERE`, `DATEC
 (371, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'and, when i did make these as cupcakes a few different times, they were TOO DIE FOR!!! i & my fam (none of whom are vegan) are HUGE lemon fans & these were INCREDIBLE!!!', 'October 11, 2016 12:24 AM', '25', 'DESIGN2'),
 (372, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'Pretty good! I was sceptical at first, because the batter was runny, and looked pale and almost unappetising after cooked. But I gave it a chance, and dressed it up with frosting to look pretty. The cake was actually really delicious, light and almost refreshing.', 'October 11, 2016 12:24 AM', '25', 'DESIGN2'),
 (373, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'I made these for a big family on Easter yesterday and they were a huge hit. They were all shocked they were vegan and so very light. The cake turned out perfect, light and mild in lemon flavor. The icing was a no go the first time as it separated and went clumpy when I followed the directions to the letter. I remade the icing by mixing the sugar with just a little milk, adding vanilla and more margarine. I figured the lemon was causing the separation so I omitted that.', 'October 11, 2016 12:24 AM', '25', 'DESIGN2'),
-(374, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'This is so delicious. Great recipe.', 'October 16, 2016 4:45 PM', '55', 'DESIGN2');
+(374, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'This is so delicious. Great recipe.', 'October 16, 2016 4:45 PM', '55', 'DESIGN2'),
+(375, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'Testing\n', 'November 14, 2016 3:16 AM', '57', 'DESIGN2');
 
 -- --------------------------------------------------------
 
@@ -469,6 +502,34 @@ INSERT INTO `location` (`NO`, `USERNAME`, `PLACE`) VALUES
 (6, 'marimar', 'Navotas, Philippines'),
 (7, 'coleen', 'Malabon, Philippines'),
 (8, 'merierose', 'Caloocan, Philippines');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `NO` int(11) NOT NULL,
+  `SUBJECT` varchar(500) NOT NULL,
+  `NAMEFROM` varchar(100) NOT NULL,
+  `EMAILFROM` varchar(500) NOT NULL,
+  `EMAILTO` varchar(500) NOT NULL,
+  `DATE` varchar(100) NOT NULL,
+  `TIME` varchar(100) NOT NULL,
+  `BODYCONTENT` varchar(5000) NOT NULL,
+  `DELETION` int(11) NOT NULL,
+  `UNREAD` int(11) NOT NULL,
+  `HASHNOEMAIL` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`NO`, `SUBJECT`, `NAMEFROM`, `EMAILFROM`, `EMAILTO`, `DATE`, `TIME`, `BODYCONTENT`, `DELETION`, `UNREAD`, `HASHNOEMAIL`) VALUES
+(1, 'Best Sweet and Pastries', 'Mae Gregorio', 'maegregorio@gmail.com', 'johnmarkabril@gmail.com', 'November 15, 2016', '05:15 AM', 'Hello John Mark! \r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\r\n\r\nIt was popularised in the 1960s with the release Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nThere are many variations of passages of Lorem IpsumLorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t look even slightly believable. If you are going to use a passage of.', 0, 0, 'dbfdb5b3d2824022041e7f59e20559bf'),
+(2, 'TESTING SUBJECT', 'Mae Gregorio', 'maegregorio@gmail.com', 'johnmarkabril@gmail.com', 'November 15, 2016', '07:56 AM', 'Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing ', 0, 0, '96699d8528d578d4e6e1a58c95a0b4c9');
 
 -- --------------------------------------------------------
 
@@ -569,8 +630,8 @@ INSERT INTO `posted` (`NO`, `NAME`, `USERNAME`, `ACCOUNT_TYPE`, `TITLE`, `IMAGEU
 (53, 'Mae Gregorio', 'gregs17', 'Administrator', 'MARMALADE CUPCAKES', 'marmalade.jpg', '"This is pretty much the perfect cupcake: buttery, moist and not too sweet, with little flecks of orange rind. Delicious!"', 'October 10, 2016 05:29 PM', 'DESIGN2', '2 cups| all-purpose flour|\r\n1?2 teaspoon| baking powder|\r\n1?2 teaspoon| baking soda|\r\n1?4 teaspoon| salt|\r\n1?2 cup| butter or 1?2 cup margarine, softened|\r\n1 cup| granulated sugar|\r\n3| large eggs|\r\n1 cup| orange marmalade|\r\n1?2 cup| buttermilk|\r\n', 'FREE', '', 'CUPCAKES'),
 (54, 'Mae Gregorio', 'gregs17', 'Administrator', 'DOUBLE CHOCOLATE AND ORANGE CUPCAKES', 'choco-orange.jpg', 'Orange is the star ingredient in these cupcakes — its bright citrus flavor provides the perfect balance to the slimmed-down chocolatey batter!', 'October 10, 2016 05:30 PM', 'DESIGN2', '1 1?2 cups| flour|\r\n1?2 cup| sugar|\r\n1?4 cup| cocoa|\r\n1 teaspoon| baking soda|\r\n1?2 teaspoon| salt|\r\n1?2 cup| orange juice|\r\n3 tablespoons| oil|\r\n1 tablespoon| vinegar|\r\n1 teaspoon| vanilla|\r\n1?3 cup| water|\r\n1?3 cup| mini chocolate chip|\r\n1 teaspoon| confectioners'' sugar (optional)|\r\n', 'FREE', '', 'CUPCAKES'),
 (55, 'Mae Gregorio', 'gregs17', 'Administrator', 'MINI DOUGHNUT CUPCAKES', 'mini-donut.jpg', '"The taste and texture is just like a doughnut! Tip: The batter is super thick, so it has to be spooned and then pushed with a spatula into the baking cups."', 'October 10, 2016 05:31 PM', 'DESIGN2', '1 cup| sugar|\r\n1 1?2 teaspoons| ground cinnamon|\r\n1 (18 1/4 ounce) package| yellow cake mix|\r\n1?8 cup| water|\r\n1?2 cup| vegetable oil|\r\n3| eggs|\r\n1 tablespoon| ground nutmeg|\r\n', 'FREE', '', 'CUPCAKES'),
-(56, 'John Mark Abril', 'jmabril17', 'User', 'qwe', '1a.png', 'qwe', 'November 13, 2016 10:47 AM', 'design2', '2 tablespoon | Flour |\n3 tablespoon | Sugar |\n', 'FREE', '', 'CUPCAKES'),
-(57, 'John Mark Abril', 'jmabril17', 'User', 'Testing Title', '14495447_961603857295625_3707154493608680853_n.jpg', 'Testing', 'November 13, 2016 1:42 PM', 'design2', '2 tablespoon | Flour |\n3 tablespoon | Sugar |\n', 'FREE', '', 'CUPCAKES');
+(56, 'John Mark Abril', 'jmabril17', 'User', 'qwe', 'choco-orange.jpg', 'qwe', 'November 13, 2016 10:47 AM', 'design2', '2 tablespoon | Flour |\n3 tablespoon | Sugar |\n', 'FREE', '', 'CUPCAKES'),
+(57, 'John Mark Abril', 'jmabril17', 'User', 'Testing Title', 'mini-donut.jpg', 'Testing', 'November 13, 2016 1:42 PM', 'design2', '2 tablespoon | Flour |\n3 tablespoon | Sugar |\n', 'FREE', '', 'CUPCAKES');
 
 -- --------------------------------------------------------
 
@@ -675,7 +736,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASSWORD`, `ACCOUNT_TYPE`, `REG_TIME`, `ACTIVATED`, `TEMPLATENAME`, `VERIFIED`, `VERIFICATIONCODE`, `PERMISSION`, `SKILLS`, `IMAGEURL`) VALUES
 (3, 'John Mark Abril', 'jmabril17', '09208317004', 'johnmark_abri12l@yahoo.com', '89daf6d74eeceabf2e74efe50f41c9b2', 'User', '2016-09-21 19:25:23', 0, 'DESIGN2', 'YES', '', '', 'Web Developer|Chef', 'prof3.jpg'),
-(4, 'Mae Gregorio', 'gregs17', '09306625692', 'maegregorio@gmail.com', '7950b6bd370f715554900616819ffc4e', 'Administrator', '2016-09-21 19:43:18', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Mail Inbox|Compose Mail|Local Inbox|Compose Message|Notification|Statistics|Settings|About My Site|Product Category|Product List|Product Sales|Product_Management|User_Management|Accounts|', '', 'prof1.jpg'),
+(4, 'Mae Gregorio', 'gregs17', '09306625692', 'maegregorio@gmail.com', '7950b6bd370f715554900616819ffc4e', 'Administrator', '2016-09-21 19:43:18', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|', '', 'prof1.jpg'),
 (18, 'Testing First Name Testing Last Name', 'Testinguname123', '09123456789', 'testing@testing.com', '7f2ababa423061c509f4923dd04b6cf1', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', ''),
 (23, 'John Doe', 'Johndoe123', '09123654789', 'johndoe@example.com', 'bb2d91d0fbbebe8719509ed0f865c63f', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', ''),
 (24, 'Vincent Barcelona', 'vincent123', '09321654987', 'vincent@gmail.com', '52fee26031644aacd7c23ade329939f0', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', 'Programmer', 'vincent.jpg'),
@@ -685,7 +746,7 @@ INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASS
 (28, 'Marimar Farina', 'marimar', '09789456123', 'marimar@gmail.com', 'c1af0c8792502845520239550a966f85', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
 (29, 'Coleen Moralidad', 'coleen', '09231564897', 'coleen@gmail.com', '921247cfe542c29ce7a4b3fb8a881d69', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
 (30, 'Merie Rose Palay', 'merierose', '09546879213', 'merierose@gmail.com', '14aabec76f651c48d0c5dcb3ac66fd7e', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
-(31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '34c87211821751f911c058bbf0cfb822', 'Administrator', '2016-11-12 22:28:00', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Mail Inbox|Compose Mail|Local Inbox|Compose Message|Notification|Statistics|Settings|About My Site|Advertisements|PayPal Configuration|Product Category|Product List|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', 'prof3.jpg');
+(31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '34c87211821751f911c058bbf0cfb822', 'Administrator', '2016-11-12 22:28:00', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Advertisements|PayPal Configuration|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', 'prof3.jpg');
 
 --
 -- Indexes for dumped tables
@@ -695,6 +756,12 @@ INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASS
 -- Indexes for table `about_my_site`
 --
 ALTER TABLE `about_my_site`
+  ADD PRIMARY KEY (`NO`);
+
+--
+-- Indexes for table `about_user`
+--
+ALTER TABLE `about_user`
   ADD PRIMARY KEY (`NO`);
 
 --
@@ -713,6 +780,12 @@ ALTER TABLE `comment_section_post`
 -- Indexes for table `location`
 --
 ALTER TABLE `location`
+  ADD PRIMARY KEY (`NO`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
   ADD PRIMARY KEY (`NO`);
 
 --
@@ -762,20 +835,30 @@ ALTER TABLE `user`
 ALTER TABLE `about_my_site`
   MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `about_user`
+--
+ALTER TABLE `about_user`
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `comment_section_post`
 --
 ALTER TABLE `comment_section_post`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=375;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=376;
 --
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
   MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `paypal_configuration`
 --
