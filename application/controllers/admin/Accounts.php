@@ -7,17 +7,19 @@ class Accounts extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Users_model');
+        $this->curpage = "Accounts";
     }
 
 	public function index()
 	{
 		$details = array (
-			'curpage'	=> 	'Accounts',
-			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-			'title'		=> 	'Accounts'
+			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION)
 		);
 
-		$this->load->view('admin/template_admin.php', $details);
+		$data['content'] = $this->load->view('admin/usermanagement/accounts.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = $this->curpage;
+		$this->load->view('admin/template_admin.php', $data);
 	}
 
 }

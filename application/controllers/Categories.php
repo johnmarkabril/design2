@@ -23,6 +23,8 @@ class Categories extends CI_Controller
 			'title'				=>	'Categories'
 		);
 		$data['content']	=	$this->load->view('user/categories/categories_content.php',$details,TRUE);
+		$data['curpage']	=	"categories";
+		$data['title']		=	"Categories";
 		$this->load->view('template.php', $data);
 	}
 }

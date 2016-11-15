@@ -7,17 +7,19 @@ class Reports extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Users_model');
+        $this->curpage = "Reports";
     }
 
 	public function index()
 	{
 		$details = array (
-			'curpage'	=> 	'Reports',
-			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-			'title'		=> 	'Reports'
+			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION)
 		);
 
-		$this->load->view('admin/template_admin.php', $details);
+		$data['content'] = $this->load->view('admin/reports/reports.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = $this->curpage;
+		$this->load->view('admin/template_admin.php', $data);
 	}
 
 }

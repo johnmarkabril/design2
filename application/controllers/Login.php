@@ -32,7 +32,7 @@ class Login extends CI_Controller
 				}else if ($_SESSION['account_type'] == "Administrator"){
 					$data = $this->session->set_userdata('log_sess',$valid);
 					$this->session->set_flashdata('success_message', 'This is my message');
-					redirect('admin');
+					redirect('/admin');
 				}
 			}else{
 				$this->session->set_flashdata('error_message', 'This is my message');

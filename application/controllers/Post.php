@@ -22,15 +22,15 @@ class Post extends CI_Controller
 			'categories_content'		=>  $this->Categories_model->get_content(),
 			'get_content_active'		=>  $this->Aboutmysite_model->get_content_active(),
 			'comment_post_numrow'	=> $this->Postcontent_model->get_comment_per_post_numrow($param1),
-			'popular_content'			=>	$this->Recipes_model->get_content_popular(),
-			'curpage'				=> 'home',
-			'title'					=>	'Post'
+			'popular_content'			=>	$this->Recipes_model->get_content_popular()
 		);
 
 		foreach ($details['link_data'] as $ld) {
 			$command = $ld->COMMAND;
 			if($command == "FREE"){
-				$data['content'] = $this->load->view('linkcontent.php',$details,TRUE);
+				$data['content'] = $this->load->view('templatecontent.php',$details,TRUE);
+				$data['curpage']	=	"home";
+				$data['title']		=	"Post";
 				$this->load->view('template.php',$data);
 			}elseif($command == "SELL"){
 				redirect ('/');

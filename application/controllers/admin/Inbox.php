@@ -20,17 +20,17 @@ class Inbox extends CI_Controller
     	$user_data_logsess = $this->session->userdata['log_sess'];
 
 		$details = array (
-			'curpage'			=> 	'Inbox',
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'user_data_logsess' => 	$user_data_logsess,
 			'get_all_content'	=>	$this->Messages_model->get_all_content($user_data_logsess->EMAIL),
 			'get_num_rows_mess' =>	$this->Messages_model->get_all_numrows($user_data_logsess->EMAIL),
-			'dateCom'			=>	$date,	
-			'title'				=> 	'Inbox'
+			'dateCom'			=>	$date
 		);
 
-		// $data['content'] = $this->load->view('admin/message/inbox_content.php', $details, TRUE);
-		$this->load->view('admin/template_admin.php', $details);
+		$data['content'] = $this->load->view('admin/message/inbox_content.php', $details, TRUE);
+		$data['curpage'] = "Inbox";
+		$data['title'] = "Inbox";
+		$this->load->view('admin/template_admin.php', $data);
 	}
 
 	public function content()
@@ -40,16 +40,16 @@ class Inbox extends CI_Controller
     	$user_data_logsess = $this->session->userdata['log_sess'];
 
 		$details = array (
-			'curpage'			=> 	'Message Detail',
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'user_data_logsess' => 	$user_data_logsess,
 			'get_all_content'	=>	$this->Messages_model->get_all_content($user_data_logsess->EMAIL),
 			'get_num_rows_mess' =>	$this->Messages_model->get_all_numrows($user_data_logsess->EMAIL),
 			'dateCom'			=>	$date,	
-			'title'				=> 	'Message Detail'
 		);
 
-		$data['content'] = $this->load->view('admin/message/message_detail_content.php', $details, TRUE);
+		$data['content'] = $this->load->view('admin/message/message_detail.php', $details, TRUE);
+		$data['curpage'] = "Message Detail";
+		$data['title'] = "Message Detail";
 		$this->load->view('admin/template_admin.php', $data);
 	}
 }

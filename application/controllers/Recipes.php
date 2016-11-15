@@ -30,11 +30,11 @@ class Recipes extends CI_Controller
 		
 		$details = array (
 			'recipes_content'	=>	$this->Recipes_model->get_content($categ),
-			'curpage'			=>	'recipes',
-			'title'				=>	'Recipes',
 			'selectname'		=> 	$selectname
 		);
 		$data['content'] = $this->load->view('user/recipes/template_recipes.php', $details, TRUE);
+		$data['curpage'] = "recipes";
+		$data['title'] = "Recipes";
 		$this->load->view('template.php', $data);
 	}
 
@@ -42,16 +42,18 @@ class Recipes extends CI_Controller
 	{
 		if ($this->session->userdata('account_type') == 'User')
 		{
-		$details = array (
-			'curpage'			=> 'recipedetail',
-			'title'				=> 'Recipe Detail',
-			'recipe_detail'		=> $this->Recipes_model->get_specific_prod_sell($no),
-			'paypal_url'		=> 'https://www.paypal.com/cgi-bin/webscr',
-			'paypal_id'			=> 'jmaethesis@gmail.com'
-		);
+			$details = array (
+				'curpage'			=> 'recipedetail',
+				'title'				=> 'Recipe Detail',
+				'recipe_detail'		=> $this->Recipes_model->get_specific_prod_sell($no),
+				'paypal_url'		=> 'https://www.paypal.com/cgi-bin/webscr',
+				'paypal_id'			=> 'jmaethesis@gmail.com'
+			);
 
-		$data['content'] = $this->load->view('user/recipes/recipes_content.php', $details, TRUE);
-		$this->load->view('template.php', $data);
+			$data['content'] = $this->load->view('user/recipes/recipes_content.php', $details, TRUE);
+			$data['curpage'] = "recipedetail";
+			$data['title'] = "Recipe Detail";
+			$this->load->view('template.php', $data);
 		}else{
 			redirect('/');
 		}

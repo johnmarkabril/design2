@@ -8,6 +8,7 @@ class Product_Grid extends CI_Controller
         parent::__construct();
         $this->load->model('Users_model');
         $this->load->model('Recipes_model');
+        $this->curpage = 'Product Grid';
     }
 
 	public function index()
@@ -20,6 +21,8 @@ class Product_Grid extends CI_Controller
 		);
 
 		$data['content'] = $this->load->view('admin/product/product_grid.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = $this->curpage;
 		$this->load->view('admin/template_admin.php', $data);
 	}
 

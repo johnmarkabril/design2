@@ -1,4 +1,4 @@
-<script src="<?php echo base_url();?>public/js/jquery-3.1.0.min.js"></script>
+<script src="<?php echo base_url();?>public/js/jquery-3.1.1.min.js"></script>
 
 <script src="<?php echo base_url();?>public/js/bootstrap.min.js"></script>
 
@@ -8,8 +8,8 @@
 <script src="<?php echo base_url();?>public/js/inspinia.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/pace/pace.min.js"></script>
 
-
 <script src="<?php echo base_url();?>public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<!-- <script src="<?php echo base_url();?>public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script> -->
 
 <!-- DROPZONE -->
 <script src="<?php echo base_url();?>public/js/plugins/dropzone/dropzone.js"></script>  
@@ -26,10 +26,11 @@
 <!-- Chosen -->
 <script src="<?php echo base_url();?>public/js/plugins/chosen/chosen.jquery.js"></script>
 
-<!-- GOOGLE MAP API -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5h8RE_Re9V9PJ-ROp7TKXQBKbMnWXDVE&callback=initMap">
-</script>
-
+<?php if ( $curpage == "contacts" ) { ?>
+    <!-- GOOGLE MAP API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5h8RE_Re9V9PJ-ROp7TKXQBKbMnWXDVE&callback=initMap">
+    </script>
+<?php } ?>
 <script>
 
 	// NOTIFY WHEN THE EMAIL OR PASSWORD IS INCORRECT
@@ -160,7 +161,8 @@
                         post_no         :post_no,
                         timedate   :timedate,
                     },
-                    success:function(data)
+                    async: true,
+                    done:function(data)
                     {
                         toastr.success("COMMENT POSTED!");
                         $('#comment_here').val("");
@@ -293,7 +295,8 @@
                                 su_email        :   su_email,
                                 su_pword        :   su_pword
                             },
-                            success:function(data)
+                            async: true,
+                            done:function(data)
                             {
                                 toastr.success("We sent you an email verification code on your mail account");
                             },error:function(){
@@ -319,7 +322,8 @@
                                 su_pword        :   su_pword,
                                 su_emailcode    :   su_emailcode
                             },
-                            success:function(data)
+                            async: true,
+                            done:function(data)
                             {
                                 // alert(data);
                                 if(data == 'TRUE'){
@@ -414,7 +418,8 @@
                         data: formData,
                         processData: false,
                         contentType: false,
-                        success:function(data){
+                        async: true,
+                        done:function(data){
                             insertData();
                             // toastr.success(data);
                         },
@@ -445,7 +450,8 @@
                     descript    : descript,
                     recipe      : recipe
                 },
-                success:function(data){
+                async: true,
+                done:function(data){
                     html =  '<div class="col-md-4">';
                     html +=     '<div class="ibox">'
                     html +=        '<div class="ibox-content product-box">'

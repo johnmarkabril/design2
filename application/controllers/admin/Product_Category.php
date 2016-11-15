@@ -8,18 +8,19 @@ class Product_Category extends CI_Controller
         parent::__construct();
         $this->load->model('Users_model');
         $this->load->model('Categories_model');
+        $this->curpage = 'Product Category';
     }
 
 	public function index()
 	{
 		$details = array (
-			'curpage'	=> 	'Product Category',
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-			'get_content'		=>	$this->Categories_model->get_all_content(),
-			'title'		=> 	'Product Category'
+			'get_content'		=>	$this->Categories_model->get_all_content()
 		);
 
 		$data['content'] = $this->load->view('admin/product/product_category.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = $this->curpage;
 		$this->load->view('admin/template_admin.php', $data);
 	}
 

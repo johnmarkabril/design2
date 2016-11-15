@@ -12,6 +12,7 @@ class Template extends CI_Controller
         $this->load->model('Categories_model'); 
         $this->load->model('Aboutmysite_model');   
         $this->load->library('pagination');
+        $this->curpage = "home";
     }
 
 	public function index()
@@ -25,17 +26,6 @@ class Template extends CI_Controller
 
 	public function page()
 	{
-		$details = array (
-			// 'posted_content'			=>	$this->Postcontent_model->get_content(),
-			'recipes_content'			=>	$this->Recipes_model->get_content(null),
-			'popular_content'			=>	$this->Recipes_model->get_content_popular(),
-			'categories_content'		=>  $this->Categories_model->get_content(),
-			'get_content_active'		=>  $this->Aboutmysite_model->get_content_active(),
-			// 'posted_content_num_rows'	=>	sizeof($this->Postcontent_model->get_content()) % 2,
-			'curpage'					=>	'home',
-			'title'						=>	'Home',
-			'ctr'						=>	1
-		);
 
 		$config = array();
 		$config["base_url"] = base_url() . "template/page";
@@ -73,14 +63,26 @@ class Template extends CI_Controller
 			$page = 0;
 		}
 
-		$data["posted_content"] = $this->Postcontent_model->get_content($config["per_page"], $page);
-		$data["links"] = $this->pagination->create_links();
+		$details = array (
+			// 'posted_content'			=>	$this->Postcontent_model->get_content(),
+			'recipes_content'			=>	$this->Recipes_model->get_content(null),
+			'popular_content'			=>	$this->Recipes_model->get_content_popular(),
+			'categories_content'		=>  $this->Categories_model->get_content(),
+			'get_content_active'		=>  $this->Aboutmysite_model->get_content_active(),
+			// 'posted_content_num_rows'	=>	sizeof($this->Postcontent_model->get_content()) % 2,
+			'ctr'						=>	1,
+			'posted_content'			=>  $this->Postcontent_model->get_content($config["per_page"], $page),
+			'links'						=>  $this->pagination->create_links()
+		);
 		
 		 // = explode('&nbsp;',$str_links );
 
-		$data['content'] = $this->load->view('carouselimagescontent.php', $details, TRUE);
-		$data['content'] = $this->load->view('templatebodycontent_left.php', $data, TRUE);
-		$data['content'] = $this->load->view('templatebodycontent_right.php', $data, TRUE);
+		// $data['content'] = $this->load->view('carouselimagescontent.php', $details, TRUE);
+		// $data['content'] = $this->load->view('templatebodycontent_right.php', $data, TRUE);
+		// $data['content'] = $this->load->view('templatebodycontent_left.php', $data, TRUE);
+		$data['content'] = $this->load->view('templatebodycontent.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = "Home";
 		$this->load->view('template.php', $data);
 	}
 }

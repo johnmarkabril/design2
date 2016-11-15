@@ -7,17 +7,20 @@ class Paypal_configuration extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Users_model');
+        $this->curpage = "Paypal Configuration";
     }
 
 	public function index()
 	{
 		$details = array (
-			'curpage'	=> 	'Paypal Configuration',
-			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-			'title'		=> 	'Paypal Configuration'
+			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION)
 		);
 
-		$this->load->view('admin/template_admin.php', $details);
+
+		$data['content'] = $this->load->view('admin/settings/paypal_configuration.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = $this->curpage;
+		$this->load->view('admin/template_admin.php', $data);
 	}
 
 }

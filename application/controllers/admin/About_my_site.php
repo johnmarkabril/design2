@@ -8,17 +8,18 @@ class About_My_Site extends CI_Controller
         parent::__construct();
         $this->load->model('Users_model');
         $this->load->model('Aboutmysite_model');
+        $this->curpage = "About My Site";
     }
 
 	public function index()
 	{
 		$details = array (
-			'curpage'			=> 	'About My Site',
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-			'get_list'			=>	$this->Aboutmysite_model->get_list(),
-			'title'				=> 	'About My Site'
+			'get_list'			=>	$this->Aboutmysite_model->get_list()
 		);
-		$data['content'] = $this->load->view('admin/settings/about_my_site_left.php', $details, TRUE);
+		$data['content'] = $this->load->view('admin/settings/aboutmysite.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = $this->curpage;
 		$this->load->view('admin/template_admin.php', $data);
 	}
 

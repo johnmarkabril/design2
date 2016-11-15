@@ -7,17 +7,19 @@ class Advertisements extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Users_model');
+        $this->curpage = "Advertisements";
     }
 
 	public function index()
 	{
 		$details = array (
-			'curpage'	=> 	'Advertisements',
-			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-			'title'		=> 	'Advertisements'
+			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION)
 		);
 
-		$this->load->view('admin/template_admin.php', $details);
+		$data['content'] = $this->load->view('admin/settings/advertisements.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = $this->curpage;
+		$this->load->view('admin/template_admin.php', $data);
 	}
 
 }

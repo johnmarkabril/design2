@@ -27,12 +27,14 @@ class Profile extends CI_Controller
 				'purchased'			=>	$this->Purchaseproduct_model->purchased_spec($uname),
 				'postedcont'		=>	$this->Postcontent_model->posted_spec($uname),
                 'get_about_user'    =>  $this->Aboutus_model->get_about_user($uname),
-				'curpage'			=>	'profile',
-				'title'				=>	'Profile',
-				'subscriber_ctr'	=>	'0'
+				'subscriber_ctr'	=>	'0',
+                'curpage'           =>  'profile'
 			);
 
-			$this->load->view('template.php', $details);
+            $data['content']    =   $this->load->view('user/profile/profile_content.php', $details, TRUE);
+            $data['curpage']    =   "profile";
+            $data['title']      =   "Profile";
+			$this->load->view('template.php', $data);
 		}else{
 			$this->session->set_flashdata('attempt_open', 'This is my message');
 			redirect('/');
@@ -52,11 +54,13 @@ class Profile extends CI_Controller
                 'postedcont'        =>  $this->Postcontent_model->posted_spec($uname),
                 'get_about_user'    =>  $this->Aboutus_model->get_about_user($uname),
                 'curpage'           =>  'settings',
-                'title'             =>  'Settings',
                 'subscriber_ctr'    =>  '0'
             );
 
-            $this->load->view('template.php', $details);
+            $data['content']    =   $this->load->view('user/settings/settings.php', $details, TRUE);
+            $data['curpage']    =   "settings";
+            $data['title']      =   "Settings";
+            $this->load->view('template.php', $data);
         }else{
             $this->session->set_flashdata('attempt_open', 'This is my message');
             redirect('/');

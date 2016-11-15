@@ -14,13 +14,13 @@ class Services extends CI_Controller
 	{
 		$details = array (
 			'services_content_db'	=>	$this->Services_model->get_services(),
-			'curpage'				=>	'services',
-			'servicesformat'		=>	'no',
-			'title'					=>	'Services'
+			'servicesformat'		=>	'no'
 		);
 
 		$data['content'] = $this->load->view('user/services/template_services.php',$details,TRUE);
-		$this->load->view('template.php', $details);
+		$data['curpage']	=	"services";
+		$data['title']		=	"Services";
+		$this->load->view('template.php', $data);
 	}
 
 	public function format($no)
@@ -32,6 +32,8 @@ class Services extends CI_Controller
 		);
 
 		$data['content'] = $this->load->view('user/services/template_services.php',$details,TRUE);
-		$this->load->view('template.php', $details);
+		$data['curpage']	=	"services";
+		$data['title']		=	"Services";
+		$this->load->view('template.php', $data);
 	}
 }

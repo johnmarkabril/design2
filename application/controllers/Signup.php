@@ -17,12 +17,16 @@ class Signup extends CI_Controller
 		$details = array (
 			// 'posted_content'	=>	$this->Postcontent_model->get_content(),
 			// 'recipes_content'	=>	$this->Recipes_model->get_content(),
-			'curpage'			=>	'signup',
-			'title'				=>	'Sign-up'
+			'curpage'			=>	'',
+			'title'				=>	''
 		);
 
 		// $data['content'] = $this->load->view('carouselimagescontent.php', $details, TRUE);
-		$this->load->view('template.php', $details);
+		// $this->load->view('template.php', $details);
+		$data['content'] = $this->load->view('signup.php',$details,TRUE);
+		$data['curpage']	=	"signup";
+		$data['title']		=	"Sign-up";
+		$this->load->view('template.php', $data);
 	}
 
 	public function insert_verify_no()

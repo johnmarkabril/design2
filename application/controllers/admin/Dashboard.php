@@ -9,6 +9,7 @@ class Dashboard extends CI_Controller
         $this->load->model('Users_model');
         $this->load->model('Purchaseproduct_model');
         $this->load->model('Postcontent_model');
+        $this->curpage = "Dashboard";
     }
 
 	public function index()
@@ -25,8 +26,6 @@ class Dashboard extends CI_Controller
 		}
 		
 		$details = array (
-			'curpage'				=> 	'Dashboard',
-			'title'					=> 	'Dashboard',
 			'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'get_content'			=>	$this->Purchaseproduct_model->get_content(),
 			'get_num_content'		=>	$this->Purchaseproduct_model->get_num_content(),
@@ -40,9 +39,13 @@ class Dashboard extends CI_Controller
 			'activity_month_ctr'	=>	0
 		);
 
-		$data['content']	= 	$this->load->view('admin/dashboard/dashboard_mid.php', $details, TRUE);
-		$data['content']	= 	$this->load->view('admin/dashboard/dashboard_top.php', $details, TRUE);
-		$data['content']	= 	$this->load->view('common/navside_admin.php', $details, TRUE);
+		// $data['content']	= 	$this->load->view('admin/dashboard/dashboard_mid.php', $details, TRUE);
+		// $data['content']	= 	$this->load->view('admin/dashboard/dashboard_top.php', $details, TRUE);
+		// $data['content']	= 	$this->load->view('common/navside_admin.php', $details, TRUE);
+		
+		$data['content'] = $this->load->view('admin/dashboard/dashboard_detail.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = "Dashboard";
 		$this->load->view('admin/template_admin.php', $data);
 	}
 }

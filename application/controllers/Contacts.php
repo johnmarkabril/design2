@@ -14,10 +14,11 @@ class Contacts extends CI_Controller
 	{
 		$details = array (
 			// 'posted_content'	=>	$this->Postcontent_model->get_content(),
-			'curpage'			=>	'contacts',
-			'title'				=>	'Contacts'
 		);
 
-		$this->load->view('template.php', $details);
+		$data['content']	=	$this->load->view('user/contacts/template_contacts.php', $details, TRUE);
+		$data['curpage']	=	"contacts";
+		$data['title']		=	"Contacts";
+		$this->load->view('template.php', $data);
 	}
 }

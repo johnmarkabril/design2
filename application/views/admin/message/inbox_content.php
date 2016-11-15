@@ -15,7 +15,7 @@
         </h2>
     </div>
     <div class="mail-box no-margin-bottom">
-        <div class="mail-body full-height">
+        <div class="mail-body">
             <table class="table table-hover table-mail">
                 <tbody>
                     <?php
@@ -27,8 +27,8 @@
                                         <td class="check-mail">
                                             <input type="checkbox" class="i-checks">
                                         </td>
-                                        <td class="mail-ontact text-size-inbox"><a href="<?php echo base_url(); ?>admin/message/inbox/content"><?php echo $gac->NAMEFROM; ?></a></td>
-                                        <td class="mail-subject text-size-inbox"><a href="<?php echo base_url(); ?>admin/message/inbox/content"><?php echo $gac->SUBJECT; ?></a></td>
+                                        <td class="mail-ontact text-size-inbox"><a href="<?php echo base_url(); ?>admin/inbox/content"><?php echo $gac->NAMEFROM; ?></a></td>
+                                        <td class="mail-subject text-size-inbox"><a href="<?php echo base_url(); ?>admin/inbox/content"><?php echo $gac->SUBJECT; ?></a></td>
                                         <td class="text-right mail-date">
                                             <h6>
                                                 <?php echo $gac->TIME;?>

@@ -85,11 +85,11 @@
                                 <?php foreach($permission_cntnt as $persub) : ?>
 
                                     <?php if ($persub == "Compose Message") { ?>
-                                            <li><a href="<?php echo base_url();?>admin/message/compose_message">Compose Message</a></li>
+                                            <li><a href="<?php echo base_url();?>admin/compose_message">Compose Message</a></li>
                                     <?php } ?>
 
                                     <?php if ($persub == "Inbox") { ?>
-                                            <li><a href="<?php echo base_url();?>admin/message/inbox">Inbox</a></li>
+                                            <li><a href="<?php echo base_url();?>admin/inbox">Inbox</a></li>
                                     <?php } ?>
 
                                 <?php endforeach; ?>
@@ -158,15 +158,15 @@
                                 <?php foreach($permission_cntnt as $persub) : ?>
 
                                     <?php if ($persub == "Product Category") { ?>
-                                        <li><a href="<?php echo base_url();?>admin/product/product_category">Product Category</a></li>
+                                        <li><a href="<?php echo base_url();?>admin/product_category">Product Category</a></li>
                                     <?php } ?>
 
                                     <?php if ($persub == "Product Grid") { ?>
-                                        <li><a href="<?php echo base_url();?>admin/product/product_grid">Product Grid</a></li>
+                                        <li><a href="<?php echo base_url();?>admin/product_grid">Product Grid</a></li>
                                     <?php } ?>
 
                                     <?php if ($persub == "Product Sales") { ?>
-                                        <li><a href="<?php echo base_url();?>admin/product/product_sales">Product Sales</a></li>
+                                        <li><a href="<?php echo base_url();?>admin/product_sales">Product Sales</a></li>
                                     <?php } ?>
                                     
                                 <?php endforeach; ?>

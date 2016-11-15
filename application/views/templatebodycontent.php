@@ -1,3 +1,4 @@
+<?php $this->load->view('carouselimagescontent.php'); ?>
 <div class="row">
 	<div class="col-md-8" id="page1">	
 		<?php $this->load->view('templatebodycontent_left.php'); ?>

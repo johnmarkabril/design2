@@ -19,11 +19,12 @@ class Events extends CI_Controller
 			// 'posted_content'	=>	$this->Postcontent_model->get_content(),
 			'popular_content'			=>	$this->Recipes_model->get_content_popular(),   
 			'get_content_active'		=>  $this->Aboutmysite_model->get_content_active(),
-			'categories_content'		=>  $this->Categories_model->get_content(),
-			'curpage'			=>	'events',
-			'title'				=>	'Events'
+			'categories_content'		=>  $this->Categories_model->get_content()
 		);
 
-		$this->load->view('template.php', $details);
+		$data['content']	=	$this->load->view('user/events/template_events.php', $details, TRUE);
+		$data['curpage']	=	"events";
+		$data['title']		=	"Events";
+		$this->load->view('template.php', $data);
 	}
 }

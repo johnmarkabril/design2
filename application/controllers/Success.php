@@ -15,13 +15,13 @@ class Success extends CI_Controller
 	{
 		if ($this->session->userdata('log_sess')){
 			$details = array (
-				'curpage'			=>	'success',
-				'title'				=>	'Purchased Success',
 				'prod_sell'			=>	$this->Recipes_model->get_specific_prod_sell($no)
 			);
 
 			$data['content'] = $this->load->view('user/success/success.php', $details, TRUE);
-			$this->load->view('template.php', $details);
+			$data['curpage']	=	"success";
+			$data['title']		=	"Purchased Success";
+			$this->load->view('template.php', $data);
 		}else{
 			$this->session->set_flashdata('attempt_open', 'This is my message');
 			redirect('/');

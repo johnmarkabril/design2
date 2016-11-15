@@ -10,17 +10,18 @@ class Notification extends CI_Controller
         $this->load->model('Postcontent_model');      
         $this->load->model('Recipes_model');  
         $this->load->model('Categories_model');  
+        $this->curpage = "Notification";
     }
 
 	public function index()
 	{
 		$details = array (
-			'curpage'			=>	'Notification',
-			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-			'title'				=>	'Notification'
+			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION)
 		);
 
 		$data['content'] = $this->load->view('admin/notification/notification_content.php', $details, TRUE);
-		$this->load->view('admin/template_admin.php', $details);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = $this->curpage;
+		$this->load->view('admin/template_admin.php', $data);
 	}
 }

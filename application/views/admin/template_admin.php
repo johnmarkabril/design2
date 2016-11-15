@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title><?php echo $title; ?></title>
-		<?php $this->load->view("common/css/css_files_includes_admin.php"); ?>
+		<?php $this->load->view("common/css_files_includes_admin.php"); ?>
 	</head>
 
 	<body>
@@ -12,68 +12,80 @@
 				redirect('/');
 			} else { 
 		?>
-				
+				<div id="wrapper">
 
-		<div id="wrapper">
+					<?php $this->load->view('common/navside_admin.php'); ?>
 
-		    <?php $this->load->view('common/navside_admin.php'); ?>
+					<div id="page-wrapper" class="gray-bg">
+				        <div class="row border-bottom">
+						    <?php $this->load->view('common/navtop_admin.php'); ?>
+					    </div>
 
-		    <div id="page-wrapper" class="gray-bg">
-	        	<div class="row border-bottom">
-			    	<?php $this->load->view('common/navtop_admin.php'); ?>
-		        </div>
+					    <div class="wrapper wrapper-content">
+							<hr/>
+					       	<?php
+					        	switch($curpage){
+					        		case 'Dashboard':
+					        			echo $content;
+					        			break;
+					        		case 'Inbox':
+					        			echo $content;
+					        			break;
+					        		case 'Compose Message':
+					        			echo $content;
+					        			break;
+					        		case 'Message Detail':
+					        			echo $content;
+					        			break;
+					        		case 'Notification':
+					        			echo $content;
+					        			break;
+					        		case 'Reports':
+					        			echo $content;
+					        			break;
+					        		case 'About My Site':
+					        			echo $content;
+					        			break;
+					        		case 'Advertisements':
+					        			echo $content;
+					        			break;
+					        		case 'PayPal Configuration':
+					        			echo $content;
+					        			break;
+					        		case 'Product Grid':
+					        			echo $content;
+					        			break;
+					        		case 'Product Category':
+					        			echo $content;
+					        			break;
+					        		case 'Product Sales':
+					        			echo $content;
+					        			break;
+					       			case 'Accounts':
+					        			echo $content;
+					        			break;
+					        		case 'Profile':
+					        			echo $content;
+					        			break;
+					        		case 'Reports':
+					        			echo $content;
+					        			break;
+					        		default:
+					        			echo $content;
+					        			break;
+					       		}
+					        ?>
+					    </div>
 
-		        <div class="wrapper wrapper-content">
-				<hr/>
-		        	<?php 
-		        		if ( $curpage == 'Dashboard' ) {
-		        			$this->load->view('admin/dashboard.php');
-		        		} else if ( $curpage == 'Inbox' ) {
-		        			$this->load->view('admin/message/inbox.php');
-		        		} else if ( $curpage == 'Compose Message' ) {
-		        			$this->load->view('admin/message/compose_message.php');
-		        		} else if ( $curpage == 'Message Detail' ) {
-		        			$this->load->view('admin/message/message_detail.php');
-		        		} else if ( $curpage == 'Notification' ) {
-		        			$this->load->view('admin/notification/notification_content.php');
-		        		} else if ( $curpage == 'Reports' ) {
-		        			$this->load->view('admin/reports/reports.php');
-		        		} else if ( $curpage == 'About My Site' ) {
-		        			$this->load->view('admin/settings/aboutmysite.php');
-		        		} else if ( $curpage == 'Advertisements' ) {
-		        			$this->load->view('admin/settings/advertisements.php');
-		        		} else if ( $curpage == 'Paypal Configuration' ) {
-		        			$this->load->view('admin/settings/paypal_configuration.php');
-		        		} else if ( $curpage == 'Product Grid' ) {
-		        			$this->load->view('admin/product/product_grid.php');
-		        		} else if ( $curpage == 'Product Category' ) {
-		        			$this->load->view('admin/product/product_category.php');
-		        		} else if ( $curpage == 'Product Sales' ) {
-		        			$this->load->view('admin/product/product_sales.php');
-		        		} else if ( $curpage == 'Accounts' ) {
-		        			$this->load->view('admin/usermanagement/accounts.php');
-		        		} else if ( $curpage == 'Co-Administrator' ) {
-		        			$this->load->view('admin/usermanagement/co_administrator.php');
-		        		} else if ( $curpage == 'Profile' ) {
-		        			$this->load->view('admin/profile/profile.php');
-		        		}
+				    </div>
 
-		        		// switch($curpage){
-		        		// 	case 'Message Detail':
-		        		// 		$this->load->view('admin/message/message_detail.php');
-		        		// 		break;
-		        		// }
-		        	?>
-		        </div>
-	        </div>
-
-    	</div>
+			   	</div>
 
 			
 		<?php 
 			}
 		?>
 
-		<?php $this->load->view("common/js/js_files_includes_admin.php"); ?>
+		<?php $this->load->view("common/js_files_includes_admin.php"); ?>
 	</body>
 </html>
