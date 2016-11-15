@@ -1,0 +1,78 @@
+.navbar-default .nav > li > a:hover,
+.navbar-default .nav > li > a:focus {
+  background-color: #293846;
+  color: white;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.half-width {
+	width: 50%;
+}
+
+.cus-img-width-mes {
+	width: 128px;
+	height: 128px;
+}
+
+.no-margin-bottom {
+	margin-bottom: 0px;
+}
+
+.pad-left {
+	padding-left: 20px;
+}
+
+.padding-top {
+	padding-top: 20px;
+}
+
+.padding-bottom {
+	padding-bottom: 20px;
+}
+
+.padding-bottom-ten {
+	padding-bottom: 10px;
+}
+
+.text-bold {
+	font-weight: bold;
+}
+
+.pad-bot-fiften {
+	padding-bottom: 15px;
+}
+
+.text-color-def {
+	color: #FF6BAE;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.half-height {
+	height: 50%; 	
+}
+
+.full-height {
+	height: 100%; 	
+}
+
+.no-margin-bottom {
+	margin-bottom: 0px;
+}
+
+.margin-top {
+	margin-top: 20px;
+}
+
+.text-size-inbox {
+	font-size: 13px;
+}
+
+.no-padding-top {
+	padding-top: 0px;
+}

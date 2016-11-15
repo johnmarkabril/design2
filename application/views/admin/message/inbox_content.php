@@ -15,7 +15,7 @@
         </h2>
     </div>
     <div class="mail-box no-margin-bottom">
-        <div class="mail-body">
+        <div class="mail-body full-height">
             <table class="table table-hover table-mail">
                 <tbody>
                     <?php

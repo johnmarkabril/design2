@@ -8,7 +8,7 @@
         </h5>
     </div>
     <div class="mail-box">
-        <div class="mail-body">
+        <div class="mail-body full-height">
             <p>
                 Hello John Mark!
                 <br/>

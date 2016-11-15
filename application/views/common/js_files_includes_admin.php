@@ -1,7 +1,7 @@
 
 <!-- fullcalendar-->
 <script src="<?php echo base_url();?>public/js/plugins/fullcalendar/moment.min.js"></script><!-- Mainly scripts -->
-<script src="<?php echo base_url();?>public/js/jquery-3.1.1.js"></script>
+<script src="<?php echo base_url();?>public/js/jquery-3.1.1.min.js"></script>
 <script src="<?php echo base_url();?>public/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
@@ -69,7 +69,7 @@
             if (title && status) {
                 // alert(title + status);
                 $.ajax ({
-                    url: "<?php echo base_url();?>admin/product/product_category/new_category",
+                    url: "<?php echo base_url();?>admin/product_category/new_category",
                     method: "POST",
                     data: {
                         title   : title,

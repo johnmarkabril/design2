@@ -1,0 +1,380 @@
+/* YOUR CUSTOM STYLES */
+body{
+	background-color: #ffffff;
+    background-image: url('/design2/public/img/wooden.jpg');
+}
+
+a {
+    color: black;
+}
+
+.wizard > .content > .body { position: relative; }
+
+.color-black {
+    color: #000000;
+}
+
+.border-bot{
+    border: 1px solid;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+}
+
+/*NAV BAR CENTER*/
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+/*END OF NAV BAR CENTER*/
+
+/*HOVER NAVTOP 2*/
+
+/*.nav2 ul.nav li:hover{ 
+    color: #ffffff !important; 
+    background-color: #94c724 ;
+}*/
+
+.navbar-default .navbar-nav > li > a:hover,.nav2 .navbar-default .navbar-nav > li > a:focus {
+    background-color: #FFFFFF;
+    color: #FF6BAE;
+}
+
+a:hover {
+    text-decoration: none;color: #FF6BAE;
+}
+
+/* END HOVER NAVTOP2*/
+
+#bg img {
+    position: fixed;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.green-hover > a:hover {
+    color: #8DB9AD;
+    text-decoration: none;
+}
+
+.weightninehund{
+    font-weight: 900;
+}
+.navbar-default {
+    margin-bottom: 0px;
+    border: 0px;
+}
+
+.cursor-pointer {
+	cursor:pointer;
+}
+
+.cursor-default {
+	cursor:default;
+}
+
+.color-forgot {
+	color:#e4e2e0;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.pad-left-twentyfive {
+    padding-left: 25px;
+}
+
+.no-padding-top-bottom {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.no-margin-top-bottom {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.pad-right-ten{
+	padding-right: 10px;
+}
+
+.no-pad-margin {
+    padding: 0px;
+    margin: 0px;
+}
+
+.navbar-form-custom .form-control {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    font-size: 14px;
+    height: 60px;
+    margin: 0;
+    z-index: 2000; 
+}
+.form-control, .form-control:focus, .has-error .form-control:focus, .has-success .form-control:focus, .has-warning .form-control:focus, .navbar-collapse, .navbar-form, .navbar-form-custom .form-control:focus, .navbar-form-custom .form-control:hover, .open .btn.dropdown-toggle, .panel, .popover, .progress, .progress-bar {
+    box-shadow: none; 
+}
+
+.form-control, .single-line {
+    background-color: white;
+    background-image: none;
+    border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    color: inherit;
+    display: block;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%; 
+}
+
+.form-control:focus, .single-line:focus {
+    border-color: #1ab394 !important; 
+}
+
+.has-success .form-control {
+    border-color: #1ab394; 
+}
+
+.has-warning .form-control {
+    border-color: #f8ac59; 
+}
+
+.has-error .form-control {
+    border-color: #ed5565; 
+}
+
+.form-control.error {
+    border: 1px dotted #cc5965; 
+}
+
+.form-control {
+    border: none;
+    border-bottom: 1px solid #d1dade; 
+    margin-bottom: 20px;
+}
+
+.no-pad-left{
+    padding-left: 0px;
+}
+
+.pad-bot{
+    padding-bottom: 20px;
+}
+
+.pad-top{
+    padding-top: 20px;
+}
+
+.pad-top-ten {
+    padding-top: 10px;
+}
+
+.pad-top-fiften {
+    padding-top: 15px;
+}
+
+.font-asap{
+    font-family: Asap;
+}
+
+.font-twelve {
+    font-size: 12px;
+}
+
+.font-seventen {
+    font-size: 17px;
+}
+
+.no-border{
+    border-radius: 0px;
+    border: 0px;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.color-white{
+    color: #FFFFFF;
+}
+
+.no-pad {
+    padding: 0px;
+}
+
+.no-mar {
+    margin: 0px;
+}
+
+.pad-top-ten {
+    padding-top: 10px;
+}
+
+.no-pad-bot {
+    padding-bottom: 0px;
+}
+
+.no-pad-top {
+    padding-top: 0px;
+}
+
+.no-mar-bot{
+    margin-bottom: 0px;
+}
+
+.pad-ten {
+    padding: 10px;
+}
+
+.color-red {
+    color: red;
+}
+
+.font-ten {
+    font-size: 10px;
+}
+
+.justify-text {
+    text-align: justify;
+}
+
+.border-right-dotted {
+    border: 2px dotted;
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+.pad-left {
+    padding-left: 10px;
+}
+
+.pad-right {
+    padding-right: 10px;
+}
+
+.border-dashed-bot{
+    border: 2px dashed;
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+}
+
+.bor-top-no {
+    border-top: 0px;
+}
+
+.admin-hover-black > a:hover {
+    color: black;
+}
+
+.pad-top-fiften {
+    padding-top: 15px;
+}
+
+.pad-top-ten {
+    padding-top: 10px;
+}
+
+.mar-top-ten {
+    margin-top: 10px;
+}
+
+.border-rad-ten {
+    border-radius: 10px;
+}
+
+.display-none{
+    display: none;
+}
+
+.design-price-recipe{
+    width: auto;
+    padding: 5px;
+    position:absolute;
+    right: 30;
+    top: 0;
+    border-radius: 5px; 
+    background-color: #9DE0D0; 
+    opacity: 1;
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+}
+
+.color-pink{
+     color: #FF65AE;
+}
+
+#temp_serv > img:hover{
+    border: 1px solid;
+}
+
+.title-events{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.jumbo-events-custom {
+    padding: 15px;  
+}
+
+.bgcolor-events-orange {
+    background-color: #e5ba5a;
+}
+
+.bgcolor-events-pink {
+    background-color: #ff6f6f;
+}
+
+.bgcolor-events-blue {
+    background-color: #2980b9;
+}
+
+.bgcolor-events-green {
+    background-color: #27ae60;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.wid-seventy {
+    width: 70%;
+}
+
+.wid-twentyfive {
+    width: 25%;
+}
+
+.no-bor-left-right {
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.text-left {
+    text-align: left;
+}
+
+#cat-con > img:hover {
+    border-radius: 50px;
+}
+
+.mar-ten {
+    margin: 10px;
+}
+
+.bor-rad {
+    border-radius: 5px;
+}
+
+.prod-prof {
+    height: 198px;
+}

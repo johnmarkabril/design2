@@ -8,7 +8,6 @@
 
 $(document).ready(function () {
 
-
     // Add body-small class if window less than 768px
     if ($(this).width() < 769) {
         $('body').addClass('body-small')
@@ -89,6 +88,7 @@ $(document).ready(function () {
         label.toggleClass('todo-completed');
         return false;
     });
+/*
 
     // Append config box / Only for demo purpose
     // Uncomment on server mode to enable XHR calls
@@ -96,7 +96,7 @@ $(document).ready(function () {
         if (!$('body').hasClass('no-skin-config'))
             $('body').append(data);
     });
-
+*/
     // Minimalize menu
     $('.navbar-minimalize').click(function () {
         $("body").toggleClass("mini-navbar");
