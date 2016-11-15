@@ -7,6 +7,7 @@ class Product_Grid extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Users_model');
+        $this->load->model('Recipes_model');
     }
 
 	public function index()
@@ -14,10 +15,12 @@ class Product_Grid extends CI_Controller
 		$details = array (
 			'curpage'	=> 	'Product Grid',
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'get_prod_sell'		=>	$this->Recipes_model->get_prod_sell(),
 			'title'		=> 	'Product Grid'
 		);
 
-		$this->load->view('admin/template_admin.php', $details);
+		$data['content'] = $this->load->view('admin/product/product_grid.php', $details, TRUE);
+		$this->load->view('admin/template_admin.php', $data);
 	}
 
 }

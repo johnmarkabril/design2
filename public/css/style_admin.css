@@ -33,6 +33,10 @@
 	padding-bottom: 20px;
 }
 
+.padding-bottom-ten {
+	padding-bottom: 10px;
+}
+
 .text-bold {
 	font-weight: bold;
 }
@@ -59,4 +63,16 @@
 
 .no-margin-bottom {
 	margin-bottom: 0px;
+}
+
+.margin-top {
+	margin-top: 20px;
+}
+
+.text-size-inbox {
+	font-size: 13px;
+}
+
+.no-padding-top {
+	padding-top: 0px;
 }

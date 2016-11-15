@@ -15,8 +15,10 @@
 			<?php if($sa->USERNAME != $user_data_logsess->USERNAME) {?>
 				<button type="button" class="btn btn-success btn-block">Subscribe</button>
 				<button type="button" class="btn btn-default btn-block">Message</button>
-			<?php } else {?>
-				<button type="button" class="btn btn-success btn-block">Settings</button>
+			<?php } else if ($curpage == 'profile') { ?>
+				<a href="<?php echo base_url();?>profile/settings/<?php echo $user_data_logsess->USERNAME; ?>" class="btn btn-success btn-block">Settings</a>
+			<?php } else if ($curpage == 'settings') { ?>
+				<a href="<?php echo base_url();?>profile/account/<?php echo $user_data_logsess->USERNAME; ?>" class="btn btn-success btn-block">Profile</a>
 			<?php } ?>
 		</div>
 
@@ -56,7 +58,15 @@
 		<div class="text-center">
 			<h3>About <?php echo $sa->NAME; ?></h3>
 			<div class="text-justify">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pellentesque mauris sed mauris venenatis maximus. Web developer of JMAE Company
+				<?php 
+					if (!empty($get_about_user)) { 
+						foreach ($get_about_user as $gas) {
+							echo $gas->ABOUTUS;
+						}
+					} else {
+						echo "No About us!";
+					}
+				?>
 			</div>
 		</div>
 

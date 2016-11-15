@@ -8,8 +8,11 @@
 <script src="<?php echo base_url();?>public/js/inspinia.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/pace/pace.min.js"></script>
 
+
+<script src="<?php echo base_url();?>public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
 <!-- DROPZONE -->
-<script src="<?php echo base_url();?>public/js/plugins/dropzone/dropzone.js"></script>
+<script src="<?php echo base_url();?>public/js/plugins/dropzone/dropzone.js"></script>  
 
 <!-- Steps -->
 <script src="<?php echo base_url();?>public/js/plugins/staps/jquery.steps.min.js"></script>
@@ -17,11 +20,18 @@
 <!-- Jquery Validate -->
 <script src="<?php echo base_url();?>public/js/plugins/validate/jquery.validate.min.js"></script>
 
+<!-- Image cropper -->
+<script src="<?php echo base_url();?>public/js/plugins/cropper/cropper.min.js"></script>
+
+<!-- Chosen -->
+<script src="<?php echo base_url();?>public/js/plugins/chosen/chosen.jquery.js"></script>
+
 <!-- GOOGLE MAP API -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5h8RE_Re9V9PJ-ROp7TKXQBKbMnWXDVE&callback=initMap">
 </script>
 
 <script>
+
 	// NOTIFY WHEN THE EMAIL OR PASSWORD IS INCORRECT
 	<?php 
 		if($this->session->flashdata('error_message')){
@@ -43,7 +53,57 @@
     <?php } ?>
 
     $(document).ready(function(){
-        
+        var config = {
+                '.chosen-select'           : {},
+                '.chosen-select-deselect'  : {allow_single_deselect:true},
+                '.chosen-select-no-single' : {disable_search_threshold:10},
+                '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+                '.chosen-select-width'     : {width:"95%"}
+                }
+            for (var selector in config) {
+                $(selector).chosen(config[selector]);
+            }
+
+        var $image = $(".image-crop > img")
+        $($image).cropper({
+            aspectRatio: 1.618,
+            preview: ".img-preview",
+            done: function(data) {
+                    // Output the result data for cropping image.
+            }
+        });
+
+        var $inputImage = $("#inputImage");
+        if (window.FileReader) {
+            $inputImage.change(function() {
+                var fileReader = new FileReader(),
+                    files = this.files,
+                    file;
+
+                if (!files.length) {
+                    return;
+                }
+
+                file = files[0];
+
+                if (/^image\/\w+$/.test(file.type)) {
+                    fileReader.readAsDataURL(file);
+                    fileReader.onload = function () {
+                        $inputImage.val("");
+                        $image.cropper("reset", true).cropper("replace", this.result);
+                    };
+                } else {
+                    showMessage("Please choose an image file.");
+                }   
+            });
+        } else {
+            $inputImage.addClass("hide");
+        }
+
+        $("#download").click(function() {
+            window.open($image.cropper("getDataURL"));
+        });
+
         // TOOLTIP AND POPOVER
         $('[data-toggle="tooltip"]').tooltip(); 
         $('[data-toggle="popover"]').popover();
@@ -415,5 +475,6 @@
                 }
             });
         }
+
     });
 </script>

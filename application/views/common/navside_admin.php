@@ -40,14 +40,10 @@
                     $dashactive = "active";
                 } else if ( $curpage == 'Inbox' ) {
                     $dashinbox  = "active";
-                } else if ( $curpage == 'Notification' ) {
-                    $dashnotif  = "active";
                 } else if ( $curpage == 'Compose Message' ) {
                     $dashinbox  = "active";
-                } else if ( $curpage == 'Local Inbox' ) {
-                    $dashinbox  = "active";
-                } else if ( $curpage == 'ComposeMail' ) {
-                    $dashinbox  = "active";
+                } else if ( $curpage == 'Notification' ) {
+                    $dashnotif  = "active";
                 } else if ( $curpage == 'Reports' ) {
                     $dashreport = "active";
                 } else if ( $curpage == 'About My Site' ) {
@@ -76,7 +72,7 @@
             <?php   if ($permission == "Dashboard") { ?>
 
                         <li class="<?php echo $dashactive; ?>">
-                            <a href="<?php echo base_url();?>admin/dashboard"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+                            <a href="<?php echo base_url();?>admin"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
                         </li>
 
             <?php   } ?>
@@ -88,21 +84,12 @@
                             <ul class="nav nav-second-level collapse">
                                 <?php foreach($permission_cntnt as $persub) : ?>
 
-                                    <?php if ($persub == "Mail Inbox") { ?>
-                                            <li><a href="<?php echo base_url();?>admin/message/inbox">Mail Inbox</a></li>
-                                    <?php } ?>
-
-                                    <?php if ($persub == "Local Inbox") { ?>
-                                            <li><a href="<?php echo base_url();?>admin/message/composemail">Compose Mail</a></li>
-                                    <?php } ?>
-
                                     <?php if ($persub == "Compose Message") { ?>
-                                            <li><a href="<?php echo base_url();?>admin/message/local_inbox">Local Inbox</a></li>
+                                            <li><a href="<?php echo base_url();?>admin/message/compose_message">Compose Message</a></li>
                                     <?php } ?>
 
-                                    <?php if ($persub == "Compose Mail") { ?>
-                                            <li><a href="<?php echo base_url();?>admin/message/compose_message">Compose Message</a></li>
-
+                                    <?php if ($persub == "Inbox") { ?>
+                                            <li><a href="<?php echo base_url();?>admin/message/inbox">Inbox</a></li>
                                     <?php } ?>
 
                                 <?php endforeach; ?>

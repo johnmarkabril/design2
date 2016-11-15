@@ -30,37 +30,27 @@
                     <div class="product-imitation no-pad">
                         <img src="<?php echo base_url(); ?>public/img/<?php echo $recipe->IMAGEURL;?>" class="img-responsive" />
                     </div>
-                    <div class="product-desc">
+                    <div class="product-desc"  style="height: 130px;">
                         <span class="product-price">
                             ₱ <?php echo $recipe->PRICE;?>
                         </span>
-                        <small class="text-muted"><?php echo $recipe->CATEGORIES; ?></small>
+                        <left  style="position: absolute; bottom: 0%;">
+                            <small class="text-muted"><?php echo $recipe->CATEGORIES; ?></small>
                             <a class="product-name" href="<?php echo base_url(); ?>recipes/sell/<?php echo $recipe->NO; ?>"> <?php echo $recipe->TITLE;?></a>
-                        <div class="small m-t-xs">
-                            <?php 
-                            $desc = substr($recipe->DESCRIPTION, 0, 150);
-
-                            $desc = explode("|", $desc);
-
-                            foreach ($desc as $descrip) {
-                            ?>
-                                    <div class="pad-top-fiften"><?php echo $descrip; ?>..</div>
-                            <?php
-                                }
-                            ?>
-                        </div>
-                        <div class="m-t text-righ text-center">
-                            <form method="POST">
-                                <?php if(!$this->session->userdata('log_sess')){ ?>
-                                    <input type="text" name="txtno" value="<?php echo $recipe->NO; ?>" hidden disabled/>
-                                    <a  data-toggle="modal" data-target="#loginModal" class="btn btn-xs btn-outline btn-primary">Buy Now <i class="fa fa-long-arrow-right"></i></a>
-                                <?php } else { ?>
-                                    <input type="text" name="txtno" value="<?php echo $recipe->NO; ?>" hidden/>
-                                    <!-- <button type="submit" class="btn btn-xs btn-outline btn-primary">Buy Now <i class="fa fa-long-arrow-right"></i></button> -->
-                                    <a class="btn btn-xs btn-outline btn-primary" href="<?php echo base_url(); ?>recipes/sell/<?php echo $recipe->NO; ?>">View Detail</a>
-                                <?php } ?>
-                            </form>
-                        </div>
+                            <div class="m-t text-righ text-center">
+                                <form method="POST">
+                                    <?php if(!$this->session->userdata('log_sess')){ ?>
+                                        <input type="text" name="txtno" value="<?php echo $recipe->NO; ?>" hidden disabled/>
+                                        <a  data-toggle="modal" data-target="#loginModal" class="btn btn-xs btn-outline btn-primary">Buy Now <i class="fa fa-long-arrow-right"></i></a>
+                                    <?php } else { ?>
+                                        <input type="text" name="txtno" value="<?php echo $recipe->NO; ?>" hidden/>
+                                        <!-- <button type="submit" class="btn btn-xs btn-outline btn-primary">Buy Now <i class="fa fa-long-arrow-right"></i></button> -->
+                                        <a class="btn btn-xs btn-outline btn-primary" href="<?php echo base_url(); ?>recipes/sell/<?php echo $recipe->NO; ?>">View Detail</a>
+                                    <?php } ?>
+                                </form>
+                            </div>
+                        </left>
+                        
                     </div>
                 </div>
             </div>

@@ -1,77 +1,39 @@
-<div class="animated fadeInRight">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="ibox">
-                <div class="ibox-content product-box">
-                    <div class="product-imitation">
-                        [ TEMPLATE ]
-                    </div>
-                    <div class="product-desc">
-                        <span class="product-price">
-                            $10
-                        </span>
-                        <small class="text-muted">Category</small>
-                        <a href="#" class="product-name"> Product</a>
-                        <div class="small m-t-xs">
-                            Many desktop publishing packages and web page editors now.
+<?php if (!empty($get_prod_sell)) { ?>
+    <center>
+        <input type="text" class="form-control half-width search" placeholder="Search Product" id="txt_search_prod_grid">
+    </center>
+    <div class="animated fadeInRight padding-top" id="productGridSearchList">
+        <div class="row">
+            <div class="list">
+            <?php foreach( $get_prod_sell as $gps ) : ?>
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <div>
+                                <img class="img-responsive " src="<?php echo base_url(); ?>public/img/<?php echo $gps->IMAGEURL;?>"/>
+                            </div>
+                            <div class="product-desc" style="height: 130px;">
+                                <span class="product-price">
+                                    <div class="prodtitle">
+                                        <?php 
+                                            if($gps->PRICE != "") { 
+                                                echo "₱ ".$gps->PRICE;
+                                            } else {
+                                                echo "FREE";
+                                            }
+                                        ?>
+                                    </div>
+                                </span>
+                                <left  style="position: absolute; bottom: 0%;">
+                                    <small class="text-muted" ><?php echo $gps->CATEGORIES; ?></small>
+                                    <a href="#" class="product-name"> <?php echo $gps->TITLE; ?></a>
+                                </left>
+                            </div>
                         </div>
-                        <center>
-                            <div class="m-t text-righ">
-                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                        </div>
-                        </center>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="ibox">
-                <div class="ibox-content product-box">
-                    <div class="product-imitation">
-                        [ TEMPLATE ]
-                    </div>
-                    <div class="product-desc">
-                        <span class="product-price">
-                            $10
-                        </span>
-                        <small class="text-muted">Category</small>
-                        <a href="#" class="product-name"> Product</a>
-                        <div class="small m-t-xs">
-                            Many desktop publishing packages and web page editors now.
-                        </div>
-                        <center>
-                            <div class="m-t text-righ">
-                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                        </div>
-                        </center>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="ibox">
-                <div class="ibox-content product-box">
-                    <div class="product-imitation">
-                        [ TEMPLATE ]
-                    </div>
-                    <div class="product-desc">
-                        <span class="product-price">
-                            $10
-                        </span>
-                        <small class="text-muted">Category</small>
-                        <a href="#" class="product-name"> Product</a>
-                        <div class="small m-t-xs">
-                            Many desktop publishing packages and web page editors now.
-                        </div>
-                        <center>
-                            <div class="m-t text-righ">
-                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                        </div>
-                        </center>
-                    </div>
-                </div>
+            <?php endforeach; ?>
             </div>
         </div>
     </div>
-</div>
-
+<?php } ?>

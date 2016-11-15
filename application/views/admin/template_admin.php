@@ -24,21 +24,18 @@
 		        </div>
 
 		        <div class="wrapper wrapper-content">
-		        	ADMIN / <?php echo strtoupper($curpage); ?>
 				<hr/>
 		        	<?php 
 		        		if ( $curpage == 'Dashboard' ) {
 		        			$this->load->view('admin/dashboard.php');
 		        		} else if ( $curpage == 'Inbox' ) {
 		        			$this->load->view('admin/message/inbox.php');
-		        		} else if ( $curpage == 'ComposeMail' ) {
-		        			$this->load->view('admin/message/compose_mail.php');
-		        		} else if ( $curpage == 'Notification' ) {
-		        			$this->load->view('admin/notification/notification_content.php');
-		        		} else if ( $curpage == 'Local Inbox' ) {
-		        			$this->load->view('admin/message/local_inbox.php');
 		        		} else if ( $curpage == 'Compose Message' ) {
 		        			$this->load->view('admin/message/compose_message.php');
+		        		} else if ( $curpage == 'Message Detail' ) {
+		        			$this->load->view('admin/message/message_detail.php');
+		        		} else if ( $curpage == 'Notification' ) {
+		        			$this->load->view('admin/notification/notification_content.php');
 		        		} else if ( $curpage == 'Reports' ) {
 		        			$this->load->view('admin/reports/reports.php');
 		        		} else if ( $curpage == 'About My Site' ) {
@@ -60,6 +57,12 @@
 		        		} else if ( $curpage == 'Profile' ) {
 		        			$this->load->view('admin/profile/profile.php');
 		        		}
+
+		        		// switch($curpage){
+		        		// 	case 'Message Detail':
+		        		// 		$this->load->view('admin/message/message_detail.php');
+		        		// 		break;
+		        		// }
 		        	?>
 		        </div>
 	        </div>

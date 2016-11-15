@@ -50,6 +50,10 @@
 	    					{
 	    						$this->load->view('user/success/success.php');
 	    					}
+	    					else if ($curpage == 'settings')
+	    					{
+	    						$this->load->view('user/settings/settings.php');
+	    					}
 
 
 	    					$this->load->view('templatefooter.php');

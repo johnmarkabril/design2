@@ -5,19 +5,19 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" id="category" name="category" value="" placeholder="Category" class="form-control">
+                            <input type="text" id="category_title" name="category" value="" placeholder="Category" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="form-group">
-                            <select name="status" id="status" class="form-control">
-                                <option value="1" selected>Enabled</option>
-                                <option value="0">Disabled</option>
+                            <select name="status" id="category_status" class="form-control">
+                                <option value="Enabled" selected>Enabled</option>
+                                <option value="Disabled">Disabled</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-1">
-                    	<input type="button" class="btn btn-success btn-sm pull-right" value="Save"/>
+                    	<input type="button" id="btn_new_category_save" class="btn btn-success btn-sm pull-right" value="Save"/>
                     </div>
                 </div>
             </div>
@@ -39,39 +39,40 @@
 
 	                                </tr>
 	                                </thead>
-	                                <tbody>
-		                                <tr>
-		                                    <td>
-		                                        Category 1
-		                                    </td>
-		                                    <td>
-		                                        320
-		                                    </td>
-		                                    <td>
-		                                        <span class="label label-primary">Enable</span>
-		                                    </td>
-		                                    <td class="text-right">
-		                                        <div class="btn-group">
-		                                            <button class="btn-white btn btn-xs">Edit</button>
-		                                        </div>
-		                                    </td>
-		                                </tr>
-		                                <tr>
-		                                    <td>
-		                                        Category 2
-		                                    </td>
-		                                    <td>
-		                                        26
-		                                    </td>
-		                                    <td>
-		                                        <span class="label label-danger">Disabled</span>
-		                                    </td>
-		                                    <td class="text-right">
-		                                        <div class="btn-group">
-		                                            <button class="btn-white btn btn-xs">Edit</button>
-		                                        </div>
-		                                    </td>
-		                                </tr>
+	                                <tbody id="pend-title">
+	                                
+	                                	<?php 
+	                                		if (!empty($get_content)) { 
+	                                	?>
+	                                	<?php
+	                                			foreach ($get_content as $gc) :
+	                                	?>
+					                                <tr>
+					                                    <td>
+					                                        <?php echo $gc->CATNAME; ?>
+					                                    </td>
+					                                    <td>
+					                                        320
+					                                    </td>
+					                                    <td>
+					                                    	<?php if ($gc->STATUS == 'Enabled') { ?>
+					                                        	<span class="label label-primary">Enabled</span>
+					                                        <?php } else { ?>
+					                                        	<span class="label label-danger">Disabled</span>
+					                                        <?php } ?>
+					                                    </td>
+					                                    <td class="text-right">
+					                                        <div class="btn-group">
+					                                            <button class="btn-white btn btn-xs">Edit</button>
+					                                        </div>
+					                                    </td>
+					                                </tr>
+		                                <?php 
+		                                		endforeach;
+		                                	} 
+		                                ?>
+	                                		
+	                                	<div id="new_added_cat"></div>
 	                                </tbody>
 	                            </table>
                             </div>

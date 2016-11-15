@@ -20,7 +20,11 @@
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/iCheck/custom.css">
 
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/cropper/cropper.min.css">
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/steps/jquery.steps.css">
+
+    <link href="<?php echo base_url();?>public/css/plugins/chosen/chosen.css" rel="stylesheet">
+
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/animate.css">

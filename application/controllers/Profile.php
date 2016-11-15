@@ -10,9 +10,11 @@ class Profile extends CI_Controller
         $this->load->model('Postcontent_model');  
         $this->load->model('Subscribe_model');   
         $this->load->model('Location_model');   
-        $this->load->model('Purchaseproduct_model');   
+        $this->load->model('Purchaseproduct_model'); 
+        $this->load->model('Aboutus_model');   
 
     }
+    
 	public function account($uname)
 	{
 		if ($this->session->userdata('log_sess') != null){
@@ -24,6 +26,7 @@ class Profile extends CI_Controller
 				'num_purchased'		=>	$this->Purchaseproduct_model->purchased_num_spec($uname),
 				'purchased'			=>	$this->Purchaseproduct_model->purchased_spec($uname),
 				'postedcont'		=>	$this->Postcontent_model->posted_spec($uname),
+                'get_about_user'    =>  $this->Aboutus_model->get_about_user($uname),
 				'curpage'			=>	'profile',
 				'title'				=>	'Profile',
 				'subscriber_ctr'	=>	'0'
@@ -36,7 +39,32 @@ class Profile extends CI_Controller
 		}
 	}
 
-	public function uploadImage(){
+    public function settings($uname)
+    {
+        if ($this->session->userdata('log_sess') != null){
+            $details = array (
+                'specific_account'  =>  $this->Users_model->get_specific_data($uname),
+                'num_subscriber'    =>  $this->Subscribe_model->get_subscriber($uname),
+                'get_location'      =>  $this->Location_model->get_location_place($uname),
+                'num_posted'        =>  $this->Postcontent_model->posted_num_spec($uname),
+                'num_purchased'     =>  $this->Purchaseproduct_model->purchased_num_spec($uname),
+                'purchased'         =>  $this->Purchaseproduct_model->purchased_spec($uname),
+                'postedcont'        =>  $this->Postcontent_model->posted_spec($uname),
+                'get_about_user'    =>  $this->Aboutus_model->get_about_user($uname),
+                'curpage'           =>  'settings',
+                'title'             =>  'Settings',
+                'subscriber_ctr'    =>  '0'
+            );
+
+            $this->load->view('template.php', $details);
+        }else{
+            $this->session->set_flashdata('attempt_open', 'This is my message');
+            redirect('/');
+        }
+    }
+
+	public function uploadImage()
+    {
         $uploadfile =  $_SERVER['DOCUMENT_ROOT']."/design2/public/img/".$_FILES["image"]["name"];
         // $tar
         move_uploaded_file($_FILES["image"]["name"], $uploadfile);
@@ -44,8 +72,8 @@ class Profile extends CI_Controller
         // echo $tar;
     }
 
-    public function addRecipe(){
-
+    public function addRecipe()
+    {
     	date_default_timezone_set("Asia/Manila");
     	$date = date("F d, Y g:i A");
 

@@ -10,7 +10,9 @@
     </a>
 </div>
 <div class="panel-heading no-border mar-top-ten cursor-pointer" style="background-color: #9DE0D0;">
-    <div class="font-seventen color-white text-center">SETTINGS</div>
+    <a href="<?php echo base_url();?>profile/settings/<?php echo $user_data_logsess->USERNAME; ?>">
+        <div class="font-seventen color-white text-center">SETTINGS</div>
+    </a>
 </div>
 <div class="panel-heading no-border mar-top-ten cursor-pointer" style="background-color: #FF426F;">
     <a href="<?php echo base_url();?>logout">
