@@ -22,7 +22,8 @@
 					    </div>
 
 					    <div class="wrapper wrapper-content">
-							<hr/>
+					    	ADMIN / <?php echo strtoupper($curpage); ?>
+						<hr/>
 					       	<?php
 					        	switch($curpage){
 					        		case 'Dashboard':

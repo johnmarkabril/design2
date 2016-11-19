@@ -33,7 +33,7 @@ class Inbox extends CI_Controller
 		$this->load->view('admin/template_admin.php', $data);
 	}
 
-	public function content()
+	public function content($hash)
 	{
 		date_default_timezone_set("Asia/Manila");
     	$date = date("F d, Y");
@@ -44,6 +44,7 @@ class Inbox extends CI_Controller
 			'user_data_logsess' => 	$user_data_logsess,
 			'get_all_content'	=>	$this->Messages_model->get_all_content($user_data_logsess->EMAIL),
 			'get_num_rows_mess' =>	$this->Messages_model->get_all_numrows($user_data_logsess->EMAIL),
+			'get_spec_mess'		=>	$this->Messages_model->get_specific_mess($hash,$user_data_logsess->EMAIL),
 			'dateCom'			=>	$date,	
 		);
 

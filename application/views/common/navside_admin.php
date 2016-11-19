@@ -48,8 +48,6 @@
                     $dashreport = "active";
                 } else if ( $curpage == 'About My Site' ) {
                     $dashsetting = "active";
-                } else if ( $curpage == 'Advertisements' ) {
-                    $dashsetting = "active";
                 } else if ( $curpage == 'Paypal Configuration' ) {
                     $dashsetting = "active";
                 } else if ( $curpage == 'Product Grid' ) {
@@ -133,10 +131,6 @@
 
                                     <?php if ($persub == "About My Site") { ?>
                                         <li><a href="<?php echo base_url();?>admin/about_my_site">About My Site</a></li>
-                                    <?php } ?>
-
-                                    <?php if ($persub == "Advertisements") { ?>
-                                        <li><a href="<?php echo base_url();?>admin/advertisements">Advertisements</a></li>
                                     <?php } ?>
 
                                     <?php if ($persub == "PayPal Configuration") { ?>

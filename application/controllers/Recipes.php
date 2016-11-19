@@ -8,7 +8,8 @@ class Recipes extends CI_Controller
         parent::__construct();
         $this->load->model('Users_model');
         $this->load->model('Postcontent_model');    
-        $this->load->model('Recipes_model');  
+        $this->load->model('Recipes_model');      
+        $this->load->model('Paypal_model');  
     }
 
 	public function index()
@@ -42,12 +43,16 @@ class Recipes extends CI_Controller
 	{
 		if ($this->session->userdata('account_type') == 'User')
 		{
+			$paypal_enable = $this->Paypal_model->get_paypal_enable();
+			foreach ($paypal_enable as $pe) {
+				$paypal_email = $pe->PAYPAL_EMAIL;
+			}
 			$details = array (
-				'curpage'			=> 'recipedetail',
-				'title'				=> 'Recipe Detail',
-				'recipe_detail'		=> $this->Recipes_model->get_specific_prod_sell($no),
-				'paypal_url'		=> 'https://www.paypal.com/cgi-bin/webscr',
-				'paypal_id'			=> 'jmaethesis@gmail.com'
+				'curpage'			=> 	'recipedetail',
+				'title'				=> 	'Recipe Detail',
+				'recipe_detail'		=> 	$this->Recipes_model->get_specific_prod_sell($no),
+				'paypal_url'		=> 	'https://www.paypal.com/cgi-bin/webscr',
+				'paypal_id'			=> 	$paypal_email
 			);
 
 			$data['content'] = $this->load->view('user/recipes/recipes_content.php', $details, TRUE);

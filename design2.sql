@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2016 at 02:28 AM
+-- Generation Time: Nov 19, 2016 at 11:42 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -89,7 +89,8 @@ INSERT INTO `categories` (`NO`, `CATNAME`, `STATUS`) VALUES
 (3, 'CAKES', 'Enabled'),
 (4, 'CANDIES', 'Enabled'),
 (5, 'FRAPPE', 'Disabled'),
-(7, 'COOKIES', 'Enabled');
+(7, 'COOKIES', 'Enabled'),
+(8, 'MALLOWS', 'Enabled');
 
 -- --------------------------------------------------------
 
@@ -475,7 +476,11 @@ INSERT INTO `comment_section_post` (`NO`, `NAME`, `EMAIL`, `COMMENTHERE`, `DATEC
 (372, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'Pretty good! I was sceptical at first, because the batter was runny, and looked pale and almost unappetising after cooked. But I gave it a chance, and dressed it up with frosting to look pretty. The cake was actually really delicious, light and almost refreshing.', 'October 11, 2016 12:24 AM', '25', 'DESIGN2'),
 (373, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'I made these for a big family on Easter yesterday and they were a huge hit. They were all shocked they were vegan and so very light. The cake turned out perfect, light and mild in lemon flavor. The icing was a no go the first time as it separated and went clumpy when I followed the directions to the letter. I remade the icing by mixing the sugar with just a little milk, adding vanilla and more margarine. I figured the lemon was causing the separation so I omitted that.', 'October 11, 2016 12:24 AM', '25', 'DESIGN2'),
 (374, 'Jm Abril', 'johnmark_abri12l@yahoo.com', 'This is so delicious. Great recipe.', 'October 16, 2016 4:45 PM', '55', 'DESIGN2'),
-(375, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'Testing\n', 'November 14, 2016 3:16 AM', '57', 'DESIGN2');
+(375, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'Testing\n', 'November 14, 2016 3:16 AM', '57', 'DESIGN2'),
+(376, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'asdf', 'November 16, 2016 4:51 AM', '56', 'DESIGN2'),
+(377, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'eqweqweq', 'November 16, 2016 4:51 AM', '56', 'DESIGN2'),
+(378, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'asdfasdfasdf', 'November 16, 2016 5:30 AM', '55', 'DESIGN2'),
+(379, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'asdf', 'November 16, 2016 7:47 AM', '55', 'DESIGN2');
 
 -- --------------------------------------------------------
 
@@ -528,8 +533,9 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`NO`, `SUBJECT`, `NAMEFROM`, `EMAILFROM`, `EMAILTO`, `DATE`, `TIME`, `BODYCONTENT`, `DELETION`, `UNREAD`, `HASHNOEMAIL`) VALUES
-(1, 'Best Sweet and Pastries', 'Mae Gregorio', 'maegregorio@gmail.com', 'johnmarkabril@gmail.com', 'November 15, 2016', '05:15 AM', 'Hello John Mark! \r\n\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\r\n\r\nIt was popularised in the 1960s with the release Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nThere are many variations of passages of Lorem IpsumLorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t look even slightly believable. If you are going to use a passage of.', 0, 0, 'dbfdb5b3d2824022041e7f59e20559bf'),
-(2, 'TESTING SUBJECT', 'Mae Gregorio', 'maegregorio@gmail.com', 'johnmarkabril@gmail.com', 'November 15, 2016', '07:56 AM', 'Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing ', 0, 0, '96699d8528d578d4e6e1a58c95a0b4c9');
+(1, 'Best Sweet and Pastries', 'Mae Gregorio', 'maegregorio@gmail.com', 'johnmarkabril@gmail.com', 'November 15, 2016', '05:15 AM', 'Hello John Mark! \n\\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\\n\nIt was popularised in the 1960s with the release Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\\n\nThere are many variations of passages of Lorem IpsumLorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t look even slightly believable. If you are going to use a passage of.', 0, 0, 'dbfdb5b3d2824022041e7f59e20559bf'),
+(2, 'Testing Subject', 'Mae Gregorio', 'maegregorio@gmail.com', 'johnmarkabril@gmail.com', 'November 15, 2016', '07:56 AM', 'Testing Testing Testing Testing Testing Testing Testing Testing Testing\\n Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing\\n Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing ', 0, 0, '96699d8528d578d4e6e1a58c95a0b4c9'),
+(3, 'This is a subject', 'Johnmark Abril', 'johnmarkabril@gmail.com', 'maegregorio@gmail.com', 'November 16, 2016', '3:24 PM', 'Hello Farrah Mae!\n\\n\nThis is only a testing. Thank you.', 0, 0, '84308bfb9a9d09fc31df0b2d61958920');
 
 -- --------------------------------------------------------
 
@@ -541,15 +547,17 @@ CREATE TABLE `paypal_configuration` (
   `NO` int(11) NOT NULL,
   `NAME` varchar(100) NOT NULL,
   `ACCOUNT_TYPE` varchar(100) NOT NULL,
-  `PAYPAL_EMAIL` varchar(500) NOT NULL
+  `PAYPAL_EMAIL` varchar(500) NOT NULL,
+  `STATUS` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `paypal_configuration`
 --
 
-INSERT INTO `paypal_configuration` (`NO`, `NAME`, `ACCOUNT_TYPE`, `PAYPAL_EMAIL`) VALUES
-(1, 'Johnmark Abril', 'Administrator', 'johnmarkabril@gmail.com');
+INSERT INTO `paypal_configuration` (`NO`, `NAME`, `ACCOUNT_TYPE`, `PAYPAL_EMAIL`, `STATUS`) VALUES
+(0, 'Johnmark Abril', 'Administrator', 'jmaethesis@gmail.com', 'enabled'),
+(2, 'Johnmark Abril', 'Administrator', 'maegregorio_paypal@gmail.com', 'disabled');
 
 -- --------------------------------------------------------
 
@@ -612,8 +620,8 @@ INSERT INTO `posted` (`NO`, `NAME`, `USERNAME`, `ACCOUNT_TYPE`, `TITLE`, `IMAGEU
 (33, 'Mae Gregorio', 'gregs17', 'Administrator', 'FROG CUPCAKES', 'frog-cup.jpg', '"Brilliant! I made these cupcakes for the kids'' table at our annual family picnic, and they were a huge hit with the kids as well as the adults."', 'October 10, 2016 04:57 PM', 'DESIGN2', '24| cupcakes, cooked and prepared for frosting|\r\n2 cups| green frosting|\r\n24| gumdrops, green|\r\n48| white chocolate chips|\r\n1pc| black decorating gel|\r\n', 'FREE', '', 'CUPCAKES'),
 (34, 'Mae Gregroio', '', 'Administrator', 'PECAN PIE CUPCAKES', 'pecan-pie.jpg', '"Awesome little cupcake — no one could eat just one! To prevent them from sticking to the pan, flip them out as soon as they come out of the oven."', 'October 10, 2016 04:58 PM', 'DESIGN2', '1 cup| chopped pecans|\r\n1?2 cup| all-purpose flour|\r\n1 cup| packed brown sugar|\r\n2?3 cup| butter, melted|\r\n2| eggs|\r\n', 'FREE', '', 'CUPCAKES'),
 (35, 'Mae Gregorio', 'gregs17', 'Administrator', 'BLACK BOTTOM CUPCAKES', 'black-bottom.jpg', '"It''s a good thing there were other people in the house when I made these cupcakes, because I''d have eaten them all by myself! I LOVE how moist they are! I made some with and without the almonds, and they were great both ways."', 'October 10, 2016 04:59 PM', 'DESIGN2', '2 cups| flour|\r\n1 cup| sugar|\r\n1?4 cup| cocoa|\r\n1 teaspoon| baking soda|\r\n1?2 teaspoon| salt|\r\n1 cup| water, plus|\r\n2 tablespoons| water|\r\n1?3 cup| oil, plus|\r\n1 tablespoon| oil|\r\n1 tablespoon| vinegar|\r\n1 teaspoon| vanilla|\r\n1 cup| chocolate chips|\r\n1 (8 ounce) package| cream cheese, softened|\r\n1?3 cup| powdered sugar|\r\n1pc| slivered almonds, if desired|\r\n', 'SELL', '140.00', 'CUPCAKES'),
-(36, 'Mae Gregroio', '', 'Administrator', 'CHURRO CUPCAKES', 'churro-cup.jpg', '"These were very easy to make and they tasted fantastic."', 'October 10, 2016 05:00 PM', 'DESIGN2', '1 1?2 cups| all-purpose flour|\r\n1 1?2 teaspoons| cinnamon|\r\n1 1?2 teaspoons| baking powder|\r\n1?2 teaspoon| salt|\r\n1?2 cup| unsalted butter, at room temperature (1 stick)|\r\n1 cup| sugar|\r\n2| eggs|\r\n2 teaspoons| vanilla extract|\r\n1?4 cup| vegetable oil|\r\n1?2 cup| milk|\r\n4 ounces| cream cheese, at room temperature|\r\n4 tablespoons| unsalted butter, at room temperature|\r\n2 cups| confectioners'' sugar|\r\n1 teaspoon| vanilla extract|\r\n1 teaspoon| cinnamon|\r\n', 'FREE', '', 'CUPCAKES'),
-(38, 'Mae Gregroio', '', 'Administrator', 'RAINBOW BRIGHT CUPCAKES', 'rainbow-bright.jpg', 'Kids and adults alike will love these festive rainbow cupcakes! Their secret ingredient (sour cream — shhh!) makes them extra rich.', 'October 10, 2016 05:02 PM', 'DESIGN2', '1 (18 ounce) box| yellow cake mix|\r\n4| eggs|\r\n1?2 cup| vegetable oil|\r\n1?2 cup| water|\r\n8 ounces| sour cream|\r\n1 small| vanilla instant pudding mix|\r\n1pc| food coloring (Red, Blue, Yellow, Green and Purple)|\r\n1pc| vanilla or cream cheese frosting, of choice|\r\n', 'FREE', '', 'CUPCAKES'),
+(36, 'John Mark Abril', 'jmabril17', 'Administrator', 'CHURRO CUPCAKES', 'churro-cup.jpg', '"These were very easy to make and they tasted fantastic."', 'October 10, 2016 05:00 PM', 'DESIGN2', '1 1?2 cups| all-purpose flour|\r\n1 1?2 teaspoons| cinnamon|\r\n1 1?2 teaspoons| baking powder|\r\n1?2 teaspoon| salt|\r\n1?2 cup| unsalted butter, at room temperature (1 stick)|\r\n1 cup| sugar|\r\n2| eggs|\r\n2 teaspoons| vanilla extract|\r\n1?4 cup| vegetable oil|\r\n1?2 cup| milk|\r\n4 ounces| cream cheese, at room temperature|\r\n4 tablespoons| unsalted butter, at room temperature|\r\n2 cups| confectioners'' sugar|\r\n1 teaspoon| vanilla extract|\r\n1 teaspoon| cinnamon|\r\n', 'FREE', '', 'CUPCAKES'),
+(38, 'Johnmark Abril', 'jbril17', 'Administrator', 'RAINBOW BRIGHT CUPCAKES', 'rainbow-bright.jpg', 'Kids and adults alike will love these festive rainbow cupcakes! Their secret ingredient (sour cream — shhh!) makes them extra rich.', 'October 10, 2016 05:02 PM', 'DESIGN2', '1 (18 ounce) box| yellow cake mix|\r\n4| eggs|\r\n1?2 cup| vegetable oil|\r\n1?2 cup| water|\r\n8 ounces| sour cream|\r\n1 small| vanilla instant pudding mix|\r\n1pc| food coloring (Red, Blue, Yellow, Green and Purple)|\r\n1pc| vanilla or cream cheese frosting, of choice|\r\n', 'FREE', '', 'CUPCAKES'),
 (40, 'Mae Gregorio', 'gregs17', 'Administrator', 'BANANA WALNUT CUPCAKES WITH CREAM CHEESE FROSTING', 'banana-walnut.jpg', '"These cupcakes are wonderful. They were a hit! They were great the first day and even the second day. I will definitely be making these cupcakes a lot."', 'October 10, 2016 05:04 PM', 'DESIGN2', '1 cup| flour|\r\n2| bananas (mashed)|\r\n1?2 teaspoon| baking soda|\r\n1?4 teaspoon| salt|\r\n1 teaspoon| vanilla|\r\n1?2 cup| granulated sugar|\r\n3?4 cup| brown sugar|\r\n2| eggs|\r\n1?2 cup| butter|\r\n3?4 cup| walnuts (in small pieces)|\r\n1?4 cup| vanilla yogurt|\r\n4 ounces| cream cheese|\r\n1 teaspoon| vanilla|\r\n1 3?4 cups| confectioners'' sugar|\r\n', 'FREE', '', 'CUPCAKES'),
 (41, 'Mae Gregorio', 'gregs17', 'Administrator', 'PINK LEMONADE CUPCAKES', 'pink-lemonade.jpg', '"These cupcakes are so moist, not to mention that they have the perfect balance of sweet and tangy! I took them to a ladies'' tea and they were a big hit."', 'October 10, 2016 05:05 PM', 'DESIGN2', '1 cup| all-purpose flour|\r\n1?2 teaspoon| baking powder|\r\n1?4 teaspoon| baking soda|\r\n1 pinch| salt|\r\n1?2 cup| granulated sugar|\r\n1?4 cup| canola oil|\r\n2| egg whites|\r\n1?3 cup| frozen pink lemonade concentrate, thawed|\r\n1?4 cup| buttermilk|\r\n3 drops| red food coloring|\r\n1 1?2 cups| icing sugar, sifted to remove lumps (or more as needed)|\r\n1?2 cup| unsalted butter, room temp|\r\n1 pinch| salt|\r\n1?4 cup| whipping cream|\r\n2 teaspoons| frozen pink lemonade concentrate, thawed|\r\n1 teaspoon| lemon extract|\r\n3 drops| red food coloring|\r\n', 'FREE', '', 'CUPCAKES'),
 (42, 'Mae Gregorio', 'gregs17', 'Administrator', 'ONE-BOWL CHOCOLATE CUPCAKES', 'one-bowl.jpg', '"This is so easy to make! It receives great reviews from my family, who said it''s fluffy and moist, but not too rich."', 'October 10, 2016 05:06 PM', 'DESIGN2', '3?4 cup| unsweetened cocoa powder|\r\n1 1?2 cups| all-purpose flour|\r\n1 1?2 cups |sugar|\r\n1 1?2 teaspoons| baking soda|\r\n3?4 teaspoon| baking powder|\r\n3?4 teaspoon| salt|\r\n2| large eggs|\r\n3?4 cup| warm water|\r\n3?4 cup| buttermilk|\r\n3 tablespoons| safflower oil|\r\n1 teaspoon| pure vanilla extract|\r\n', 'FREE', '', 'CUPCAKES'),
@@ -843,12 +851,12 @@ ALTER TABLE `about_user`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `comment_section_post`
 --
 ALTER TABLE `comment_section_post`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=376;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=380;
 --
 -- AUTO_INCREMENT for table `location`
 --
@@ -858,12 +866,12 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `paypal_configuration`
 --
 ALTER TABLE `paypal_configuration`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `posted`
 --

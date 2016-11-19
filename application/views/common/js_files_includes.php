@@ -54,6 +54,27 @@
     <?php } ?>
 
     $(document).ready(function(){
+
+        $("#set_per_in_btn_sub").click(function(){
+            var set_per_in_fname    = $("#set_per_in_fname").val();
+            var set_per_in_sname    = $("#set_per_in_sname").val();
+            var set_per_in_uname    = $("#set_per_in_uname").val();
+            var set_per_in_pnum     = $("#set_per_in_pnum").val();
+            var set_per_in_email    = $("#set_per_in_email").val();
+            var set_per_in_pword    = $("#set_per_in_pword").val();
+            var set_per_in_conpword = $("#set_per_in_conpword").val();
+
+            // if (set_per_in_pword != ""){
+            //     if (set_per_in_pword == set_per_in_conpword)
+            // }else{
+            //     if ( set_per_in_fname || set_per_in_sname ||set_per_in_uname || set_per_in_pnum || set_per_in_email){
+                    
+            //     }else{
+            //         toastr.error("Please fill up one of the fields!");
+            //     }
+            // }
+        });
+
         var config = {
                 '.chosen-select'           : {},
                 '.chosen-select-deselect'  : {allow_single_deselect:true},

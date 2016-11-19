@@ -39,9 +39,14 @@ class Messages_model extends CI_Model
 		$row = 	$this->db->where($this->deletion, "0")
 						 ->where($this->hashnoemail, $hash)
 						 ->where($this->emailto, $email)
-						 ->limit(1)
+						 ->limit(1,0)
 					 	 ->get($this->table);
-		return $row->num_rows();
+		return $row->result();
+	}
+
+	function insert_message($params)
+	{
+		$this->db->insert($this->table, $params);
 	}
 
 }

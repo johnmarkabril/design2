@@ -69,4 +69,13 @@ class Recipes_model extends CI_Model
 				 		 ->get($this->table);
 		return $row->result();	
 	}
+
+	function get_prod_sells()
+	{
+		$row = 	$this->db->where($this->templatename, 'DESIGN2')
+						 ->where($this->command, 'SELL')
+						 ->order_by($this->dbno, "DESC")
+				 		 ->get($this->table);
+		return $row->result();	
+	}
 }

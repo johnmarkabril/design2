@@ -62,6 +62,103 @@
 
 <script>
     $(document).ready(function() {
+        
+
+
+        $("#btn_update_paypal_account").click(function(){
+            var txt_paypal_email_upd    = $("#txt_paypal_email_upd").val();
+            var paypal_email_status     = $("#paypal_email_status").val();
+            var emailCheck = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(txt_paypal_email_upd);
+            if ( txt_paypal_email_upd ) {
+                if ( emailCheck ) {
+                    $.ajax ({
+                        url: "<?php echo base_url();?>admin/paypal_configuration/updated_account",
+                        method: "POST",
+                        data: {
+                            paypal_email      : txt_paypal_email_upd,
+                            paypal_status     : paypal_email_status
+                        },
+                        success:function(data){
+                            location.reload();
+                        },
+                        error:function(){
+                            location.reload();
+                        }
+                    });
+                } else {
+                    toastr.error("Email address is invalid");
+                }
+            } else {
+                toastr.error("Please fill-up the field!");
+            }
+        });
+
+        $("#btn_paypal_save_new").click(function(){
+            var paypal_email = $("#txt_paypal_email").val();
+            var emailCheck = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(paypal_email);
+            if (paypal_email) {
+                if (emailCheck){
+                    $.ajax ({
+                        url: "<?php echo base_url();?>admin/paypal_configuration/new_account",
+                        method: "POST",
+                        data: {
+                            paypal_email      : paypal_email
+                        },
+                        success:function(data){
+                            $("#txt_paypal_email").val("");
+                            toastr.success("Saved new account!");
+                        },
+                        error:function(){
+                            toastr.error("Error!");
+                        }
+                    });
+                }else{
+                    toastr.error("Email address is invalid");
+                }
+            }else{
+                toastr.error("Please fill-up the field!");
+            }
+        });
+
+        $('#btn_send_comp').click(function(){
+            var compEmailTo = $("#txt_comp_emailto").val();
+            var compSubject = $("#txt_comp_subject").val();
+            var compMessage = $("#txt_comp_message").val();
+            var emailCheck = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(compEmailTo);
+            if ( compEmailTo && compMessage && compSubject ){
+                if ( emailCheck ){
+                    if ("<?php echo $this->session->userdata('log_sess')->EMAIL ?>" != compEmailTo){
+
+                        $.ajax ({
+                            url: "<?php echo base_url();?>admin/compose_message/sent_message",
+                            method: "POST",
+                            data: {
+                                EmailTo      : compEmailTo,
+                                SubjectComp  : compSubject,
+                                MessageComp  : compMessage
+                            },
+                            success:function(data){
+                                $("#txt_comp_emailto").val("");
+                                $("#txt_comp_subject").val("");
+                                $("#txt_comp_message").val("");
+                                toastr.success("Message sent!");
+                                // console.log(data);
+                            },
+                            error:function(){
+                                toastr.error("Error!");
+                            }
+                        });
+                    }else{
+                        toastr.error("Message sending failed!");
+                    }
+                }else{
+                    toastr.error("Incorrect format of Email Address");
+                }
+            }else{
+                toastr.error("Please fill up the fields!");
+            }
+        });
+
         $('#btn_new_category_save').click(function(){
             var title = $("#category_title").val();
             var status = $("#category_status").val();
@@ -101,7 +198,7 @@
                         toastr.success("New Category Added");
                     },
                     error:function(){
-                        //statement;
+                        toastr.error("Error!");
                     }
                 });
             } else {
@@ -134,6 +231,12 @@
         };
 
         var prodGrid = new List('productGridSearchList', options);
+
+        var options = {
+            valueNames: [ 'email_name' , 'mail_subj' ]
+        };
+
+        var searchInbox = new List('inbox_email_search', options);
 
         $('.i-checks').iCheck({
             checkboxClass: 'icheckbox_square-green',

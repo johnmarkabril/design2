@@ -1,12 +1,10 @@
+<div  id="inbox_email_search">
     <div class="mail-box-header">
 
-        <form method="get" action="index.html" class="pull-right mail-search">
+        <form class="pull-right mail-search">
             <div class="input-group">
-                <input type="text" class="form-control input-sm" name="search" placeholder="Search email">
+                <input type="text" class="form-control input-sm search" name="search" placeholder="Search email">
                 <div class="input-group-btn">
-                    <button type="submit" class="btn btn-sm btn-primary">
-                         Search
-                    </button>
                 </div>
             </div>
         </form>
@@ -17,7 +15,7 @@
     <div class="mail-box no-margin-bottom">
         <div class="mail-body full-height">
             <table class="table table-hover table-mail">
-                <tbody>
+                <tbody class="list">
                     <?php
                         if ( !empty($get_all_content) ) {
                             foreach ( $get_all_content as  $gac ) :
@@ -27,8 +25,8 @@
                                         <td class="check-mail">
                                             <input type="checkbox" class="i-checks">
                                         </td>
-                                        <td class="mail-ontact text-size-inbox"><a href="<?php echo base_url(); ?>admin/inbox/content"><?php echo $gac->NAMEFROM; ?></a></td>
-                                        <td class="mail-subject text-size-inbox"><a href="<?php echo base_url(); ?>admin/inbox/content"><?php echo $gac->SUBJECT; ?></a></td>
+                                        <td class="email_name mail-ontact text-size-inbox"><a href="<?php echo base_url(); ?>admin/inbox/content/<?php echo $gac->HASHNOEMAIL;?>"><?php echo $gac->NAMEFROM; ?></a></td>
+                                        <td class="mail_subj mail-subject text-size-inbox"><a href="<?php echo base_url(); ?>admin/inbox/content/<?php echo $gac->HASHNOEMAIL;?>"><?php echo $gac->SUBJECT; ?></a></td>
                                         <td class="text-right mail-date">
                                             <h6>
                                                 <?php echo $gac->TIME;?>
@@ -60,3 +58,4 @@
         </div>
         <div class="clearfix"></div>
     </div>
+</div>
