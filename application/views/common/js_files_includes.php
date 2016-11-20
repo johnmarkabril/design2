@@ -4,6 +4,8 @@
 
 <script src="<?php echo base_url();?>public/js/plugins/toastr/toastr.min.js"></script>
 
+<script src="<?php echo base_url();?>public/js/jquery.md5.js"></script>
+
 <!-- CUSTOM AND PLUGIN JAVASCRIPT -->
 <script src="<?php echo base_url();?>public/js/inspinia.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/pace/pace.min.js"></script>
@@ -54,26 +56,126 @@
     <?php } ?>
 
     $(document).ready(function(){
+        
+        $("#set_ot_in_btn_sub_ski").click(function(){
+            var set_ot_in_skills    = $("#set_ot_in_skills").val();
+            if ( !set_ot_in_skills ) {
+                toastr.error("Select one skill to update!");
+            } else {
+                $.ajax ({
+                    url: "<?php echo base_url();?>profile/update_personal_skills",
+                    method: "POST",
+                    data: {
+                        set_ot_in_skills : set_ot_in_skills
+                    },
+                    success:function(data){
+                        location.reload();
+                        // console.log(data);
+                    },
+                    error:function(){
+                        toastr.error("Error!");
+                    }
+                });
+            } 
+        });
 
         $("#set_per_in_btn_sub").click(function(){
             var set_per_in_fname    = $("#set_per_in_fname").val();
             var set_per_in_sname    = $("#set_per_in_sname").val();
-            var set_per_in_uname    = $("#set_per_in_uname").val();
             var set_per_in_pnum     = $("#set_per_in_pnum").val();
             var set_per_in_email    = $("#set_per_in_email").val();
             var set_per_in_pword    = $("#set_per_in_pword").val();
             var set_per_in_conpword = $("#set_per_in_conpword").val();
 
-            // if (set_per_in_pword != ""){
-            //     if (set_per_in_pword == set_per_in_conpword)
-            // }else{
-            //     if ( set_per_in_fname || set_per_in_sname ||set_per_in_uname || set_per_in_pnum || set_per_in_email){
-                    
-            //     }else{
-            //         toastr.error("Please fill up one of the fields!");
-            //     }
-            // }
+            var checkEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(set_per_in_email);
+
+            var set_def_fullname    = $("#set_def_fullname").val();
+            var set_def_pnum        = $("#set_def_pnum").val();
+            var set_def_email       = $("#set_def_email").val();
+            var set_def_pword       = $("#set_def_pword").val();
+            
+            var ctr_fullname;
+            var ctr_num;
+            var ctr_email;
+            var ctr_password;
+
+            if ( set_per_in_fname || set_per_in_sname || set_per_in_pnum || set_per_in_email || set_per_in_pword || set_per_in_conpword){
+                
+                if ( !set_per_in_fname && !set_per_in_sname ) {
+                    ctr_fullname = set_def_fullname;
+                } else {
+                    ctr_fullname = set_per_in_fname + " " + set_per_in_sname;
+                }
+
+                if ( !set_per_in_pnum ) {
+                    ctr_num = set_def_pnum;
+                } else {
+                    ctr_num = set_per_in_pnum;
+                }
+
+                if ( !checkEmail ){
+                    ctr_email = set_def_email;
+                } else {
+                    ctr_email = set_per_in_email;
+                }
+
+                if ( !set_per_in_pword ) {
+                    ctr_password = set_def_pword;
+                } else {
+                    if ( set_per_in_pword == set_per_in_conpword ) {
+                        ctr_password = set_per_in_pword;
+                    } else {
+                        ctr_password = set_def_pword;
+                    }
+                }
+
+                var params = {
+                    NAME        : ctr_fullname,
+                    PHONENUMBER : ctr_num,
+                    EMAIL       : ctr_email,
+                    PASSWORD    : ctr_password
+                };
+                // console.log(ctr_password);
+                $.ajax ({
+                    url: "<?php echo base_url();?>profile/update_personal_information",
+                    method: "POST",
+                    data: {
+                        params : params
+                    },
+                    success:function(data){
+                        location.reload();
+                    },
+                    error:function(){
+                        toastr.error("Error!");
+                    }
+                });
+            }else{
+                    toastr.error("Please fill up one of the fields!");
+            }
         });
+
+        $('#set_ot_in_btn_sub').click(function(){
+            var set_ot_in_about = $('#set_ot_in_about').val();
+
+            if ( set_ot_in_about != "" ) {
+                $.ajax ({
+                    url: "<?php echo base_url();?>profile/update_about_me",
+                    method: "POST",
+                    data: {
+                        set_ot_in_about : set_ot_in_about
+                    },
+                    success:function(data){
+                        location.reload();
+                    },
+                    error:function(){
+                        toastr.error("Error!");
+                    }
+                });
+            } else {
+                toastr.error("Please fill up the field!");
+            }
+        });
+
 
         var config = {
                 '.chosen-select'           : {},

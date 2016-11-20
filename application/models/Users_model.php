@@ -69,4 +69,14 @@ class Users_model extends CI_Model
 
 				return $row->result();
 	}
+
+	function update_personal_infor($params, $uname) {
+        $this->db->where($this->uname, $uname);	
+        $this->db->update($this->table, $params); 
+	}
+
+	function update_skills($params, $uname){
+        $this->db->where($this->uname, $uname);	
+        $this->db->update($this->table, $params);
+	}
 }

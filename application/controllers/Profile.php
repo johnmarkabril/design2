@@ -12,7 +12,7 @@ class Profile extends CI_Controller
         $this->load->model('Location_model');   
         $this->load->model('Purchaseproduct_model'); 
         $this->load->model('Aboutus_model');   
-
+        
     }
     
 	public function account($uname)
@@ -102,4 +102,38 @@ class Profile extends CI_Controller
 
     // public function index(){
     // }
+    public function update_about_me()
+    {
+        $usernameSess = $this->session->userdata('log_sess')->USERNAME;
+        $params = array (
+            'ABOUTUS'   =>   $this->input->post('set_ot_in_about')
+        );
+
+        $this->Aboutus_model->update_about_user($params, $usernameSess);
+    }
+
+    public function update_personal_information()
+    {
+        $usernameSess = $this->session->userdata('log_sess')->USERNAME;
+
+        $this->Users_model->update_personal_infor($this->input->post('params'), $usernameSess);
+    }
+
+    public function update_personal_skills()
+    {
+        $usernameSess = $this->session->userdata('log_sess')->USERNAME;
+        $skill = $this->input->post('set_ot_in_skills');
+
+        $new = "";
+
+        foreach ($skill as $sk) {
+            $new .= $sk;
+        }
+
+        $params = array (
+            'SKILLS'    =>  rtrim($new, "|")
+        );
+
+        $this->Users_model->update_skills($params, $usernameSess);
+    }
 }

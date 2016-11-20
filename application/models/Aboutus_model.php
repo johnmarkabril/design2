@@ -23,4 +23,9 @@ class Aboutus_model extends CI_Model
 	function insert_user_location($params){
 		$this->db->insert($this->table, $params);
 	}
+
+	function update_about_user($params, $username){
+        $this->db->where($this->uname, $username);	
+        $this->db->update($this->table, $params); 
+	}
 }
