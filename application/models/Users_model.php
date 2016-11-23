@@ -16,6 +16,7 @@ class Users_model extends CI_Model
 	public $templatename			= 'TEMPLATENAME';
 	public $verified				= 'VERIFIED';
 	public $verificationcode		= 'VERIFICATIONCODE';
+	public $regtime					= 'REG_TIME';
 
 	function __construct()
 	{
@@ -78,5 +79,24 @@ class Users_model extends CI_Model
 	function update_skills($params, $uname){
         $this->db->where($this->uname, $uname);	
         $this->db->update($this->table, $params);
+	}
+
+	function get_num_rows_all_user() {
+		$row = $this->db->get($this->table);
+
+		return $row->num_rows();
+	}
+
+	function get_num_rows_curmonth($c_m){
+		$row = $this->db->like($this->regtime, $c_m)
+						->get($this->table);
+
+		return $row->num_rows();
+	}
+
+	function get_all_user(){
+		$row = $this->db->get($this->table);
+
+		return $row->result();
 	}
 }

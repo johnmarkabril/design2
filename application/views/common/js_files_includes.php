@@ -299,10 +299,38 @@
 
         // START OF CONTACT RIGHT FORM BUTTON SUBMIT
         $('#btn_fc_submit_comment').click(function(){
-            $name   =   $('#cf_name').val();
-            $email  =   $('#cf_email').val();
-        });
+            var name   =   $('#cf_name').val();
+            var email  =   $('#cf_email').val();
+            var phone   =   $('#cf_phone').val();
+            var comment  =   $('#cf_commenthere').val();
 
+            if ( name && email && phone && comment ) {
+
+                $.ajax({
+                    url: "<?php echo base_url(); ?>contacts/insert_contact",
+                    method: "POST",
+                    data: {
+                        name    : name,
+                        email   : email,
+                        phone   : phone,
+                        comment : comment
+                    },
+                    success:function(data){
+                        $('#cf_name').val("");
+                        $('#cf_email').val("");
+                        $('#cf_phone').val("");
+                        $('#cf_commenthere').val("");
+                        toastr.success("Message sent!");
+                    },error:function(){
+                        toastr.error("ERROR");
+                    }
+                });
+
+            } else {
+                toastr.error("Please Fill-up all fields!");
+            }
+
+        });
     });
 
     // GOOGLE MAP API CODE START

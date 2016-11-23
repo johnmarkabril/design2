@@ -12,8 +12,15 @@ class Accounts extends CI_Controller
 
 	public function index()
 	{
+    	date_default_timezone_set("Asia/Manila");
+		$date = date("F");
+
 		$details = array (
-			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION)
+			'permission_cntnt'			=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'get_num_rows_all_user'		=>	$this->Users_model->get_num_rows_all_user(),
+			'get_num_rows_curmonth'		=>	$this->Users_model->get_num_rows_curmonth($date),
+			'get_all_user'				=>  $this->Users_model->get_all_user()
+
 		);
 
 		$data['content'] = $this->load->view('admin/usermanagement/accounts.php', $details, TRUE);
