@@ -27,7 +27,6 @@ class Users_model extends CI_Model
 		$row = 	$this->db->where($this->email, $c_email)
 				 		 ->where($this->password, md5($c_password))
 				 		 ->where($this->activated, 0)
-				 		 ->where($this->templatename, 'DESIGN2')
 				 		 ->where($this->verified, 'YES')
 				  		 ->limit(1)
 				 		 ->get($this->table);
@@ -48,7 +47,6 @@ class Users_model extends CI_Model
 						 ->where($this->uname, $su_uname)
 						 ->where($this->password, $su_pword)
 				 		 ->where($this->verificationcode, $su_emailcode)
-				 		 ->where($this->templatename, 'DESIGN2')
 				 		 ->where($this->verified, 'NO')
 				 		 ->get($this->table);
 
@@ -63,7 +61,6 @@ class Users_model extends CI_Model
 
 	function get_specific_data($uname) {
 		$row =	$this->db->where($this->uname, $uname)
-						->where($this->templatename, 'DESIGN2')
 						->limit(1)
 						->get($this->table);
 
@@ -78,5 +75,12 @@ class Users_model extends CI_Model
 	function update_skills($params, $uname){
         $this->db->where($this->uname, $uname);	
         $this->db->update($this->table, $params);
+	}
+
+	function get_all_admin(){
+		$row = $this->db->where($this->acc_type, "Administrator")
+						->get($this->table);
+
+		return $row->result();
 	}
 }

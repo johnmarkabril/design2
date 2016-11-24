@@ -13,7 +13,8 @@ class Co_Administrator extends CI_Controller
 	public function index()
 	{
 		$details = array (
-			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION)
+			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'get_all_admin'		=>	$this->Users_model->get_all_admin()
 		);
 
 		$data['content'] = $this->load->view('admin/usermanagement/co_administrator.php', $details, TRUE);
