@@ -2,15 +2,16 @@
 		<div class="ibox">
             <div class="ibox-title">
                 Update PayPal Configuration Account
+                <span class="pull-right"><a data-toggle="modal" data-target="#modalPayPal">Save new account!</a></span>
             </div>
             <div class="ibox-content full-height">
             	<div class="row">
-	            	<div class="col-md-3">
+	            	<div class="col-md-4">
 	            		<center>
 	            		<img style="height:300px;" class="img-responsive" src="<?php echo base_url(); ?>public/img/paypal.png" />
 	            		</center>
 	            	</div>
-	            	<div class="col-md-9">
+	            	<div class="col-md-8">
 	            		<p style="text-align: justify;">PayPal Holdings, Inc. is an American company operating a worldwide online payments system that supports online money transfers and serves as an electronic alternative to traditional paper methods like checks and money orders.</p>
 	            		<br/>
 	                    <label>Email Address</label>

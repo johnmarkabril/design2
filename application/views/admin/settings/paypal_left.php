@@ -1,7 +1,7 @@
         <div class="ibox">
             <div class="ibox-title">
                 PayPal Configuration Account List
-                <span class="pull-right"><a data-toggle="modal" data-target="#modalPayPal">Save new account!</a></span>
+                
             </div>
             <div class="ibox-content full-height">
                 <input type="text" class="form-control" placeholder="Search an Email address"/>

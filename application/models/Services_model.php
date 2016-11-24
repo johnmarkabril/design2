@@ -6,6 +6,7 @@ if (!defined('BASEPATH'))
 class Services_model extends CI_Model
 {
 	public $table 				= "services";
+	public $contacttable 		= "contactsform";
 	public $dbno 					= "NO";
 
 	function __construct()
@@ -22,5 +23,9 @@ class Services_model extends CI_Model
 		$row = 	$this->db->where($this->dbno, $no)
 						 ->get($this->table);
 		return $row->result();
+	}
+
+	function insert_contant($params){
+		$this->db->insert($this->contacttable, $params);
 	}
 }
