@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2016 at 11:42 AM
+-- Generation Time: Nov 27, 2016 at 11:10 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -485,6 +485,48 @@ INSERT INTO `comment_section_post` (`NO`, `NAME`, `EMAIL`, `COMMENTHERE`, `DATEC
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contactsform`
+--
+
+CREATE TABLE `contactsform` (
+  `NO` int(11) NOT NULL,
+  `NAME` varchar(500) NOT NULL,
+  `EMAIL` varchar(500) NOT NULL,
+  `PHONE` varchar(500) NOT NULL,
+  `MESSAGE` varchar(5000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contactsform`
+--
+
+INSERT INTO `contactsform` (`NO`, `NAME`, `EMAIL`, `PHONE`, `MESSAGE`) VALUES
+(1, 'Testing', 'Testing', 'Testing', 'Testing');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `NO` int(11) NOT NULL,
+  `TITLE` varchar(255) NOT NULL,
+  `DESCRIPTION` varchar(5000) NOT NULL,
+  `DATE` varchar(100) NOT NULL,
+  `NAME` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`NO`, `TITLE`, `DESCRIPTION`, `DATE`, `NAME`) VALUES
+(1, 'Testing Event Title', 'Testing Event Description', 'November 25, 2016', 'Johnmark Abril');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `location`
 --
 
@@ -728,7 +770,7 @@ CREATE TABLE `user` (
   `EMAIL` varchar(255) NOT NULL,
   `PASSWORD` varchar(50) NOT NULL,
   `ACCOUNT_TYPE` varchar(50) NOT NULL,
-  `REG_TIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `REG_TIME` varchar(100) NOT NULL,
   `ACTIVATED` tinyint(4) NOT NULL,
   `TEMPLATENAME` varchar(50) NOT NULL,
   `VERIFIED` varchar(50) NOT NULL,
@@ -743,18 +785,18 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASSWORD`, `ACCOUNT_TYPE`, `REG_TIME`, `ACTIVATED`, `TEMPLATENAME`, `VERIFIED`, `VERIFICATIONCODE`, `PERMISSION`, `SKILLS`, `IMAGEURL`) VALUES
-(3, 'John Mark Abril', 'jmabril17', '09208317004', 'johnmark_abri12l@yahoo.com', '89daf6d74eeceabf2e74efe50f41c9b2', 'User', '2016-09-21 19:25:23', 0, 'DESIGN2', 'YES', '', '', 'Web Developer|Chef', 'prof3.jpg'),
-(4, 'Mae Gregorio', 'gregs17', '09306625692', 'maegregorio@gmail.com', '7950b6bd370f715554900616819ffc4e', 'Administrator', '2016-09-21 19:43:18', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|', '', 'prof1.jpg'),
-(18, 'Testing First Name Testing Last Name', 'Testinguname123', '09123456789', 'testing@testing.com', '7f2ababa423061c509f4923dd04b6cf1', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', ''),
-(23, 'John Doe', 'Johndoe123', '09123654789', 'johndoe@example.com', 'bb2d91d0fbbebe8719509ed0f865c63f', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', ''),
-(24, 'Vincent Barcelona', 'vincent123', '09321654987', 'vincent@gmail.com', '52fee26031644aacd7c23ade329939f0', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', 'Programmer', 'vincent.jpg'),
-(25, 'Angelo Santos', 'angelozxc', '09123456789', 'angelosantos@gmail.com', '5fc7702a5bfc833795dad0cbf963512e', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '.Net Developer', 'firstprof.png'),
-(26, 'Dave Dizon', 'dave123', '09321654987', 'dave@gmail.com', '479a7c6866f00e1c35c97272e18b3739', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
-(27, 'Cielo Macion', 'cielomacion', '09789654123', 'cielo@gmail.com', '9d09d95d493cc27c05c0889a8eb8fbd2', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
-(28, 'Marimar Farina', 'marimar', '09789456123', 'marimar@gmail.com', 'c1af0c8792502845520239550a966f85', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
-(29, 'Coleen Moralidad', 'coleen', '09231564897', 'coleen@gmail.com', '921247cfe542c29ce7a4b3fb8a881d69', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
-(30, 'Merie Rose Palay', 'merierose', '09546879213', 'merierose@gmail.com', '14aabec76f651c48d0c5dcb3ac66fd7e', 'User', '0000-00-00 00:00:00', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
-(31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '34c87211821751f911c058bbf0cfb822', 'Administrator', '2016-11-12 22:28:00', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Advertisements|PayPal Configuration|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', 'prof3.jpg');
+(3, 'John Mark Abril', 'jmabril17', '09208317004', 'johnmark_abri12l@yahoo.com', '89daf6d74eeceabf2e74efe50f41c9b2', 'User', 'September 17, 2016 10:11 AM', 0, 'DESIGN2', 'YES', '', '', 'Web Developer|Chef', 'prof3.jpg'),
+(4, 'Mae Gregorio', 'gregs17', '09306625692', 'maegregorio@gmail.com', '7950b6bd370f715554900616819ffc4e', 'Administrator', 'September 23, 2016 12:15 PM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|', '', 'prof1.jpg'),
+(18, 'Testing First Name Testing Last Name', 'Testinguname123', '09123456789', 'testing@testing.com', '7f2ababa423061c509f4923dd04b6cf1', 'User', 'September 25, 2016 5:13 PM', 0, 'DESIGN2', 'YES', '', '', '', ''),
+(23, 'John Doe', 'Johndoe123', '09123654789', 'johndoe@example.com', 'bb2d91d0fbbebe8719509ed0f865c63f', 'User', 'Octoberber 22, 2016 2:13 PM', 0, 'DESIGN2', 'YES', '', '', '', ''),
+(24, 'Vincent Barcelona', 'vincent123', '09321654987', 'vincent@gmail.com', '52fee26031644aacd7c23ade329939f0', 'User', 'Octoberber 23, 2016 1:46 PM', 0, 'DESIGN2', 'YES', '', '', 'Programmer', 'vincent.jpg'),
+(25, 'Angelo Santos', 'angelozxc', '09123456789', 'angelosantos@gmail.com', '5fc7702a5bfc833795dad0cbf963512e', 'User', 'Octoberber 24, 2016 1:15 PM', 0, 'DESIGN2', 'YES', '', '', '.Net Developer', 'firstprof.png'),
+(26, 'Dave Dizon', 'dave123', '09321654987', 'dave@gmail.com', '479a7c6866f00e1c35c97272e18b3739', 'User', 'Octoberber 25, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
+(27, 'Cielo Macion', 'cielomacion', '09789654123', 'cielo@gmail.com', '9d09d95d493cc27c05c0889a8eb8fbd2', 'User', 'Octoberber 25, 2016 10:39 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
+(28, 'Marimar Farina', 'marimar', '09789456123', 'marimar@gmail.com', 'c1af0c8792502845520239550a966f85', 'User', 'Octoberber 26, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
+(29, 'Coleen Moralidad', 'coleen', '09231564897', 'coleen@gmail.com', '921247cfe542c29ce7a4b3fb8a881d69', 'User', 'November 23, 2016 10:57 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
+(30, 'Merie Rose Palay', 'merierose', '09546879213', 'merierose@gmail.com', '14aabec76f651c48d0c5dcb3ac66fd7e', 'User', 'November 22, 2016 11:28 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png'),
+(31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '34c87211821751f911c058bbf0cfb822', 'Administrator', 'November 21, 2016 11:36 AM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Advertisements|PayPal Configuration|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', 'prof3.jpg');
 
 --
 -- Indexes for dumped tables
@@ -782,6 +824,18 @@ ALTER TABLE `categories`
 -- Indexes for table `comment_section_post`
 --
 ALTER TABLE `comment_section_post`
+  ADD PRIMARY KEY (`NO`);
+
+--
+-- Indexes for table `contactsform`
+--
+ALTER TABLE `contactsform`
+  ADD PRIMARY KEY (`NO`);
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
   ADD PRIMARY KEY (`NO`);
 
 --
@@ -857,6 +911,16 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `comment_section_post`
   MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=380;
+--
+-- AUTO_INCREMENT for table `contactsform`
+--
+ALTER TABLE `contactsform`
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `location`
 --
