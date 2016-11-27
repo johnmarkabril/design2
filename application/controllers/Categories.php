@@ -9,13 +9,15 @@ class Categories extends CI_Controller
         $this->load->model('Users_model');
         $this->load->model('Postcontent_model');      
         $this->load->model('Recipes_model');        
-        $this->load->model('Categories_model'); 
+        $this->load->model('Categories_model');   
+        $this->load->model('Aboutmysite_model'); 
     }
 
 	public function name($cat)
 	{
 		$details = array (
 			'get_content_cat'			=>	$this->Categories_model->get_categ($cat),
+			'get_content_active'		=>  $this->Aboutmysite_model->get_content_active(),
 			'popular_content'			=>	$this->Recipes_model->get_content_popular(),
 			'categories_content'		=>  $this->Categories_model->get_content(),
 			'curpage'			=>	'categories',
