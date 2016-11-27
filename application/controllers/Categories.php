@@ -15,8 +15,7 @@ class Categories extends CI_Controller
 	public function name($cat)
 	{
 		$details = array (
-			// 'posted_content'	=>	$this->Postcontent_model->get_content(),get_content_cat
-			'get_content_cat'			=>	$this->Postcontent_model->get_content_cat(),
+			'get_content_cat'			=>	$this->Categories_model->get_categ($cat),
 			'popular_content'			=>	$this->Recipes_model->get_content_popular(),
 			'categories_content'		=>  $this->Categories_model->get_content(),
 			'curpage'			=>	'categories',

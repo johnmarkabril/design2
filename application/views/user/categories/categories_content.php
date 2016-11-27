@@ -2,24 +2,50 @@
 	<h1>Categories</h1>
 </div>
 <hr>
-	<h5> <a href="<?php echo base_url();?>">HOME</a> / <span style="color: #FF65AE;">CATEGORIES</span> <span> / CUPCAKES</span></a></h5>
+	<h5> <a href="<?php echo base_url();?>">HOME</a> / <span style="color: #FF65AE;">CATEGORIES</span> <span> / <?php echo $this->uri->segment(3);?></span></a></h5>
 <hr>
-<center>
-	<input type="text" class="form-control text-center" style="width: 30%;" placeholder="Search .." />
-</center>
 <div class="row">
-	<div class="col-md-12">
-		<?php foreach($get_content_cat as $gcc) { ?>
-			<div class="col-md-4">
-				<div class="panel panel-default no-border">
-			  		<div class="panel-body no-pad">
-			  			<div id="cat-con">
-			  				<img class="img-responsive" src="<?php echo base_url(); ?>public/img/<?php echo $gcc->IMAGEURL; ?>"/>
-			  			</div>
-			  			<h4 style="font-weight: bold;height: 20px;" class="text-center"><a href="<?php echo base_url();?>post/link/<?php echo $gcc->NO;?>"><?php echo $gcc->TITLE;?></a></h4>
-			  		</div>
-				</div>
-			</div>
-		<?php } ?>
+	<div class="col-md-8">
+		<?php
+			if ( !empty($get_content_cat) ) {
+		?>
+			<center>
+				<input type="text" class="form-control text-center" placeholder="Search .." />
+			</center>
+				<div class="animated fadeInRight padding-top" id="productGridSearchList">
+			        <div class="row">
+			            <div class="list">
+				            <?php foreach( $get_content_cat as $gcc ) : ?>
+				                <div class="col-md-3">
+				                    <div class="ibox">
+				                        <div class="ibox-content product-box">
+				                            <div>
+				                                <img class="img-responsive " src="<?php echo base_url(); ?>public/img/<?php echo $gcc->IMAGEURL;?>"/>
+				                            </div>
+				                            <div class="product-desc" style="height: 100px;">
+				                                <left>
+				                                    <small class="text-muted" ><?php echo $gcc->TITLE; ?></small>
+				                                </left>
+				                            </div>
+				                        </div>
+				                    </div>
+				                </div>
+				            <?php endforeach; ?>
+			            </div>
+			        </div>
+			    </div>
+				
+		<?php
+			} else {
+		?>
+			<center>
+				<h1>NO RECIPES AVAILABLE!</h1>
+			</center>
+		<?php
+			}
+		?>
+	</div>
+	<div class="col-md-4">
+		<?php $this->load->view('templatebodycontent_right.php'); ?>
 	</div>
 </div>	

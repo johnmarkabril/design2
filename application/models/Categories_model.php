@@ -6,8 +6,10 @@ if (!defined('BASEPATH'))
 class Categories_model extends CI_Model
 {
 	public $table 		 			= "categories";
+	public $tableposted				= "posted";
 	public $dbno 					= "NO";
 	public $catname 				= "CATNAME";
+	public $category 				= "CATEGORIES";
 	public $status 					= "STATUS";
 
 	function __construct()
@@ -36,4 +38,11 @@ class Categories_model extends CI_Model
 		$this->db->insert($this->table, $params);
 	}
 
+	function get_categ($cat)
+	{
+		$row = 	$this->db->order_by($this->dbno, "DESC")
+						 ->where($this->category, $cat)
+					 	 ->get($this->tableposted);
+		return $row->result();
+	}
 }
