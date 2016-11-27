@@ -1,10 +1,4 @@
-<!-- <div class="jumbotron jumbo-events-custom bgcolor-events-orange">
-	<div class="text-center title-events">Title of the events</div>
-	<hr/>
-  	<div>
-  		Description of events
-  	</div>
-</div> -->
+
 
         <div class="jumbotron product-box animated fadeInRight" style="background-color: #ffffff; padding: 20px;">
             <div class="row">
