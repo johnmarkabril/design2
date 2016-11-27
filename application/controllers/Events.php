@@ -10,7 +10,8 @@ class Events extends CI_Controller
         $this->load->model('Postcontent_model');      
         $this->load->model('Recipes_model');  
         $this->load->model('Categories_model');     
-        $this->load->model('Aboutmysite_model');  
+        $this->load->model('Aboutmysite_model');     
+        $this->load->model('Events_model');  
     }
 
 	public function index()
@@ -19,7 +20,9 @@ class Events extends CI_Controller
 			// 'posted_content'	=>	$this->Postcontent_model->get_content(),
 			'popular_content'			=>	$this->Recipes_model->get_content_popular(),   
 			'get_content_active'		=>  $this->Aboutmysite_model->get_content_active(),
-			'categories_content'		=>  $this->Categories_model->get_content()
+			'categories_content'		=>  $this->Categories_model->get_content(),
+			'get_all_events'			=>  $this->Events_model->get_all_events()
+
 		);
 
 		$data['content']	=	$this->load->view('user/events/template_events.php', $details, TRUE);

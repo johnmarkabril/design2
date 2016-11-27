@@ -8,6 +8,7 @@ class Events_model extends CI_Model
 	public $table 		 			= "events";
 	public $dbno 					= "NO";
 	public $title 					= "TITLE";
+	public $description				= "DESCRIPTION";
 	// public $active 					= "ACTIVE";
 
 	function __construct()
