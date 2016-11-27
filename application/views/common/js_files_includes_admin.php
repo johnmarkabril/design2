@@ -1,4 +1,3 @@
-
 <!-- fullcalendar-->
 <script src="<?php echo base_url();?>public/js/plugins/fullcalendar/moment.min.js"></script><!-- Mainly scripts -->
 <script src="<?php echo base_url();?>public/js/jquery-3.1.1.min.js"></script>
@@ -7,20 +6,12 @@
 <script src="<?php echo base_url();?>public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
  
 <?php if ($curpage == "Reports") { ?>
-    <!-- Flot -->
-    <script src="<?php echo base_url();?>public/js/plugins/flot/jquery.flot.js"></script>
-    <script src="<?php echo base_url();?>public/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="<?php echo base_url();?>public/js/plugins/flot/jquery.flot.spline.js"></script>
-    <script src="<?php echo base_url();?>public/js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="<?php echo base_url();?>public/js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="<?php echo base_url();?>public/js/plugins/flot/jquery.flot.time.js"></script>
+    <script src="<?php echo base_url();?>public/js/plugins/chartJs/Chart.min.js"></script>
+    <script src="<?php echo base_url();?>public/js/admin_reports.js"></script>
 <?php } ?>
 
 <!-- Custom and plugin javascript -->
 <script src="<?php echo base_url();?>public/js/inspinia.js"></script>
-<!--
-<script src="<?php //echo base_url();?>public/js/plugins/pace/pace.min.js"></script>
--->
 
 <!-- jQuery UI -->
 <script src="<?php echo base_url();?>public/js/plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -63,8 +54,6 @@
 <script>
     $(document).ready(function() {
         
-
-
         $("#btn_update_paypal_account").click(function(){
             var txt_paypal_email_upd    = $("#txt_paypal_email_upd").val();
             var paypal_email_status     = $("#paypal_email_status").val();
@@ -375,9 +364,3 @@
     //  END OF PAGE LEVEL SCRIPTS
     
 </script>
-
-<!-- CHARTJS-->
-<?php if ($curpage == 'Reports') { ?>
-    <script src="<?php echo base_url();?>public/js/plugins/chartJs/Chart.min.js"></script>
-    <script src="<?php echo base_url();?>public/js/demo/chartjs-demo.js"></script>
-<?php } ?>

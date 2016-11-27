@@ -81,6 +81,8 @@ class Users_model extends CI_Model
 	function get_all_admin(){
 		$row = $this->db->where($this->acc_type, "Administrator")
 						->get($this->table);
+
+		return $row->result();
 	}
 
 	function get_num_rows_all_user() {

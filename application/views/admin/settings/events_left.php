@@ -1,6 +1,6 @@
 <div class="ibox loat-e-margins no-margins">
     <div class="ibox-title">
-        <h5>Administrators account List</h5>
+        <h5>Event List</h5>
     </div>
     <div class="ibox-content full-height" id="AboutMySiteList">
        	<div class="no-margins">
@@ -10,19 +10,14 @@
            			<div class="table-responsive">
 
 	           			<table class="table table-striped text-center">
-	                        <thead>
-	                            <tr>
-	                                <th>Administrator List</th>
-	                            </tr>
-	                        </thead>
 			                <tbody class="list">
 		                        <?php 
-		                        	if ( !empty($get_all_admin) ) {
+		                        	if ( !empty($get_all_events) ) {
 		                        ?>
-	                        		<?php foreach($get_all_admin as $gaa) :?>
+	                        		<?php foreach($get_all_events as $gae) :?>
 			                            <tr>
 			                                <td class="title">
-			                                	<a href="#"><?php echo $gaa->NAME;?></a>
+			                                	<a href="#"><?php echo $gae->TITLE;?></a>
 			                                	<span class="pull-right"><a href="" class="fa fa-trash" aria-hidden="true"></a></span>
 			                                </td>
 			                            </tr>

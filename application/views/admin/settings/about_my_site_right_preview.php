@@ -2,7 +2,7 @@
     <div class="ibox-title">
         <h5>Preview - About My Site</h5>
         <span class="pull-right">
-        	<a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#createModal">Create</a>
+            <a href="#" class="btn btn-link no-padding btn-sm" data-toggle="modal" data-target="#createModal">Create</a>
         </span>
 
     </div>

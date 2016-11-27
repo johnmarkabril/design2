@@ -264,6 +264,8 @@ $config['log_file_permissions'] = 0644;
 */
 // $config['log_date_format'] = 'Y-m-d H:i:s';
 $config['log_date_format'] = 'F d, Y g:i A';
+// date_default_timezone_set("Asia/Manila");
+// $config['date_mdy'] = date("F d, Y");
 
 /*
 |--------------------------------------------------------------------------
@@ -517,3 +519,4 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+

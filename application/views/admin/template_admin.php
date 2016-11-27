@@ -47,6 +47,9 @@
 					        		case 'About My Site':
 					        			echo $content;
 					        			break;
+					        		case 'Events':
+					        			echo $content;
+					        			break;
 					        		case 'Advertisements':
 					        			echo $content;
 					        			break;
