@@ -21,7 +21,7 @@
 			                            <tr>
 			                                <td class="title">
 			                                	<a href="#"><?php echo $gl->TITLE;?></a>
-			                                	<span class="pull-right"><a href="" class="fa fa-trash" aria-hidden="true"></a></span>
+			                                	<span class="pull-right"><a href="<?php echo base_url();?>admin/about_my_site/delete_about_my_site/<?php echo $gl->NO; ?>" class="fa fa-trash" aria-hidden="true"></a></span>
 			                                </td>
 			                            </tr>
 			                       	<?php endforeach; ?>

@@ -30,4 +30,5 @@ class Events extends CI_Controller
 		$data['title']		=	"Events";
 		$this->load->view('template.php', $data);
 	}
+
 }

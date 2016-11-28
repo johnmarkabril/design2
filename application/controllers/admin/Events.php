@@ -29,4 +29,39 @@ class Events extends CI_Controller
 		$data['title'] = $this->curpage;
 		$this->load->view('admin/template_admin.php', $data);
 	}
+
+	public function add_events()
+	{
+    	date_default_timezone_set("Asia/Manila");
+    	$date = date("F d, Y");
+		$params = array (
+			'NO'			=>		"",
+			'TITLE'			=>		$this->input->post('txt_events_title'),
+			'DESCRIPTION'	=>		$this->input->post('txt_events_desc'),
+			'DATE'			=>		$date,
+			'NAME'			=>		$this->session->userdata('log_sess')->NAME,
+			'DELETION'		=>		'0'
+		);
+
+		$this->Events_model->insert_events($params);
+	}
+
+	public function delete_events($no)
+	{
+		$spec_event = $this->Events_model->specific_events($no);
+
+		foreach ( $spec_event as $se ) :
+			$params = array (
+				'NO'			=> $se->NO,
+				'TITLE'			=> $se->TITLE,
+				'DESCRIPTION'	=> $se->DESCRIPTION,
+				'DATE'			=> $se->DATE,
+				'NAME'			=> $se->NAME,
+				'DELETION'		=>		'1'
+			);
+		endforeach;
+		// print_r($params);
+		$this->Events_model->delete_events($params,$no);
+		redirect('admin/events');
+	}
 }

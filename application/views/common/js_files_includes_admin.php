@@ -53,7 +53,61 @@
 
 <script>
     $(document).ready(function() {
+
+        $('#btn_aboutMySite_save').click(function(){
+           var txt_about_title = $("#txt_about_title").val();
+           var txt_about_desc = $("#txt_about_desc").val();
+           if (txt_about_title) {
+                if (txt_about_desc) {
+                    $.ajax({
+                        url: "<?php echo base_url();?>admin/about_my_site/insert_about_my_site",
+                        method: "POST",
+                        data: {
+                            txt_about_title : txt_about_title,
+                            txt_about_desc  : txt_about_desc                  
+                        },
+                        success:function(data){
+                            location.reload();
+                        },
+                        error:function(){
+                            toastr.error("ERROR!");
+                        }
+                    });
+                }else{
+                    toastr.error("Fill-up the description field!");
+                }
+           }else{
+            toastr.error("Fiil-up the title field!");
+           } 
+        });
         
+        $('#btn_events_save').click(function(){
+            var txt_events_title    =   $("#txt_events_title").val();
+            var txt_events_desc     =   $("#txt_events_desc").val();
+            if (txt_events_title){
+                if (txt_events_desc) {
+                    $.ajax ({
+                        url: "<?php echo base_url();?>admin/events/add_events",
+                        method: "POST",
+                        data: {
+                            txt_events_title    :   txt_events_title,
+                            txt_events_desc     :   txt_events_desc
+                        },
+                        success:function(data){
+                            location.reload();
+                        },
+                        error:function(){
+                            toastr.error("ERROR!");
+                        }
+                    });
+                }else{
+                    toastr.error("Fill-up the description field!");
+                }
+            }else{
+                toastr.error("Fill-up the title field!");
+            }
+        });
+
         $("#btn_update_paypal_account").click(function(){
             var txt_paypal_email_upd    = $("#txt_paypal_email_upd").val();
             var paypal_email_status     = $("#paypal_email_status").val();

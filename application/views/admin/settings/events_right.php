@@ -36,7 +36,7 @@
                      	<textarea placeholder="Enter description" id="txt_events_desc" class="form-control" style="max-width: 100%;max-height: 20%;min-height: 20%;" required></textarea>
                     </div>
                     <div>
-                        <button class="btn btn-success full-width" type="submit" id="btn_events_save">
+                        <button class="btn btn-success full-width" type="button" id="btn_events_save">
                         	<strong>Save</strong>
                         </button>
                     </div>
