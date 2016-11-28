@@ -8,6 +8,7 @@ class Paypal_configuration extends CI_Controller
         parent::__construct();
         $this->load->model('Users_model');
         $this->load->model('Paypal_model');
+        $this->load->model('Notification_model');
         $this->curpage = "Paypal Configuration";
     }
 
@@ -15,6 +16,8 @@ class Paypal_configuration extends CI_Controller
 	{
 		$details = array (
 			'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'get_notification'	=>	$this->Notification_model->get_notification(),
+			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_paypal_account'	=>	$this->Paypal_model->get_paypal_account()
 		);
 

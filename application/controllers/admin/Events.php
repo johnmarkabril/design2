@@ -9,6 +9,7 @@ class Events extends CI_Controller
         // $this->load->helper(array('form', 'url'));
 
         $this->load->model('Users_model');
+        $this->load->model('Notification_model');
         $this->load->model('Events_model');
         $this->curpage = "Events";
     }
@@ -17,6 +18,9 @@ class Events extends CI_Controller
 	{
 		$details = array (
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+
+			'get_notification'	=>	$this->Notification_model->get_notification(),
+			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_all_events'	=>	$this->Events_model->get_all_events()
 		);
 

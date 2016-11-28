@@ -8,6 +8,7 @@ class About_My_Site extends CI_Controller
         parent::__construct();
         $this->load->model('Users_model');
         $this->load->model('Aboutmysite_model');
+        $this->load->model('Notification_model');
         $this->curpage = "About My Site";
     }
 
@@ -15,6 +16,8 @@ class About_My_Site extends CI_Controller
 	{
 		$details = array (
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'get_notification'	=>	$this->Notification_model->get_notification(),
+			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_list'			=>	$this->Aboutmysite_model->get_list()
 		);
 		$data['content'] = $this->load->view('admin/settings/aboutmysite.php', $details, TRUE);

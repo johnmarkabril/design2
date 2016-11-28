@@ -7,6 +7,7 @@ class Co_Administrator extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Users_model');
+        $this->load->model('Notification_model');
         $this->curpage = "Co-Administrator";
     }
 
@@ -14,6 +15,8 @@ class Co_Administrator extends CI_Controller
 	{
 		$details = array (
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'get_notification'	=>	$this->Notification_model->get_notification(),
+			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_all_admin'		=>	$this->Users_model->get_all_admin()
 		);
 
