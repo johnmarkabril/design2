@@ -35,7 +35,9 @@
 	} elseif ($servicesformat == "yes") { 
 ?>
 		<hr>
-			<h5> <a href="<?php echo base_url();?>">HOME</a> / <span>SERVICES / </span><span style="color: #FF65AE;"> FORMAT </span></a></h5>
+			<?php foreach ($services_content_db as $cont) { ?>
+			<h5> <a href="<?php echo base_url();?>">HOME</a> / <span>SERVICES / </span><span style="color: #FF65AE;"> <?php echo $cont->FORMAT; ?> </span></a></h5>
+			<?php } ?>
 		<hr>
 <?php
 	   	$this->load->view('user/services/template_format.php');

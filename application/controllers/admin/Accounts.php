@@ -15,9 +15,17 @@ class Accounts extends CI_Controller
 	{
     	date_default_timezone_set("Asia/Manila");
 		$date = date("F");
+		$no_logsess = $this->session->userdata('log_sess')->USER_ID;
+
+		$perm = $this->Users_model->get_permiss($no_logsess);
+		$permis = "";
+		foreach ($perm as $per) {
+			$permis = $per->PERMISSION;
+		}
 
 		$details = array (
-			'permission_cntnt'			=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'permission_cntnt'		=> 	explode("|", $permis),
 			'get_num_rows_all_user'		=>	$this->Users_model->get_num_rows_all_user(),
 			'get_notification'	=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),

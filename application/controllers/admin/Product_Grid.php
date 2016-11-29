@@ -14,9 +14,17 @@ class Product_Grid extends CI_Controller
 
 	public function index()
 	{
+		$no_logsess = $this->session->userdata('log_sess')->USER_ID;
+
+		$perm = $this->Users_model->get_permiss($no_logsess);
+		$permis = "";
+		foreach ($perm as $per) {
+			$permis = $per->PERMISSION;
+		}
 		$details = array (
 			'curpage'	=> 	'Product Grid',
-			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'permission_cntnt'		=> 	explode("|", $permis),
 			'get_notification'	=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_prod_sell'		=>	$this->Recipes_model->get_prod_sell(),
