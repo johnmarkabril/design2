@@ -28,6 +28,10 @@
 <!-- Chosen -->
 <script src="<?php echo base_url();?>public/js/plugins/chosen/chosen.jquery.js"></script>
 
+<script src="<?php echo base_url();?>public/js/plugins/multipleimage/ninja-slider.js"></script>
+
+<script src="<?php echo base_url();?>public/js/plugins/multipleimage/thumbnail-slider.js"></script>
+
 <?php if ( $curpage == "contacts" ) { ?>
     <!-- GOOGLE MAP API -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5h8RE_Re9V9PJ-ROp7TKXQBKbMnWXDVE&callback=initMap">

@@ -7,7 +7,8 @@ class Services extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Users_model');
-        $this->load->model('Services_model');    
+        $this->load->model('Services_model');   
+        $this->load->model('Postcontent_model'); 
     }
 
 	public function index()
@@ -28,6 +29,8 @@ class Services extends CI_Controller
 		$details = array (
 			'services_content_db'	=>	$this->Services_model->get_specific_services($no),
 			'curpage'				=>	'services',
+			'get_latest_prod'		=>	$this->Postcontent_model->get_latest_prod(),
+			'slide_img_prod'		=>	$this->Postcontent_model->get_all_prod(),
 			'servicesformat'		=>	'yes'
 		);
 

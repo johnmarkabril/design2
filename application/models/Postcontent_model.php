@@ -99,4 +99,16 @@ class Postcontent_model extends CI_Model
 	function insert_new_recipe_free($params){
 		$this->db->insert($this->table, $params);
 	}
+
+	function get_all_prod(){
+		$row = 	$this->db->get($this->table);
+		return $row->result();
+	}
+
+	function get_latest_prod(){
+		$row = 	$this->db->order_by($this->dbno, "DESC")
+						 ->limit(1)
+				 		 ->get($this->table);
+		return $row->result();
+	}
 }

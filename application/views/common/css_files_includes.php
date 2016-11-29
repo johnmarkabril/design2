@@ -24,7 +24,10 @@
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/steps/jquery.steps.css">
 
-    <link href="<?php echo base_url();?>public/css/plugins/chosen/chosen.css" rel="stylesheet">
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/chosen/chosen.css">
 
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/multipleimage/ninja-slider.css">
+
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/multipleimage/thumbnail-slider.css">
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/animate.css">
