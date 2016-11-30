@@ -48,5 +48,6 @@ class Events_model extends CI_Model
     {
         $this->db->where($this->dbno, $no)
                  ->update($this->table, $params);
+        // print_r($param);
     }
 }

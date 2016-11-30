@@ -82,14 +82,23 @@ class Events extends CI_Controller
 
 	}
 
-	public function update_event(){
-			$no = $this->input->post('txt_update_no');
+	public function event_update()
+	{
+		$no = $this->input->post('txt_update_no');
+
+		$spec_event = $this->Events_model->specific_events($no);
+
+		foreach ( $spec_event as $se ) :
 			$params = array (
-				'NO'			=> '',
+				'NO'			=> $se->NO,
 				'TITLE'			=> $this->input->post('update_events_title'),
-				'DESCRIPTION'	=> $this->input->post('update_events_desc')
-				);
-			$this->Event_model->update_events($params, $no);
-			// print_r();
+				'DESCRIPTION'	=> $this->input->post('update_events_desc'),
+				'DATE'			=> $se->DATE,
+				'NAME'			=> $se->NAME,
+				'DELETION'		=> '1'
+			);
+		endforeach;
+			
+		$this->Events_model->update_events($params, $no);
 	}
 }

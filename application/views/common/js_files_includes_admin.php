@@ -129,7 +129,7 @@
             if (update_events_title) {
                 if (update_events_desc) {
                     $.ajax ({
-                        url: "<?php echo base_url();?>admin/events/update_event",
+                        url: "<?php echo base_url();?>admin/events/event_update",
                         method: "POST",
                         data: {
                             update_events_title : update_events_title,
@@ -138,9 +138,10 @@
                         },
                         success:function(data){
                             location.reload();
-                            // alert(data);
+                            // console.log(data);
                         },
-                        error:function(){
+                        error:function(data){
+                            // console.log(data);
                             toastr.error("ERROR!");
                         }
                     });
