@@ -25,6 +25,7 @@ class Co_Administrator extends CI_Controller
 		$details = array (
 			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'permission_cntnt'			=> 	explode("|", $permis),
+			'get_spec'					=>	$this->Users_model->get_permiss(null),
 			'get_content'				=>	$this->Permissiondata_model->get_content(),
 			'get_notification'			=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
@@ -37,4 +38,31 @@ class Co_Administrator extends CI_Controller
 		$this->load->view('admin/template_admin.php', $data);
 	}
 
+	public function information($uname)
+	{
+		$no_logsess = $this->session->userdata('log_sess')->USER_ID;
+
+		$perm = $this->Users_model->get_permiss($no_logsess);
+		$permis = "";
+		foreach ($perm as $per) {
+			$permis = $per->PERMISSION;
+		}
+
+		$details = array (
+			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'permission_cntnt'			=> 	explode("|", $permis),
+			'get_spec'					=>	$this->Users_model->get_permiss($uname),
+			'get_content'				=>	$this->Permissiondata_model->get_content(),
+			'get_notification'			=>	$this->Notification_model->get_notification(),
+			'get_all_notification_rows'	=> 	$this->Notification_model->get_all_notification_rows(),
+			'get_all_admin'				=>	$this->Users_model->get_all_admin()
+		);
+
+		$data['content'] = $this->load->view('admin/usermanagement/co_administrator.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = $this->curpage;
+		$this->load->view('admin/template_admin.php', $data);
+
+		// print_r($details['get_spec']);
+	}
 }

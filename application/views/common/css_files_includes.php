@@ -14,6 +14,8 @@
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/toastr/toastr.min.css">
 
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/hovereffects/hover.css">
+
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/dropzone/basic.css">
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/dropzone/dropzone.css">

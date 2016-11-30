@@ -9,9 +9,64 @@
     <div class="ibox-content full-height">
        	<div class="no-margins">
        		<div class="row">
-                
-                CO-ADMINISTRATOR
-                
+                <?php
+                    if ( ! empty ( $get_spec ) ) {
+                        foreach ( $get_spec as $gs ) :
+                ?>
+                            <form>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Full Name</label> 
+                                        <input type="text" placeholder="John" id="" class="form-control" value="<?php echo $gs->NAME;?>" disabled/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Username</label> 
+                                        <input type="text" placeholder="johndoe123" id="" class="form-control" value="<?php echo $gs->USERNAME;?>"  disabled/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Phone number</label> 
+                                        <input type="text" placeholder="09*********" id="" class="form-control" value="<?php echo $gs->PHONENUMBER;?>"  disabled/>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Email address</label> 
+                                        <input type="text" placeholder="johndoe@gmail.com" id="" class="form-control" value="<?php echo $gs->EMAIL;?>"  disabled/>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Permission</label>
+                                        <div class="input-group full-width">
+
+                                            <select data-placeholder="Permission" class="full-width chosen-select" multiple  tabindex="5" id="">
+                                                <?php
+                                                    if ( ! empty( $get_content ) ) {
+                                                        foreach ($get_content as $gc) :
+                                                ?>        
+                                                            <option value="<?php echo $gc->PERMISSION; ?> |"><?php echo $gc->PERMISSION; ?></option>
+                                                <?php
+                                                        endforeach;
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-info full-width">Update co-administrator permission</button>
+                                </div>
+                            </form>
+                <?php
+                        endforeach;
+                    } else {
+                        echo "Click an information";
+                    } 
+                ?>
             </div>
        	</div>
     </div>
@@ -28,7 +83,6 @@
             <div class="modal-body">
                 <div>
                     <div class="row">
-
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>First Name</label> 
@@ -70,26 +124,7 @@
                                 <label>Confirm password</label> 
                                 <input type="password" placeholder="••••••••" id="" class="form-control" />
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Permission</label>
-                                <div class="input-group full-width">
-
-                                    <!-- <select data-placeholder="Permission" class="full-width chosen-select" multiple  tabindex="5" id="">
-                                        <?php
-                                            //if ( ! empty( $get_content ) ) {
-                                                //foreach ($get_content as $gc) :
-                                        ?>        
-                                                    <option value="<?php //echo $gc->PERMISSION; ?> |"><?php //echo $gc->PERMISSION; ?></option>
-                                        <?php
-                                                //endforeach;
-                                            //}
-                                        ?>
-                                    </select> -->
-                                </div>
-                            </div>
-                        </div>
+                        </div>  
                         <div class="col-md-12">
                             <button class="btn btn-info full-width">Save as co-administrator</button>
                         </div>

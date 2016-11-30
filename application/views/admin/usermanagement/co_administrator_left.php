@@ -22,7 +22,7 @@
 	                        		<?php foreach($get_all_admin as $gaa) :?>
 			                            <tr>
 			                                <td class="title">
-			                                	<a href="#"><?php echo $gaa->NAME;?></a>
+			                                	<a href="<?php echo base_url();?>admin/co_administrator/information/<?php echo $gaa->USER_ID;?>"><?php echo $gaa->NAME;?></a>
 			                                	<span class="pull-right"><a href="" class="fa fa-trash" aria-hidden="true"></a></span>
 			                                </td>
 			                            </tr>

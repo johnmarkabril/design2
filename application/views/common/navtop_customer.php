@@ -9,22 +9,22 @@
 				  	<div class="text-center">
 				        <ul class="nav navbar-nav" style="display: inline-block;">
 				            <li class="text-center">
-				                <a href="<?php echo base_url();?>" class="weightninehund">HOME</a>
+				                <a href="<?php echo base_url();?>" class="hvr-underline-from-center weightninehund">HOME</a>
 				            </li>
 				            <li class="text-center">
-				                <a href="<?php echo base_url();?>recipes" class="weightninehund">RECIPES</a>
+				                <a href="<?php echo base_url();?>recipes" class="hvr-underline-from-center weightninehund">RECIPES</a>
 				            </li>
 				            <li class="text-center">
-				                <a href="<?php echo base_url();?>services" class="weightninehund">SERVICES</a>
+				                <a href="<?php echo base_url();?>services" class="hvr-underline-from-center weightninehund">SERVICES</a>
 				            </li>
 				            <li class="text-center">
-				                <a href="<?php echo base_url();?>events" class="weightninehund">EVENTS</a>
+				                <a href="<?php echo base_url();?>events" class="hvr-underline-from-center weightninehund">EVENTS</a>
 				            </li>
 				            <li class="text-center">
-				                <a href="<?php echo base_url();?>contacts" class="weightninehund">CONTACTS</a>
+				                <a href="<?php echo base_url();?>contacts" class="hvr-underline-from-center weightninehund">CONTACTS</a>
 				            </li>
 				            <li class="text-center">
-				                <a href="#" class="weightninehund"  data-toggle="modal" data-target="#loginModal">ACCOUNT</a>
+				                <a href="#" class="hvr-underline-from-center weightninehund"  data-toggle="modal" data-target="#loginModal">ACCOUNT</a>
 				            </li>
 				        </ul>
 					</div>
