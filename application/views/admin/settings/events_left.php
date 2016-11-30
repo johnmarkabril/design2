@@ -17,7 +17,7 @@
 	                        		<?php foreach($get_all_events as $gae) :?>
 			                            <tr>
 			                                <td class="title">
-			                                	<a href="#"><?php echo $gae->TITLE;?></a>
+			                                	<a href="<?php echo base_url();?>admin/events/information/<?php echo $gae->NO;?>"><?php echo $gae->TITLE;?></a>
 			                                	<span class="pull-right"><a href="<?php echo base_url();?>admin/events/delete_events/<?php echo $gae->NO; ?>" class="fa fa-trash" aria-hidden="true"></a></span>
 			                                </td>
 			                            </tr>

@@ -18,7 +18,7 @@ class Events extends CI_Controller
 	{
 		$details = array (
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-
+			'specific_events'	=>	$this->Events_model->specific_events(null),
 			'get_notification'	=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_all_events'	=>	$this->Events_model->get_all_events()
@@ -63,5 +63,33 @@ class Events extends CI_Controller
 		// print_r($params);
 		$this->Events_model->delete_events($params,$no);
 		redirect('admin/events');
+	}
+
+	public function information($no)
+	{
+		$details = array (
+			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'specific_events'	=>	$this->Events_model->specific_events($no),
+			'get_notification'	=>	$this->Notification_model->get_notification(),
+			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
+			'get_all_events'	=>	$this->Events_model->get_all_events()
+		);
+
+		$data['content'] = $this->load->view('admin/settings/events.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = $this->curpage;
+		$this->load->view('admin/template_admin.php', $data);
+
+	}
+
+	public function update_event(){
+			$no = $this->input->post('txt_update_no');
+			$params = array (
+				'NO'			=> '',
+				'TITLE'			=> $this->input->post('update_events_title'),
+				'DESCRIPTION'	=> $this->input->post('update_events_desc')
+				);
+			$this->Event_model->update_events($params, $no);
+			// print_r();
 	}
 }

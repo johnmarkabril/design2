@@ -108,6 +108,36 @@
             }
         });
 
+        $('#btn_update_events').click(function(){
+            var update_events_title    =   $("#update_events_title").val();
+            var update_events_desc     =   $("#update_events_desc").val();
+            var txt_update_no     =   $("#txt_update_no").val();
+            if (update_events_title) {
+                if (update_events_desc) {
+                    $.ajax ({
+                        url: "<?php echo base_url();?>admin/events/update_event",
+                        method: "POST",
+                        data: {
+                            update_events_title : update_events_title,
+                            update_events_desc  : update_events_desc,
+                            txt_update_no       : txt_update_no
+                        },
+                        success:function(data){
+                            location.reload();
+                            // alert(data);
+                        },
+                        error:function(){
+                            toastr.error("ERROR!");
+                        }
+                    });
+                }else{
+                    toastr.error("Fiil-up the description field");
+                }
+            }else{
+                toastr.error("Fill-up the title field!");
+            }
+        });
+
         $("#btn_update_paypal_account").click(function(){
             var txt_paypal_email_upd    = $("#txt_paypal_email_upd").val();
             var paypal_email_status     = $("#paypal_email_status").val();

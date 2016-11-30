@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2016 at 11:10 AM
+-- Generation Time: Nov 30, 2016 at 07:49 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -31,15 +31,18 @@ CREATE TABLE `about_my_site` (
   `TITLE` varchar(500) NOT NULL,
   `IMAGEURL` varchar(500) NOT NULL,
   `DESCRIPTION` varchar(1000) NOT NULL,
-  `ACTIVE` int(11) NOT NULL
+  `ACTIVE` int(11) NOT NULL,
+  `DELETION` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `about_my_site`
 --
 
-INSERT INTO `about_my_site` (`NO`, `TITLE`, `IMAGEURL`, `DESCRIPTION`, `ACTIVE`) VALUES
-(1, 'Best Sweet and Pastries', 'page1-img1.jpg', 'We have goals, purposes, focuses, reasons for being on our blogs. What do you do on your blog? In this Blog Exercise let’s change this to “What do you do on your blog?” On your blog, with your blog, whichever works for you.\r\n', 1);
+INSERT INTO `about_my_site` (`NO`, `TITLE`, `IMAGEURL`, `DESCRIPTION`, `ACTIVE`, `DELETION`) VALUES
+(1, 'Best Sweet and Pastries', 'page1-img1.jpg', 'We have goals, purposes, focuses, reasons for being on our blogs. What do you do on your blog? In this Blog Exercise let’s change this to “What do you do on your blog?” On your blog, with your blog, whichever works for you.\r\n', 1, 1),
+(2, 'asdasdasd', '', 'asdasdad', 0, 1),
+(3, 'asdf', '', 'asdf', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -514,15 +517,16 @@ CREATE TABLE `events` (
   `TITLE` varchar(255) NOT NULL,
   `DESCRIPTION` varchar(5000) NOT NULL,
   `DATE` varchar(100) NOT NULL,
-  `NAME` varchar(100) NOT NULL
+  `NAME` varchar(100) NOT NULL,
+  `DELETION` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`NO`, `TITLE`, `DESCRIPTION`, `DATE`, `NAME`) VALUES
-(1, 'Testing Event Title', 'Testing Event Description', 'November 25, 2016', 'Johnmark Abril');
+INSERT INTO `events` (`NO`, `TITLE`, `DESCRIPTION`, `DATE`, `NAME`, `DELETION`) VALUES
+(3, 'TEST', 'TEST', 'TEST', 'TEST', 1);
 
 -- --------------------------------------------------------
 
@@ -582,6 +586,30 @@ INSERT INTO `messages` (`NO`, `SUBJECT`, `NAMEFROM`, `EMAILFROM`, `EMAILTO`, `DA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `NO` int(11) NOT NULL,
+  `NAME` varchar(150) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `CONTENT` varchar(500) NOT NULL,
+  `DATE` varchar(100) NOT NULL,
+  `HOUR` varchar(100) NOT NULL,
+  `ACTIVE` int(11) NOT NULL,
+  `IMAGEURL` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`NO`, `NAME`, `USERNAME`, `CONTENT`, `DATE`, `HOUR`, `ACTIVE`, `IMAGEURL`) VALUES
+(1, 'John Mark Abril', 'jmabril17', 'Posted new recipes! Named "Heart Cupcakes"', 'September 17, 2016', '06:45 PM', 1, 'prof3.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `paypal_configuration`
 --
 
@@ -600,6 +628,42 @@ CREATE TABLE `paypal_configuration` (
 INSERT INTO `paypal_configuration` (`NO`, `NAME`, `ACCOUNT_TYPE`, `PAYPAL_EMAIL`, `STATUS`) VALUES
 (0, 'Johnmark Abril', 'Administrator', 'jmaethesis@gmail.com', 'enabled'),
 (2, 'Johnmark Abril', 'Administrator', 'maegregorio_paypal@gmail.com', 'disabled');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permission_data`
+--
+
+CREATE TABLE `permission_data` (
+  `NO` int(11) NOT NULL,
+  `PERMISSION` varchar(100) NOT NULL,
+  `ACTIVE` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `permission_data`
+--
+
+INSERT INTO `permission_data` (`NO`, `PERMISSION`, `ACTIVE`) VALUES
+(1, 'Dashboard', 'yes'),
+(2, 'Messages', 'yes'),
+(3, 'Compose Message', 'yes'),
+(4, 'Inbox', 'yes'),
+(5, 'Notification', 'yes'),
+(6, 'Statistics', 'yes'),
+(7, 'Reports', 'yes'),
+(8, 'Settings', 'yes'),
+(9, 'About My Site', 'yes'),
+(10, 'Events', 'yes'),
+(11, 'Advertisements', 'yes'),
+(12, 'PayPal Configuration', 'yes'),
+(13, 'Product Category', 'yes'),
+(14, 'Product Sales', 'yes'),
+(15, 'Product_Management', 'yes'),
+(16, 'User_Management', 'yes'),
+(17, 'Accounts', 'yes'),
+(18, 'Co-Administrator', 'yes');
 
 -- --------------------------------------------------------
 
@@ -851,9 +915,21 @@ ALTER TABLE `messages`
   ADD PRIMARY KEY (`NO`);
 
 --
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`NO`);
+
+--
 -- Indexes for table `paypal_configuration`
 --
 ALTER TABLE `paypal_configuration`
+  ADD PRIMARY KEY (`NO`);
+
+--
+-- Indexes for table `permission_data`
+--
+ALTER TABLE `permission_data`
   ADD PRIMARY KEY (`NO`);
 
 --
@@ -895,7 +971,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `about_my_site`
 --
 ALTER TABLE `about_my_site`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `about_user`
 --
@@ -920,7 +996,7 @@ ALTER TABLE `contactsform`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `location`
 --
@@ -932,10 +1008,20 @@ ALTER TABLE `location`
 ALTER TABLE `messages`
   MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `paypal_configuration`
 --
 ALTER TABLE `paypal_configuration`
   MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `permission_data`
+--
+ALTER TABLE `permission_data`
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `posted`
 --

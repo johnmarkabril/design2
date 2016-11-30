@@ -9,10 +9,35 @@
     <div class="ibox-content full-height">
        	<div class="no-margins">
        		<div class="row">
-                <div class="col-sm-12">
-                    
+                <div class="col-md-12">
+                <?php 
+                    if ( ! empty( $specific_events ) ) {
+                        foreach ( $specific_events as $se ) :
+                ?>
+                            <form role="form">
+                            <input type="text" hidden value="<?php echo $se->NO;?>" id="txt_update_no" />
+                                <div class="form-group">
+                                  <label>Title</label> 
+                                  <input type="text" id="update_events_title" class="form-control" value="<?php echo $se->TITLE;?>"></inout>
+                                </div>
+                                <div class="form-group">
+                                  <label>Description</label>
+                                  <textarea class="form-control" id="update_events_desc" style="height: 150px;"><?php echo $se->DESCRIPTION;?></textarea>
+                                </div>
+                                <div>
+                                    <button class="btn btn-success pull-right" type="button" id="btn_update_events">
+                                      <strong>Update</strong>
+                                    </button>
+                                </div>
+                            </form>
+                  <?php
+                        endforeach;
+                    } else {
+                        echo "Please Click an event!";
+                    }
+                  ?>
                 </div>
-            </div>
+          </div>
        	</div>
     </div>
 </div>
