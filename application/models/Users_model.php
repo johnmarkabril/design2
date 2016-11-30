@@ -103,4 +103,12 @@ class Users_model extends CI_Model
 
 		return $row->result();
 	}
+
+	function get_permiss($userid){
+		$row = $this->db->where($this->user_id, $userid)
+						->limit(1)
+						->get($this->table);
+
+		return $row->result();
+	}
 }

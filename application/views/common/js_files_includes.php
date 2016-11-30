@@ -16,14 +16,15 @@
 <!-- DROPZONE -->
 <script src="<?php echo base_url();?>public/js/plugins/dropzone/dropzone.js"></script>  
 
-<!-- Steps -->
-<script src="<?php echo base_url();?>public/js/plugins/staps/jquery.steps.min.js"></script>
 
 <!-- Jquery Validate -->
 <script src="<?php echo base_url();?>public/js/plugins/validate/jquery.validate.min.js"></script>
 
 <!-- Image cropper -->
 <script src="<?php echo base_url();?>public/js/plugins/cropper/cropper.min.js"></script>
+
+<!-- Steps -->
+<script src="<?php echo base_url();?>public/js/plugins/staps/jquery.steps.min.js"></script>
 
 <!-- Chosen -->
 <script src="<?php echo base_url();?>public/js/plugins/chosen/chosen.jquery.js"></script>

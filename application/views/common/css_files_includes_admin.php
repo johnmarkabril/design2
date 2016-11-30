@@ -14,7 +14,9 @@
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/style_admin.css">
 
-<link rel="stylesheet" href="<?php echo base_url();?>public/css/animate.css">
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/steps/jquery.steps.css">
+
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/chosen/chosen.css">
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/toastr/toastr.min.css">
 
@@ -27,3 +29,5 @@
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/fullcalendar/fullcalendar.css">
     
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/fullcalendar/fullcalendar.print.css" media='print'>
+
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/animate.css">

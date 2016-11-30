@@ -21,13 +21,22 @@ class Dashboard extends CI_Controller
 		$ctr = 0;
 		$cnt_am_pm = $this->Postcontent_model->activity_month($date_month);
 		$cnt_am_pur = $this->Purchaseproduct_model->activity_month($date_month);
+		$no_logsess = $this->session->userdata('log_sess')->USER_ID;
+
+		$perm = $this->Users_model->get_permiss($no_logsess);
+		$permis = "";
+		foreach ($perm as $per) {
+			$permis = $per->PERMISSION;
+		}
 
 		foreach ($comp_income as $ci) {
 			$ctr += $ci->PRICE;
 		}
 		
 		$details = array (
-			'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'permission_cntnt'		=> 	explode("|", $permis),
+
 			'get_notification'	=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_content'			=>	$this->Purchaseproduct_model->get_content(),
@@ -42,13 +51,14 @@ class Dashboard extends CI_Controller
 			'activity_month_ctr'	=>	0
 		);
 
-		// $data['content']	= 	$this->load->view('admin/dashboard/dashboard_mid.php', $details, TRUE);
-		// $data['content']	= 	$this->load->view('admin/dashboard/dashboard_top.php', $details, TRUE);
-		// $data['content']	= 	$this->load->view('common/navside_admin.php', $details, TRUE);
+		$data['content']	= 	$this->load->view('admin/dashboard/dashboard_mid.php', $details, TRUE);
+		$data['content']	= 	$this->load->view('admin/dashboard/dashboard_top.php', $details, TRUE);
+		$data['content']	= 	$this->load->view('common/navside_admin.php', $details, TRUE);
 		
 		$data['content'] = $this->load->view('admin/dashboard/dashboard_detail.php', $details, TRUE);
 		$data['curpage'] = $this->curpage;
 		$data['title'] = "Dashboard";
 		$this->load->view('admin/template_admin.php', $data);
+		
 	}
 }

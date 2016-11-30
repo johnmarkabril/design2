@@ -29,11 +29,15 @@
 <!-- SUMMERNOTE -->
 <script src="<?php echo base_url();?>public/js/plugins/summernote/summernote.min.js"></script>
 
+<!-- Steps -->
+<script src="<?php echo base_url();?>public/js/plugins/staps/jquery.steps.min.js"></script>
+
+<!-- Chosen -->
+<script src="<?php echo base_url();?>public/js/plugins/chosen/chosen.jquery.js"></script>
+
 <!-- at a glance -->
 <script src="<?php echo base_url();?>public/js/plugins/morris/morris.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/morris/raphael-2.1.0.min.js"></script>
-
-<script src="<?php echo base_url();?>public/js/plugins/chosen/chosen.jquery.js"></script>
 
 <!-- JVECTOR MAP -->
 <script src="<?php echo base_url();?>public/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
@@ -53,6 +57,16 @@
 
 <script>
     $(document).ready(function() {
+        var config = {
+                '.chosen-select'           : {},
+                '.chosen-select-deselect'  : {allow_single_deselect:true},
+                '.chosen-select-no-single' : {disable_search_threshold:10},
+                '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+                '.chosen-select-width'     : {width:"100%"}
+                }
+            for (var selector in config) {
+                $(selector).chosen(config[selector]);
+            }
 
         $('#btn_aboutMySite_save').click(function(){
            var txt_about_title = $("#txt_about_title").val();
