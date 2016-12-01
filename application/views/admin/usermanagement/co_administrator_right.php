@@ -86,47 +86,47 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>First Name</label> 
-                                <input type="text" placeholder="John" id="" class="form-control" />
+                                <input type="text" placeholder="John" id="txt_create_coa_fname" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Last Name</label> 
-                                <input type="text" placeholder="Doe" id="" class="form-control" />
+                                <input type="text" placeholder="Doe" id="txt_create_coa_lname" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Username</label> 
-                                <input type="text" placeholder="johndoe123" id="" class="form-control" />
+                                <input type="text" placeholder="johndoe123" id="txt_create_coa_uname" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Phone number</label> 
-                                <input type="text" placeholder="09*********" id="" class="form-control" />
+                                <input type="text" placeholder="09*********" id="txt_create_coa_pnum" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Email address</label> 
-                                <input type="text" placeholder="johndoe@gmail.com" id="" class="form-control" />
+                                <input type="text" placeholder="johndoe@gmail.com" id="txt_create_coa_email" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Password</label> 
-                                <input type="password" placeholder="••••••••" id="" class="form-control" />
+                                <input type="password" placeholder="••••••••" id="txt_create_coa_pword" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Confirm password</label> 
-                                <input type="password" placeholder="••••••••" id="" class="form-control" />
+                                <input type="password" placeholder="••••••••" id="txt_create_coa_conpword" class="form-control" />
                             </div>
                         </div>  
                         <div class="col-md-12">
-                            <button class="btn btn-info full-width">Save as co-administrator</button>
+                            <button class="btn btn-info full-width" id="btn_create_coa_save">Save as co-administrator</button>
                         </div>
                     </div>
                 </div>

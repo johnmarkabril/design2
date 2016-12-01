@@ -17,7 +17,7 @@
                                 <label class="control-label">Password</label>
                                 <input type="password" class="form-control" name="login_password" id="login-password" placeholder="•••••••••••••••">
                             </div>
-                            <div><a class="text-center cursor-pointer color-forgot" id="forget-password"><h5 class="center">Forget your password?</h5></a></div>
+                            <div><a class="text-center cursor-pointer color-forgot" data-toggle="modal" data-dismiss="modal" data-target="#forgotModal"><h5 class="center">Forget your password?</h5></a></div>
                             <input type="submit" value="Login" class="btn btn-default no-border" style="background-color:#9DE0D0;color:white;width: 100%;"/>
                             <div><a href="<?php echo base_url(); ?>signup" class="text-center cursor-pointer color-forgot" id="forget-password"><h5 class="center">Create an account</h5></a></div>
                         </form>
@@ -30,3 +30,5 @@
         </div>
     </div>
 </div>                
+
+<?php $this->load->view('forgotpassword');?>

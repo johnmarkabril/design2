@@ -51,7 +51,7 @@
 	<?php 
 		if($this->session->flashdata('success_message')){
         ?>
-        	toastr.success("LOGIN SUCCESSFUL!");
+        	// toastr.success("LOGIN SUCCESSFUL!");
     <?php } ?>
     
     <?php

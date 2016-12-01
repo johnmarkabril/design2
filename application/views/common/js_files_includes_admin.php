@@ -57,6 +57,39 @@
 
 <script>
     $(document).ready(function() {
+
+        $("#btn_create_coa_save").click(function(){
+            var txt_create_coa_fname        =   $("#txt_create_coa_fname").val();
+            var txt_create_coa_lname        =   $("#txt_create_coa_lname").val();
+            var txt_create_coa_uname        =   $("#txt_create_coa_uname").val();
+            var txt_create_coa_pnum         =   $("#txt_create_coa_pnum").val();
+            var txt_create_coa_email        =   $("#txt_create_coa_email").val();
+            var txt_create_coa_pword        =   $("#txt_create_coa_pword").val();
+            var txt_create_coa_conpword     =   $("#txt_create_coa_conpword").val();
+
+            var checkEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(txt_create_coa_email);
+
+            if ( txt_create_coa_fname && txt_create_coa_lname && txt_create_coa_uname && txt_create_coa_pnum && txt_create_coa_email && txt_create_coa_pword && txt_create_coa_conpword ) {
+
+                if ( checkEmail ) {
+                    if ( txt_create_coa_pword.length >= 8 ) {
+                        if ( txt_create_coa_pword == txt_create_coa_conpword ) {
+                            toastr.success("ASDF");
+                        } else {
+                            toastr.error("Password doesn't match");
+                        }
+                    } else {
+                        toastr.error("Password length must be 8 and above");
+                    }
+                } else {
+                    toastr.error("Invalid email address format!");
+                }
+
+            } else {
+                toastr.error("Please fill-up the fields!");
+            }
+        });
+
         var config = {
                 '.chosen-select'           : {},
                 '.chosen-select-deselect'  : {allow_single_deselect:true},
