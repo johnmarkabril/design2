@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2016 at 10:02 AM
+-- Generation Time: Dec 01, 2016 at 08:59 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -40,7 +40,7 @@ CREATE TABLE `about_my_site` (
 --
 
 INSERT INTO `about_my_site` (`NO`, `TITLE`, `IMAGEURL`, `DESCRIPTION`, `ACTIVE`, `DELETION`) VALUES
-(1, 'Best Sweet and Pastries', 'page1-img1.jpg', 'We have goals, purposes, focuses, reasons for being on our blogs. What do you do on your blog? In this Blog Exercise let’s change this to “What do you do on your blog?” On your blog, with your blog, whichever works for you.\r\n', 1, 1),
+(1, 'Best Sweet and Pastries', 'page1-img1.jpg', 'We have goals, purposes, focuses, reasons for being on our blogs. What do you do on your blog? In this Blog Exercise let’s change this to “What do you do on your blog?” On your blog, with your blog, whichever works for you.\n', 1, 0),
 (2, 'asdasdasd', '', 'asdasdad', 0, 1),
 (3, 'asdf', '', 'asdf', 0, 1);
 
@@ -69,6 +69,32 @@ INSERT INTO `about_user` (`NO`, `USERNAME`, `ABOUTUS`) VALUES
 (6, 'marimar', 'They say a good love is one that sits you down, gives you a drink of water, and pats you on top of the head. But I say a good love is one that casts you into the wind, sets you ablaze, makes you burn through the skies and ignite the night like a phoenix; the kind that cuts you loose like a wildfire and you can''t stop running simply because you keep on burning everything that you touch! I say that''s a good love; one that burns and flies, and you run with it!'),
 (7, 'coleen', 'You can be the most beautiful person in the world and everybody sees light and rainbows when they look at you, but if you yourself don''t know it, all of that doesn''t even matter. Every second that you spend on doubting your worth, every moment that you use to criticize yourself; is a second of your life wasted, is a moment of your life thrown away. It''s not like you have forever, so don''t waste any of your seconds, don''t throw even one of your moments away.'),
 (8, 'merierose', 'You''ve got this life and while you''ve got it, you''d better kiss like you only have one moment, try to hold someone''s hand like you will never get another chance to, look into people''s eyes like they''re the last you''ll ever see, watch someone sleeping like there''s no time left, jump if you feel like jumping, run if you feel like running, play music in your head when there is none, and eat cake like it''s the only one left in the world!');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calendarevents`
+--
+
+CREATE TABLE `calendarevents` (
+  `id` int(11) NOT NULL,
+  `title` varchar(500) NOT NULL,
+  `description` varchar(2000) NOT NULL,
+  `color` varchar(50) NOT NULL,
+  `start` varchar(100) NOT NULL,
+  `end` varchar(100) NOT NULL,
+  `allDay` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `calendarevents`
+--
+
+INSERT INTO `calendarevents` (`id`, `title`, `description`, `color`, `start`, `end`, `allDay`) VALUES
+(1, 'fdge', 'fdge description', '#ea261e', '2016-12-01', '2016-12-01', 'false'),
+(2, 'fasdfasdf', 'fasdfasdf description', '#1eea83', '2016-12-02', '2016-12-04', 'false'),
+(3, 'Happy Anniversary', 'Happy Anniversary Baby ko', '#1e2bea', '2016-12-15', '2016-12-15', 'false'),
+(4, 'Testing', 'Testing Description', '#60617c', '2016-12-02', '2016-12-10', 'false');
 
 -- --------------------------------------------------------
 
@@ -771,8 +797,9 @@ CREATE TABLE `purchase_product` (
 --
 
 INSERT INTO `purchase_product` (`NO`, `NAME`, `USERNAME`, `PRODUCT_NAME`, `PRODUCT_CATEGORY`, `PRICE`, `PHONE`, `ADDRESS`, `DATE`, `IMAGEURL`) VALUES
-(1, 'John Mark Abril', 'jmabril17', 'Special Mocha Cupcakes', 'Cupcakes', '150.00', '09208317004', '655 D. Guillermo St. Gagalangin Tondo, Manila', 'October 20, 2016 10:17 AM', 'special-mocha.jpg'),
-(2, 'John Mark Abril', 'jmabril17', 'Lemon-Honey Cupcakes', 'Cupcakes', '250.00', '09292704546', '655 D. Guillermo St. Gagalangin Tondo, Manila', 'November 22, 2016 10:47 AM', 'lemon-honey.jpg');
+(1, 'John Mark Abril', 'jmabril17', 'Special Mocha Cupcakes', 'Cupcakes', '150.00', '09208317004', '655 D. Guillermo St. Gagalangin Tondo, Manila', 'December 20, 2016 10:17 AM', 'special-mocha.jpg'),
+(2, 'John Mark Abril', 'jmabril17', 'Lemon-Honey Cupcakes', 'Cupcakes', '250.00', '09292704546', '655 D. Guillermo St. Gagalangin Tondo, Manila', 'December 22, 2016 10:47 AM', 'lemon-honey.jpg'),
+(3, 'John Mark Abril', 'jmabril17', 'Special Mocha Cupcakes', 'Cupcakes', '150.00', '09208317004', '655 D. Guillermo St. Gagalangin Tondo, Manila', 'December 02, 2016 03:48 AM', 'special-mocha.jpg');
 
 -- --------------------------------------------------------
 
@@ -862,8 +889,8 @@ INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASS
 (29, 'Coleen Moralidad', 'coleen', '09231564897', 'coleen@gmail.com', '921247cfe542c29ce7a4b3fb8a881d69', 'User', 'November 23, 2016 10:57 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0'),
 (30, 'Merie Rose Palay', 'merierose', '09546879213', 'merierose@gmail.com', '14aabec76f651c48d0c5dcb3ac66fd7e', 'User', 'November 22, 2016 11:28 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0'),
 (31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '34c87211821751f911c058bbf0cfb822', 'Administrator', 'November 21, 2016 11:36 AM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Advertisements|PayPal Configuration|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', 'prof3.jpg', '0'),
-(32, 'co admin', 'coadmin123', '09251947616', 'coadmin@gmail.com', '7c56c5ef9e9149388a00f1d5a3d72764', 'Administrator', 'December 01, 2016 4:47 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '0'),
-(33, 'testing testing', 'testing', '09231456987', 'testing@gmail.com', 'ea2d966cf3f13addb32c1accfcaccd12', 'Administrator', 'December 01, 2016 4:56 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '1');
+(32, 'co admin', 'coadmin123', '09251947616', 'coadmin@gmail.com', '7c56c5ef9e9149388a00f1d5a3d72764', 'Administrator', 'December 01, 2016 4:47 PM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox', '', '', '0'),
+(33, 'testing testing', 'testing', '09231456987', 'testing@gmail.com', '51d042dc49b6deb9c0c64fa87c556825', 'Administrator', 'December 01, 2016 4:56 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '1');
 
 --
 -- Indexes for dumped tables
@@ -880,6 +907,12 @@ ALTER TABLE `about_my_site`
 --
 ALTER TABLE `about_user`
   ADD PRIMARY KEY (`NO`);
+
+--
+-- Indexes for table `calendarevents`
+--
+ALTER TABLE `calendarevents`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `categories`
@@ -981,6 +1014,11 @@ ALTER TABLE `about_my_site`
 ALTER TABLE `about_user`
   MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
+-- AUTO_INCREMENT for table `calendarevents`
+--
+ALTER TABLE `calendarevents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -1034,7 +1072,7 @@ ALTER TABLE `posted`
 -- AUTO_INCREMENT for table `purchase_product`
 --
 ALTER TABLE `purchase_product`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `services`
 --
