@@ -4,45 +4,43 @@
                     <div class="ibox-title">
                         <h4>
                             Calendar Events
-                            <span class="pull-right"><button class="btn-link" data-toggle="modal" data-target="#createModalCalendar">Create</button></span>
                         </h4>
                     </div>
                     <div class="ibox-content">
-                        
-                        <div id="calendar"></div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="text-center">Add new event</h3>
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control text-center" id="eventCal_title" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea id="eventCal_desc" class="form-control" style="max-width: 100%;min-height: 20%;max-height: 20%;"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Color</label>
+                                    <div id="cp2" class="input-group colorpicker-component">
+                                        <input type="text" value="#00AABB" class="form-control" id="eventCal_color"/>
+                                        <span class="input-group-addon"><i></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <label>Start Date</label>
+                                    <input type="text" class="form-control text-center" value="" placeholder="YYYY-MM-DD" data-date-format='yyyy-mm-dd' id="eventCal_start" />
+                                    <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
+                                </div>
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <label>End Date</label>
+                                    <input type="text" class="form-control text-center" value="" placeholder="YYYY-MM-DD" data-date-format='yyyy-mm-dd' id="eventCal_end" />
+                                    <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
+                                </div>
+                                <button class="btn btn-lg btn-success full-width" id="btn-add-event-cal">Add an event</button>
+                            </div>
+                            <div class="col-md-9">
+                                <div id="calendar"></div>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="createModalCalendar" tabindex="-1" role="dialog" aria-labelledby="modalCreate">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Add Calendar Events</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Title</label>
-                    <input type="text" class="form-control" id="eventCal_title" />
-                </div>
-                <div class="form-group has-feedback has-feedback-left">
-                    <label>Start</label>
-                    <input type="text" class="form-control" value="" placeholder="MM-DD-YYYY" id="eventCal_start" />
-                    <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
-                </div>
-                <div class="form-group has-feedback has-feedback-left">
-                    <label>End</label>
-                    <input type="text" class="form-control" value="" placeholder="MM-DD-YYYY" id="eventCal_end" />
-                    <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-success pull-right">Create an Event</button>
-            </div>
-        </div>
-    </div>
-</div>

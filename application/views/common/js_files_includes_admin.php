@@ -13,6 +13,8 @@
 <!-- Custom and plugin javascript -->
 <script src="<?php echo base_url();?>public/js/inspinia.js"></script>
 
+<script src="<?php echo base_url();?>public/js/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+
 <!-- jQuery UI -->
 <script src="<?php echo base_url();?>public/js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
@@ -58,6 +60,41 @@
 <script>
     $(document).ready(function() {
 
+        $('#cp2').colorpicker();
+        $("#btn-add-event-cal").click(function(){
+            var eventCal_title      = $("#eventCal_title").val();
+            var eventCal_desc       = $("#eventCal_desc").val();
+            var eventCal_color      = $("#eventCal_color").val();
+            var eventCal_start      = $("#eventCal_start").val();
+            var eventCal_end        = $("#eventCal_end").val();
+
+            if ( eventCal_title && eventCal_start && eventCal_end && eventCal_desc ) {
+                $.ajax({
+                    url: "<?php echo base_url();?>admin/dashboard/insertEvents",
+                    method: "POST",
+                    data: {  
+                        eventCal_title      :   eventCal_title,
+                        eventCal_desc       :   eventCal_desc,
+                        eventCal_color      :   eventCal_color,
+                        eventCal_start      :   eventCal_start,
+                        eventCal_end        :   eventCal_end
+                    },
+                    success:function(data){
+                        $("#eventCal_title").val("");
+                        $("#eventCal_start").val("");
+                        $("#eventCal_desc").val("");
+                        $("#eventCal_end").val("");
+                        $('#calendar').fullCalendar( 'refetchEvents' );
+                    },
+                    error:function(){
+                        toastr.error("ERROR!");
+                    }
+                });
+            } else {
+                toastr.error("Please fill-up the fields!");
+            }
+        });
+
         $("#btn_update_coa").click(function(){
             var txt_select_perm         = $("#txt_select_perm").val();
             var txt_update_coa_userid   = $("#txt_update_coa_userid").val();
@@ -72,9 +109,8 @@
                         success:function(data){
                             location.reload();
                         },
-                        error:function(data){
+                        error:function(){
                             toastr.error("ERROR!");
-                            console.log(data);
                         }
                     });
                 } else {
@@ -476,10 +512,14 @@
 
     $(document).ready(function() {
 
-            $('.i-checks').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_square-green'
-            });
+        $(function() {
+            $( "#eventCal_start, #eventCal_end" ).datepicker();
+        });
+
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green'
+        });
 
         /* initialize the external events
          -----------------------------------------------------------------*/
@@ -503,94 +543,53 @@
         });
 
 
-        /* initialize the calendar
-         -----------------------------------------------------------------*/
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-
-        $('#calendar').fullCalendar({
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            editable: true,
-            droppable: true, // this allows things to be dropped onto the calendar
-            drop: function() {
-                // is the "remove after drop" checkbox checked?
-                if ($('#drop-remove').is(':checked')) {
-                    // if so, remove the element from the "Draggable Events" list
-                    $(this).remove();
-                }
-            },
-            events: [
-                {
-                    title: 'All Day Event',
-                    start: new Date(y, m, 1)
-                },
-                {
-                    title: 'Long Event',
-                    start: new Date(y, m, d-5),
-                    end: new Date(y, m, d-2)
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d-3, 16, 0),
-                    allDay: false
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d+4, 16, 0),
-                    allDay: false
-                },
-                {
-                    title: 'Meeting',
-                    start: new Date(y, m, d, 10, 30),
-                    allDay: false
-                },
-                {
-                    title: 'Lunch',
-                    start: new Date(y, m, d, 12, 0),
-                    end: new Date(y, m, d, 14, 0),
-                    allDay: false
-                },
-                {
-                    title: 'Birthday Party',
-                    start: new Date(y, m, d+1, 19, 0),
-                    end: new Date(y, m, d+1, 22, 30),
-                    allDay: false
-                },
-                {
-                    title: 'Click for Google',
-                    start: new Date(y, m, 28),
-                    end: new Date(y, m, 29),
-                    url: 'http://google.com/'
-                }
-            ]
-        });
-
+        
 
     });
-
-    $(function() {
-      $( "#eventCal_start, #eventCal_end" ).datepicker({
-                                autoclose:true
-                            });
-      // $( "#" ).clockpicker({
-      //   autoclose:true});
-      });
-
-    
-
 
     // PAGE LEVEL SCRIPTS START
     $(document).ready(function() {
         $('.footable').footable();
     });
     //  END OF PAGE LEVEL SCRIPTS
+
+    // CALENDAR EVENTS CODE
+    $(document).ready(function(){
+
+        <?php if ( $curpage == "Dashboard" ) { ?>
+
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                editable: true,
+                droppable: true, 
+                eventDrop: function(event, delta, revertFunc) {
+
+                },
+                eventMouseover: function(calEvent, jsEvent, view){
+                    var tooltip = '<div class="event-tooltip">' + calEvent.description + '</div>';
+                    $("body").append(tooltip);
+
+                    $(this).mouseover(function(e) {
+                        $(this).css('z-index', 10000);
+                        $('.event-tooltip').fadeIn('500');
+                        $('.event-tooltip').fadeTo('10', 1.9);
+                    }).mousemove(function(e) {
+                        $('.event-tooltip').css('top', e.pageY + 10);
+                        $('.event-tooltip').css('left', e.pageX + 20);
+                    });
+                },
+                eventMouseout: function(calEvent, jsEvent) {
+                    $(this).css('z-index', 8);
+                    $('.event-tooltip').remove();
+                },
+                events : "<?php echo base_url(); ?>admin/dashboard/eventsCalendar"
+            });
+        <?php } ?>
+    });
+    // END CALENDAR EVENTS CODE
     
 </script>

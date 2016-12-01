@@ -30,4 +30,6 @@
     
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/fullcalendar/fullcalendar.print.css" media='print'>
 
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/colorpicker/bootstrap-colorpicker.min.css">
+
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/animate.css">
