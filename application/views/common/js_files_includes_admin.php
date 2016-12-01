@@ -575,6 +575,15 @@
 
 
     });
+
+    $(function() {
+      $( "#eventCal_start, #eventCal_end" ).datepicker({
+                                autoclose:true
+                            });
+      // $( "#" ).clockpicker({
+      //   autoclose:true});
+      });
+
     
 
 

@@ -25,9 +25,23 @@
                 <h4 class="modal-title" id="myModalLabel">Add Calendar Events</h4>
             </div>
             <div class="modal-body">
-                <div>
-
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" id="eventCal_title" />
                 </div>
+                <div class="form-group has-feedback has-feedback-left">
+                    <label>Start</label>
+                    <input type="text" class="form-control" value="" placeholder="MM-DD-YYYY" id="eventCal_start" />
+                    <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
+                </div>
+                <div class="form-group has-feedback has-feedback-left">
+                    <label>End</label>
+                    <input type="text" class="form-control" value="" placeholder="MM-DD-YYYY" id="eventCal_end" />
+                    <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success pull-right">Create an Event</button>
             </div>
         </div>
     </div>
