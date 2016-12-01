@@ -46,4 +46,9 @@ class Aboutmysite_model extends CI_Model
 						->get($this->table);
 		return $row->result();
 	}
+
+	function update_about($params, $no){
+		$this->db->where($this->dbno, $no)
+				 ->update($this->table, $params);
+	}
 }

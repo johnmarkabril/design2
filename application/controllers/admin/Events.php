@@ -95,7 +95,7 @@ class Events extends CI_Controller
 				'DESCRIPTION'	=> $this->input->post('update_events_desc'),
 				'DATE'			=> $se->DATE,
 				'NAME'			=> $se->NAME,
-				'DELETION'		=> '1'
+				'DELETION'		=> $se->DELETION
 			);
 		endforeach;
 			

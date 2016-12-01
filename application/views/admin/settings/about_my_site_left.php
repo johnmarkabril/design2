@@ -20,7 +20,7 @@
 	                        		<?php foreach($get_list as $gl) :?>
 			                            <tr>
 			                                <td class="title">
-			                                	<a href="#"><?php echo $gl->TITLE;?></a>
+			                                	<a href="<?php echo base_url();?>admin/about_my_site/get_info/<?php echo $gl->NO;?>"><?php echo $gl->TITLE;?></a>
 			                                	<span class="pull-right"><a href="<?php echo base_url();?>admin/about_my_site/delete_about_my_site/<?php echo $gl->NO; ?>" class="fa fa-trash" aria-hidden="true"></a></span>
 			                                </td>
 			                            </tr>

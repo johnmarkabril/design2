@@ -186,6 +186,36 @@
             }
         });
 
+        $('#btn_about_update').click(function(){
+            var update_about_title  =   $('#update_about_title').val();
+            var update_about_desc   =   $('#update_about_desc').val();
+            var update_about_no     =   $('#update_about_no').val();
+
+            if (update_about_title) {
+                if (update_about_desc) {
+                    $.ajax({
+                        url: "<?php echo base_url();?>admin/about_my_site/update_about_my_site",
+                        method: "POST",
+                        data: {
+                            update_about_title  : update_about_title,
+                            update_about_desc   : update_about_desc,
+                            update_about_no     : update_about_no
+                        },
+                        success:function(data){
+                            location.reload();
+                        },
+                        error:function(data){
+                            toastr.error("ERROR");
+                        }
+                    });
+                } else{
+                    toastr.error("Fill-up the description field!");
+                }
+            } else{
+                toastr.error("Fill-up the title field!");
+            }
+        });
+
         $("#btn_update_paypal_account").click(function(){
             var txt_paypal_email_upd    = $("#txt_paypal_email_upd").val();
             var paypal_email_status     = $("#paypal_email_status").val();
