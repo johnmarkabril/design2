@@ -16,6 +16,7 @@
                             <form>
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        <input type="text" placeholder="John" id="txt_update_coa_userid" class="form-control" value="<?php echo $gs->USER_ID;?>" hidden/>
                                         <label>Full Name</label> 
                                         <input type="text" placeholder="John" id="" class="form-control" value="<?php echo $gs->NAME;?>" disabled/>
                                     </div>
@@ -43,12 +44,12 @@
                                         <label>Permission</label>
                                         <div class="input-group full-width">
 
-                                            <select data-placeholder="Permission" class="full-width chosen-select" multiple  tabindex="5" id="">
+                                            <select data-placeholder="Permission" class="full-width chosen-select" multiple  tabindex="5" id="txt_select_perm">
                                                 <?php
                                                     if ( ! empty( $get_content ) ) {
                                                         foreach ($get_content as $gc) :
                                                 ?>        
-                                                            <option value="<?php echo $gc->PERMISSION; ?> |"><?php echo $gc->PERMISSION; ?></option>
+                                                            <option value="<?php echo $gc->PERMISSION; ?>|"><?php echo $gc->PERMISSION; ?></option>
                                                 <?php
                                                         endforeach;
                                                     }
@@ -58,7 +59,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="button" class="btn btn-info full-width">Update co-administrator permission</button>
+                                    <button type="button" id="btn_update_coa" class="btn btn-info full-width">Update co-administrator permission</button>
                                 </div>
                             </form>
                 <?php

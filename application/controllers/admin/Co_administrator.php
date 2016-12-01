@@ -103,4 +103,21 @@ class Co_Administrator extends CI_Controller
 		redirect("admin/co_administrator");
 		// delete_coadmm($params, $no)
 	}
+
+	public function update_coadministrator()
+	{
+		$permission = $this->input->post('txt_select_perm');
+
+        $new = "";
+
+        foreach ($permission as $per) {
+            $new .= $per;
+        }
+
+        $params = array (
+            'PERMISSION'    =>  rtrim($new, "|")
+        );
+
+		$this->Users_model->delete_coadmm($params, $this->input->post('txt_update_coa_userid'));
+	}
 }

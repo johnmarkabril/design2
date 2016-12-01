@@ -58,6 +58,30 @@
 <script>
     $(document).ready(function() {
 
+        $("#btn_update_coa").click(function(){
+            var txt_select_perm         = $("#txt_select_perm").val();
+            var txt_update_coa_userid   = $("#txt_update_coa_userid").val();
+                if ( txt_select_perm != "" ) {
+                    $.ajax({
+                        url: "<?php echo base_url();?>admin/co_administrator/update_coadministrator",
+                        method: "POST",
+                        data: {  
+                            txt_select_perm         : txt_select_perm,
+                            txt_update_coa_userid   : txt_update_coa_userid  
+                        },
+                        success:function(data){
+                            location.reload();
+                        },
+                        error:function(data){
+                            toastr.error("ERROR!");
+                            console.log(data);
+                        }
+                    });
+                } else {
+                    toastr.error("Please select a permission!");
+                }
+            });
+
         $("#btn_create_coa_save").click(function(){
             var txt_create_coa_fname        =   $("#txt_create_coa_fname").val();
             var txt_create_coa_lname        =   $("#txt_create_coa_lname").val();
