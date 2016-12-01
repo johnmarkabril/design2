@@ -4,7 +4,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>Total Sales Gross</h5>
-                            <div class="ibox-tools"></div>
+                            <div class="ibox-tools">Year: <?php echo $year;?></div>
                         </div>
                         <div class="ibox-content">
                             <div>
@@ -17,7 +17,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>User Activity</h5>
-                            <div class="ibox-tools"></div>
+                            <div class="ibox-tools">Year: <?php echo $year;?></div>
                         </div>
                         <div class="ibox-content">
                             <div>
@@ -30,8 +30,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>Most Product Sell</h5>
-
-                            <div class="ibox-tools"></div>
+                            <div class="ibox-tools">Year: <?php echo $year;?></div>
                         </div>
                         <div class="ibox-content">
                             <div class="text-center">

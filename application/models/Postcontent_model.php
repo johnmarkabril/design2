@@ -90,9 +90,17 @@ class Postcontent_model extends CI_Model
 		return $row->result();
 	}
 
-	function activity_month($d_m){
+	function activity_month($d_m, $d_y){
 		$row = $this->db->like($this->datecomment, $d_m)
+						->like($this->datecomment, $d_y)
 						->get($this->tablecomment);
+		return $row->num_rows();
+	}
+
+	function posted_activity_month($d_m, $d_y){
+		$row = $this->db->like($this->date, $d_m)
+						->like($this->date, $d_y)
+						->get($this->table);
 		return $row->num_rows();
 	}
 

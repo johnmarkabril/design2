@@ -7,7 +7,6 @@
  
 <?php if ($curpage == "Reports") { ?>
     <script src="<?php echo base_url();?>public/js/plugins/chartJs/Chart.min.js"></script>
-    <script src="<?php echo base_url();?>public/js/admin_reports.js"></script>
 <?php } ?>
 
 <!-- Custom and plugin javascript -->
@@ -591,5 +590,116 @@
         <?php } ?>
     });
     // END CALENDAR EVENTS CODE
-    
+    <?php if ( $curpage == "Reports" ) { ?>
+        $(function () {
+
+            var lineData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"],
+                datasets: [
+                    {
+                        label: "Example dataset",
+                        fillColor: "rgba(26,179,148,0.5)",
+                        strokeColor: "rgba(26,179,148,0.7)",
+                        pointColor: "rgba(26,179,148,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(26,179,148,1)",
+                        data: <?php echo json_encode($stack); ?>
+                    }
+                ]
+            };
+
+            var lineOptions = {
+                scaleShowGridLines: true,
+                scaleGridLineColor: "rgba(0,0,0,.05)",
+                scaleGridLineWidth: 1,
+                bezierCurve: true,
+                bezierCurveTension: 0.4,
+                pointDot: true,
+                pointDotRadius: 4,
+                pointDotStrokeWidth: 1,
+                pointHitDetectionRadius: 20,
+                datasetStroke: true,
+                datasetStrokeWidth: 2,
+                datasetFill: true,
+                responsive: true,
+            };
+
+            var ctx = document.getElementById("lineChart").getContext("2d");
+            var myNewChart = new Chart(ctx).Line(lineData, lineOptions);
+
+            var barData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"],
+                datasets: [
+                    {
+                        label: "My Second dataset",
+                        fillColor: "rgba(26,179,148,0.5)",
+                        strokeColor: "rgba(26,179,148,0.8)",
+                        highlightFill: "rgba(26,179,148,0.75)",
+                        highlightStroke: "rgba(26,179,148,1)",
+                        data: <?php echo json_encode($stackUserActivity); ?>
+                    }
+                ]
+            };
+
+            var barOptions = {
+                scaleBeginAtZero: true,
+                scaleShowGridLines: true,
+                scaleGridLineColor: "rgba(0,0,0,.05)",
+                scaleGridLineWidth: 1,
+                barShowStroke: true,
+                barStrokeWidth: 2,
+                barValueSpacing: 5,
+                barDatasetSpacing: 1,
+                responsive: true,
+            }
+
+
+            var ctx = document.getElementById("barChart").getContext("2d");
+            var myNewChart = new Chart(ctx).Bar(barData, barOptions);
+
+            var polarData = [
+                {
+                    value: 1,
+                    color: "#a3e1d4",
+                    highlight: "#1ab394",
+                    label: "App"
+                },
+                {
+                    value: 1,
+                    color: "#a3e1d4",
+                    highlight: "#1ab394",
+                    label: "Software"
+                },
+                {
+                    value: 1,
+                    color: "#a3e1d4",
+                    highlight: "#1ab394",
+                    label: "Laptop"
+                }
+            ];
+
+            var polarOptions = {
+                scaleShowLabelBackdrop: true,
+                scaleBackdropColor: "rgba(255,255,255,0.75)",
+                scaleBeginAtZero: true,
+                scaleBackdropPaddingY: 1,
+                scaleBackdropPaddingX: 1,
+                scaleShowLine: true,
+                segmentShowStroke: true,
+                segmentStrokeColor: "#fff",
+                segmentStrokeWidth: 2,
+                animationSteps: 100,
+                animationEasing: "easeOutBounce",
+                animateRotate: true,
+                animateScale: false,
+                responsive: true,
+
+            };
+
+            var ctx = document.getElementById("polarChart").getContext("2d");
+            var myNewChart = new Chart(ctx).PolarArea(polarData, polarOptions);
+
+        });
+    <?php } ?>
 </script>

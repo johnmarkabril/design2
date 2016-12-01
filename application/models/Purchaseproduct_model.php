@@ -10,6 +10,7 @@ class Purchaseproduct_model extends CI_Model
 	public $desc	= 'DESC';
 	public $date	= 'DATE';
 	public $uname	= 'USERNAME';
+	public $prodname= 'PRODUCT_NAME';
 
 	function __construct()
 	{
@@ -56,10 +57,27 @@ class Purchaseproduct_model extends CI_Model
 		return $row->result();
 	}
 
-	function activity_month($d_m){
+	function activity_month($d_m, $d_y){
 		$row = $this->db->like($this->date, $d_m)
+						->like($this->date, $d_y)
 						->get($this->table);
 		return $row->num_rows();
 	}
 
+	function get_gross_monthly($month, $year){
+		$row = $this->db->like($this->date, $month)
+						->like($this->date, $year)
+						->get($this->table);
+		return $row->result();
+	}
+
+	function get_top_item($month, $year){
+		$row = $this->db->like($this->date, $month)
+						->like($this->date, $year)
+						// ->group_by($this->prodname)
+						// ->count(2)
+						->limit(3)
+						->get($this->table);
+		return $row->result();
+	}
 }

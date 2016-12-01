@@ -21,8 +21,10 @@ class Dashboard extends CI_Controller
 		$date_year = date("Y");
 		$comp_income = $this->Purchaseproduct_model->get_content();
 		$ctr = 0;
-		$cnt_am_pm = $this->Postcontent_model->activity_month($date_month);
-		$cnt_am_pur = $this->Purchaseproduct_model->activity_month($date_month);
+
+		$cnt_am_pm = $this->Postcontent_model->activity_month($date_month, $date_year);
+		$cnt_am_pur = $this->Purchaseproduct_model->activity_month($date_month, $date_year);
+		
 		$no_logsess = $this->session->userdata('log_sess')->USER_ID;
 
 		$perm = $this->Users_model->get_permiss($no_logsess);
