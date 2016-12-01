@@ -123,4 +123,24 @@ class Users_model extends CI_Model
 		$this->db->where($this->user_id, $no)
 				 ->update($this->table, $params);
 	}
+
+	function check_email($email){
+		$row = $this->db->where($this->email, $email)
+						->get($this->table);
+
+		return $row->num_rows();
+	}
+
+	function updateVerificationforgot($params, $email){
+		$this->db->where($this->email, $email)
+				 ->update($this->table, $params);
+	}
+
+	function checkCode($code, $email){
+		$row = $this->db->where($this->email, $email)
+						->where($this->verificationcode, $code)
+						->get($this->table);
+
+		return $row->num_rows();
+	}
 }

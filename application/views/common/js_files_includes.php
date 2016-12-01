@@ -61,7 +61,125 @@
     <?php } ?>
 
     $(document).ready(function(){
-        
+
+        function randomString() {
+            var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+            var string_length = 8;
+            var randomstring = '';
+            for (var i=0; i<string_length; i++) {
+                var rnum = Math.floor(Math.random() * chars.length);
+                randomstring += chars.substring(rnum,rnum+1);
+            }
+            return randomstring;
+        }
+
+        $("#btn_forgot_reset_submit").click(function(){
+            var txt_forgot_email            = $("#txt_forgot_email").val();
+            var txt_forgot_password         = $("#txt_forgot_password").val();
+            var txt_forgot_con_password     = $("#txt_forgot_con_password").val();
+
+            if ( txt_forgot_password && txt_forgot_con_password ) {
+                if ( txt_forgot_password.length >= 8 ) {
+                    if ( txt_forgot_password == txt_forgot_con_password ) {
+                        $.ajax ({
+                            url: "<?php echo base_url();?>forgotpassword/change_password",
+                            method: "POST",
+                            data: {
+                                txt_forgot_email        : txt_forgot_email,
+                                txt_forgot_password     : txt_forgot_password
+                            },
+                            success:function(data){
+                                $("#resetModal").modal('toggle');
+
+                                $("#txt_forgot_email").val("");
+                                $("#txt_forgot_verify").val("");
+                                $("#txt_forgot_password").val("");
+                                $("#txt_forgot_con_password").val("");
+                                    
+                                toastr.success("Password has been changed");
+                            },
+                            error:function(){
+                                toastr.error("Error!");
+                            }
+                        });
+                    } else {
+                        toastr.error("Password doesn't match!");
+                    }
+                } else {
+                    toastr.error("Password must have an 8 characters and above!");
+                }
+            } else {
+                toastr.error("Please fill-up the fields!");
+            }
+
+        });
+
+        $("#btn_forgot_verify_submit").click(function(){
+            var txt_forgot_email    = $("#txt_forgot_email").val();
+            var txt_forgot_verify   = $("#txt_forgot_verify").val();
+
+            if ( txt_forgot_verify ) {
+                if ( txt_forgot_verify.length == 8 ) {
+                    $.ajax ({
+                        url: "<?php echo base_url();?>forgotpassword/verify_code",
+                        method: "POST",
+                        data: {
+                            txt_forgot_email    : txt_forgot_email,
+                            txt_forgot_verify   : txt_forgot_verify
+                        },
+                        success:function(data){
+                            if ( data != 0 ) {
+                                toastr.success("You can now change your password");
+                                $("#verifyModal").modal('toggle');
+                                $("#resetModal").modal('show');
+                            } else {
+                                toastr.error("Incorrect verification code!");
+                            }
+                        },
+                        error:function(){
+                            toastr.error("Error!");
+                        }
+                    });
+                } else {
+                    toastr.error("Verification code consist of 8 characters only!");
+                }
+            } else {
+                toastr.error("Put a verification code!");
+            }
+        });
+
+        $("#btn_forgot_submit").click(function(){
+            var txt_forgot_email = $("#txt_forgot_email").val();
+            var codeRand         = randomString();
+
+            if ( txt_forgot_email ) {
+                $.ajax ({
+                    url: "<?php echo base_url();?>forgotpassword/verify_email",
+                    method: "POST",
+                    data: {
+                        txt_forgot_email : txt_forgot_email,
+                        codeRand         : codeRand
+                    },
+                    success:function(data){
+                        if ( data != 0 ) {
+                            toastr.success("We send the verification code to your gmail");
+                            $("#forgotModal").modal('toggle');
+                            $("#verifyModal").modal('show');
+                        } else {
+                            toastr.error("Email address is not found!");
+                        }
+                    },
+                    error:function(data){
+                        toastr.error("Error!");
+                        console.log(data);
+                    }
+                });
+            } else {
+                toastr.error("Please fill-up the field!");
+            }
+
+        });
+
         $("#set_ot_in_btn_sub_ski").click(function(){
             var set_ot_in_skills    = $("#set_ot_in_skills").val();
             if ( !set_ot_in_skills ) {

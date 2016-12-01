@@ -105,7 +105,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Phone number</label> 
-                                <input type="text" placeholder="09*********" id="txt_create_coa_pnum" class="form-control" />
+                                <input type="text" placeholder="09*********" id="txt_create_coa_pnum" max-length="11" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-12">
