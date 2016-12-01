@@ -16,6 +16,7 @@
 	                            </tr>
 	                        </thead>
 			                <tbody class="list">
+			                	<div id="newlycreateCoAdd"></div>
 		                        <?php 
 		                        	if ( !empty($get_all_admin) ) {
 		                        ?>
@@ -23,7 +24,7 @@
 			                            <tr>
 			                                <td class="title">
 			                                	<a href="<?php echo base_url();?>admin/co_administrator/information/<?php echo $gaa->USER_ID;?>"><?php echo $gaa->NAME;?></a>
-			                                	<span class="pull-right"><a href="" class="fa fa-trash" aria-hidden="true"></a></span>
+			                                	<span class="pull-right"><a href="<?php echo base_url();?>admin/co_administrator/delete_coadministrator/<?php echo $gaa->USER_ID; ?>" class="fa fa-trash" aria-hidden="true"></a></span>
 			                                </td>
 			                            </tr>
 			                       	<?php endforeach; ?>

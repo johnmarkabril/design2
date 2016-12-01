@@ -68,22 +68,57 @@
             var txt_create_coa_conpword     =   $("#txt_create_coa_conpword").val();
 
             var checkEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(txt_create_coa_email);
+            var fname_check = /^[a-zA-Z-_]+( [a-zA-Z-_]+)*$/.test(txt_create_coa_fname);
+            var lname_check = /^[a-zA-Z-_]+( [a-zA-Z-_]+)*$/.test(txt_create_coa_lname);
+            var cpnum_check = /^(0|\[0-9]{1,5})?([7-9][0-9]{9})$/.test(txt_create_coa_pnum);
 
+            var fullname = txt_create_coa_fname + " " + txt_create_coa_lname;
             if ( txt_create_coa_fname && txt_create_coa_lname && txt_create_coa_uname && txt_create_coa_pnum && txt_create_coa_email && txt_create_coa_pword && txt_create_coa_conpword ) {
+                if ( fname_check ) {
+                    if ( lname_check ) {
+                        if ( cpnum_check ) {
+                            if ( checkEmail ) {
+                                if ( txt_create_coa_pword.length >= 8 ) {
+                                    if ( txt_create_coa_pword == txt_create_coa_conpword ) {
+                                        
+                                        $.ajax({
+                                            url: "<?php echo base_url();?>admin/co_administrator/insert_co_admin",
+                                            method: "POST",
+                                            data: {
+                                                fullname                : fullname, 
+                                                txt_create_coa_uname    : txt_create_coa_uname,
+                                                txt_create_coa_pnum     : txt_create_coa_pnum,
+                                                txt_create_coa_email    : txt_create_coa_email,
+                                                txt_create_coa_pword    : txt_create_coa_pword              
+                                            },
+                                            success:function(data){
+                                                location.reload();
+                                                // alert(data);
+                                            },
+                                            error:function(data){
+                                                toastr.error("ERROR!");
+                                            }
+                                        });
 
-                if ( checkEmail ) {
-                    if ( txt_create_coa_pword.length >= 8 ) {
-                        if ( txt_create_coa_pword == txt_create_coa_conpword ) {
-                            toastr.success("ASDF");
+                                    } else {
+                                        toastr.error("Password doesn't match");
+                                    }
+                                } else {
+                                    toastr.error("Password length must be 8 and above");
+                                }
+                            } else {
+                                toastr.error("Invalid email address format!");
+                            }
                         } else {
-                            toastr.error("Password doesn't match");
+                            toastr.error("Invalid cellphone number format!");
                         }
                     } else {
-                        toastr.error("Password length must be 8 and above");
+                        toastr.error("Invalid lastname name format!");
                     }
                 } else {
-                    toastr.error("Invalid email address format!");
+                    toastr.error("Invalid first name format!");
                 }
+                
 
             } else {
                 toastr.error("Please fill-up the fields!");

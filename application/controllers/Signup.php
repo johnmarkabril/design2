@@ -55,7 +55,8 @@ class Signup extends CI_Controller
 			'VERIFICATIONCODE'	=>		$random_code,
 			'PERMISSION'		=>		'',
 			'SKILLS'			=>		'',
-			'IMAGEURL'			=>		'firstprof.png'
+			'IMAGEURL'			=>		'firstprof.png',
+			'DELETION'			=>		'0'
 		);
 
 		$params_loc = array (

@@ -65,4 +65,42 @@ class Co_Administrator extends CI_Controller
 
 		// print_r($details['get_spec']);
 	}
+
+	public function insert_co_admin()
+	{
+    	date_default_timezone_set("Asia/Manila");
+    	$date = date("F d, Y g:i A");
+
+    	$params = array (
+    		'USER_ID'			=>	"",
+    		'NAME'				=>	$this->input->post('fullname'),
+    		'USERNAME'			=>	$this->input->post('txt_create_coa_uname'),
+    		'PHONENUMBER'		=>	$this->input->post('txt_create_coa_pnum'),
+    		'EMAIL'				=>	$this->input->post('txt_create_coa_email'),
+    		'PASSWORD'			=>	md5($this->input->post('txt_create_coa_pword')),
+    		'ACCOUNT_TYPE'		=>	"Administrator",
+    		'REG_TIME'			=>	$date,
+    		'ACTIVATED'			=>	"0",
+    		'TEMPLATENAME'		=>	"DESIGN2",
+    		'VERIFIED'			=>	"YES",
+    		'VERIFICATIONCODE'	=>	"",
+    		'PERMISSION'		=>	"",
+    		'SKILLS'			=>	"",
+    		'IMAGEURL'			=>	"",
+    		'DELETION'			=>	"0",
+    	);
+
+    	$this->Users_model->insert_coadmin($params);
+    	// print_r($params);
+	}
+
+	public function delete_coadministrator($no)
+	{
+		$params = array (
+			'DELETION'		=> "1"
+		);
+		$this->Users_model->delete_coadmm($params, $no);
+		redirect("admin/co_administrator");
+		// delete_coadmm($params, $no)
+	}
 }

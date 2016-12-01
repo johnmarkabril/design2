@@ -64,7 +64,7 @@
                 <?php
                         endforeach;
                     } else {
-                        echo "Click an information";
+                        echo "<div class='col-md-12'>Click an information</div>";
                     } 
                 ?>
             </div>

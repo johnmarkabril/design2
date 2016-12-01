@@ -15,6 +15,7 @@ class Dashboard extends CI_Controller
 
 	public function index()
 	{
+    	date_default_timezone_set("Asia/Manila");
 		$date_month = date("F");
 		$date_year = date("Y");
 		$comp_income = $this->Purchaseproduct_model->get_content();

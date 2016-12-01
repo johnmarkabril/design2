@@ -17,6 +17,7 @@ class Users_model extends CI_Model
 	public $verified				= 'VERIFIED';
 	public $verificationcode		= 'VERIFICATIONCODE';
 	public $regtime					= 'REG_TIME';
+	public $deletion				= 'DELETION';
 
 	function __construct()
 	{
@@ -80,6 +81,8 @@ class Users_model extends CI_Model
 
 	function get_all_admin(){
 		$row = $this->db->where($this->acc_type, "Administrator")
+						->where($this->deletion, "0")
+						->order_by($this->user_id, "DESC")
 						->get($this->table);
 
 		return $row->result();
@@ -110,5 +113,14 @@ class Users_model extends CI_Model
 						->get($this->table);
 
 		return $row->result();
+	}
+
+	function insert_coadmin($params){
+		$this->db->insert($this->table, $params);
+	}
+
+	function delete_coadmm($params, $no){
+		$this->db->where($this->user_id, $no)
+				 ->update($this->table, $params);
 	}
 }
