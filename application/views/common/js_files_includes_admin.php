@@ -577,12 +577,15 @@
 
     });
     // GOOGLE MAP API CODE START
-    var map;
     function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: 14.633420, lng: 120.973839},
-              zoom: 13
-        });
+        var mapOptions = {
+            zoom: 13,
+            center: {lat: 14.633420, lng: 120.973839},
+                // Style for Google Maps
+                styles: [{"stylers":[{"hue":"#18a689"},{"visibility":"on"},{"invert_lightness":true},{"saturation":40},{"lightness":10}]}]
+        };
+            var mapElement = document.getElementById('map');
+            var map = new google.maps.Map(mapElement, mapOptions);
     }
     // GOOGLE MAP API CODE END
 

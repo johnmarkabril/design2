@@ -8,7 +8,7 @@
                 <h1 class="no-margins">
                     <div class="row">
                         <div class="col-md-12">
-                        <div id="map" class="full-width half-height"></div>
+                        <div id="map" class="google-map full-width half-height"></div>
                         </div>
                     </div>
                 </h1>
