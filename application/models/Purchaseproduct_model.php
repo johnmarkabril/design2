@@ -72,12 +72,13 @@ class Purchaseproduct_model extends CI_Model
 	}
 
 	function get_top_item($month, $year){
-		$row = $this->db->like($this->date, $month)
+		$row = $this->db->select('*, COUNT(PRODUCT_NAME) AS CNT')
+						->like($this->date, $month)
 						->like($this->date, $year)
-						// ->group_by($this->prodname)
-						// ->count(2)
+						->order_by('CNT', 'DESC')
 						->limit(3)
+                  		->group_by('PRODUCT_NAME')
 						->get($this->table);
-		return $row->result();
+        return $row->result();
 	}
 }

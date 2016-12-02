@@ -657,27 +657,7 @@
 
             var ctx = document.getElementById("barChart").getContext("2d");
             var myNewChart = new Chart(ctx).Bar(barData, barOptions);
-
-            var polarData = [
-                {
-                    value: 1,
-                    color: "#a3e1d4",
-                    highlight: "#1ab394",
-                    label: "App"
-                },
-                {
-                    value: 1,
-                    color: "#a3e1d4",
-                    highlight: "#1ab394",
-                    label: "Software"
-                },
-                {
-                    value: 1,
-                    color: "#a3e1d4",
-                    highlight: "#1ab394",
-                    label: "Laptop"
-                }
-            ];
+            var polarData = <?php echo json_encode($polarArray); ?>;
 
             var polarOptions = {
                 scaleShowLabelBackdrop: true,

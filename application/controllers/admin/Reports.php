@@ -28,8 +28,12 @@ class Reports extends CI_Controller
 
 		$stack = array();
 		$stackUserActivity = array();
+		$stackTopItems = array();
+		$stackCountItems = array();
+		$stackProdItems = array();
+		$polarArray = array();
 
-		for ( $ctr = 0; $ctr <= sizeof($month)-1; $ctr++ ) {
+		for ( $ctr = 0; $ctr < sizeof($month); $ctr++ ) {
 			$ctrPrice = 0;
 
 			$monthArr = $this->Purchaseproduct_model->get_gross_monthly($month[$ctr],$year);
@@ -39,7 +43,7 @@ class Reports extends CI_Controller
 			array_push($stack, $ctrPrice);
 		}
 
-		for ( $ctr = 0; $ctr <= sizeof($month)-1; $ctr++ ) {
+		for ( $ctr = 0; $ctr < sizeof($month); $ctr++ ) {
 			$ctrRow = 0;
 			$purchMod = $this->Purchaseproduct_model->activity_month($month[$ctr],$year);
 			$ctrRow = $purchMod;
@@ -50,11 +54,37 @@ class Reports extends CI_Controller
 			array_push($stackUserActivity, $ctrRow);
 		}
 
+		for ( $ctr = 0; $ctr < sizeof($month); $ctr++ ) {
+			$ctrCount = 0;
+			$ctrProdItem = "";
+
+			$topItemsPerMonth = $this->Purchaseproduct_model->get_top_item($month[$ctr],$year);
+			foreach ( $topItemsPerMonth as $ma ) {
+				$ctrCount 		= 	$ma->CNT;
+				$ctrProdItem 	= 	$ma->PRODUCT_NAME;
+				array_push($stackCountItems, $ctrCount);
+				array_push($stackProdItems, $ctrProdItem);
+			}
+			array_push($stackTopItems, $ctrCount);
+		}
+
+		for ($x = 0; $x < sizeof($stackCountItems); $x++ ) {
+
+			$xasdf = array(
+				"value" 	=>	$stackCountItems[$x],
+				"color"		=>	"#a3e1d4",
+				"highlight"	=>	"#1ab394",
+				"label"		=>	$stackProdItems[$x]
+			);
+			array_push($polarArray, $xasdf);
+		}
+
 		$details = array (
 			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'permission_cntnt'			=> 	explode("|", $permis),
 			'year'						=>	$year,	
 			'stack'						=>  $stack,
+			'polarArray'				=>	$polarArray,
 			'stackUserActivity'			=>	$stackUserActivity,
 			'get_notification'			=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> 	$this->Notification_model->get_all_notification_rows()
@@ -66,10 +96,50 @@ class Reports extends CI_Controller
 		$this->load->view('admin/template_admin.php', $data);
 	}
 
-	// public function testing()
-	// {
- //    	date_default_timezone_set("Asia/Manila");
- //    	$year = date("Y");
-	// 	print_r($this->Purchaseproduct_model->get_top_item('December',$year));
-	// }
+	public function testing()
+	{
+    	date_default_timezone_set("Asia/Manila");
+    	$year = date("Y");
+
+		$month = array ("January", "February", "March", "April", "May", "June", "July","August","September","October","November","December");
+
+		$stackTopItems = array();
+		$stackCountItems = array();
+		$stackProdItems = array();
+
+		for ( $ctr = 0; $ctr < sizeof($month); $ctr++ ) {
+			$ctrCount = 0;
+			$ctrProdItem = "";
+
+			$topItemsPerMonth = $this->Purchaseproduct_model->get_top_item($month[$ctr],$year);
+			foreach ( $topItemsPerMonth as $ma ) {
+				$ctrCount 		= 	$ma->CNT;
+				$ctrProdItem 	= 	$ma->PRODUCT_NAME;
+				array_push($stackCountItems, $ctrCount);
+				array_push($stackProdItems, $ctrProdItem);
+			}
+			array_push($stackTopItems, $ctrCount);
+		}
+
+		print_r($stackCountItems);
+		echo "</br>";
+		print_r($stackProdItems);
+		echo "</br>";
+
+		$polarArray = array(
+		);
+
+		for ($x = 0; $x < sizeof($stackCountItems); $x++ ) {
+
+			$xasdf = array(
+				"value" 	=>	$stackCountItems[$x],
+				"color"		=>	"#a3e1d4",
+				"highlight"	=>	"#1ab394",
+				"label"		=>	$stackProdItems[$x]
+			);
+			array_push($polarArray, $xasdf);
+		}
+		// print_r(json_encode($polarArray));
+
+	}
 }
