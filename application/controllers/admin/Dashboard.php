@@ -29,6 +29,7 @@ class Dashboard extends CI_Controller
 
 		$perm = $this->Users_model->get_permiss($no_logsess);
 		$permis = "";
+		
 		foreach ($perm as $per) {
 			$permis = $per->PERMISSION;
 		}

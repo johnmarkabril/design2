@@ -598,6 +598,16 @@
                 datasets: [
                     {
                         label: "Example dataset",
+                        fillColor: "rgba(220,220,220,0.5)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(220,220,220,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: <?php echo json_encode($stackPreviousYear); ?>
+                    },
+                    {
+                        label: "Example dataset",
                         fillColor: "rgba(26,179,148,0.5)",
                         strokeColor: "rgba(26,179,148,0.7)",
                         pointColor: "rgba(26,179,148,1)",
@@ -631,6 +641,14 @@
             var barData = {
                 labels: ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"],
                 datasets: [
+                    {
+                        label: "My Second dataset",
+                        fillColor: "rgba(220,220,220,0.5)",
+                        strokeColor: "rgba(220,220,220,7)",
+                        highlightFill: "rgba(220,220,220,1)",
+                        highlightStroke: "rgba(220,220,220,1)",
+                        data: <?php echo json_encode($stackPreviousUserActivity); ?>
+                    },
                     {
                         label: "My Second dataset",
                         fillColor: "rgba(26,179,148,0.5)",
