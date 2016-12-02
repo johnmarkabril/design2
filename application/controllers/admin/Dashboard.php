@@ -80,10 +80,37 @@ class Dashboard extends CI_Controller
 			'title'			=> $this->input->post('eventCal_title'),
 			'description'	=> $this->input->post('eventCal_desc'),
 			'color'			=> $this->input->post('eventCal_color'),
-			'start'			=> $this->input->post('eventCal_start'),
-			'end'			=> $this->input->post('eventCal_end'),
-			'allday'		=> 'false'
+			'start'			=> $this->input->post('eventCal_start') . " " . $this->input->post('startTime') ,
+			'end'			=> $this->input->post('eventCal_end') . " " . $this->input->post('endTime') 
 		);
 		$this->Calendarevents_model->insert_event($params);
+	}
+
+	public function updateEvents()
+	{
+		$params = array(
+			'start'			=> $this->input->post('newStartDate'),
+			'end'			=> $this->input->post('newEndDate')
+		);
+		// print_r($params);
+		$this->Calendarevents_model->update_events_date($params,$this->input->post('eventid'));
+	}
+
+	public function allEventUpdate()
+	{
+		$params = array(
+			'title'			=> $this->input->post('eventCal_title'),
+			'description'	=> $this->input->post('eventCal_desc'),
+			'color'			=> $this->input->post('eventCal_color'),
+			'start'			=> $this->input->post('eventCal_start') . " " . $this->input->post('startTime') ,
+			'end'			=> $this->input->post('eventCal_end') . " " . $this->input->post('endTime') 
+		);
+		// print_r($params, $this->input->post('txt_event_id_update'));
+		$this->Calendarevents_model->update_events_date($params,$this->input->post('txt_event_id_update'));
+	}
+
+	public function deleteEvent()
+	{
+		$this->Calendarevents_model->delete_event($this->input->post('txt_event_id_update'));
 	}
 }

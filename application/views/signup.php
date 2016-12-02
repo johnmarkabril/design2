@@ -2,9 +2,6 @@
     <h2 class="text-center">
         Create your account
     </h2>
-    <p class="text-center">
-        This example show how to use Steps with jQuery Validation plugin.
-    </p>
 
     <form id="form" action="#" class="wizard-big">
         <h1>Personal</h1>

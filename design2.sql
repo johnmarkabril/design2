@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2016 at 08:59 PM
+-- Generation Time: Dec 02, 2016 at 08:17 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -82,19 +82,15 @@ CREATE TABLE `calendarevents` (
   `description` varchar(2000) NOT NULL,
   `color` varchar(50) NOT NULL,
   `start` varchar(100) NOT NULL,
-  `end` varchar(100) NOT NULL,
-  `allDay` varchar(50) NOT NULL
+  `end` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `calendarevents`
 --
 
-INSERT INTO `calendarevents` (`id`, `title`, `description`, `color`, `start`, `end`, `allDay`) VALUES
-(1, 'fdge', 'fdge description', '#ea261e', '2016-12-01', '2016-12-01', 'false'),
-(2, 'fasdfasdf', 'fasdfasdf description', '#1eea83', '2016-12-02', '2016-12-04', 'false'),
-(3, 'Happy Anniversary', 'Happy Anniversary Baby ko', '#1e2bea', '2016-12-15', '2016-12-15', 'false'),
-(4, 'Testing', 'Testing Description', '#60617c', '2016-12-02', '2016-12-10', 'false');
+INSERT INTO `calendarevents` (`id`, `title`, `description`, `color`, `start`, `end`) VALUES
+(6, 'Happy Anniversary', 'Happy 6th Anniversary. Mahal na mahal kita', '#0dff22', '2016-12-15 07:00', '2016-12-16 10:01');
 
 -- --------------------------------------------------------
 
@@ -1017,7 +1013,7 @@ ALTER TABLE `about_user`
 -- AUTO_INCREMENT for table `calendarevents`
 --
 ALTER TABLE `calendarevents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `categories`
 --

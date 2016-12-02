@@ -16,7 +16,7 @@
                             <form>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" placeholder="John" id="txt_update_coa_userid" class="form-control" value="<?php echo $gs->USER_ID;?>" hidden/>
+                                        <input type="text" placeholder="John" id="txt_update_coa_userid" class="form-control" value="<?php echo $gs->USER_ID;?>" style="display: none;"/>
                                         <label>Full Name</label> 
                                         <input type="text" placeholder="John" id="" class="form-control" value="<?php echo $gs->NAME;?>" disabled/>
                                     </div>

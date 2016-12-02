@@ -60,14 +60,87 @@
     $(document).ready(function() {
 
         $('#cp2').colorpicker();
+
+        $("#btn-delete-event-cal").click(function(){
+            var txt_event_id_update = $("#txt_event_id_update").val();
+                $.ajax({
+                    url: "<?php echo base_url();?>admin/dashboard/deleteEvent",
+                    method: "POST",
+                    data: {  
+                        txt_event_id_update :   txt_event_id_update
+                    },  
+                    success:function(data){
+                        $("#eventCal_title").val("");
+                        $("#eventCal_start").val("");
+                        $("#eventCal_desc").val("");
+                        $("#startTime").val("");
+                        $("#endTime").val("");
+                        $("#endTime").val("");
+                        $("#eventCal_end").val("");
+                        $("#update_group_click").hide();
+                        $("#btn-add-event-cal").show();
+                        $('#calendar').fullCalendar( 'refetchEvents' );
+                    },
+                    error:function(){
+                        toastr.error("ERROR!");
+                    }
+                });
+        });
+
+        $("#btn-update-event-cal").click(function(){
+            var eventCal_title      = $("#eventCal_title").val();
+            var txt_event_id_update = $("#txt_event_id_update").val();
+            var eventCal_desc       = $("#eventCal_desc").val();
+            var startTime           = $("#startTime").val();
+            var endTime             = $("#endTime").val();
+            var eventCal_color      = $("#eventCal_color").val();
+            var eventCal_start      = $("#eventCal_start").val();
+            var eventCal_end        = $("#eventCal_end").val();
+            if ( eventCal_title && eventCal_start && eventCal_end && eventCal_desc && startTime && endTime ) {
+                $.ajax({
+                    url: "<?php echo base_url();?>admin/dashboard/allEventUpdate",
+                    method: "POST",
+                    data: {  
+                        eventCal_title      :   eventCal_title,
+                        eventCal_desc       :   eventCal_desc,
+                        txt_event_id_update :   txt_event_id_update,
+                        eventCal_color      :   eventCal_color,
+                        eventCal_start      :   eventCal_start,
+                        startTime           :   startTime,
+                        endTime             :   endTime,
+                        eventCal_end        :   eventCal_end
+                    },  
+                    success:function(data){
+                        $("#eventCal_title").val("");
+                        $("#eventCal_start").val("");
+                        $("#eventCal_desc").val("");
+                        $("#startTime").val("");
+                        $("#endTime").val("");
+                        $("#endTime").val("");
+                        $("#eventCal_end").val("");
+                        $("#update_group_click").hide();
+                        $("#btn-add-event-cal").show();
+                        $('#calendar').fullCalendar( 'refetchEvents' );
+                    },
+                    error:function(){
+                        toastr.error("ERROR!");
+                    }
+                });
+            } else {
+                toastr.error("Please fill-up the fields!");
+            }
+        });
+
         $("#btn-add-event-cal").click(function(){
             var eventCal_title      = $("#eventCal_title").val();
             var eventCal_desc       = $("#eventCal_desc").val();
+            var startTime           = $("#startTime").val();
+            var endTime             = $("#endTime").val();
             var eventCal_color      = $("#eventCal_color").val();
             var eventCal_start      = $("#eventCal_start").val();
             var eventCal_end        = $("#eventCal_end").val();
 
-            if ( eventCal_title && eventCal_start && eventCal_end && eventCal_desc ) {
+            if ( eventCal_title && eventCal_start && eventCal_end && eventCal_desc && startTime && endTime ) {
                 $.ajax({
                     url: "<?php echo base_url();?>admin/dashboard/insertEvents",
                     method: "POST",
@@ -76,12 +149,16 @@
                         eventCal_desc       :   eventCal_desc,
                         eventCal_color      :   eventCal_color,
                         eventCal_start      :   eventCal_start,
+                        startTime           :   startTime,
+                        endTime             :   endTime,
                         eventCal_end        :   eventCal_end
-                    },
+                    },  
                     success:function(data){
                         $("#eventCal_title").val("");
                         $("#eventCal_start").val("");
                         $("#eventCal_desc").val("");
+                        $("#startTime").val("");
+                        $("#endTime").val("");
                         $("#eventCal_end").val("");
                         $('#calendar').fullCalendar( 'refetchEvents' );
                     },
@@ -513,6 +590,8 @@
 
         $(function() {
             $( "#eventCal_start, #eventCal_end" ).datepicker();
+            $( "#startTime,#endTime" ).clockpicker({
+                autoclose:true});
         });
 
         $('.i-checks').iCheck({
@@ -558,14 +637,51 @@
         <?php if ( $curpage == "Dashboard" ) { ?>
 
             $('#calendar').fullCalendar({
+                timeFormat: 'H(:mm)',
                 header: {
                     left: 'prev,next today',
                     center: 'title',
                     right: 'month,agendaWeek,agendaDay'
                 },
                 editable: true,
-                droppable: true, 
-                eventDrop: function(event, delta, revertFunc) {
+                eventLimit: true, // allow "more" link when too many events
+                droppable: true,
+                eventDrop: function(event){
+                    var newEndDate = event.end.format('YYYY-MM-DD hh:mm');
+                    var newStartDate = event.start.format('YYYY-MM-DD hh:mm');
+                    var eventid = event.id;
+                    // alert(event.id);
+
+                    $.ajax({
+                        url: "<?php echo base_url();?>admin/dashboard/updateEvents",
+                        method: "POST",
+                        data: {  
+                            newEndDate      : newEndDate,
+                            newStartDate    : newStartDate,
+                            eventid         : eventid
+                        },  
+                        success:function(data){
+                            toastr.success("Event has been moved");
+                            $('#calendar').fullCalendar( 'refetchEvents' );
+                        },
+                        error:function(){
+                            toastr.error("ERROR!");
+                        }
+                    });
+
+                },
+                eventClick: function(event) {
+                    $("#btn-add-event-cal").hide();
+                    $("#update_group_click").show();
+                    // alert(event.title);
+                    $("#txt_event_id_update").val(event.id);
+                    $("#eventCal_title").val(event.title);
+                    $("#eventCal_desc").val(event.description);
+                    $("#eventCal_color").val(event.color);
+                    $("#eventCal_start").val(event.start.format('YYYY-MM-DD'));
+                    $("#eventCal_end").val(event.end.format('YYYY-MM-DD'));
+                    $("#startTime").val(event.start.format('hh:mm'));
+                    $("#endTime").val(event.end.format('hh:mm'));
 
                 },
                 eventMouseover: function(calEvent, jsEvent, view){

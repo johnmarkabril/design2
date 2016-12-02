@@ -6,10 +6,10 @@ if (!defined('BASEPATH'))
 class Calendarevents_model extends CI_Model
 {
 	public $table 		 			= "calendarevents";
-	public $dbno 					= "NO";
-	public $title 					= "TITLE";
-	public $start				    = "START";
-    public $end                     = "END";
+	public $dbno 					= "id";
+	public $title 					= "title";
+	public $start				    = "start";
+    public $end                     = "end";
 	// public $active 					= "ACTIVE";
 
 	function __construct()
@@ -26,5 +26,17 @@ class Calendarevents_model extends CI_Model
     function insert_event($params)
     {
         $this->db->insert($this->table, $params);
+    }
+
+    function update_events_date($params, $id)
+    {
+        $this->db->where($this->dbno, $id)
+                 ->update($this->table, $params);
+    }
+
+    function delete_event($id)
+    {
+        $this->db->where($this->dbno, $id)
+                 ->delete($this->table);
     }
 }
