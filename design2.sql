@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2016 at 06:32 AM
+-- Generation Time: Dec 07, 2016 at 10:34 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -69,6 +69,25 @@ INSERT INTO `about_user` (`NO`, `USERNAME`, `ABOUTUS`) VALUES
 (6, 'marimar', 'They say a good love is one that sits you down, gives you a drink of water, and pats you on top of the head. But I say a good love is one that casts you into the wind, sets you ablaze, makes you burn through the skies and ignite the night like a phoenix; the kind that cuts you loose like a wildfire and you can''t stop running simply because you keep on burning everything that you touch! I say that''s a good love; one that burns and flies, and you run with it!'),
 (7, 'coleen', 'You can be the most beautiful person in the world and everybody sees light and rainbows when they look at you, but if you yourself don''t know it, all of that doesn''t even matter. Every second that you spend on doubting your worth, every moment that you use to criticize yourself; is a second of your life wasted, is a moment of your life thrown away. It''s not like you have forever, so don''t waste any of your seconds, don''t throw even one of your moments away.'),
 (8, 'merierose', 'You''ve got this life and while you''ve got it, you''d better kiss like you only have one moment, try to hold someone''s hand like you will never get another chance to, look into people''s eyes like they''re the last you''ll ever see, watch someone sleeping like there''s no time left, jump if you feel like jumping, run if you feel like running, play music in your head when there is none, and eat cake like it''s the only one left in the world!');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_contacts`
+--
+
+CREATE TABLE `admin_contacts` (
+  `NO` int(11) NOT NULL,
+  `IMAGE_URL` varchar(100) NOT NULL,
+  `LASTNAME` varchar(150) NOT NULL,
+  `FIRSTNAME` varchar(150) NOT NULL,
+  `POSITION` varchar(150) NOT NULL,
+  `COMPANY` varchar(150) NOT NULL,
+  `ADDRESS` varchar(500) NOT NULL,
+  `PHONE_NUM` varchar(15) NOT NULL,
+  `DELETION` varchar(3) NOT NULL,
+  `ADMIN_NAME` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -868,28 +887,30 @@ CREATE TABLE `user` (
   `PERMISSION` varchar(5000) NOT NULL,
   `SKILLS` varchar(5000) NOT NULL,
   `IMAGEURL` varchar(500) NOT NULL,
-  `DELETION` varchar(10) NOT NULL
+  `DELETION` varchar(10) NOT NULL,
+  `LATITUDE` double(16,7) NOT NULL,
+  `LONGHITUDE` double(16,7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASSWORD`, `ACCOUNT_TYPE`, `REG_TIME`, `ACTIVATED`, `TEMPLATENAME`, `VERIFIED`, `VERIFICATIONCODE`, `PERMISSION`, `SKILLS`, `IMAGEURL`, `DELETION`) VALUES
-(3, 'John Mark Abril', 'jmabril17', '09208317004', 'johnmark_abri12l@yahoo.com', '89daf6d74eeceabf2e74efe50f41c9b2', 'User', 'September 17, 2016 10:11 AM', 0, 'DESIGN2', 'YES', '', '', 'Web Developer|Chef', 'prof3.jpg', '0'),
-(4, 'Mae Gregorio', 'gregs17', '09306625692', 'maegregorio@gmail.com', '7950b6bd370f715554900616819ffc4e', 'Administrator', 'September 23, 2016 12:15 PM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|', '', 'prof1.jpg', '0'),
-(18, 'Testing First Name Testing Last Name', 'Testinguname123', '09123456789', 'testing@testing.com', '7f2ababa423061c509f4923dd04b6cf1', 'User', 'September 25, 2016 5:13 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '0'),
-(23, 'John Doe', 'Johndoe123', '09123654789', 'johndoe@example.com', 'bb2d91d0fbbebe8719509ed0f865c63f', 'User', 'Octoberber 22, 2016 2:13 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '0'),
-(24, 'Vincent Barcelona', 'vincent123', '09321654987', 'vincent@gmail.com', '52fee26031644aacd7c23ade329939f0', 'User', 'Octoberber 23, 2016 1:46 PM', 0, 'DESIGN2', 'YES', '', '', 'Programmer', 'vincent.jpg', '0'),
-(25, 'Angelo Santos', 'angelozxc', '09123456789', 'angelosantos@gmail.com', '5fc7702a5bfc833795dad0cbf963512e', 'User', 'Octoberber 24, 2016 1:15 PM', 0, 'DESIGN2', 'YES', '', '', '.Net Developer', 'firstprof.png', '0'),
-(26, 'Dave Dizon', 'dave123', '09321654987', 'dave@gmail.com', '479a7c6866f00e1c35c97272e18b3739', 'User', 'Octoberber 25, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0'),
-(27, 'Cielo Macion', 'cielomacion', '09789654123', 'cielo@gmail.com', '9d09d95d493cc27c05c0889a8eb8fbd2', 'User', 'Octoberber 25, 2016 10:39 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0'),
-(28, 'Marimar Farina', 'marimar', '09789456123', 'marimar@gmail.com', 'c1af0c8792502845520239550a966f85', 'User', 'Octoberber 26, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0'),
-(29, 'Coleen Moralidad', 'coleen', '09231564897', 'coleen@gmail.com', '921247cfe542c29ce7a4b3fb8a881d69', 'User', 'November 23, 2016 10:57 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0'),
-(30, 'Merie Rose Palay', 'merierose', '09546879213', 'merierose@gmail.com', '14aabec76f651c48d0c5dcb3ac66fd7e', 'User', 'November 22, 2016 11:28 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0'),
-(31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '34c87211821751f911c058bbf0cfb822', 'Administrator', 'November 21, 2016 11:36 AM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Advertisements|PayPal Configuration|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', 'prof3.jpg', '0'),
-(32, 'co admin', 'coadmin123', '09251947616', 'coadmin@gmail.com', '7c56c5ef9e9149388a00f1d5a3d72764', 'Administrator', 'December 01, 2016 4:47 PM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox', '', '', '0'),
-(33, 'testing testing', 'testing', '09231456987', 'testing@gmail.com', '51d042dc49b6deb9c0c64fa87c556825', 'Administrator', 'December 01, 2016 4:56 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '1');
+INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASSWORD`, `ACCOUNT_TYPE`, `REG_TIME`, `ACTIVATED`, `TEMPLATENAME`, `VERIFIED`, `VERIFICATIONCODE`, `PERMISSION`, `SKILLS`, `IMAGEURL`, `DELETION`, `LATITUDE`, `LONGHITUDE`) VALUES
+(3, 'John Mark Abril', 'jmabril17', '09208317004', 'johnmark_abri12l@yahoo.com', '89daf6d74eeceabf2e74efe50f41c9b2', 'User', 'September 17, 2016 10:11 AM', 0, 'DESIGN2', 'YES', '', '', 'Web Developer|Chef', 'prof3.jpg', '0', 14.6333994, 120.9735953),
+(4, 'Mae Gregorio', 'gregs17', '09306625692', 'maegregorio@gmail.com', '7950b6bd370f715554900616819ffc4e', 'Administrator', 'September 23, 2016 12:15 PM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|', '', 'prof1.jpg', '0', 14.6518846, 120.9668155),
+(18, 'Testing First Name Testing Last Name', 'Testinguname123', '09123456789', 'testing@testing.com', '7f2ababa423061c509f4923dd04b6cf1', 'User', 'September 25, 2016 5:13 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '0', 0.0000000, 0.0000000),
+(23, 'John Doe', 'Johndoe123', '09123654789', 'johndoe@example.com', 'bb2d91d0fbbebe8719509ed0f865c63f', 'User', 'Octoberber 22, 2016 2:13 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '0', 0.0000000, 0.0000000),
+(24, 'Vincent Barcelona', 'vincent123', '09321654987', 'vincent@gmail.com', '52fee26031644aacd7c23ade329939f0', 'User', 'Octoberber 23, 2016 1:46 PM', 0, 'DESIGN2', 'YES', '', '', 'Programmer', 'vincent.jpg', '0', 0.0000000, 0.0000000),
+(25, 'Angelo Santos', 'angelozxc', '09123456789', 'angelosantos@gmail.com', '5fc7702a5bfc833795dad0cbf963512e', 'User', 'Octoberber 24, 2016 1:15 PM', 0, 'DESIGN2', 'YES', '', '', '.Net Developer', 'firstprof.png', '0', 0.0000000, 0.0000000),
+(26, 'Dave Dizon', 'dave123', '09321654987', 'dave@gmail.com', '479a7c6866f00e1c35c97272e18b3739', 'User', 'Octoberber 25, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
+(27, 'Cielo Macion', 'cielomacion', '09789654123', 'cielo@gmail.com', '9d09d95d493cc27c05c0889a8eb8fbd2', 'User', 'Octoberber 25, 2016 10:39 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
+(28, 'Marimar Farina', 'marimar', '09789456123', 'marimar@gmail.com', 'c1af0c8792502845520239550a966f85', 'User', 'Octoberber 26, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
+(29, 'Coleen Moralidad', 'coleen', '09231564897', 'coleen@gmail.com', '921247cfe542c29ce7a4b3fb8a881d69', 'User', 'November 23, 2016 10:57 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
+(30, 'Merie Rose Palay', 'merierose', '09546879213', 'merierose@gmail.com', '14aabec76f651c48d0c5dcb3ac66fd7e', 'User', 'November 22, 2016 11:28 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
+(31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '34c87211821751f911c058bbf0cfb822', 'Administrator', 'November 21, 2016 11:36 AM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Advertisements|PayPal Configuration|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', 'prof3.jpg', '0', 0.0000000, 0.0000000),
+(32, 'co admin', 'coadmin123', '09251947616', 'coadmin@gmail.com', '7c56c5ef9e9149388a00f1d5a3d72764', 'Administrator', 'December 01, 2016 4:47 PM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox', '', '', '0', 0.0000000, 0.0000000),
+(33, 'testing testing', 'testing', '09231456987', 'testing@gmail.com', '51d042dc49b6deb9c0c64fa87c556825', 'Administrator', 'December 01, 2016 4:56 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '1', 0.0000000, 0.0000000);
 
 --
 -- Indexes for dumped tables
@@ -905,6 +926,12 @@ ALTER TABLE `about_my_site`
 -- Indexes for table `about_user`
 --
 ALTER TABLE `about_user`
+  ADD PRIMARY KEY (`NO`);
+
+--
+-- Indexes for table `admin_contacts`
+--
+ALTER TABLE `admin_contacts`
   ADD PRIMARY KEY (`NO`);
 
 --
@@ -1012,6 +1039,11 @@ ALTER TABLE `about_my_site`
 --
 ALTER TABLE `about_user`
   MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `admin_contacts`
+--
+ALTER TABLE `admin_contacts`
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `calendarevents`
 --
