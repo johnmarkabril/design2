@@ -77,7 +77,6 @@
 		                    <div class="col-md-10"><div class="justify-text"><?php echo $y->COMMENTHERE; ?></div></div>
 		                </div>
 		                <div class="pull-right"><span style="padding-right: 20px;color: #FF4785;"><?php echo $y->DATECOMMENT; ?></span>
-		                   	<span style="padding-right: 20px;"><a href="#"><b>reply</b></a></span>
 		                </div>
 		            </div>
 		        </div>
