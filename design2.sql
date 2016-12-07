@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2016 at 10:34 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.8
+-- Generation Time: Dec 07, 2016 at 12:32 PM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `design2`
@@ -26,14 +26,14 @@ SET time_zone = "+00:00";
 -- Table structure for table `about_my_site`
 --
 
-CREATE TABLE `about_my_site` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `about_my_site` (
+`NO` int(11) NOT NULL,
   `TITLE` varchar(500) NOT NULL,
   `IMAGEURL` varchar(500) NOT NULL,
   `DESCRIPTION` varchar(1000) NOT NULL,
   `ACTIVE` int(11) NOT NULL,
   `DELETION` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `about_my_site`
@@ -50,11 +50,11 @@ INSERT INTO `about_my_site` (`NO`, `TITLE`, `IMAGEURL`, `DESCRIPTION`, `ACTIVE`,
 -- Table structure for table `about_user`
 --
 
-CREATE TABLE `about_user` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `about_user` (
+`NO` int(11) NOT NULL,
   `USERNAME` varchar(100) NOT NULL,
   `ABOUTUS` varchar(5000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `about_user`
@@ -76,8 +76,8 @@ INSERT INTO `about_user` (`NO`, `USERNAME`, `ABOUTUS`) VALUES
 -- Table structure for table `admin_contacts`
 --
 
-CREATE TABLE `admin_contacts` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `admin_contacts` (
+`NO` int(11) NOT NULL,
   `IMAGE_URL` varchar(100) NOT NULL,
   `LASTNAME` varchar(150) NOT NULL,
   `FIRSTNAME` varchar(150) NOT NULL,
@@ -87,7 +87,21 @@ CREATE TABLE `admin_contacts` (
   `PHONE_NUM` varchar(15) NOT NULL,
   `DELETION` varchar(3) NOT NULL,
   `ADMIN_NAME` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin_contacts`
+--
+
+INSERT INTO `admin_contacts` (`NO`, `IMAGE_URL`, `LASTNAME`, `FIRSTNAME`, `POSITION`, `COMPANY`, `ADDRESS`, `PHONE_NUM`, `DELETION`, `ADMIN_NAME`) VALUES
+(1, 'prof1.jpg', 'Gregorio', 'Farrah Mae', 'Web Developer (Front-end)', 'JMAE Site Provider', 'Caloocan City, Mnl, Philippines', '2519476', '', ''),
+(2, 'prof3.jpg', 'Abril', 'John Mark', 'Web Developer (Back-end)', 'JMAE Site Provider', 'Manila City, Mnl, Philippines', '2519476', '', ''),
+(3, 'vincent.jpg', 'Barcelona', 'Vincent', 'Sales Manager', 'JMAE Site Provider', 'Caloocan City, Mnl, Philippines', '1234567', '', ''),
+(4, 'abhie.jpg', 'Faa', 'Avegail Joy', 'Graphic Designer', 'JMAE Site Provider', 'Caloocan City, Mnl, Philippines', '1234567', '', ''),
+(5, 'marimar.jpg', 'Fariña', 'Marimar', 'Marketing Manager', 'JMAE Site Provider', 'Navotas City, Mnl, Philippines', '1234567', '', ''),
+(6, 'palay.jpg', 'Palay', 'Merie Rose', 'Marketing Manager', 'JMAE Site Provider', 'Caloocan City, Mnl, Philippines', '1234567', '', ''),
+(7, 'coleen.jpg', 'Moralidad', 'Coleen Jae', 'Marketing Manager', 'JMAE Site Provider', 'Malabon City, Mnl, Philippines', '1234567', '', ''),
+(8, 'cielo.jpg', 'Macion', 'Cielo', 'Marketing Manager', 'JMAE Site Provider', 'Malabon City, Mnl, Philippines', '1234567', '', '');
 
 -- --------------------------------------------------------
 
@@ -95,14 +109,14 @@ CREATE TABLE `admin_contacts` (
 -- Table structure for table `calendarevents`
 --
 
-CREATE TABLE `calendarevents` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `calendarevents` (
+`id` int(11) NOT NULL,
   `title` varchar(500) NOT NULL,
   `description` varchar(2000) NOT NULL,
   `color` varchar(50) NOT NULL,
   `start` varchar(100) NOT NULL,
   `end` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `calendarevents`
@@ -117,11 +131,11 @@ INSERT INTO `calendarevents` (`id`, `title`, `description`, `color`, `start`, `e
 -- Table structure for table `categories`
 --
 
-CREATE TABLE `categories` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `categories` (
+`NO` int(11) NOT NULL,
   `CATNAME` varchar(50) NOT NULL,
   `STATUS` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `categories`
@@ -142,15 +156,15 @@ INSERT INTO `categories` (`NO`, `CATNAME`, `STATUS`) VALUES
 -- Table structure for table `comment_section_post`
 --
 
-CREATE TABLE `comment_section_post` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `comment_section_post` (
+`NO` int(11) NOT NULL,
   `NAME` varchar(100) NOT NULL,
   `EMAIL` varchar(100) NOT NULL,
   `COMMENTHERE` varchar(500) NOT NULL,
   `DATECOMMENT` varchar(50) NOT NULL,
   `POSTNO` varchar(200) NOT NULL,
   `TEMPLATENAME` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=380 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `comment_section_post`
@@ -532,13 +546,13 @@ INSERT INTO `comment_section_post` (`NO`, `NAME`, `EMAIL`, `COMMENTHERE`, `DATEC
 -- Table structure for table `contactsform`
 --
 
-CREATE TABLE `contactsform` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `contactsform` (
+`NO` int(11) NOT NULL,
   `NAME` varchar(500) NOT NULL,
   `EMAIL` varchar(500) NOT NULL,
   `PHONE` varchar(500) NOT NULL,
   `MESSAGE` varchar(5000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `contactsform`
@@ -553,14 +567,14 @@ INSERT INTO `contactsform` (`NO`, `NAME`, `EMAIL`, `PHONE`, `MESSAGE`) VALUES
 -- Table structure for table `events`
 --
 
-CREATE TABLE `events` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `events` (
+`NO` int(11) NOT NULL,
   `TITLE` varchar(255) NOT NULL,
   `DESCRIPTION` varchar(5000) NOT NULL,
   `DATE` varchar(100) NOT NULL,
   `NAME` varchar(100) NOT NULL,
   `DELETION` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `events`
@@ -575,11 +589,11 @@ INSERT INTO `events` (`NO`, `TITLE`, `DESCRIPTION`, `DATE`, `NAME`, `DELETION`) 
 -- Table structure for table `location`
 --
 
-CREATE TABLE `location` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `location` (
+`NO` int(11) NOT NULL,
   `USERNAME` varchar(100) NOT NULL,
   `PLACE` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `location`
@@ -601,8 +615,8 @@ INSERT INTO `location` (`NO`, `USERNAME`, `PLACE`) VALUES
 -- Table structure for table `messages`
 --
 
-CREATE TABLE `messages` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `messages` (
+`NO` int(11) NOT NULL,
   `SUBJECT` varchar(500) NOT NULL,
   `NAMEFROM` varchar(100) NOT NULL,
   `EMAILFROM` varchar(500) NOT NULL,
@@ -613,7 +627,7 @@ CREATE TABLE `messages` (
   `DELETION` int(11) NOT NULL,
   `UNREAD` int(11) NOT NULL,
   `HASHNOEMAIL` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `messages`
@@ -630,8 +644,8 @@ INSERT INTO `messages` (`NO`, `SUBJECT`, `NAMEFROM`, `EMAILFROM`, `EMAILTO`, `DA
 -- Table structure for table `notification`
 --
 
-CREATE TABLE `notification` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `notification` (
+`NO` int(11) NOT NULL,
   `NAME` varchar(150) NOT NULL,
   `USERNAME` varchar(100) NOT NULL,
   `CONTENT` varchar(500) NOT NULL,
@@ -639,7 +653,7 @@ CREATE TABLE `notification` (
   `HOUR` varchar(100) NOT NULL,
   `ACTIVE` int(11) NOT NULL,
   `IMAGEURL` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `notification`
@@ -657,13 +671,13 @@ INSERT INTO `notification` (`NO`, `NAME`, `USERNAME`, `CONTENT`, `DATE`, `HOUR`,
 -- Table structure for table `paypal_configuration`
 --
 
-CREATE TABLE `paypal_configuration` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `paypal_configuration` (
+`NO` int(11) NOT NULL,
   `NAME` varchar(100) NOT NULL,
   `ACCOUNT_TYPE` varchar(100) NOT NULL,
   `PAYPAL_EMAIL` varchar(500) NOT NULL,
   `STATUS` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `paypal_configuration`
@@ -679,11 +693,11 @@ INSERT INTO `paypal_configuration` (`NO`, `NAME`, `ACCOUNT_TYPE`, `PAYPAL_EMAIL`
 -- Table structure for table `permission_data`
 --
 
-CREATE TABLE `permission_data` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `permission_data` (
+`NO` int(11) NOT NULL,
   `PERMISSION` varchar(100) NOT NULL,
   `ACTIVE` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `permission_data`
@@ -715,8 +729,8 @@ INSERT INTO `permission_data` (`NO`, `PERMISSION`, `ACTIVE`) VALUES
 -- Table structure for table `posted`
 --
 
-CREATE TABLE `posted` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `posted` (
+`NO` int(11) NOT NULL,
   `NAME` varchar(100) NOT NULL,
   `USERNAME` varchar(100) NOT NULL,
   `ACCOUNT_TYPE` varchar(20) NOT NULL,
@@ -729,7 +743,7 @@ CREATE TABLE `posted` (
   `COMMAND` varchar(50) NOT NULL,
   `PRICE` double(8,2) NOT NULL,
   `CATEGORIES` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `posted`
@@ -797,8 +811,8 @@ INSERT INTO `posted` (`NO`, `NAME`, `USERNAME`, `ACCOUNT_TYPE`, `TITLE`, `IMAGEU
 -- Table structure for table `purchase_product`
 --
 
-CREATE TABLE `purchase_product` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `purchase_product` (
+`NO` int(11) NOT NULL,
   `NAME` varchar(500) NOT NULL,
   `USERNAME` varchar(150) NOT NULL,
   `PRODUCT_NAME` varchar(100) NOT NULL,
@@ -808,7 +822,7 @@ CREATE TABLE `purchase_product` (
   `ADDRESS` varchar(100) NOT NULL,
   `DATE` varchar(100) NOT NULL,
   `IMAGEURL` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `purchase_product`
@@ -825,15 +839,15 @@ INSERT INTO `purchase_product` (`NO`, `NAME`, `USERNAME`, `PRODUCT_NAME`, `PRODU
 -- Table structure for table `services`
 --
 
-CREATE TABLE `services` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `services` (
+`NO` int(11) NOT NULL,
   `CLIENT` varchar(100) NOT NULL,
   `DATE` varchar(100) NOT NULL,
   `INFO` varchar(1000) NOT NULL,
   `DESCRIPTION` varchar(5000) NOT NULL,
   `FORMAT` varchar(100) NOT NULL,
   `IMAGEVIDEOURL` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `services`
@@ -850,12 +864,12 @@ INSERT INTO `services` (`NO`, `CLIENT`, `DATE`, `INFO`, `DESCRIPTION`, `FORMAT`,
 -- Table structure for table `subscribe`
 --
 
-CREATE TABLE `subscribe` (
-  `NO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `subscribe` (
+`NO` int(11) NOT NULL,
   `USERNAME` varchar(500) NOT NULL,
   `NAME` varchar(250) NOT NULL,
   `SUBSCRIBER` varchar(10000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subscribe`
@@ -871,8 +885,8 @@ INSERT INTO `subscribe` (`NO`, `USERNAME`, `NAME`, `SUBSCRIBER`) VALUES
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
-  `USER_ID` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user` (
+`USER_ID` int(11) NOT NULL,
   `NAME` varchar(100) NOT NULL,
   `USERNAME` varchar(50) NOT NULL,
   `PHONENUMBER` varchar(11) NOT NULL,
@@ -890,7 +904,7 @@ CREATE TABLE `user` (
   `DELETION` varchar(10) NOT NULL,
   `LATITUDE` double(16,7) NOT NULL,
   `LONGHITUDE` double(16,7) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -920,110 +934,109 @@ INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASS
 -- Indexes for table `about_my_site`
 --
 ALTER TABLE `about_my_site`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `about_user`
 --
 ALTER TABLE `about_user`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `admin_contacts`
 --
 ALTER TABLE `admin_contacts`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `calendarevents`
 --
 ALTER TABLE `calendarevents`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `comment_section_post`
 --
 ALTER TABLE `comment_section_post`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `contactsform`
 --
 ALTER TABLE `contactsform`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `events`
 --
 ALTER TABLE `events`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `location`
 --
 ALTER TABLE `location`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `notification`
 --
 ALTER TABLE `notification`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `paypal_configuration`
 --
 ALTER TABLE `paypal_configuration`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `permission_data`
 --
 ALTER TABLE `permission_data`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `posted`
 --
 ALTER TABLE `posted`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `purchase_product`
 --
 ALTER TABLE `purchase_product`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `subscribe`
 --
 ALTER TABLE `subscribe`
-  ADD PRIMARY KEY (`NO`);
+ ADD PRIMARY KEY (`NO`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`USER_ID`),
-  ADD UNIQUE KEY `EMAIL` (`EMAIL`);
+ ADD PRIMARY KEY (`USER_ID`), ADD UNIQUE KEY `EMAIL` (`EMAIL`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1033,92 +1046,92 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `about_my_site`
 --
 ALTER TABLE `about_my_site`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `about_user`
 --
 ALTER TABLE `about_user`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `admin_contacts`
 --
 ALTER TABLE `admin_contacts`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `calendarevents`
 --
 ALTER TABLE `calendarevents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `comment_section_post`
 --
 ALTER TABLE `comment_section_post`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=380;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=380;
 --
 -- AUTO_INCREMENT for table `contactsform`
 --
 ALTER TABLE `contactsform`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `paypal_configuration`
 --
 ALTER TABLE `paypal_configuration`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `permission_data`
 --
 ALTER TABLE `permission_data`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `posted`
 --
 ALTER TABLE `posted`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT for table `purchase_product`
 --
 ALTER TABLE `purchase_product`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `subscribe`
 --
 ALTER TABLE `subscribe`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

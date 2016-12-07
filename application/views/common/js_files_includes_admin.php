@@ -51,7 +51,7 @@
 <script src="<?php echo base_url();?>public/js/plugins/list/list.min.js"></script>
 
 <!-- Sparkline -->
-    <script src="<?php echo base_url();?>public/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script src="<?php echo base_url();?>public/js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
 <?php if ($curpage == 'Dashboard') { ?>
     <!-- GOOGLE MAP -->
@@ -626,27 +626,32 @@
         var map = new google.maps.Map(mapElement, mapOptions);
 
         // var marker = <?php //echo $all_user_latlong; ?>;
-        <?php foreach ( $all_user_latlong as $aul ) : ?>
-            <?php 
-                if ( $aul->LATITUDE  != 0.0000000 && $aul->LONGHITUDE  != 0.0000000 ) {
-            ?>
-                var latDB = <?php echo $aul->LATITUDE;?>;
-                var longDB = <?php echo $aul->LONGHITUDE;?>;
-                    var marker = new google.maps.Marker({
-                        position: {lat: latDB, lng: longDB},
-                        icon: {
-                            url: '<?php echo base_url();?>public/img/prof/<?php echo $aul->IMAGEURL; ?>',
-                            scaledSize : new google.maps.Size(35, 35),
-                            origin: new google.maps.Point(0, 0),
-                            anchor: new google.maps.Point(15, 15)
-                        },
-                        map: map
-                    });
-            <?php
-                }
-            ?>
+        <?php 
+            if ( $curpage == "Dashboard" ) {
+                foreach ( $all_user_latlong as $aul ) : ?>
+                    <?php 
+                        if ( $aul->LATITUDE  != 0.0000000 && $aul->LONGHITUDE  != 0.0000000 ) {
+                    ?>
+                        var latDB = <?php echo $aul->LATITUDE;?>;
+                        var longDB = <?php echo $aul->LONGHITUDE;?>;
+                            var marker = new google.maps.Marker({
+                                position: {lat: latDB, lng: longDB},
+                                icon: {
+                                    url: '<?php echo base_url();?>public/img/prof/<?php echo $aul->IMAGEURL; ?>',
+                                    scaledSize : new google.maps.Size(35, 35),
+                                    origin: new google.maps.Point(0, 0),
+                                    anchor: new google.maps.Point(15, 15)
+                                },
+                                map: map
+                            });
+                    <?php
+                        }
+                    ?>
             // alert('<?php //echo $aul->LONGHITUDE; ?>');
-        <?php endforeach; ?>
+        <?php 
+                endforeach; 
+            }
+        ?>
         // var marker = new google.maps.Marker({
         //     position: {lat: 14.63303, lng: 120.9739737},
         //     icon: {
