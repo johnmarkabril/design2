@@ -50,6 +50,9 @@
 <!-- LIST -->
 <script src="<?php echo base_url();?>public/js/plugins/list/list.min.js"></script>
 
+<!-- Sparkline -->
+    <script src="<?php echo base_url();?>public/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
 <?php if ($curpage == 'Dashboard') { ?>
     <!-- GOOGLE MAP -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5h8RE_Re9V9PJ-ROp7TKXQBKbMnWXDVE&callback=initMap">
@@ -58,6 +61,13 @@
 
 <script>
     $(document).ready(function() {
+        $("#sparkline1").sparkline([34, 43, 43, 35, 44, 32, 44, 48], {
+                type: 'line',
+                width: '100%',
+                height: '50',
+                lineColor: '#1ab394',
+                fillColor: "transparent"
+            });
 
         $('#cp2').colorpicker();
 
