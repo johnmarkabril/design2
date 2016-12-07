@@ -88,6 +88,8 @@ class Co_Administrator extends CI_Controller
     		'SKILLS'			=>	"",
     		'IMAGEURL'			=>	"",
     		'DELETION'			=>	"0",
+    		'LATITUDE'			=>	"",
+    		'LONGHITUDE'		=>	""
     	);
 
     	$this->Users_model->insert_coadmin($params);

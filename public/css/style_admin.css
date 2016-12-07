@@ -3,7 +3,6 @@
   background-color: #293846;
   color: white;
 }
-
 .event-tooltip {
     width:150px;
     background: rgba(0, 0, 0, 0.85);
@@ -98,4 +97,41 @@
 
 .text-right {
 	text-align: right;
+}
+
+.gmap-tooltip-layout {
+    display: none;
+    position:absolute;
+    width: 475px;
+    height: 200px;
+    background-color: white;
+    margin: 15px;
+    z-index:2400;
+}
+.gmap-tooltip-layout .permission-text{
+  color:#8be2de;
+}
+.gmap-tooltip-layout .info-box{
+  margin-top: 10px;
+}
+.gmap-tooltip-layout .info-box h4{
+    margin: 0px;
+}
+.gmap-tooltip-layout .gmap-image-layout{
+    width: 50px;
+    height: 50px;
+}
+.gmap-tooltip-layout .gmap-table-layout{
+    margin-top:5px;
+}
+.gmap-tooltip-layout .table td{
+    margin:0px;
+    padding: 3px;
+}
+.gmap-tooltip-layout .table{
+    border:1px solid #DDD;
+}
+
+.gmap-tooltip-layout .gmap-left-layout{
+    margin-top:15px;
 }

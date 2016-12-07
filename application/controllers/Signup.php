@@ -56,7 +56,9 @@ class Signup extends CI_Controller
 			'PERMISSION'		=>		'',
 			'SKILLS'			=>		'',
 			'IMAGEURL'			=>		'firstprof.png',
-			'DELETION'			=>		'0'
+			'DELETION'			=>		'0',
+    		'LATITUDE'			=>		"",
+    		'LONGHITUDE'		=>		""
 		);
 
 		$params_loc = array (

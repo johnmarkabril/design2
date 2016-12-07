@@ -51,6 +51,8 @@ class Dashboard extends CI_Controller
 			'gross_year'				=>	$this->Purchaseproduct_model->gross_month($date_year),
 			'activity_month'			=>	$cnt_am_pm + $cnt_am_pur,
 			'get_income'				=>	$ctr,
+
+			'all_user_latlong'			=>	$this->Users_model->get_all_user(),
 			'gross_month_ctr'			=>	0,
 			'gross_year_ctr'			=>	0,
 			'activity_month_ctr'		=>	0
@@ -113,4 +115,5 @@ class Dashboard extends CI_Controller
 	{
 		$this->Calendarevents_model->delete_event($this->input->post('txt_event_id_update'));
 	}
+
 }

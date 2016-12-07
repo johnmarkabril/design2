@@ -611,8 +611,43 @@
                 // Style for Google Maps
                 styles: [{"stylers":[{"hue":"#18a689"},{"visibility":"on"},{"invert_lightness":true},{"saturation":40},{"lightness":10}]}]
         };
-            var mapElement = document.getElementById('map');
-            var map = new google.maps.Map(mapElement, mapOptions);
+
+        var mapElement = document.getElementById('map');
+        var map = new google.maps.Map(mapElement, mapOptions);
+
+        // var marker = <?php //echo $all_user_latlong; ?>;
+        <?php foreach ( $all_user_latlong as $aul ) : ?>
+            <?php 
+                if ( $aul->LATITUDE  != 0.0000000 && $aul->LONGHITUDE  != 0.0000000 ) {
+            ?>
+                var latDB = <?php echo $aul->LATITUDE;?>;
+                var longDB = <?php echo $aul->LONGHITUDE;?>;
+                    var marker = new google.maps.Marker({
+                        position: {lat: latDB, lng: longDB},
+                        icon: {
+                            url: '<?php echo base_url();?>public/img/prof/<?php echo $aul->IMAGEURL; ?>',
+                            scaledSize : new google.maps.Size(35, 35),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(15, 15)
+                        },
+                        map: map
+                    });
+            <?php
+                }
+            ?>
+            // alert('<?php //echo $aul->LONGHITUDE; ?>');
+        <?php endforeach; ?>
+        // var marker = new google.maps.Marker({
+        //     position: {lat: 14.63303, lng: 120.9739737},
+        //     icon: {
+        //         url: '<?php echo base_url();?>public/img/a9.jpg',
+        //         scaledSize : new google.maps.Size(35, 35),
+        //         origin: new google.maps.Point(0, 0),
+        //         anchor: new google.maps.Point(15, 15)
+        //     },
+        //     map: map
+        // });
+
     }
     // GOOGLE MAP API CODE END
 
