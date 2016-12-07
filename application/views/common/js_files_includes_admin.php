@@ -481,6 +481,33 @@
             }
         });
 
+        $('#btn_update_category').click(function(){
+            var category_no = $("#category_no").val();
+            var title = $("#category_title").val();
+            var status = $("#category_status").val();
+            
+            if (title && status) {
+                // alert(title + status);
+                $.ajax ({
+                    url: "<?php echo base_url();?>admin/product_category/update_category",
+                    method: "POST",
+                    data: {
+                        category_no : category_no,
+                        title   : title,
+                        status  : status
+                    },
+                    success:function(data){
+                        location.reload('admin/product_category');
+                    },
+                    error:function(){
+                        toastr.error("Error!");
+                    }
+                });
+            } else {
+                toastr.error("Incomplete Fields");
+            }
+        });
+
         $('#btn_new_category_save').click(function(){
             var title = $("#category_title").val();
             var status = $("#category_status").val();

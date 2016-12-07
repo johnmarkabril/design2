@@ -26,6 +26,20 @@ class Categories_model extends CI_Model
 		return $row->result();
 	}
 
+	function updatecategory($params, $no)
+	{
+        $this->db->where($this->dbno, $no)
+                 ->update($this->table, $params);
+	}
+
+	function get_specific_content($no)
+	{
+		$row = 	$this->db->where($this->dbno, $no) 
+						 ->where($this->status, "Enabled")
+					 	 ->get($this->table);
+		return $row->result();
+	}
+
 	function get_all_content()
 	{
 		$row = 	$this->db->order_by($this->dbno, "DESC")

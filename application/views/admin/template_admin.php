@@ -26,6 +26,9 @@
 						<hr/>
 					       	<?php
 					        	switch($curpage){
+					        		case 'Contacts':
+					        			echo $content;
+					        			break;
 					        		case 'Dashboard':
 					        			echo $content;
 					        			break;

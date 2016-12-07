@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Profile extends CI_Controller 
+class Contacts extends CI_Controller 
 {
 	public function __construct()
     {
@@ -20,15 +20,15 @@ class Profile extends CI_Controller
 			$permis = $per->PERMISSION;
 		}
 		$details = array (
-			'curpage'	=> 	'Profile',
+			'curpage'	=> 	'Contacts',
 			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'permission_cntnt'		=> 	explode("|", $permis),
 			'get_notification'	=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
-			'title'		=> 	'Profile'
+			'title'		=> 	'Contacts'
 		);
 
-		$data['content'] = $this->load->view('admin/profile/profile', $details, TRUE);
+		$data['content'] = $this->load->view('admin/contacts/contacts', $details, TRUE);
 		$this->load->view('admin/template_admin.php', $data);
 	}
 }

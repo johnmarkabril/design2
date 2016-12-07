@@ -23,10 +23,35 @@ class Product_Category extends CI_Controller
 		}
 		$details = array (
 			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-			'permission_cntnt'		=> 	explode("|", $permis),
-			'get_notification'	=>	$this->Notification_model->get_notification(),
+			'permission_cntnt'			=> 	explode("|", $permis),
+			'edit_val'					=>	'',
+			'get_notification'			=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
-			'get_content'		=>	$this->Categories_model->get_all_content()
+			'get_content'				=>	$this->Categories_model->get_all_content()
+		);
+
+		$data['content'] = $this->load->view('admin/product/product_category.php', $details, TRUE);
+		$data['curpage'] = $this->curpage;
+		$data['title'] = $this->curpage;
+		$this->load->view('admin/template_admin.php', $data);
+	}
+
+	public function edit($no)
+	{
+		$no_logsess = $this->session->userdata('log_sess')->USER_ID;
+
+		$perm = $this->Users_model->get_permiss($no_logsess);
+		$permis = "";
+		foreach ($perm as $per) {
+			$permis = $per->PERMISSION;
+		}
+		$details = array (
+			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
+			'permission_cntnt'			=> 	explode("|", $permis),
+			'edit_val'					=>	$this->Categories_model->get_specific_content($no),
+			'get_notification'			=>	$this->Notification_model->get_notification(),
+			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
+			'get_content'				=>	$this->Categories_model->get_all_content()
 		);
 
 		$data['content'] = $this->load->view('admin/product/product_category.php', $details, TRUE);
@@ -44,5 +69,16 @@ class Product_Category extends CI_Controller
 		);
 
 		$this->Categories_model->insert_new_categ($params);
+	}
+
+	public function update_category()
+	{
+		$params = array (
+			'CATNAME'	=> $this->input->post('title'),
+			'STATUS'	=> $this->input->post('status')
+		);
+
+		$this->Categories_model->updatecategory($params, $this->input->post('category_no'));
+		// redirect('admin/product_category');
 	}
 }
