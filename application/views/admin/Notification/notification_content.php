@@ -3,12 +3,12 @@
         foreach ( $get_notification as $gn ) :
 ?>
             <div class="row">
-                <div class="col-md-12 padding-bottom">
+                <div class="col-md-12">
                     <div class="ibox loat-e-margins no-margins">
                         <div class="ibox-content padding-top">
                             <div class="row">
                             	<div class="col-md-1">
-                            		<img style="width:50px;height:50px;" class="img-responsive" src="<?php echo base_url(); ?>public/img/prof/<?php echo $gn->IMAGEURL; ?>" />
+                            		<img style="width:50px;height:50px;" class="img-responsive img-circle" src="<?php echo base_url(); ?>public/img/prof/<?php echo $gn->IMAGEURL; ?>" />
                             	</div>
                             	<div class="col-md-7">
                             		<h4><?php echo $gn->NAME; ?></h4>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-static-top no-margin-bottom" role="navigation">
 	<ul class="nav navbar-top-links navbar-left text-center">
-        <h2 class="pad-left text-color-def text-bold">BEST CAKES</h2>
+        <h2 class="pad-left text-color-def text-bold">JMAE SITE PROVIDER</h2>
     </ul>
 
 	<ul class="nav navbar-top-links navbar-right text-center">
@@ -16,7 +16,7 @@
                         foreach ( $get_notification as $gn ) :
                 ?>
                             <li>
-                                <div class="dropdown-messages-box">
+                                <div class="dropdown-messages-box" style="padding-bottom: 10px;">
                                     <a href="profile.html" class="pull-left">
                                         <img alt="image" class="img-circle cus-img-width-mes" src="<?php echo base_url(); ?>public/img/prof/<?php echo $gn->IMAGEURL; ?>">
                                     </a>

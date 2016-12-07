@@ -9,6 +9,7 @@
 <!-- CUSTOM AND PLUGIN JAVASCRIPT -->
 <script src="<?php echo base_url();?>public/js/inspinia.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/pace/pace.min.js"></script>
+<script src="<?php echo base_url();?>public/js/plugins/wow/wow.min.js"></script>
 
 <script src="<?php echo base_url();?>public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="<?php echo base_url();?>public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
@@ -61,6 +62,9 @@
     <?php } ?>
 
     $(document).ready(function(){
+
+        // Activate WOW.js plugin for animation on scrol
+        new WOW().init();
 
         function randomString() {
             var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
@@ -427,28 +431,42 @@
             var phone   =   $('#cf_phone').val();
             var comment  =   $('#cf_commenthere').val();
 
+            var checkEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(email);
+            var name_check = /^[a-zA-Z-_]+( [a-zA-Z-_]+)*$/.test(name);
+            var phone_check = /^(0|\[0-9]{1,5})?([7-9][0-9]{9})$/.test(phone);
+
             if ( name && email && phone && comment ) {
-
-                $.ajax({
-                    url: "<?php echo base_url(); ?>contacts/insert_contact",
-                    method: "POST",
-                    data: {
-                        name    : name,
-                        email   : email,
-                        phone   : phone,
-                        comment : comment
-                    },
-                    success:function(data){
-                        $('#cf_name').val("");
-                        $('#cf_email').val("");
-                        $('#cf_phone').val("");
-                        $('#cf_commenthere').val("");
-                        toastr.success("Message sent!");
-                    },error:function(){
-                        toastr.error("ERROR");
+                if ( checkEmail ) {
+                    if ( name_check ) {
+                        if ( phone_check ) {
+                            $.ajax({
+                                url: "<?php echo base_url(); ?>contacts/insert_contact",
+                                method: "POST",
+                                data: {
+                                    name    : name,
+                                    email   : email,
+                                    phone   : phone,
+                                    comment : comment
+                                },
+                                success:function(data){
+                                    $('#cf_name').val("");
+                                    $('#cf_email').val("");
+                                    $('#cf_phone').val("");
+                                    $('#cf_commenthere').val("");
+                                    toastr.success("Message sent!");
+                                },error:function(){
+                                    toastr.error("ERROR");
+                                }
+                            });
+                        } else {
+                            toastr.error("Invalid phone format!");
+                        }
+                    } else {
+                        toastr.error("Special characters not allowed in name!");
                     }
-                });
-
+                } else {
+                    toastr.error("Invalid email format!");
+                }
             } else {
                 toastr.error("Please Fill-up all fields!");
             }

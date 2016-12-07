@@ -4,14 +4,17 @@
     <div class="mail-box-header">
         <h3 style="padding-bottom: 4px;">
             <span class="font-noraml">Subject: </span><?php echo $gsm->SUBJECT;?>
-            <span class="pull-right font-noraml">From: <?php echo $gsm->EMAILFROM;?></span>
         </h3>
         <h5>
-            <span class="pull-right font-noraml"><?php echo $gsm->DATE;?> <?php echo $gsm->TIME;?></span>
+            <span class="pull-left font-noraml">From: <?php echo $gsm->EMAILFROM;?></span>
         </h5>
     </div>
     <div class="mail-box">
         <div class="mail-body full-height">
+
+            <div class="font-noraml text-right padding-bottom">
+                <?php echo $gsm->DATE;?> <?php echo $gsm->TIME;?>    
+            </div>
             <?php
                 $bcontdel = explode('\n', $gsm->BODYCONTENT);
                 foreach ($bcontdel as $bcon) :

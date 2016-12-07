@@ -90,3 +90,12 @@
 .no-padding-top {
 	padding-top: 0px;
 }
+
+.img-prof-sidebar {
+	width: 100px;
+	height: 100px;
+}
+
+.text-right {
+	text-align: right;
+}

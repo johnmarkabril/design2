@@ -89,12 +89,13 @@
                             </p>
                             <div class="text-center">
 
-                            	<form action="<?php echo $paypal_url; ?>" method="post" name="frmPayPal1">
+                            	<form action="<?php echo $paypal_url; ?>" method="post" name="paypalFrm" id="paypalFrm">
                             		<input type='hidden' name='business' value='<?php echo $paypal_id;?>'>
 									<input type="hidden" name="cmd" value="_s-xclick">
 
 				                    <input type='hidden' name='item_name' value='<?php echo $rd->TITLE;?>'>
-                   					<input type='hidden' name='amount' value='<?php echo $rd->PRICE;?>'>
+                   					<input type='hidden' name='a3' value='<?php echo $rd->PRICE;?>'>
+    								<!-- <input type="hidden" name="item_number" value="1"> -->
 
 									<input type="hidden" name="hosted_button_id" value="2BQD69RL63YWL">
 

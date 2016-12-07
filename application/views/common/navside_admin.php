@@ -5,7 +5,7 @@
                 <div class="dropdown profile-element"> 
                     <span>
                         <center>
-                        <img alt="image" class="img-circle img-responsive half-width" src="<?php echo base_url(); ?>public/img/prof3.jpg"/></center>
+                        <img alt="image" class="img-circle img-responsive img-prof-sidebar" src="<?php echo base_url(); ?>public/img/prof3.jpg" /></center>
                     </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear text-center"> 
@@ -17,7 +17,7 @@
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="<?php echo base_url();?>admin/profile">Profile</a></li>
-                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="<?php echo base_url();?>admin/contacts">Contacts</a></li>
                         <li><a href="<?php echo base_url();?>admin/message/local_inbox">Local Inbox</a></li>
                     </ul>
                 </div>

@@ -20,7 +20,7 @@ class Notification_model extends CI_Model
 	function get_notification(){
 		$row = 	$this->db->where($this->active, "1")
 						 ->order_by($this->dbno, $this->desc)
-						 ->limit(3)
+						 ->limit(5)
 					 	 ->get($this->table);
 		return $row->result();
 	}

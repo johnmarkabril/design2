@@ -18,5 +18,9 @@
                     </div>
         <?php 
                 endforeach;
+            } else {
+        ?>
+                <h1 class="text-center">No event!</h1>
+        <?php
             }
         ?>
