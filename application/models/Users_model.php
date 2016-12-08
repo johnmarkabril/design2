@@ -143,4 +143,11 @@ class Users_model extends CI_Model
 
 		return $row->num_rows();
 	}
+
+	function get_user_details($no){
+		$row = $this->db->where($this->user_id, $no)
+						->limit(1)
+						->get($this->table);
+		return $row->result();
+	}
 }

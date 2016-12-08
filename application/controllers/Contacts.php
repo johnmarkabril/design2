@@ -13,8 +13,16 @@ class Contacts extends CI_Controller
 
 	public function index()
 	{
+		$get_det = "";
+		if ( !empty($this->session->userdata['log_sess']) ) {
+			$get_det = $this->Users_model->get_user_details($this->session->userdata['log_sess']->USER_ID);
+		} else {
+			$get_det = $this->Users_model->get_user_details(null);
+		}
+
+		
 		$details = array (
-			// 'posted_content'	=>	$this->Postcontent_model->get_content(),
+			'get_det'					=>  $get_det,
 		);
 
 		$data['content']	=	$this->load->view('user/contacts/template_contacts.php', $details, TRUE);

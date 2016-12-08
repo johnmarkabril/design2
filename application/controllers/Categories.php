@@ -15,7 +15,15 @@ class Categories extends CI_Controller
 
 	public function name($cat)
 	{
+		$get_det = "";
+		if ( !empty($this->session->userdata['log_sess']) ) {
+			$get_det = $this->Users_model->get_user_details($this->session->userdata['log_sess']->USER_ID);
+		} else {
+			$get_det = $this->Users_model->get_user_details(null);
+		}
+		
 		$details = array (
+			'get_det'					=>  $get_det,
 			'get_content_cat'			=>	$this->Categories_model->get_categ($cat),
 			'get_content_active'		=>  $this->Aboutmysite_model->get_content_active(),
 			'popular_content'			=>	$this->Recipes_model->get_content_popular(),

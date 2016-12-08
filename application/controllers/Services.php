@@ -13,7 +13,16 @@ class Services extends CI_Controller
 
 	public function index()
 	{
-		$details = array (
+		
+        $get_det = "";
+        if ( !empty($this->session->userdata['log_sess']) ) {
+            $get_det = $this->Users_model->get_user_details($this->session->userdata['log_sess']->USER_ID);
+        } else {
+            $get_det = $this->Users_model->get_user_details(null);
+        }
+        
+        $details = array (
+            'get_det'           	=>  $get_det,
 			'services_content_db'	=>	$this->Services_model->get_services(),
 			'servicesformat'		=>	'no'
 		);
@@ -26,7 +35,16 @@ class Services extends CI_Controller
 
 	public function format($no)
 	{
-		$details = array (
+		
+        $get_det = "";
+        if ( !empty($this->session->userdata['log_sess']) ) {
+            $get_det = $this->Users_model->get_user_details($this->session->userdata['log_sess']->USER_ID);
+        } else {
+            $get_det = $this->Users_model->get_user_details(null);
+        }
+        
+        $details = array (
+            'get_det'           	=>  $get_det,
 			'services_content_db'	=>	$this->Services_model->get_specific_services($no),
 			'curpage'				=>	'services',
 			'get_latest_prod'		=>	$this->Postcontent_model->get_latest_prod(),

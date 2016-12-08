@@ -17,8 +17,16 @@ class Profile extends CI_Controller
     
 	public function account($uname)
 	{
+
 		if ($this->session->userdata('log_sess') != null){
+            $get_det = "";
+            if ( !empty($this->session->userdata['log_sess']) ) {
+                $get_det = $this->Users_model->get_user_details($this->session->userdata['log_sess']->USER_ID);
+            } else {
+                $get_det = $this->Users_model->get_user_details(null);
+            }
 			$details = array (
+                'get_det'           =>  $get_det,
 				'specific_account'	=>	$this->Users_model->get_specific_data($uname),
 				'num_subscriber'	=>	$this->Subscribe_model->get_subscriber($uname),
 				'get_location'		=>	$this->Location_model->get_location_place($uname),
@@ -44,7 +52,14 @@ class Profile extends CI_Controller
     public function settings($uname)
     {
         if ($this->session->userdata('log_sess') != null){
+            $get_det = "";
+            if ( !empty($this->session->userdata['log_sess']) ) {
+                $get_det = $this->Users_model->get_user_details($this->session->userdata['log_sess']->USER_ID);
+            } else {
+                $get_det = $this->Users_model->get_user_details(null);
+            }
             $details = array (
+                'get_det'           =>  $get_det,
                 'specific_account'  =>  $this->Users_model->get_specific_data($uname),
                 'num_subscriber'    =>  $this->Subscribe_model->get_subscriber($uname),
                 'get_location'      =>  $this->Location_model->get_location_place($uname),
@@ -135,5 +150,29 @@ class Profile extends CI_Controller
         );
 
         $this->Users_model->update_skills($params, $usernameSess);
+    }
+
+    public function update_profile_picture()
+    {
+        $uname =  $this->session->userdata('log_sess')->USERNAME;
+        $loc = $_SERVER['DOCUMENT_ROOT'].base_url()."public/img/prof/";
+        // print_r($loc);
+        if ( isset ( $_POST['submit'] ) ) {
+            $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+            $image_name = addslashes($_FILES['image']['name']);
+            $image_size = getimagesize($_FILES['image']['tmp_name']);
+            // print_r($image_name);
+
+            $params = array (
+                'IMAGEURL' => $image_name
+            );
+
+            $this->Users_model->update_personal_infor($params, $uname);
+            $rs = move_uploaded_file($_FILES['image']['tmp_name'], $loc . $_FILES['image']['name']);
+            
+            redirect("profile/settings/".$uname."");
+        } else {
+            redirect("profile/settings/".$uname."");
+        }
     }
 }

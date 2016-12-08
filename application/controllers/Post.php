@@ -16,7 +16,15 @@ class Post extends CI_Controller
 
 	public function link($param1)
 	{
+		$get_det = "";
+		if ( !empty($this->session->userdata['log_sess']) ) {
+			$get_det = $this->Users_model->get_user_details($this->session->userdata['log_sess']->USER_ID);
+		} else {
+			$get_det = $this->Users_model->get_user_details(null);
+		}
+
 		$details = array (
+			'get_det'					=>  $get_det,
 			'link_data' 			=> $this->Postcontent_model->get_specific_content($param1),
 			'comment_post'			=> $this->Postcontent_model->get_comment_per_post($param1),
 			'categories_content'		=>  $this->Categories_model->get_content(),

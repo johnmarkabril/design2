@@ -48,6 +48,13 @@
         	toastr.error("INCORRECT EMAIL OR PASSWORD!");
     <?php } ?>
 
+    // NOTIFY WHEN THE EMAIL OR PASSWORD IS INCORRECT
+    <?php 
+        if($this->session->flashdata('attempt_open_page')){
+        ?>
+            toastr.error("ATTEMPTING TO OPEN A PAGE.");
+    <?php } ?>
+
     // NOTIFY WHEN THE EMAIL AND PASSWORD IS CORRECT
 	<?php 
 		if($this->session->flashdata('success_message')){
@@ -774,5 +781,14 @@
             });
         }
 
+    });
+
+    $(document).on('click', '.browse', function(){
+        var file = $(this).parent().parent().parent().find('.file');
+        file.trigger('click');
+    });
+
+    $(document).on('change', '.file', function(){
+        $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
     });
 </script>

@@ -7,6 +7,10 @@ body{
 a {
     color: black;
 }
+.file {
+  visibility: hidden;
+  position: absolute;
+}
 
 .wizard > .content > .body { position: relative; }
 

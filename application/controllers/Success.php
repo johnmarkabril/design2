@@ -14,7 +14,16 @@ class Success extends CI_Controller
 	public function purchase($no)
 	{
 		if ($this->session->userdata('log_sess')){
-			$details = array (
+		
+	        $get_det = "";
+	        if ( !empty($this->session->userdata['log_sess']) ) {
+	            $get_det = $this->Users_model->get_user_details($this->session->userdata['log_sess']->USER_ID);
+	        } else {
+	            $get_det = $this->Users_model->get_user_details(null);
+	        }
+	        
+	        $details = array (
+	            'get_det'           =>  $get_det,
 				'prod_sell'			=>	$this->Recipes_model->get_specific_prod_sell($no)
 			);
 

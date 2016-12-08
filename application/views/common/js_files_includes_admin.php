@@ -624,9 +624,10 @@
 
         var mapElement = document.getElementById('map');
         var map = new google.maps.Map(mapElement, mapOptions);
-
-        // var marker = <?php //echo $all_user_latlong; ?>;
-        <?php foreach ( $all_user_latlong as $aul ) : ?>
+        <?php
+            if ( $curpage == "Dashboard" ) {
+                foreach ( $all_user_latlong as $aul ) : 
+        ?>
             <?php 
                 if ( $aul->LATITUDE  != 0.0000000 && $aul->LONGHITUDE  != 0.0000000 ) {
             ?>
@@ -646,17 +647,11 @@
                 }
             ?>
             // alert('<?php //echo $aul->LONGHITUDE; ?>');
-        <?php endforeach; ?>
-        // var marker = new google.maps.Marker({
-        //     position: {lat: 14.63303, lng: 120.9739737},
-        //     icon: {
-        //         url: '<?php echo base_url();?>public/img/a9.jpg',
-        //         scaledSize : new google.maps.Size(35, 35),
-        //         origin: new google.maps.Point(0, 0),
-        //         anchor: new google.maps.Point(15, 15)
-        //     },
-        //     map: map
-        // });
+        <?php 
+                endforeach; 
+            }
+        ?>
+
 
     }
     // GOOGLE MAP API CODE END

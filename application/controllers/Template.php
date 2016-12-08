@@ -63,8 +63,15 @@ class Template extends CI_Controller
 			$page = 0;
 		}
 
+		$get_det = "";
+		if ( !empty($this->session->userdata['log_sess']) ) {
+			$get_det = $this->Users_model->get_user_details($this->session->userdata['log_sess']->USER_ID);
+		} else {
+			$get_det = $this->Users_model->get_user_details(null);
+		}
 		$details = array (
 			// 'posted_content'			=>	$this->Postcontent_model->get_content(),
+			'get_det'					=>  $get_det,
 			'recipes_content'			=>	$this->Recipes_model->get_content(null),
 			'popular_content'			=>	$this->Recipes_model->get_content_popular(),
 			'categories_content'		=>  $this->Categories_model->get_content(),

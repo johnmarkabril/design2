@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2016 at 10:34 AM
+-- Generation Time: Dec 08, 2016 at 10:54 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -68,7 +68,8 @@ INSERT INTO `about_user` (`NO`, `USERNAME`, `ABOUTUS`) VALUES
 (5, 'cielomacion', 'Pain is a pesky part of being human, I''ve learned it feels like a stab wound to the heart, something I wish we could all do without, in our lives here. Pain is a sudden hurt that can''t be escaped. But then I have also learned that because of pain, I can feel the beauty, tenderness, and freedom of healing. Pain feels like a fast stab wound to the heart. But then healing feels like the wind against your face when you are spreading your wings and flying through the air! We may not have wings growing out of our backs, but healing is the closest thing that will give us that wind against our faces.'),
 (6, 'marimar', 'They say a good love is one that sits you down, gives you a drink of water, and pats you on top of the head. But I say a good love is one that casts you into the wind, sets you ablaze, makes you burn through the skies and ignite the night like a phoenix; the kind that cuts you loose like a wildfire and you can''t stop running simply because you keep on burning everything that you touch! I say that''s a good love; one that burns and flies, and you run with it!'),
 (7, 'coleen', 'You can be the most beautiful person in the world and everybody sees light and rainbows when they look at you, but if you yourself don''t know it, all of that doesn''t even matter. Every second that you spend on doubting your worth, every moment that you use to criticize yourself; is a second of your life wasted, is a moment of your life thrown away. It''s not like you have forever, so don''t waste any of your seconds, don''t throw even one of your moments away.'),
-(8, 'merierose', 'You''ve got this life and while you''ve got it, you''d better kiss like you only have one moment, try to hold someone''s hand like you will never get another chance to, look into people''s eyes like they''re the last you''ll ever see, watch someone sleeping like there''s no time left, jump if you feel like jumping, run if you feel like running, play music in your head when there is none, and eat cake like it''s the only one left in the world!');
+(8, 'merierose', 'You''ve got this life and while you''ve got it, you''d better kiss like you only have one moment, try to hold someone''s hand like you will never get another chance to, look into people''s eyes like they''re the last you''ll ever see, watch someone sleeping like there''s no time left, jump if you feel like jumping, run if you feel like running, play music in your head when there is none, and eat cake like it''s the only one left in the world!'),
+(9, 'dale123', 'Fuck boy daw ng IT');
 
 -- --------------------------------------------------------
 
@@ -593,7 +594,8 @@ INSERT INTO `location` (`NO`, `USERNAME`, `PLACE`) VALUES
 (5, 'cielomacion', 'Malabon, Philippines'),
 (6, 'marimar', 'Navotas, Philippines'),
 (7, 'coleen', 'Malabon, Philippines'),
-(8, 'merierose', 'Caloocan, Philippines');
+(8, 'merierose', 'Caloocan, Philippines'),
+(9, 'dale123', 'Philippines');
 
 -- --------------------------------------------------------
 
@@ -901,16 +903,17 @@ INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASS
 (4, 'Mae Gregorio', 'gregs17', '09306625692', 'maegregorio@gmail.com', '7950b6bd370f715554900616819ffc4e', 'Administrator', 'September 23, 2016 12:15 PM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|', '', 'prof1.jpg', '0', 14.6518846, 120.9668155),
 (18, 'Testing First Name Testing Last Name', 'Testinguname123', '09123456789', 'testing@testing.com', '7f2ababa423061c509f4923dd04b6cf1', 'User', 'September 25, 2016 5:13 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '0', 0.0000000, 0.0000000),
 (23, 'John Doe', 'Johndoe123', '09123654789', 'johndoe@example.com', 'bb2d91d0fbbebe8719509ed0f865c63f', 'User', 'Octoberber 22, 2016 2:13 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '0', 0.0000000, 0.0000000),
-(24, 'Vincent Barcelona', 'vincent123', '09321654987', 'vincent@gmail.com', '52fee26031644aacd7c23ade329939f0', 'User', 'Octoberber 23, 2016 1:46 PM', 0, 'DESIGN2', 'YES', '', '', 'Programmer', 'vincent.jpg', '0', 0.0000000, 0.0000000),
-(25, 'Angelo Santos', 'angelozxc', '09123456789', 'angelosantos@gmail.com', '5fc7702a5bfc833795dad0cbf963512e', 'User', 'Octoberber 24, 2016 1:15 PM', 0, 'DESIGN2', 'YES', '', '', '.Net Developer', 'firstprof.png', '0', 0.0000000, 0.0000000),
-(26, 'Dave Dizon', 'dave123', '09321654987', 'dave@gmail.com', '479a7c6866f00e1c35c97272e18b3739', 'User', 'Octoberber 25, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
-(27, 'Cielo Macion', 'cielomacion', '09789654123', 'cielo@gmail.com', '9d09d95d493cc27c05c0889a8eb8fbd2', 'User', 'Octoberber 25, 2016 10:39 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
-(28, 'Marimar Farina', 'marimar', '09789456123', 'marimar@gmail.com', 'c1af0c8792502845520239550a966f85', 'User', 'Octoberber 26, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
+(24, 'Vincent Barcelona', 'vincent123', '09321654987', 'vincent@gmail.com', '52fee26031644aacd7c23ade329939f0', 'User', 'Octoberber 23, 2016 1:46 PM', 0, 'DESIGN2', 'YES', '', '', 'Programmer', 'vincent.jpg', '0', 14.6522760, 120.9958610),
+(25, 'Angelo Santos', 'angelozxc', '09123456789', 'angelosantos@gmail.com', 'db80140ebacf3206f8a78bb37bcef830', 'User', 'Octoberber 24, 2016 1:15 PM', 0, 'DESIGN2', 'YES', '', '', '.Net Developer', '12744632_1254582144557262_9121387132878352657_n.jpg', '0', 14.6693045, 120.9703245),
+(26, 'Dave Dizon', 'dave123', '09321654987', 'dave@gmail.com', 'c677b023926f1e851fab9a43ef22a2e3', 'User', 'Octoberber 25, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', '13239007_1071915199514122_2204229994408708868_n.jpg', '0', 14.6523749, 120.9938714),
+(27, 'Cielo Macion', 'cielomacion', '09789654123', 'cielo@gmail.com', 'e1daf1b387939169a3f64f6ba8c89022', 'User', 'Octoberber 25, 2016 10:39 AM', 0, 'DESIGN2', 'YES', '', '', '', '12654508_806149282841084_3900721049461324944_n.jpg', '0', 14.6692406, 120.9770668),
+(28, 'Marimar Farina', 'marimar', '09789456123', 'marimar@gmail.com', '71aa857834c4a2caf0b3672a683acf3d', 'User', 'Octoberber 26, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', '15267638_1214358275292234_5355551970252483200_n.jpg', '0', 14.6719510, 120.9364570),
 (29, 'Coleen Moralidad', 'coleen', '09231564897', 'coleen@gmail.com', '921247cfe542c29ce7a4b3fb8a881d69', 'User', 'November 23, 2016 10:57 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
-(30, 'Merie Rose Palay', 'merierose', '09546879213', 'merierose@gmail.com', '14aabec76f651c48d0c5dcb3ac66fd7e', 'User', 'November 22, 2016 11:28 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
+(30, 'Merie Rose Palay', 'merierose', '09546879213', 'merierose@gmail.com', '14aabec76f651c48d0c5dcb3ac66fd7e', 'User', 'November 22, 2016 11:28 AM', 0, 'DESIGN2', 'YES', '', '', '', '12924385_1683993251854688_5688932316593626497_n.jpg', '0', 0.0000000, 0.0000000),
 (31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '34c87211821751f911c058bbf0cfb822', 'Administrator', 'November 21, 2016 11:36 AM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Advertisements|PayPal Configuration|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', 'prof3.jpg', '0', 0.0000000, 0.0000000),
 (32, 'co admin', 'coadmin123', '09251947616', 'coadmin@gmail.com', '7c56c5ef9e9149388a00f1d5a3d72764', 'Administrator', 'December 01, 2016 4:47 PM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox', '', '', '0', 0.0000000, 0.0000000),
-(33, 'testing testing', 'testing', '09231456987', 'testing@gmail.com', '51d042dc49b6deb9c0c64fa87c556825', 'Administrator', 'December 01, 2016 4:56 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '1', 0.0000000, 0.0000000);
+(33, 'testing testing', 'testing', '09231456987', 'testing@gmail.com', '51d042dc49b6deb9c0c64fa87c556825', 'Administrator', 'December 01, 2016 4:56 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '1', 0.0000000, 0.0000000),
+(34, 'Dale Diaz', 'dale123', '09321546879', 'dalediaz@gmail.com', 'bedba47f47bfd7072825c138250c5ef8', 'User', '', 0, 'DESIGN2', 'YES', '', '', '', '14358911_1156506694410804_6624578379483270429_n.jpg', '0', 14.6743576, 120.9362530);
 
 --
 -- Indexes for dumped tables
@@ -1038,7 +1041,7 @@ ALTER TABLE `about_my_site`
 -- AUTO_INCREMENT for table `about_user`
 --
 ALTER TABLE `about_user`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `admin_contacts`
 --
@@ -1073,7 +1076,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `messages`
 --
@@ -1118,7 +1121,7 @@ ALTER TABLE `subscribe`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

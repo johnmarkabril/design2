@@ -29,7 +29,15 @@ class Recipes extends CI_Controller
 			$selectname = "Alphabetically";
 		}
 		
-		$details = array (
+        $get_det = "";
+        if ( !empty($this->session->userdata['log_sess']) ) {
+            $get_det = $this->Users_model->get_user_details($this->session->userdata['log_sess']->USER_ID);
+        } else {
+            $get_det = $this->Users_model->get_user_details(null);
+        }
+        
+        $details = array (
+            'get_det'           =>  $get_det,
 			'recipes_content'	=>	$this->Recipes_model->get_content($categ),
 			'selectname'		=> 	$selectname
 		);
@@ -47,7 +55,16 @@ class Recipes extends CI_Controller
 			foreach ($paypal_enable as $pe) {
 				$paypal_email = $pe->PAYPAL_EMAIL;
 			}
-			$details = array (
+		
+	        $get_det = "";
+	        if ( !empty($this->session->userdata['log_sess']) ) {
+	            $get_det = $this->Users_model->get_user_details($this->session->userdata['log_sess']->USER_ID);
+	        } else {
+	            $get_det = $this->Users_model->get_user_details(null);
+	        }
+	        
+	        $details = array (
+	            'get_det'           =>  $get_det,
 				'curpage'			=> 	'recipedetail',
 				'title'				=> 	'Recipe Detail',
 				'recipe_detail'		=> 	$this->Recipes_model->get_specific_prod_sell($no),
