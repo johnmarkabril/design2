@@ -8,6 +8,7 @@ class Contacts extends CI_Controller
         parent::__construct();
         $this->load->model('Users_model');
         $this->load->model('Notification_model');
+        $this->load->model('Admin_contacts_model');
     }
 
 	public function index()
@@ -20,12 +21,13 @@ class Contacts extends CI_Controller
 			$permis = $per->PERMISSION;
 		}
 		$details = array (
-			'curpage'	=> 	'Contacts',
+			'curpage'					=> 	'Contacts',
 			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-			'permission_cntnt'		=> 	explode("|", $permis),
-			'get_notification'	=>	$this->Notification_model->get_notification(),
+			'permission_cntnt'			=> 	explode("|", $permis),
+			'get_notification'			=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
-			'title'		=> 	'Contacts'
+			'title'						=> 	'Contacts',
+			'get_all_contacts'			=> $this->Admin_contacts_model->get_all_contacts()
 		);
 
 		$data['content'] = $this->load->view('admin/contacts/contacts', $details, TRUE);
