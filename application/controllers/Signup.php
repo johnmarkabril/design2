@@ -9,7 +9,8 @@ class Signup extends CI_Controller
         $this->load->model('Users_model');
         $this->load->model('Postcontent_model');    
         $this->load->model('Recipes_model');     
-        $this->load->model('Location_model');   
+        $this->load->model('Location_model');      
+        $this->load->model('Aboutus_model'); 
     }
 
 	public function index()
@@ -67,8 +68,15 @@ class Signup extends CI_Controller
 			'PLACE'			=>		'Philippines'
 		);
 
+		$params_aboutuser = array (
+			'NO'	 	=>	'',
+			'USERNAME'	=> 	$uname,
+			'ABOUTUS'	=> 	""
+		);
+
 		$this->Users_model->insert_new_user($params);
 		$this->Location_model->insert_user_location($params_loc);
+		$this->Aboutus_model->insert_user_about($params_aboutuser);
 
 		// print_r($params);
 	}

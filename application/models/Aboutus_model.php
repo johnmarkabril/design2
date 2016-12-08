@@ -20,7 +20,7 @@ class Aboutus_model extends CI_Model
 		return $row->result();
 	}
 	
-	function insert_user_location($params){
+	function insert_user_about($params){
 		$this->db->insert($this->table, $params);
 	}
 
