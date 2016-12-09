@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2016 at 10:59 AM
+-- Generation Time: Dec 09, 2016 at 06:23 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -64,7 +64,7 @@ INSERT INTO `about_user` (`NO`, `USERNAME`, `ABOUTUS`) VALUES
 (1, 'jmabril17', 'Take it one day at a time. Surround yourself with positivity. Create a vision board. Make SMART goals. Reward yourself. Believe in yourself. Acknowledge your positive attributes. Recognize your progress. Visualize accomplishing your goals. Be kind to yourself. Don''t compare yourself to others.'),
 (2, 'vincent123', 'We have to allow ourselves to be loved by the people who really love us, the people who really matter. Too much of the time, we are blinded by our own pursuits of people to love us, people that don''t even matter, while all that time we waste and the people who do love us have to stand on the sidewalk and watch us beg in the streets! It''s time to put an end to this. It''s time for us to let ourselves be loved.'),
 (3, 'angelozxc', 'I have come to accept the feeling of not knowing where I am going. And I have trained myself to love it. Because it is only when we are suspended in mid-air with no landing in sight, that we force our wings to unravel and alas begin our flight. And as we fly, we still may not know where we are going to. But the miracle is in the unfolding of the wings. You may not know where you''re going, but you know that so long as you spread your wings, the winds will carry you.'),
-(4, 'dave123', 'There is no such thing as a "broken family." Family is family, and is not determined by marriage certificates, divorce papers, and adoption documents. Families are made in the heart. The only time family becomes null is when those ties in the heart are cut. If you cut those ties, those people are not your family. If you make those ties, those people are your family. And if you hate those ties, those people will still be your family because whatever you hate will always be with you.'),
+(4, 'dave123', 'DAVE DIZON ABOUT'),
 (5, 'cielomacion', 'Pain is a pesky part of being human, I''ve learned it feels like a stab wound to the heart, something I wish we could all do without, in our lives here. Pain is a sudden hurt that can''t be escaped. But then I have also learned that because of pain, I can feel the beauty, tenderness, and freedom of healing. Pain feels like a fast stab wound to the heart. But then healing feels like the wind against your face when you are spreading your wings and flying through the air! We may not have wings growing out of our backs, but healing is the closest thing that will give us that wind against our faces.'),
 (6, 'marimar', 'They say a good love is one that sits you down, gives you a drink of water, and pats you on top of the head. But I say a good love is one that casts you into the wind, sets you ablaze, makes you burn through the skies and ignite the night like a phoenix; the kind that cuts you loose like a wildfire and you can''t stop running simply because you keep on burning everything that you touch! I say that''s a good love; one that burns and flies, and you run with it!'),
 (7, 'coleen', 'You can be the most beautiful person in the world and everybody sees light and rainbows when they look at you, but if you yourself don''t know it, all of that doesn''t even matter. Every second that you spend on doubting your worth, every moment that you use to criticize yourself; is a second of your life wasted, is a moment of your life thrown away. It''s not like you have forever, so don''t waste any of your seconds, don''t throw even one of your moments away.'),
@@ -525,7 +525,10 @@ INSERT INTO `comment_section_post` (`NO`, `NAME`, `EMAIL`, `COMMENTHERE`, `DATEC
 (376, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'asdf', 'November 16, 2016 4:51 AM', '56', 'DESIGN2'),
 (377, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'eqweqweq', 'November 16, 2016 4:51 AM', '56', 'DESIGN2'),
 (378, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'asdfasdfasdf', 'November 16, 2016 5:30 AM', '55', 'DESIGN2'),
-(379, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'asdf', 'November 16, 2016 7:47 AM', '55', 'DESIGN2');
+(379, 'John Mark Abril', 'johnmark_abri12l@yahoo.com', 'asdf', 'November 16, 2016 7:47 AM', '55', 'DESIGN2'),
+(381, 'Dave Dizon', 'dave@gmail.com', 'This recipe is awesome', 'December 9, 2016 12:10 PM', '57', 'DESIGN2'),
+(382, 'Dave Dizon', 'dave@gmail.com', 'testing', 'December 9, 2016 12:14 PM', '57', 'DESIGN2'),
+(383, 'Dave Dizon', 'dave@gmail.com', 'Testing', 'December 9, 2016 12:23 PM', '57', 'DESIGN2');
 
 -- --------------------------------------------------------
 
@@ -595,7 +598,9 @@ INSERT INTO `location` (`NO`, `USERNAME`, `PLACE`) VALUES
 (6, 'marimar', 'Navotas, Philippines'),
 (7, 'coleen', 'Malabon, Philippines'),
 (8, 'merierose', 'Caloocan, Philippines'),
-(9, 'dale123', 'Philippines');
+(9, 'dale123', 'Philippines'),
+(10, 'aya123', 'Philippines'),
+(11, 'asdfasdf', 'Philippines');
 
 -- --------------------------------------------------------
 
@@ -640,7 +645,7 @@ CREATE TABLE `notification` (
   `DATE` varchar(100) NOT NULL,
   `HOUR` varchar(100) NOT NULL,
   `ACTIVE` int(11) NOT NULL,
-  `IMAGEURL` varchar(50) NOT NULL
+  `IMAGEURL` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -648,10 +653,15 @@ CREATE TABLE `notification` (
 --
 
 INSERT INTO `notification` (`NO`, `NAME`, `USERNAME`, `CONTENT`, `DATE`, `HOUR`, `ACTIVE`, `IMAGEURL`) VALUES
-(1, 'John Mark Abril', 'jmabril17', 'Posted new recipes! Named "Heart Cupcakes"', 'September 17, 2016', '06:45 PM', 1, 'prof3.jpg'),
-(2, 'John Mark Abril', 'jmabril17', 'jmabril17''s updated his/her about page', 'October 12, 2016', ' 11:50 AM', 1, 'prof3.jpg'),
-(3, 'Vincent Barcelona', 'vincent123', 'vincent''s updated his/her about page', 'October 17, 2016', '02:19 PM', 1, 'vincent.jpg'),
-(4, 'Angelo Santos', 'angelozxc', 'angelozxc''s updated his/her about page', 'October 17, 2016', '09:11 PM', 1, 'firstprof.png');
+(1, 'John Mark Abril', 'jmabril17', 'posted new recipes! Named "Heart Cupcakes"', 'September 17, 2016', '06:45 PM', 1, 'prof3.jpg'),
+(2, 'John Mark Abril', 'jmabril17', 'updated his/her about page', 'October 12, 2016', ' 11:50 AM', 1, 'prof3.jpg'),
+(3, 'Vincent Barcelona', 'vincent123', 'updated his/her about page', 'October 17, 2016', '02:19 PM', 1, 'vincent.jpg'),
+(4, 'Angelo Santos', 'angelozxc', 'updated his/her about page', 'October 17, 2016', '09:11 PM', 1, 'firstprof.png'),
+(7, 'Dave Dizon', 'dave123', 'commented on the post', 'December 09, 2016', '12:25 PM', 1, '14695562_1185546041484370_3219348562450572430_n.jpg'),
+(8, 'Dave Dizon', 'dave123', 'updated his/her about page', 'December 09, 2016', '6:11 AM', 1, '14695562_1185546041484370_3219348562450572430_n.jpg'),
+(9, ' dave12', 'dave123', 'updated his/her about page', 'December 09, 2016', '6:16 AM', 1, '14695562_1185546041484370_3219348562450572430_n.jpg'),
+(10, 'Dave Dizon', 'dave123', 'updated his/her about page', 'December 09, 2016', '6:16 AM', 1, '14695562_1185546041484370_3219348562450572430_n.jpg'),
+(11, 'Dave Dizon', 'dave123', 'updated his/her profile picture', 'December 09, 2016', '6:18 AM', 1, '13239007_1071915199514122_2204229994408708868_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -791,7 +801,9 @@ INSERT INTO `posted` (`NO`, `NAME`, `USERNAME`, `ACCOUNT_TYPE`, `TITLE`, `IMAGEU
 (54, 'Mae Gregorio', 'gregs17', 'Administrator', 'DOUBLE CHOCOLATE AND ORANGE CUPCAKES', 'choco-orange.jpg', 'Orange is the star ingredient in these cupcakes — its bright citrus flavor provides the perfect balance to the slimmed-down chocolatey batter!', 'October 10, 2016 05:30 PM', 'DESIGN2', '1 1?2 cups| flour|\r\n1?2 cup| sugar|\r\n1?4 cup| cocoa|\r\n1 teaspoon| baking soda|\r\n1?2 teaspoon| salt|\r\n1?2 cup| orange juice|\r\n3 tablespoons| oil|\r\n1 tablespoon| vinegar|\r\n1 teaspoon| vanilla|\r\n1?3 cup| water|\r\n1?3 cup| mini chocolate chip|\r\n1 teaspoon| confectioners'' sugar (optional)|\r\n', 'FREE', 0.00, 'CUPCAKES'),
 (55, 'Mae Gregorio', 'gregs17', 'Administrator', 'MINI DOUGHNUT CUPCAKES', 'mini-donut.jpg', '"The taste and texture is just like a doughnut! Tip: The batter is super thick, so it has to be spooned and then pushed with a spatula into the baking cups."', 'October 10, 2016 05:31 PM', 'DESIGN2', '1 cup| sugar|\r\n1 1?2 teaspoons| ground cinnamon|\r\n1 (18 1/4 ounce) package| yellow cake mix|\r\n1?8 cup| water|\r\n1?2 cup| vegetable oil|\r\n3| eggs|\r\n1 tablespoon| ground nutmeg|\r\n', 'FREE', 0.00, 'CUPCAKES'),
 (56, 'John Mark Abril', 'jmabril17', 'User', 'qwe', 'choco-orange.jpg', 'qwe', 'November 13, 2016 10:47 AM', 'design2', '2 tablespoon | Flour |\n3 tablespoon | Sugar |\n', 'FREE', 0.00, 'CUPCAKES'),
-(57, 'John Mark Abril', 'jmabril17', 'User', 'Testing Title', 'mini-donut.jpg', 'Testing', 'November 13, 2016 1:42 PM', 'design2', '2 tablespoon | Flour |\n3 tablespoon | Sugar |\n', 'FREE', 0.00, 'CUPCAKES');
+(57, 'John Mark Abril', 'jmabril17', 'User', 'Testing Title', 'mini-donut.jpg', 'Testing', 'November 13, 2016 1:42 PM', 'design2', '2 tablespoon | Flour |\n3 tablespoon | Sugar |\n', 'FREE', 0.00, 'CUPCAKES'),
+(69, 'Dave Dizon', 'dave123', 'User', 'qweqwe', '63.jpg', 'qweqweqweq', 'December 09, 2016 12:58 PM', 'design2', 'weqweqweqweqwe', 'FREE', 0.00, 'CUPCAKES'),
+(70, 'Dave Dizon', 'dave123', 'User', 'qwerq', '62.jpg', 'werqwe', 'December 09, 2016 12:59 PM', 'design2', 'rqwer', 'FREE', 0.00, 'CUPCAKES');
 
 -- --------------------------------------------------------
 
@@ -899,18 +911,17 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASSWORD`, `ACCOUNT_TYPE`, `REG_TIME`, `ACTIVATED`, `TEMPLATENAME`, `VERIFIED`, `VERIFICATIONCODE`, `PERMISSION`, `SKILLS`, `IMAGEURL`, `DELETION`, `LATITUDE`, `LONGHITUDE`) VALUES
-(3, 'John Mark Abril', 'jmabril17', '09208317004', 'johnmark_abri12l@yahoo.com', '89daf6d74eeceabf2e74efe50f41c9b2', 'User', 'September 17, 2016 10:11 AM', 0, 'DESIGN2', 'YES', '', '', 'Web Developer|Chef', 'prof3.jpg', '0', 14.6333994, 120.9735953),
+(3, 'John Mark Abril', 'jmabril17', '09208317004', 'johnmark_abri12l@gmail.com', '89daf6d74eeceabf2e74efe50f41c9b2', 'User', 'September 17, 2016 10:11 AM', 0, 'DESIGN2', 'YES', '', '', 'Web Developer|Chef', 'prof3.jpg', '0', 14.6333994, 120.9735953),
 (4, 'Mae Gregorio', 'gregs17', '09306625692', 'maegregorio@gmail.com', '7950b6bd370f715554900616819ffc4e', 'Administrator', 'September 23, 2016 12:15 PM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|', '', 'prof1.jpg', '0', 14.6518846, 120.9668155),
-(18, 'Testing First Name Testing Last Name', 'Testinguname123', '09123456789', 'testing@testing.com', '7f2ababa423061c509f4923dd04b6cf1', 'User', 'September 25, 2016 5:13 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '0', 0.0000000, 0.0000000),
-(23, 'John Doe', 'Johndoe123', '09123654789', 'johndoe@example.com', 'bb2d91d0fbbebe8719509ed0f865c63f', 'User', 'Octoberber 22, 2016 2:13 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '0', 0.0000000, 0.0000000),
+(23, 'John Doe', 'Johndoe123', '09123654789', 'johndoe@gmail.com', 'bb2d91d0fbbebe8719509ed0f865c63f', 'User', 'Octoberber 22, 2016 2:13 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '0', 0.0000000, 0.0000000),
 (24, 'Vincent Barcelona', 'vincent123', '09321654987', 'vincent@gmail.com', '52fee26031644aacd7c23ade329939f0', 'User', 'Octoberber 23, 2016 1:46 PM', 0, 'DESIGN2', 'YES', '', '', 'Programmer', 'vincent.jpg', '0', 14.6522760, 120.9958610),
 (25, 'Angelo Santos', 'angelozxc', '09123456789', 'angelosantos@gmail.com', 'db80140ebacf3206f8a78bb37bcef830', 'User', 'Octoberber 24, 2016 1:15 PM', 0, 'DESIGN2', 'YES', '', '', '.Net Developer', '12744632_1254582144557262_9121387132878352657_n.jpg', '0', 14.6693045, 120.9703245),
-(26, 'Dave Dizon', 'dave123', '09321654987', 'dave@gmail.com', 'c677b023926f1e851fab9a43ef22a2e3', 'User', 'Octoberber 25, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', '13239007_1071915199514122_2204229994408708868_n.jpg', '0', 14.6523749, 120.9938714),
+(26, 'Dave Dizon', 'dave123', '09321654987', 'dave@gmail.com', '5c6b73dc0d11ba705a1ef535c9edf5c9', 'User', 'Octoberber 25, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', '13239007_1071915199514122_2204229994408708868_n.jpg', '0', 14.6523749, 120.9938714),
 (27, 'Cielo Macion', 'cielomacion', '09789654123', 'cielo@gmail.com', 'e1daf1b387939169a3f64f6ba8c89022', 'User', 'Octoberber 25, 2016 10:39 AM', 0, 'DESIGN2', 'YES', '', '', '', '12654508_806149282841084_3900721049461324944_n.jpg', '0', 14.6692406, 120.9770668),
 (28, 'Marimar Farina', 'marimar', '09789456123', 'marimar@gmail.com', '71aa857834c4a2caf0b3672a683acf3d', 'User', 'Octoberber 26, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', '15267638_1214358275292234_5355551970252483200_n.jpg', '0', 14.6719510, 120.9364570),
 (29, 'Coleen Moralidad', 'coleen', '09231564897', 'coleen@gmail.com', '921247cfe542c29ce7a4b3fb8a881d69', 'User', 'November 23, 2016 10:57 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
 (30, 'Merie Rose Palay', 'merierose', '09546879213', 'merierose@gmail.com', '14aabec76f651c48d0c5dcb3ac66fd7e', 'User', 'November 22, 2016 11:28 AM', 0, 'DESIGN2', 'YES', '', '', '', '12924385_1683993251854688_5688932316593626497_n.jpg', '0', 0.0000000, 0.0000000),
-(31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '34c87211821751f911c058bbf0cfb822', 'Administrator', 'November 21, 2016 11:36 AM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Advertisements|PayPal Configuration|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', 'prof3.jpg', '0', 0.0000000, 0.0000000),
+(31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '176607da740950b29adfb64b98dd91c4', 'Administrator', 'November 21, 2016 11:36 AM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Advertisements|PayPal Configuration|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', 'prof3.jpg', '0', 0.0000000, 0.0000000),
 (32, 'co admin', 'coadmin123', '09251947616', 'coadmin@gmail.com', '7c56c5ef9e9149388a00f1d5a3d72764', 'Administrator', 'December 01, 2016 4:47 PM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox', '', '', '0', 0.0000000, 0.0000000),
 (33, 'testing testing', 'testing', '09231456987', 'testing@gmail.com', '51d042dc49b6deb9c0c64fa87c556825', 'Administrator', 'December 01, 2016 4:56 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '1', 0.0000000, 0.0000000),
 (34, 'Dale Diaz', 'dale123', '09321546879', 'dalediaz@gmail.com', 'bedba47f47bfd7072825c138250c5ef8', 'User', '', 0, 'DESIGN2', 'YES', '', '', '', '14358911_1156506694410804_6624578379483270429_n.jpg', '0', 14.6743576, 120.9362530);
@@ -1061,7 +1072,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comment_section_post`
 --
 ALTER TABLE `comment_section_post`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=380;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=384;
 --
 -- AUTO_INCREMENT for table `contactsform`
 --
@@ -1076,7 +1087,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `messages`
 --
@@ -1086,7 +1097,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `paypal_configuration`
 --
@@ -1101,7 +1112,7 @@ ALTER TABLE `permission_data`
 -- AUTO_INCREMENT for table `posted`
 --
 ALTER TABLE `posted`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT for table `purchase_product`
 --
