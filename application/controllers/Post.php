@@ -11,7 +11,8 @@ class Post extends CI_Controller
         $this->load->model('Postcontent_model');   
         $this->load->model('Recipes_model');    
         $this->load->model('Categories_model');     
-        $this->load->model('Aboutmysite_model'); 
+        $this->load->model('Aboutmysite_model');  
+        $this->load->model('Notification_model'); 
     }
 
 	public function link($param1)
@@ -48,6 +49,9 @@ class Post extends CI_Controller
 
 	public function insert_comment_cont()
 	{
+		date_default_timezone_set("Asia/Manila");
+    	$date = date("F d, Y");
+    	$time = date("g:i A");
 		$comment_name	= $this->input->post('comment_name');
 		$comment_email	= $this->input->post('comment_email');
 		$comment_here	= $this->input->post('comment_here');
@@ -64,6 +68,18 @@ class Post extends CI_Controller
 			'TEMPLATENAME'	=> 'DESIGN2'
 		);
 
+		$params_notif = array(
+			'NO'			=> '',
+			'NAME'			=> $comment_name,
+			'USERNAME'		=> $this->session->userdata('log_sess')->USERNAME,
+			'CONTENT'		=> "commented on the post" ,
+			'DATE'			=> $date,
+			'HOUR'			=> $time,
+			'ACTIVE'		=> '1',
+			'IMAGEURL'		=> $this->session->userdata('log_sess')->IMAGEURL
+		);
+
 		$this->Postcontent_model->insert_comment_mod($params);
+		$this->Notification_model->insert_new_notif($params_notif);
 	}
 }

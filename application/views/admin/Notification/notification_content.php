@@ -1,6 +1,6 @@
 <?php
-    if ( ! empty($get_notification) ) {
-        foreach ( $get_notification as $gn ) :
+    if ( ! empty($get_notification_all) ) {
+        foreach ( $get_notification_all as $gn ) :
 ?>
             <div class="row">
                 <div class="col-md-12">

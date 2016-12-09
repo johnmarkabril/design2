@@ -25,10 +25,22 @@ class Notification_model extends CI_Model
 		return $row->result();
 	}
 
+	function get_notification_all(){
+		$row = 	$this->db->where($this->active, "1")
+						 ->order_by($this->dbno, $this->desc)
+					 	 ->get($this->table);
+		return $row->result();
+	}
+
 	function get_all_notification_rows()
 	{
 		$row = 	$this->db->where($this->active, "1")
 					 	 ->get($this->table);
 		return $row->num_rows();
+	}
+
+	function insert_new_notif($params)
+	{
+		$this->db->insert($this->table, $params);
 	}
 }

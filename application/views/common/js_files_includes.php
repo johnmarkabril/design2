@@ -17,6 +17,8 @@
 <!-- DROPZONE -->
 <script src="<?php echo base_url();?>public/js/plugins/dropzone/dropzone.js"></script>  
 
+<!-- LIST -->
+<script src="<?php echo base_url();?>public/js/plugins/list/list.min.js"></script>
 
 <!-- Jquery Validate -->
 <script src="<?php echo base_url();?>public/js/plugins/validate/jquery.validate.min.js"></script>
@@ -72,6 +74,12 @@
     <?php } ?>
 
     $(document).ready(function(){
+
+        var options = {
+          valueNames: [ 'title' ]
+        };
+
+        var productGridSearchList = new List('productgrid_search', options);   
 
         // Activate WOW.js plugin for animation on scrol
         new WOW().init();
@@ -338,7 +346,11 @@
                     url: "<?php echo base_url();?>profile/update_personal_information",
                     method: "POST",
                     data: {
-                        params : params
+                        params      : params,
+                        NAME        : ctr_fullname,
+                        PHONENUMBER : ctr_num,
+                        EMAIL       : ctr_email,
+                        PASSWORD    : ctr_password
                     },
                     success:function(data){
                         location.reload();
@@ -483,7 +495,7 @@
                         timedate   :timedate,
                     },
                     async: true,
-                    done:function(data)
+                    success:function(data)
                     {
                         toastr.success("COMMENT POSTED!");
                         $('#comment_here').val("");
@@ -836,14 +848,14 @@
                 formData = new FormData();
                 formData.append("image", file);
                 if(!!file.type.match(/image.*/)){
+                    // alert("asd");
                     $.ajax ({
                         url: "<?php echo base_url(); ?>profile/uploadImage",
                         method: "POST",
                         data: formData,
                         processData: false,
                         contentType: false,
-                        async: true,
-                        done:function(data){
+                        success:function(data){
                             insertData();
                             // toastr.success(data);
                         },
@@ -864,7 +876,7 @@
             var imageName = $('#file_img').val();
             var descript = $('#txt_descript').val();
             var recipe = $('#txt_recipe').val();
-
+            var subimage = imageName.substring(12);
             $.ajax ({
                 url: "<?php echo base_url(); ?>profile/addRecipe",
                 method: "POST",
@@ -874,12 +886,11 @@
                     descript    : descript,
                     recipe      : recipe
                 },
-                async: true,
-                done:function(data){
+                success:function(data){
                     html =  '<div class="col-md-4">';
                     html +=     '<div class="ibox">'
                     html +=        '<div class="ibox-content product-box">'
-                    html +=             '<img class="img-responsive prod-prof" src="<?php echo base_url();?>public/img/banana-walnut.jpg"/>'
+                    html +=             '<img class="img-responsive prod-prof" src="<?php echo base_url();?>public/img/'+subimage+'"/>'
                     html +=             '<div class="pad-top text-center">'
                     html +=               '<a href="#">'+title+'</a>'
                     html +=                        '</div>'
@@ -898,6 +909,10 @@
 
                     $('#new_recipe_section').prepend(html);
                     // alert(data);
+                    $('#txt_title').val("");
+                    $('#file_img').val("");
+                    $('#txt_descript').val("");
+                    $('#txt_recipe').val("");
                     toastr.success("New recipe has been posted!");
                     },
                 error:function(){

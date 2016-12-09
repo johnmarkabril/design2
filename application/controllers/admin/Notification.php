@@ -25,8 +25,9 @@ class Notification extends CI_Controller
 		}
 		$details = array (
 			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
-			'permission_cntnt'		=> 	explode("|", $permis),
-			'get_notification'	=>	$this->Notification_model->get_notification(),
+			'permission_cntnt'			=> explode("|", $permis),
+			'get_notification'			=> $this->Notification_model->get_notification(),
+			'get_notification_all'		=> $this->Notification_model->get_notification_all(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows()
 		);
 

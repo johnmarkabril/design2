@@ -5,14 +5,14 @@
 	<h5> <a href="<?php echo base_url();?>">HOME</a> / <span style="color: #FF65AE;">CATEGORIES</span> <span> / <?php echo $this->uri->segment(3);?></span></a></h5>
 <hr>
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-8" id="productgrid_search">
 		<?php
 			if ( !empty($get_content_cat) ) {
 		?>
 			<center>
-				<input type="text" class="form-control text-center" placeholder="Search .." />
+				<input type="text" class="form-control text-center search" placeholder="Search .." />
 			</center>
-				<div class="animated fadeInRight padding-top" id="productGridSearchList">
+				<div class="animated fadeInRight padding-top">
 			        <div class="row">
 			            <div class="list">
 				            <?php foreach( $get_content_cat as $gcc ) : ?>
@@ -24,7 +24,7 @@
 				                            </div>
 				                            <div class="product-desc" style="height: 100px;">
 				                                <left>
-				                                    <small class="text-muted" ><?php echo $gcc->TITLE; ?></small>
+				                                    <small class="text-muted title"><?php echo $gcc->TITLE; ?></small>
 				                                </left>
 				                            </div>
 				                        </div>

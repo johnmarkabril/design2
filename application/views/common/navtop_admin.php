@@ -17,12 +17,16 @@
                 ?>
                             <li>
                                 <div class="dropdown-messages-box" style="padding-bottom: 10px;">
-                                    <a href="profile.html" class="pull-left">
-                                        <img alt="image" class="img-circle cus-img-width-mes" src="<?php echo base_url(); ?>public/img/prof/<?php echo $gn->IMAGEURL; ?>">
-                                    </a>
-                                    <div class="media-body">
-                                        <strong><?php echo $gn->NAME;?></strong> <?php echo $gn->CONTENT; ?>. <br>
-                                        <small class="text-muted"><?php echo $gn->DATE." ".$gn->HOUR;?></small>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a class="pull-left">
+                                                <img alt="image" class="img-circle cus-img-width-mes" src="<?php echo base_url(); ?>public/img/prof/<?php echo $gn->IMAGEURL; ?>">
+                                            </a>
+                                            <div class="media-body">
+                                                <strong><?php echo $gn->NAME;?></strong> <?php echo $gn->CONTENT; ?>. <br>
+                                                <small class="text-muted"><?php echo $gn->DATE." ".$gn->HOUR;?></small>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </li>

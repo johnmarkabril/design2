@@ -12,6 +12,7 @@ class Profile extends CI_Controller
         $this->load->model('Location_model');   
         $this->load->model('Purchaseproduct_model'); 
         $this->load->model('Aboutus_model');   
+        $this->load->model('Notification_model'); 
         
     }
     
@@ -84,11 +85,10 @@ class Profile extends CI_Controller
 
 	public function uploadImage()
     {
-        $uploadfile =  $_SERVER['DOCUMENT_ROOT']."/design2/public/img/".$_FILES["image"]["name"];
+        $uploadfile =  $_SERVER['DOCUMENT_ROOT']. base_url() ."public/img/".$_FILES["image"]["name"];
         // $tar
-        move_uploaded_file($_FILES["image"]["name"], $uploadfile);
-        // echo $uploadfile;
-        // echo $tar;
+        // move_uploaded_file($_FILES["image"]["name"], $uploadfile);
+        move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
     }
 
     public function addRecipe()
@@ -113,6 +113,20 @@ class Profile extends CI_Controller
     	);
     	// print_r($params);
     	$this->Postcontent_model->insert_new_recipe_free($params);
+
+        $dateMDY = date("F d, Y");
+        $time = date("g:i A");
+        $params_notif = array(
+            'NO'            => '',
+            'NAME'          => $this->session->userdata('log_sess')->NAME,
+            'USERNAME'      => $this->session->userdata('log_sess')->USERNAME,
+            'CONTENT'       => 'posted new recipes! Named "'.$this->input->post('title').'"' ,
+            'DATE'          => $dateMDY,
+            'HOUR'          => $time,
+            'ACTIVE'        => '1',
+            'IMAGEURL'      => $this->session->userdata('log_sess')->IMAGEURL
+        );
+        $this->Notification_model->insert_new_notif($params_notif);
     }
 
     // public function index(){
@@ -125,13 +139,55 @@ class Profile extends CI_Controller
         );
 
         $this->Aboutus_model->update_about_user($params, $usernameSess);
+
+        $dateMDY = date("F d, Y");
+        $time = date("g:i A");
+        $params_notif = array(
+            'NO'            => '',
+            'NAME'          => $this->session->userdata('log_sess')->NAME,
+            'USERNAME'      => $this->session->userdata('log_sess')->USERNAME,
+            'CONTENT'       => 'updated his/her about page' ,
+            'DATE'          => $dateMDY,
+            'HOUR'          => $time,
+            'ACTIVE'        => '1',
+            'IMAGEURL'      => $this->session->userdata('log_sess')->IMAGEURL
+        );
+        $this->Notification_model->insert_new_notif($params_notif);
     }
 
     public function update_personal_information()
     {
         $usernameSess = $this->session->userdata('log_sess')->USERNAME;
 
-        $this->Users_model->update_personal_infor($this->input->post('params'), $usernameSess);
+        
+        $params = array (
+            'NAME'          =>      $this->input->post('NAME'),
+            'PHONENUMBER'   =>      $this->input->post('PHONENUMBER'),
+            'EMAIL'         =>      $this->input->post('EMAIL'),
+            'PASSWORD'      =>      md5($this->input->post('PASSWORD'))
+        );
+
+        $this->Users_model->update_personal_infor($params, $usernameSess);
+        // $this->session->userdata('log_sess') = $this->input->post('params');
+        $this->session->userdata('log_sess')->NAME              =  $this->input->post('NAME') ;
+        $this->session->userdata('log_sess')->PHONENUMBER       =  $this->input->post('PHONENUMBER') ;
+        $this->session->userdata('log_sess')->EMAIL             =  $this->input->post('EMAIL') ;
+        $this->session->userdata('log_sess')->PASSWORD          =  md5($this->input->post('PASSWORD')) ;
+
+
+        $dateMDY = date("F d, Y");
+        $time = date("g:i A");
+        $params_notif = array(
+            'NO'            => '',
+            'NAME'          => $this->session->userdata('log_sess')->NAME,
+            'USERNAME'      => $this->session->userdata('log_sess')->USERNAME,
+            'CONTENT'       => 'updated his/her personal information' ,
+            'DATE'          => $dateMDY,
+            'HOUR'          => $time,
+            'ACTIVE'        => '1',
+            'IMAGEURL'      => $this->session->userdata('log_sess')->IMAGEURL
+        );
+        $this->Notification_model->insert_new_notif($params_notif);
     }
 
     public function update_personal_skills()
@@ -150,6 +206,20 @@ class Profile extends CI_Controller
         );
 
         $this->Users_model->update_skills($params, $usernameSess);
+
+        $dateMDY = date("F d, Y");
+        $time = date("g:i A");
+        $params_notif = array(
+            'NO'            => '',
+            'NAME'          => $this->session->userdata('log_sess')->NAME,
+            'USERNAME'      => $this->session->userdata('log_sess')->USERNAME,
+            'CONTENT'       => 'updated his/her skills' ,
+            'DATE'          => $dateMDY,
+            'HOUR'          => $time,
+            'ACTIVE'        => '1',
+            'IMAGEURL'      => $this->session->userdata('log_sess')->IMAGEURL
+        );
+        $this->Notification_model->insert_new_notif($params_notif);
     }
 
     public function update_profile_picture()
@@ -168,8 +238,24 @@ class Profile extends CI_Controller
             );
 
             $this->Users_model->update_personal_infor($params, $uname);
-            $rs = move_uploaded_file($_FILES['image']['tmp_name'], $loc . $_FILES['image']['name']);
+            move_uploaded_file($_FILES['image']['tmp_name'], $loc . $_FILES['image']['name']);
             
+            $this->session->userdata('log_sess')->IMAGEURL = $image_name;
+
+            $dateMDY = date("F d, Y");
+            $time = date("g:i A");
+            $params_notif = array(
+                'NO'            => '',
+                'NAME'          => $this->session->userdata('log_sess')->NAME,
+                'USERNAME'      => $this->session->userdata('log_sess')->USERNAME,
+                'CONTENT'       => 'updated his/her profile picture' ,
+                'DATE'          => $dateMDY,
+                'HOUR'          => $time,
+                'ACTIVE'        => '1',
+                'IMAGEURL'      => $this->session->userdata('log_sess')->IMAGEURL
+            );
+            $this->Notification_model->insert_new_notif($params_notif);
+
             redirect("profile/settings/".$uname."");
         } else {
             redirect("profile/settings/".$uname."");

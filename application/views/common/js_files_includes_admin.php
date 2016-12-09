@@ -568,6 +568,12 @@
         $('[data-toggle="tooltip"]').tooltip(); 
         $('[data-toggle="popover"]').popover();
         
+        var options = {
+          valueNames: [ 'title', 'price' ]
+        };
+
+        var productGridSearchList = new List('productgrid_search', options);  
+
         // SEARCH DASHBOARD
         var options = {
     	  valueNames: [ 'l_name', 'l_prodname', 'l_date' ]
