@@ -16,7 +16,7 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="<?php echo base_url();?>admin/profile">Profile</a></li>
+                        <li><a href="<?php echo base_url();?>admin/profile/username/<?php echo $this->session->userdata('log_sess')->USERNAME;?>">Profile</a></li>
                         <li><a href="<?php echo base_url();?>admin/contacts">Contacts</a></li>
                         <li><a href="<?php echo base_url();?>admin/message/local_inbox">Local Inbox</a></li>
                     </ul>

@@ -28,4 +28,11 @@ class Aboutus_model extends CI_Model
         $this->db->where($this->uname, $username);	
         $this->db->update($this->table, $params); 
 	}
+
+	function get_spec_about_user($uname){
+		$row = 	$this->db->where($this->uname, $uname)
+						 ->limit(1)
+					 	 ->get($this->table);
+		return $row->result();
+	}
 }
