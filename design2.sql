@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2016 at 08:06 PM
+-- Generation Time: Dec 11, 2016 at 01:09 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -69,7 +69,12 @@ INSERT INTO `about_user` (`NO`, `USERNAME`, `ABOUTUS`) VALUES
 (6, 'marimar', 'They say a good love is one that sits you down, gives you a drink of water, and pats you on top of the head. But I say a good love is one that casts you into the wind, sets you ablaze, makes you burn through the skies and ignite the night like a phoenix; the kind that cuts you loose like a wildfire and you can''t stop running simply because you keep on burning everything that you touch! I say that''s a good love; one that burns and flies, and you run with it!'),
 (7, 'coleen', 'You can be the most beautiful person in the world and everybody sees light and rainbows when they look at you, but if you yourself don''t know it, all of that doesn''t even matter. Every second that you spend on doubting your worth, every moment that you use to criticize yourself; is a second of your life wasted, is a moment of your life thrown away. It''s not like you have forever, so don''t waste any of your seconds, don''t throw even one of your moments away.'),
 (8, 'merierose', 'You''ve got this life and while you''ve got it, you''d better kiss like you only have one moment, try to hold someone''s hand like you will never get another chance to, look into people''s eyes like they''re the last you''ll ever see, watch someone sleeping like there''s no time left, jump if you feel like jumping, run if you feel like running, play music in your head when there is none, and eat cake like it''s the only one left in the world!'),
-(9, 'dale123', 'Fuck boy daw ng IT');
+(9, 'dale123', 'Fuck boy daw ng IT'),
+(10, 'gregs17', ''),
+(11, 'Johndoe123', ''),
+(12, 'jbril17', 'I''m the CEO of the JMAE SITE PROVIDER.'),
+(13, 'coadmin123', ''),
+(14, 'testing', '');
 
 -- --------------------------------------------------------
 
@@ -79,31 +84,32 @@ INSERT INTO `about_user` (`NO`, `USERNAME`, `ABOUTUS`) VALUES
 
 CREATE TABLE `admin_contacts` (
   `NO` int(11) NOT NULL,
-  `IMAGE_URL` varchar(100) NOT NULL,
+  `IMAGEURL` varchar(500) NOT NULL,
   `LASTNAME` varchar(150) NOT NULL,
   `FIRSTNAME` varchar(150) NOT NULL,
   `POSITION` varchar(150) NOT NULL,
   `COMPANY` varchar(150) NOT NULL,
   `ADDRESS` varchar(500) NOT NULL,
   `PHONE_NUM` varchar(15) NOT NULL,
-  `DELETION` varchar(3) NOT NULL,
-  `ADMIN_NAME` varchar(150) NOT NULL
+  `DELETION` varchar(100) NOT NULL,
+  `ADMIN_UNAME` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin_contacts`
 --
 
-INSERT INTO `admin_contacts` (`NO`, `IMAGE_URL`, `LASTNAME`, `FIRSTNAME`, `POSITION`, `COMPANY`, `ADDRESS`, `PHONE_NUM`, `DELETION`, `ADMIN_NAME`) VALUES
-(1, 'prof1.jpg', 'Gregorio', 'Farrah Mae', 'Web Developer (Front-end)', 'JMAE Site Provider', 'Caloocan City, Mnl, Philippines', '09484410511', '', ''),
-(2, 'prof3.jpg', 'Abril', 'John Mark', 'CEO, Web Developer (Back-end)', 'JMAE Site Provider', 'Manila City, Mnl, Philippines', '09208317004', '', ''),
-(3, 'vincent.jpg', 'Barcelona', 'Vincent', 'Sales Manager', 'JMAE Site Provider', 'Caloocan City, Mnl, Philippines', '09777230958', '', ''),
-(4, 'palay.jpg', 'Palay', 'Merie Rose', 'Marketing Manager', 'JMAE Site Provider', 'Caloocan City, Mnl, Philippines', '09077262882', '', ''),
-(5, 'marimar.jpg', 'Fariña', 'Marimar', 'Account Manager', 'JMAE Site Provider', 'Navotas City, Mnl, Philippines', '09075858219', '', ''),
-(6, 'coleen.jpg', 'Moralidad', 'Coleen Jae', 'Product Applications Manager', 'JMAE Site Provider', 'Malabon City, Mnl, Philippines', '09327132367', '', ''),
-(7, 'abhie.jpg', 'Faa', 'Avegail Joy', 'Graphic Designer', 'JMAE Site Provider', 'Caloocan City, Mnl,Philippines', '09092053393', '', ''),
-(8, 'cielo.jpg', 'Macion', 'Cielo', 'Information Systems Manager', 'JMAE Site Provider', 'Malabon City, Mnl, Philippines', '09109139011', '', ''),
-(9, 'firstprof.png', 'Abril', 'Jm', 'Database Administration', 'JMAE Site Provider', 'Manila City, Mnl, Philippines', '09292704546', '', '');
+INSERT INTO `admin_contacts` (`NO`, `IMAGEURL`, `LASTNAME`, `FIRSTNAME`, `POSITION`, `COMPANY`, `ADDRESS`, `PHONE_NUM`, `DELETION`, `ADMIN_UNAME`) VALUES
+(1, 'prof1.jpg', 'Gregorio', 'Farrah Mae', 'Web Developer (Front-end)', 'JMAE Site Provider', 'Caloocan City, Mnl, Philippines', '09484410511', '0', 'jbril17'),
+(2, 'prof3.jpg', 'Abril', 'John Mark', 'CEO, Web Developer (Back-end)', 'JMAE Site Provider', 'Manila City, Mnl, Philippines', '09208317004', '0', 'jbril17'),
+(3, 'vincent.jpg', 'Barcelona', 'Vincent', 'Sales Manager', 'JMAE Site Provider', 'Caloocan City, Mnl, Philippines', '09777230958', '0', 'jbril17'),
+(4, 'palay.jpg', 'Palay', 'Merie Rose', 'Marketing Manager', 'JMAE Site Provider', 'Caloocan City, Mnl, Philippines', '09077262882', '0', 'jbril17'),
+(5, 'marimar.jpg', 'Fariña', 'Marimar', 'Account Manager', 'JMAE Site Provider', 'Navotas City, Mnl, Philippines', '09075858219', '0', 'jbril17'),
+(6, 'coleen.jpg', 'Moralidad', 'Coleen Jae', 'Product Applications Manager', 'JMAE Site Provider', 'Malabon City, Mnl, Philippines', '09327132367', '0', 'jbril17'),
+(7, 'abhie.jpg', 'Faa', 'Avegail Joy', 'Graphic Designer', 'JMAE Site Provider', 'Caloocan City, Mnl,Philippines', '09092053393', '0', 'jbril17'),
+(8, 'cielo.jpg', 'Macion', 'Cielo', 'Information Systems Manager', 'JMAE Site Provider', 'Malabon City, Mnl, Philippines', '09109139011', '0', 'jbril17'),
+(9, '734157_493382984036234_1420085119_n.jpg', 'Abril', 'Jm', 'Database Administration', 'JMAE Site Provider', 'Manila City, Mnl, Philippines', '09292704546', '0', 'jbril17'),
+(10, '14322469_1286803644683377_7356317714701055420_n.jpg', 'Apront', 'Ian', 'Web Programmer', 'JMAE Site Provider', 'Malabon City, Mnl, Philippines', '09321754869', '1', 'jbril17');
 
 -- --------------------------------------------------------
 
@@ -127,33 +133,10 @@ CREATE TABLE `admin_posted` (
 --
 
 INSERT INTO `admin_posted` (`NO`, `NAME`, `USERNAME`, `DESCRIPTION`, `DATE`, `HOUR`, `IMAGEURL`, `DELETION`) VALUES
-(1, 'John Mark Abril', 'jbril17', 'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Packages and web page editors now use Lorem Ipsum as their default model text.', 'December 11, 2016', '02:53 AM', 'prof3.jpg', '0'),
-(2, 'Farrah Mae Gregorio', 'gregs17', 'There are only two options: Make progress,or make excuses.', 'December 11, 2016', '02:55 AM', 'prof1.jpg', '0');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin_reply`
---
-
-CREATE TABLE `admin_reply` (
-  `NO` int(11) NOT NULL,
-  `NAME` varchar(500) NOT NULL,
-  `DESCRIPTION` varchar(5000) NOT NULL,
-  `DATE` varchar(100) NOT NULL,
-  `HOUR` varchar(100) NOT NULL,
-  `IMAGEURL` varchar(500) NOT NULL,
-  `DELETION` varchar(10) NOT NULL,
-  `POSTED_NO` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `admin_reply`
---
-
-INSERT INTO `admin_reply` (`NO`, `NAME`, `DESCRIPTION`, `DATE`, `HOUR`, `IMAGEURL`, `DELETION`, `POSTED_NO`) VALUES
-(1, 'Farrah Mae Gregorio', 'This is a comment', 'December 11, 2016', '02:56 AM', 'prof1.jpg', '0', '1'),
-(2, 'John Mark Abril', 'This is a comment', 'December 11, 2016', '02:57 AM', 'prof3.jpg', '0', '2');
+(1, 'John Mark Abril', 'jbril17', 'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Packages and web page editors now use Lorem Ipsum as their default model text.', 'December 11, 2016', '02:53 AM', '11913595_919925481395511_1388239675_n.jpg', '0'),
+(2, 'Farrah Mae Gregorio', 'gregs17', 'There are only two options: Make progress,or make excuses.', 'December 11, 2016', '02:55 AM', 'prof1.jpg', '0'),
+(4, 'Johnmark Abril', 'jbril17', 'Testing only', 'December 11, 2016', '4:20 PM', '11913595_919925481395511_1388239675_n.jpg', '0'),
+(5, 'Johnmark Abril', 'jbril17', 'Testing.', 'December 11, 2016', '4:21 PM', '11913595_919925481395511_1388239675_n.jpg', '0');
 
 -- --------------------------------------------------------
 
@@ -726,7 +709,10 @@ INSERT INTO `notification` (`NO`, `NAME`, `USERNAME`, `CONTENT`, `DATE`, `HOUR`,
 (8, 'Dave Dizon', 'dave123', 'updated his/her about page', 'December 09, 2016', '6:11 AM', 1, '14695562_1185546041484370_3219348562450572430_n.jpg'),
 (9, ' dave12', 'dave123', 'updated his/her about page', 'December 09, 2016', '6:16 AM', 1, '14695562_1185546041484370_3219348562450572430_n.jpg'),
 (10, 'Dave Dizon', 'dave123', 'updated his/her about page', 'December 09, 2016', '6:16 AM', 1, '14695562_1185546041484370_3219348562450572430_n.jpg'),
-(11, 'Dave Dizon', 'dave123', 'updated his/her profile picture', 'December 09, 2016', '6:18 AM', 1, '13239007_1071915199514122_2204229994408708868_n.jpg');
+(11, 'Dave Dizon', 'dave123', 'updated his/her profile picture', 'December 09, 2016', '6:18 AM', 1, '13239007_1071915199514122_2204229994408708868_n.jpg'),
+(12, 'Johnmark Abril', 'jbril17', 'updated his/her profile picture', 'December 11, 2016', '9:46 AM', 1, '11913595_919925481395511_1388239675_n.jpg'),
+(13, 'Johnmark Abril', 'jbril17', 'updated his/her profile picture', 'December 11, 2016', '9:54 AM', 1, '11913595_919925481395511_1388239675_n.jpg'),
+(14, 'Johnmark Abril', 'jbril17', 'updated his/her profile picture', 'December 11, 2016', '9:55 AM', 1, '11913595_919925481395511_1388239675_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -986,7 +972,7 @@ INSERT INTO `user` (`USER_ID`, `NAME`, `USERNAME`, `PHONENUMBER`, `EMAIL`, `PASS
 (28, 'Marimar Farina', 'marimar', '09789456123', 'marimar@gmail.com', '71aa857834c4a2caf0b3672a683acf3d', 'User', 'Octoberber 26, 2016 9:36 AM', 0, 'DESIGN2', 'YES', '', '', '', '15267638_1214358275292234_5355551970252483200_n.jpg', '0', 14.6719510, 120.9364570),
 (29, 'Coleen Moralidad', 'coleen', '09231564897', 'coleen@gmail.com', '921247cfe542c29ce7a4b3fb8a881d69', 'User', 'November 23, 2016 10:57 AM', 0, 'DESIGN2', 'YES', '', '', '', 'firstprof.png', '0', 0.0000000, 0.0000000),
 (30, 'Merie Rose Palay', 'merierose', '09546879213', 'merierose@gmail.com', '14aabec76f651c48d0c5dcb3ac66fd7e', 'User', 'November 22, 2016 11:28 AM', 0, 'DESIGN2', 'YES', '', '', '', '12924385_1683993251854688_5688932316593626497_n.jpg', '0', 0.0000000, 0.0000000),
-(31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '176607da740950b29adfb64b98dd91c4', 'Administrator', 'November 21, 2016 11:36 AM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Advertisements|PayPal Configuration|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', 'prof3.jpg', '0', 0.0000000, 0.0000000),
+(31, 'Johnmark Abril', 'jbril17', '09208317004', 'johnmarkabril@gmail.com', '176607da740950b29adfb64b98dd91c4', 'Administrator', 'November 21, 2016 11:36 AM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox|Notification|Statistics|Reports|Settings|About My Site|Events|Advertisements|PayPal Configuration|Product Category|Product Grid|Product Sales|Product_Management|User_Management|Accounts|Co-Administrator|', 'Programmer', '11913595_919925481395511_1388239675_n.jpg', '0', 0.0000000, 0.0000000),
 (32, 'co admin', 'coadmin123', '09251947616', 'coadmin@gmail.com', '7c56c5ef9e9149388a00f1d5a3d72764', 'Administrator', 'December 01, 2016 4:47 PM', 0, 'DESIGN2', 'YES', '', 'Dashboard|Messages|Compose Message|Inbox', '', '', '0', 0.0000000, 0.0000000),
 (33, 'testing testing', 'testing', '09231456987', 'testing@gmail.com', '51d042dc49b6deb9c0c64fa87c556825', 'Administrator', 'December 01, 2016 4:56 PM', 0, 'DESIGN2', 'YES', '', '', '', '', '1', 0.0000000, 0.0000000),
 (34, 'Dale Diaz', 'dale123', '09321546879', 'dalediaz@gmail.com', 'bedba47f47bfd7072825c138250c5ef8', 'User', '', 0, 'DESIGN2', 'YES', '', '', '', '14358911_1156506694410804_6624578379483270429_n.jpg', '0', 14.6743576, 120.9362530);
@@ -1017,12 +1003,6 @@ ALTER TABLE `admin_contacts`
 -- Indexes for table `admin_posted`
 --
 ALTER TABLE `admin_posted`
-  ADD PRIMARY KEY (`NO`);
-
---
--- Indexes for table `admin_reply`
---
-ALTER TABLE `admin_reply`
   ADD PRIMARY KEY (`NO`);
 
 --
@@ -1129,22 +1109,17 @@ ALTER TABLE `about_my_site`
 -- AUTO_INCREMENT for table `about_user`
 --
 ALTER TABLE `about_user`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `admin_contacts`
 --
 ALTER TABLE `admin_contacts`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `admin_posted`
 --
 ALTER TABLE `admin_posted`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `admin_reply`
---
-ALTER TABLE `admin_reply`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `calendarevents`
 --
@@ -1184,7 +1159,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `paypal_configuration`
 --

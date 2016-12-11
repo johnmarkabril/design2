@@ -34,4 +34,6 @@
 
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/clockpicker/clockpicker.css">
 
+<link rel="stylesheet" href="<?php echo base_url();?>public/css/plugins/sweetalert/sweetalert.css">
+
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/animate.css">

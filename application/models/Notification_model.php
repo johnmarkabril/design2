@@ -43,4 +43,9 @@ class Notification_model extends CI_Model
 	{
 		$this->db->insert($this->table, $params);
 	}
+	
+	function update_content($params, $uname){
+		$this->db->where($this->uname, $uname)
+				 ->update($this->table, $params);
+	}
 }

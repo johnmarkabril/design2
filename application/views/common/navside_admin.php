@@ -5,7 +5,7 @@
                 <div class="dropdown profile-element"> 
                     <span>
                         <center>
-                        <img alt="image" class="img-circle img-responsive img-prof-sidebar" src="<?php echo base_url(); ?>public/img/prof3.jpg" /></center>
+                        <img alt="image" class="img-circle img-responsive img-prof-sidebar" src="<?php echo base_url(); ?>public/img/prof/<?php echo $this->session->userdata('log_sess')->IMAGEURL; ?>" /></center>
                     </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear text-center"> 

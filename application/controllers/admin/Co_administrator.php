@@ -9,6 +9,7 @@ class Co_Administrator extends CI_Controller
         $this->load->model('Users_model');
         $this->load->model('Notification_model');
         $this->load->model('Permissiondata_model');
+        $this->load->model('Aboutus_model');
         $this->curpage = "Co-Administrator";
     }
 
@@ -93,6 +94,13 @@ class Co_Administrator extends CI_Controller
     	);
 
     	$this->Users_model->insert_coadmin($params);
+
+    	$params_about = array (
+    		'NO'		=>	'',
+    		'USERNAME'	=>	$this->input->post('txt_create_coa_uname'),
+    		'ABOUTUS'	=>	''
+    	);
+    	$this->Aboutus_model->insert_user_about($params_about);
     	// print_r($params);
 	}
 

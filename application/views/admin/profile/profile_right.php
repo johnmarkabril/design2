@@ -4,7 +4,7 @@
                                 if ( $this->uri->segment(4) == $this->session->userdata('log_sess')->USERNAME ) {
                             ?>
                                     <h3>Change Profile Picture</h3>
-                                    <form method="POST" enctype="multipart/form-data"  action="<?php echo base_url(); ?>profile/update_profile_picture">
+                                    <form method="POST" enctype="multipart/form-data"  action="<?php echo base_url(); ?>admin/profile/updateProfileImage">
                                         <input type="file" name="image" class="file hide" required />
                                         <div class="input-group col-xs-12">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
@@ -30,23 +30,6 @@
                                                 <div class="col-md-12 text-center">
                                                     <label><?php echo $gsd->NAME; ?></label>
                                                 </div>
-                                                <div class="col-md-12">
-                                                     <?php
-                                                        if ( !empty($get_spec_about_user) ) {
-                                                            foreach ( $get_spec_about_user as $gsau ) :
-                                                    ?>
-                                                                <label>
-                                                                    About: <?php echo $gsau->ABOUTUS; ?>
-                                                                </label>
-                                                    <?php 
-                                                            endforeach;
-                                                        } else {
-                                                    ?>
-                                                            <h1>Does not setup yet!</h1>
-                                                    <?php        
-                                                        }
-                                                    ?>
-                                                </div>
                                         <?php
                                             endforeach;
                                         ?>
@@ -62,10 +45,29 @@
                         <div class="ibox-content">
                             <h3>About my self</h3>
 
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="About your self" style="max-height: 150px;min-height: 150px;max-width: 100%;"></textarea>
-                            </div>
-                            <button class="btn btn-primary btn-block">Save</button>
-
+                            <?php 
+                                if ( $this->uri->segment(4) == $this->session->userdata('log_sess')->USERNAME ) {
+                            ?>
+                                    <div class="form-group">
+                                        <textarea id="txt_about_descript" class="form-control" placeholder="About your self" style="max-height: 150px;min-height: 150px;max-width: 100%;"></textarea>
+                                    </div>
+                                    <button id="btn_admin_descript_update" class="btn btn-primary btn-block">Update</button>
+                            <?php
+                                } else {
+                            ?>
+                                <h4 class="text-center">
+                                    <?php 
+                                        foreach ( $get_spec_about_user as $gsau ) :
+                                            if ( $gsau->ABOUTUS == "" ) {
+                                                echo "DOESN'T SETUP";
+                                            } else {
+                                                echo $gsau->ABOUTUS;
+                                            }
+                                        endforeach;
+                                    ?>
+                                </h4>
+                            <?php
+                                }
+                            ?>
                         </div>
                     </div>

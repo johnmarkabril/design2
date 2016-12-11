@@ -33,6 +33,9 @@
 .no-margin {
 	margin: 0px;
 }
+.no-margin-top {
+    margin-top: 0px;
+}
 
 .pad-left {
 	padding-left: 20px;

@@ -47,11 +47,12 @@
 <!-- FOOTABLE -->
 <script src="<?php echo base_url();?>public/js/plugins/footable/footable.all.min.js"></script>
 
+<!-- Sweet alert -->
+<script src="<?php echo base_url();?>public/js/plugins/sweetalert/sweetalert.min.js"></script>
+
 <!-- LIST -->
 <script src="<?php echo base_url();?>public/js/plugins/list/list.min.js"></script>
 
-<!-- Sparkline -->
-<script src="<?php echo base_url();?>public/js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
 <?php if ($curpage == 'Dashboard') { ?>
     <!-- GOOGLE MAP -->
@@ -61,13 +62,172 @@
 
 <script>
     $(document).ready(function() {
-        $("#sparkline1").sparkline([34, 43, 43, 35, 44, 32, 44, 48], {
-                type: 'line',
-                width: '100%',
-                height: '50',
-                lineColor: '#1ab394',
-                fillColor: "transparent"
+
+        $("#btn_contact_addnew").click(function(){
+            var txt_contact_fname   = $("#txt_contact_fname").val();
+            var txt_contact_lname   = $("#txt_contact_lname").val();
+            var txt_contact_pos     = $("#txt_contact_pos").val();
+            var txt_contact_comp    = $("#txt_contact_comp").val();
+            var txt_contact_add     = $("#txt_contact_add").val();
+            var txt_contact_pnum    = $("#txt_contact_pnum").val();
+            var imagefile           = document.getElementById('file_img');
+            var phone_check         = /^(0|\[0-9]{1,5})?([7-9][0-9]{9})$/.test(txt_contact_pnum);
+
+            file = imagefile.files[0];
+
+            if ( txt_contact_fname && txt_contact_lname && txt_contact_pos && txt_contact_comp && txt_contact_add && file != undefined ) {
+                formData = new FormData();
+                formData.append("image", file);
+                if(!!file.type.match(/image.*/)){
+                    if ( phone_check ) {
+                        $.ajax ({
+                            url: "<?php echo base_url(); ?>admin/contacts/uploadImage",
+                            method: "POST",
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            success:function(data){
+                                insertData();
+                                // toastr.success(data);
+                            },
+                            error:function(){
+                                toastr.error("Error!");
+                            }
+                        });
+                    } else {
+                        toastr.error("Not a valid phone number");
+                    }
+                } else {
+                    toastr.error("Not a valid image!");
+                }
+            } else {
+                toastr.error("Please fill up all fields!");
+            }
+        });
+
+        function insertData(){
+            var imageName           = $('#file_img').val();
+            var txt_contact_fname   = $("#txt_contact_fname").val();
+            var txt_contact_lname   = $("#txt_contact_lname").val();
+            var txt_contact_pos     = $("#txt_contact_pos").val();
+            var txt_contact_comp    = $("#txt_contact_comp").val();
+            var txt_contact_add     = $("#txt_contact_add").val();
+            var txt_contact_pnum    = $("#txt_contact_pnum").val();
+            var subimage = imageName.substring(12);
+            $.ajax ({
+                url: "<?php echo base_url(); ?>admin/contacts/insertContacts",
+                method: "POST",
+                data: {
+                    txt_contact_fname   : txt_contact_fname,
+                    txt_contact_lname   : txt_contact_lname,
+                    txt_contact_pos     : txt_contact_pos,
+                    txt_contact_comp    : txt_contact_comp,
+                    txt_contact_add     : txt_contact_add,
+                    txt_contact_pnum    : txt_contact_pnum,
+                    subimage            : subimage
+                },
+                success:function(data){
+                    html     =  '<div class="col-md-4">';
+                    html    +=  '   <div class="contact-box center-version">';
+                    html    +=  '       <a>';
+                    html    +=  '           <img alt="image" class="img-circle" src="<?php echo base_url(); ?>public/img/prof/'+subimage+'">';
+                    html    +=  '           <h3 class="m-b-xs"><strong>'+txt_contact_fname+' '+txt_contact_lname+'</strong></h3>';
+                    html    +=  '           <div class="font-bold">'+txt_contact_pos+'</div>';
+                    html    +=  '           <address class="m-t-md">';
+                    html    +=  '               <strong>'+txt_contact_comp+'</strong><br>';
+                    html    +=  '               <span class="glyphicon glyphicon-map-marker"></span> '+txt_contact_add+'<br>';
+                    html    +=  '               <span class="glyphicon glyphicon-phone-alt"></span> '+txt_contact_pnum+'';
+                    html    +=  '           </address>';
+                    html    +=  '       </a>';
+                    html    +=  '       <div class="contact-box-footer">';
+                    html    +=  '           <a href="#" class="btn btn-xs btn-white"><i class="glyphicon glyphicon-envelope"></i> Message</a>';
+                    html    +=  '       </div>';
+                    html    +=  '   </div>';
+                    html    +=  '</div>';   
+                    $('#contactNewlyContact').prepend(html);
+                    $('#file_img').val("");
+                    $("#txt_contact_fname").val("");
+                    $("#txt_contact_lname").val("");
+                    $("#txt_contact_pos").val("");
+                    $("#txt_contact_comp").val("");
+                    $("#txt_contact_add").val("");
+                    $("#txt_contact_pnum").val("");
+                    },
+                error:function(){
+                    toastr.error("Error!");
+                }
             });
+        }
+
+        $('#btn_admin_descript_update').click(function(){
+            var txt_about_descript        = $("#txt_about_descript").val();
+
+            if ( txt_about_descript ) {
+                $.ajax({
+                    url: "<?php echo base_url();?>admin/profile/updateAboutUs",
+                    method: "POST",
+                    data: {  
+                        txt_about_descript        :   txt_about_descript
+                    },  
+                    success:function(data){
+                        $("#txt_about_descript").val("");
+                    },
+                    error:function(){
+                        toastr.error("ERROR!");
+                    }
+                });
+            }
+        });
+
+        $('#btn_admin_prof_post').click(function(){
+            var txt_admin_prof_uname        = $("#txt_admin_prof_uname").val();
+            var txt_admin_prof_imagename    = $("#txt_admin_prof_imagename").val();
+            var txt_admin_prof_descript     = $("#txt_admin_prof_descript").val();
+            var txt_admin_prof_date         = $("#txt_admin_prof_date").val();
+            var txt_admin_prof_hour         = $("#txt_admin_prof_hour").val();
+
+            if ( txt_admin_prof_descript ) {
+                $.ajax({
+                    url: "<?php echo base_url();?>admin/profile/insertPost",
+                    method: "POST",
+                    data: {  
+                        txt_admin_prof_uname        :   txt_admin_prof_uname,
+                        txt_admin_prof_imagename    :   txt_admin_prof_imagename,
+                        txt_admin_prof_date         :   txt_admin_prof_date,
+                        txt_admin_prof_hour         :   txt_admin_prof_hour,
+                        txt_admin_prof_descript     :   txt_admin_prof_descript
+                    },  
+                    success:function(data){
+                        html  =  '<div class="social-feed-box">';
+                        html +=  '  <div class="social-avatar">';
+                        html +=  '      <a href="<?php echo base_url();?>admin/profile/username/'+txt_admin_prof_uname+'" class="pull-left">';
+                        html +=  '          <img alt="image" src="<?php echo base_url(); ?>public/img/prof/'+txt_admin_prof_imagename+'">';
+                        html +=  '      </a>';
+                        html +=  '      <div class="media-body">';
+                        html +=  '          <a href="<?php echo base_url();?>admin/profile/username/'+txt_admin_prof_uname+'">';
+                        html +=  '              <?php echo $this->session->userdata('log_sess')->NAME; ?>';
+                        html +=  '          </a>';
+                        html +=  '          <small class="text-muted">'+txt_admin_prof_date+' - '+txt_admin_prof_hour+'</small>';
+                        html +=  '      </div>';
+                        html +=  '  </div>';
+                        html +=  '  <div class="social-body">';
+                        html +=  '      <p>';
+                        html +=            txt_admin_prof_descript;
+                        html +=  '      </p>';
+                        html +=  '  </div>';
+                        html +=  '</div>';
+
+                        $("#post_admin_prepend").prepend(html);
+                        $("#txt_admin_prof_descript").val("");
+                    },
+                    error:function(){
+                        toastr.error("ERROR!");
+                    }
+                });
+            } else {
+                toastr.error("Error: Write something in the box");
+            }
+        });
 
         $('#cp2').colorpicker();
 
@@ -891,4 +1051,12 @@
 
         });
     <?php } ?>
+    $(document).on('click', '.browse', function(){
+        var file = $(this).parent().parent().parent().find('.file');
+        file.trigger('click');
+    });
+
+    $(document).on('change', '.file', function(){
+        $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+    });
 </script>
