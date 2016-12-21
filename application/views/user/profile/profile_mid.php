@@ -34,7 +34,7 @@
 						        <div class="col-md-4">
 						            <div class="ibox">
 						                <div class="ibox-content product-box">
-						                   	<img class="img-responsive prod-prof" src="<?php echo base_url();?>public/img/<?php echo $post->IMAGEURL;?>"/>
+						                   	<img class="img-responsive prod-prof full-width" src="<?php echo base_url();?>public/img/<?php echo $post->IMAGEURL;?>"/>
 						                   	<div class="pad-top text-center">
 						                   		<a href="#"><?php echo $post->TITLE;?></a>
 						                   	</div>

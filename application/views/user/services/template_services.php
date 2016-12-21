@@ -16,7 +16,10 @@
 						  <div class="panel-body text-center">
 						    <?php if($cont->FORMAT == "VIDEO FORMAT") { ?>
 						    	<div class="embed-responsive embed-responsive-4by3">
-		    						<iframe class="embed-responsive-item" src="<?php echo base_url(); ?>public/img/<?php echo $cont->IMAGEVIDEOURL; ?>" frameborder="0" allowfullscreen></iframe>
+						    		<video <!-- controls>
+						    			<source src="<?php echo base_url(); ?>public/img/<?php echo $cont->IMAGEVIDEOURL; ?>" type="video/mp4">
+						    		</video> -->
+		    						<iframe class="embed-responsive-item" src="<?php echo base_url(); ?>public/img/<?php echo $cont->IMAGEVIDEOURL; ?>" allowfullscreen></iframe>
 								</div>
 						    <?php }else{ ?>
 						    	<img src="<?php echo base_url(); ?>public/img/<?php echo $cont->IMAGEVIDEOURL; ?>" class="img-responsive cursor-pointer" data-toggle="modal" data-target="#modalImageVideo"/>

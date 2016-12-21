@@ -61,50 +61,36 @@
 	    </div>
 	</div>
 
-	<div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetail">
+	<div class="modal inmodal" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetail">
 	  	<div class="modal-dialog" role="document">
-	    	<div class="modal-content">
-	      		<div class="modal-body">
+	    	<div class="modal-content animated flipInY">
+	      		<div class="modal-body pad-ten">
 					<div class="row">
                         <div class="col-md-12">
                         	<div>
 	                           	<img src="<?php echo base_url(); ?>public/img/<?php echo $rd->IMAGEURL; ?>" class="img-responsive" />
                         	</div>
-                            <h2 class="text-center">You want to purchase this?</h2>
-                            <strong>Product:</strong> <?php echo $rd->TITLE; ?> <br/>
-                            <strong>Price:</strong> <span class="text-navy">₱ <?php echo $rd->PRICE; ?> </span>
-
-                            <p class="m-t">
-                             	<?php 
-		                      		$description = $rd->DESCRIPTION;
-		                      		$desc = explode('|', $description);
-		                      		foreach ($desc as $des) {
-		                     	?>
-		                       			<div style="padding-top: 10px;">
-		                        			<?php echo $des;?>
-		                       			</div>
-		                     	<?php
-		                            }
-		                        ?>
-                            </p>
-                            <div class="text-center">
-
-                            	<form action="<?php echo $paypal_url; ?>" method="post" name="paypalFrm" id="paypalFrm">
-                            		<input type='hidden' name='business' value='<?php echo $paypal_id;?>'>
-									<input type="hidden" name="cmd" value="_s-xclick">
-
-				                    <input type='hidden' name='item_name' value='<?php echo $rd->TITLE;?>'>
-                   					<input type='hidden' name='a3' value='<?php echo $rd->PRICE;?>'>
-    								<!-- <input type="hidden" name="item_number" value="1"> -->
-
-									<input type="hidden" name="hosted_button_id" value="2BQD69RL63YWL">
-
-									<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-									<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                            		
-								</form>
-
-	                			
+                        	<div class="text-center">
+	                            <h2 class="text-center">You want to purchase this?</h2>
+	                            <strong>Product:</strong> <?php echo $rd->TITLE; ?> <br/>
+	                            <strong>Price:</strong> <span class="text-navy">₱ <?php echo $rd->PRICE; ?> </span>
+                            </div>
+                            <div class="form-group no-mar pad-top-ten">
+                            	<div class="row">
+                            		<div class="col-md-6">
+										<form action="<?php echo $paypal_url; ?>" method="post">
+											<input type="hidden" name="cmd" value="_xclick">
+											<input type="hidden" name="business" value="<?php echo $paypal_id;?>">
+											<input type="hidden" name="item_name" value="<?php echo $rd->TITLE;?>">
+											<input type="hidden" name="currency_code" value="PHP">
+											<input type="hidden" name="amount" value="<?php echo $rd->PRICE;?>">
+											<button type="sumbit" class="btn btn-primary btn-lg full-width" >Buy Now</button>
+										</form>
+                            		</div>
+                            		<div class="col-md-6">
+										<button type="button" data-dismiss="modal" class="btn btn-danger btn-lg full-width" >Cancel this transaction</button>
+                            		</div>
+                            	</div>
                             </div>
                         </div>
 

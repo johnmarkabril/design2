@@ -16,11 +16,11 @@
 			        <div class="row">
 			            <div class="list">
 				            <?php foreach( $get_content_cat as $gcc ) : ?>
-				                <div class="col-md-3">
+				                <div class="col-sm-4">
 				                    <div class="ibox">
 				                        <div class="ibox-content product-box">
 				                            <div>
-				                                <img class="img-responsive " src="<?php echo base_url(); ?>public/img/<?php echo $gcc->IMAGEURL;?>"/>
+				                                <img class="img-responsive" style="width:100%;height: 30%;" src="<?php echo base_url(); ?>public/img/<?php echo $gcc->IMAGEURL;?>"/>
 				                            </div>
 				                            <div class="product-desc" style="height: 100px;">
 				                                <left>

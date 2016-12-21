@@ -12,7 +12,7 @@
                             <div class="ibox-content product-box">
                                 <div>
                                     <a  data-toggle="modal" data-target="#productGridModal<?php echo $gps->NO;?>">
-                                        <img class="img-responsive " src="<?php echo base_url(); ?>public/img/<?php echo $gps->IMAGEURL;?>"/>
+                                        <img class="img-responsive prod-admin full-width" src="<?php echo base_url(); ?>public/img/<?php echo $gps->IMAGEURL;?>"/>
                                     </a>
                                 </div>
                                 <div class="product-desc" style="height: 130px;">
