@@ -24,6 +24,7 @@ class Paypal_configuration extends CI_Controller
 		$details = array (
 			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'permission_cntnt'		=> 	explode("|", $permis),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_notification'	=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_paypal_account'	=>	$this->Paypal_model->get_paypal_account()
@@ -49,9 +50,11 @@ class Paypal_configuration extends CI_Controller
 
 	public function update_account($no)
 	{
+		$no_logsess = $this->session->userdata('log_sess')->USER_ID;
 		$details = array (
 			'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'get_paypal_account'	=>	$this->Paypal_model->get_paypal_account(),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_spec_paypal'		=>	$this->Paypal_model->get_spec_paypal($no)
 		);
 

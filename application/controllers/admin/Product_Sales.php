@@ -25,6 +25,7 @@ class Product_Sales extends CI_Controller
 			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'permission_cntnt'		=> 	explode("|", $permis),
 			'get_notification'	=>	$this->Notification_model->get_notification(),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_prod_sells'	=>	$this->Recipes_model->get_prod_sells()
 		);

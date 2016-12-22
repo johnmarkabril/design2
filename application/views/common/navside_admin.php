@@ -3,22 +3,28 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element"> 
-                    <span>
-                        <center>
-                        <img alt="image" class="img-circle img-responsive img-prof-sidebar" src="<?php echo base_url(); ?>public/img/prof/<?php echo $this->session->userdata('log_sess')->IMAGEURL; ?>" /></center>
-                    </span>
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="clear text-center"> 
-                            <span class="block m-t-xs">
-                                <strong class="font-bold">John Mark Abril</strong>
+                    <?php
+                        foreach ($get_info_name as $gin) :
+                    ?>
+                            <span>
+                                <center>
+                                <img alt="image" class="img-circle img-responsive img-prof-sidebar" src="<?php echo base_url(); ?>public/img/prof/<?php echo $gin->IMAGEURL; ?>" /></center>
                             </span>
-                            <span class="text-muted text-xs block">Web Developer <b class="caret"></b></span> 
-                        </span>
-                    </a>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear text-center"> 
+                                    <span class="block m-t-xs">
+                                        <strong class="font-bold"><?php echo $gin->NAME; ?> <b class="caret"></b></strong>
+                                    </span>
+                                    <span class="text-muted text-xs block"><?php echo $gin->ACCOUNT_TYPE; ?></span> 
+                                </span>
+                            </a>
+                    <?php
+                        endforeach;
+                    ?>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="<?php echo base_url();?>admin/profile/username/<?php echo $this->session->userdata('log_sess')->USERNAME;?>">Profile</a></li>
                         <li><a href="<?php echo base_url();?>admin/contacts">Contacts</a></li>
-                        <li><a href="<?php echo base_url();?>admin/message/local_inbox">Local Inbox</a></li>
+                        <li><a href="<?php echo base_url();?>admin/inbox">Local Inbox</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">

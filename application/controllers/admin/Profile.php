@@ -35,6 +35,7 @@ class Profile extends CI_Controller
 			'get_specific_data'			=>	$this->Users_model->get_specific_data($uname),
 			'get_spec_about_user'		=>	$this->Aboutus_model->get_spec_about_user($uname),
 			'get_notification'			=>	$this->Notification_model->get_notification(),
+            'get_info_name'             =>  $this->Users_model->get_user_details($no_logsess),
 			'date'						=>	date("F d, Y"),
 			'hour'						=>	date("g:i A"),
 			'get_all_admin_posted'		=>	$this->Adminposted_model->get_all_admin_posted(),

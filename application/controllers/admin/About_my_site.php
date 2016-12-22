@@ -27,6 +27,7 @@ class About_My_Site extends CI_Controller
 			'permission_cntnt'		=> 	explode("|", $permis),
 			'get_notification'	=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_list'			=>	$this->Aboutmysite_model->get_list()
 		);
 		$data['content'] = $this->load->view('admin/settings/aboutmysite.php', $details, TRUE);
@@ -81,6 +82,7 @@ class About_My_Site extends CI_Controller
 			'spec_aboutmysite'			=>  $this->Aboutmysite_model->spec_aboutMySite($no),
 			'get_notification'			=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=>  $this->Notification_model->get_all_notification_rows(),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_list'					=>	$this->Aboutmysite_model->get_list()
 		);
 		$data['content'] = $this->load->view('admin/settings/aboutmysite.php', $details, TRUE);

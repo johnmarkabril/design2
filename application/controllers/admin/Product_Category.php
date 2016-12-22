@@ -26,6 +26,7 @@ class Product_Category extends CI_Controller
 			'permission_cntnt'			=> 	explode("|", $permis),
 			'edit_val'					=>	'',
 			'get_notification'			=>	$this->Notification_model->get_notification(),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_content'				=>	$this->Categories_model->get_all_content()
 		);
@@ -51,6 +52,7 @@ class Product_Category extends CI_Controller
 			'edit_val'					=>	$this->Categories_model->get_specific_content($no),
 			'get_notification'			=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_content'				=>	$this->Categories_model->get_all_content()
 		);
 

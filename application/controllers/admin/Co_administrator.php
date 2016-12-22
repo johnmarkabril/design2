@@ -27,6 +27,7 @@ class Co_Administrator extends CI_Controller
 			// 'permission_cntnt'		=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'permission_cntnt'			=> 	explode("|", $permis),
 			'get_spec'					=>	$this->Users_model->get_permiss(null),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_content'				=>	$this->Permissiondata_model->get_content(),
 			'get_notification'			=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
@@ -54,6 +55,7 @@ class Co_Administrator extends CI_Controller
 			'permission_cntnt'			=> 	explode("|", $permis),
 			'get_spec'					=>	$this->Users_model->get_permiss($uname),
 			'get_content'				=>	$this->Permissiondata_model->get_content(),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_notification'			=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> 	$this->Notification_model->get_all_notification_rows(),
 			'get_all_admin'				=>	$this->Users_model->get_all_admin()

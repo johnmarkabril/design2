@@ -16,9 +16,12 @@ class Events extends CI_Controller
 
 	public function index()
 	{
+		$no_logsess = $this->session->userdata('log_sess')->USER_ID;
+
 		$details = array (
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'specific_events'	=>	$this->Events_model->specific_events(null),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_notification'	=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_all_events'	=>	$this->Events_model->get_all_events()
@@ -67,9 +70,12 @@ class Events extends CI_Controller
 
 	public function information($no)
 	{
+		$no_logsess = $this->session->userdata('log_sess')->USER_ID;
+		
 		$details = array (
 			'permission_cntnt'	=> 	explode("|", $this->session->userdata('log_sess')->PERMISSION),
 			'specific_events'	=>	$this->Events_model->specific_events($no),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_notification'	=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
 			'get_all_events'	=>	$this->Events_model->get_all_events()

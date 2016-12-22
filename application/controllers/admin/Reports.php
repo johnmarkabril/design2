@@ -102,6 +102,7 @@ class Reports extends CI_Controller
 			'stackPreviousUserActivity'	=>	$stackPreviousUserActivity,
 			'polarArray'				=>	$polarArray,
 			'stackUserActivity'			=>	$stackUserActivity,
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_notification'			=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> 	$this->Notification_model->get_all_notification_rows()
 		);

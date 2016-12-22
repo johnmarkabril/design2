@@ -51,7 +51,7 @@ class Dashboard extends CI_Controller
 			'gross_year'				=>	$this->Purchaseproduct_model->gross_month($date_year),
 			'activity_month'			=>	$cnt_am_pm + $cnt_am_pur,
 			'get_income'				=>	$ctr,
-
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'all_user_latlong'			=>	$this->Users_model->get_all_user(),
 			'gross_month_ctr'			=>	0,
 			'gross_year_ctr'			=>	0,

@@ -33,6 +33,7 @@ class Inbox extends CI_Controller
 			'user_data_logsess' => 	$user_data_logsess,
 			'get_notification'	=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_all_content'	=>	$this->Messages_model->get_all_content($user_data_logsess->EMAIL),
 			'get_num_rows_mess' =>	$this->Messages_model->get_all_numrows($user_data_logsess->EMAIL),
 			'dateCom'			=>	$date
@@ -63,6 +64,7 @@ class Inbox extends CI_Controller
 			'user_data_logsess' => 	$user_data_logsess,
 			'get_notification'	=>	$this->Notification_model->get_notification(),
 			'get_all_notification_rows'	=> $this->Notification_model->get_all_notification_rows(),
+			'get_info_name'				=>	$this->Users_model->get_user_details($no_logsess),
 			'get_all_content'	=>	$this->Messages_model->get_all_content($user_data_logsess->EMAIL),
 			'get_num_rows_mess' =>	$this->Messages_model->get_all_numrows($user_data_logsess->EMAIL),
 			'get_spec_mess'		=>	$this->Messages_model->get_specific_mess($hash,$user_data_logsess->EMAIL),
