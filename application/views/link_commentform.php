@@ -14,8 +14,8 @@
 				<input type="text" value="<?php print_r($timedate); ?>" id="timedate"/>
 			</div>
 			
-			<div class="col-md-12 border-rad-ten" style="border: 2px solid; border-color: #F5F4F6;">
-				<h2 style="font-weight: bold;">Leave a comment</h2>
+			<div class="col-md-12 border-rad-ten  padding-top-bottom" style="border: 2px solid; border-color: #F5F4F6;">
+				<h3 style="font-weight: bold;">Leave a comment</h3>
 				<div class="pad-top-ten">
 					<input type="text" id="comment_name" class="form-control" placeholder="* NAME" disabled />
 				</div>
@@ -40,8 +40,8 @@
 				<input type="text" value="<?php print_r($timedate); ?>" id="timedate"/>
 			</div>
 			
-			<div class="col-md-12 border-rad-ten" style="border: 2px solid; border-color: #F5F4F6;">
-				<h2 style="font-weight: bold;">Leave a comment</h2>
+			<div class="col-md-12 border-rad-ten  padding-top-bottom" style="border: 2px solid; border-color: #F5F4F6;">
+				<h3 style="font-weight: bold;">Leave a comment</h3>
 				<div class="pad-top-ten">
 					<input type="text" id="comment_name" class="form-control" placeholder="* NAME" value="<?php print_r($arr_ls->NAME); ?>" disabled/>
 				</div>

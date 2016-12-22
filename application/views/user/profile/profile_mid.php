@@ -20,9 +20,9 @@
 						if (empty($postedcont))
 						{
 					?>
-							<div class="text-center">
+							<!-- <div class="text-center">
 								<h2>No posted recipe!</h2>
-							</div>
+							</div> -->
 					<?php
 						}else{
 					?>
@@ -62,9 +62,9 @@
 						if (empty($purchased))
 						{
 					?>
-							<div class="text-center">
+							<!-- <div class="text-center">
 								<h2>No purchased recipe!</h2>
-							</div>
+							</div> -->
 
 					<?php 
 						}else{
@@ -97,9 +97,9 @@
 
 		  	<div id="mes_recp" class="tab-pane fade">
 			  	<div class="row pad-top">
-			  		<div class="text-center">
+			  		<!-- <div class="text-center">
 						<h2>No Messages!</h2>
-					</div>
+					</div> -->
 			  	</div>
 			</div>
 		</div>

@@ -6,7 +6,7 @@
 	<div class="row col-md-12">
 		<div><img src="<?php echo base_url(); ?>public/img/<?php print_r($x->IMAGEURL); ?>" class="img-responsive" /></div>
 		<div>
-			<h4 class="justify-text">
+			<div class="justify-text">
 				<?php 
 					$desc = explode('|', $x->DESCRIPTION);
 					foreach($desc as $xy){ ?>
@@ -14,14 +14,14 @@
 						<?php echo $xy; ?>
 					</div>
 				<?php } ?>
-			</h4>
+			</div>
 		</div>
 	</div>
 </div>
 
 <div class="row">
 <div class="text-center">
-	<h2 style="font-weight: bold;">Ingredients</h2>
+	<h3 style="font-weight: bold;">Ingredients</h3>
 </div>
 	<div class="col-xs-12 font-ten">
 		<?php $recipe = explode('|',$x->RECIPES); ?>
@@ -60,7 +60,7 @@
 <hr/>
 
 <div class="text-center">
-	<h2 style="font-weight: bold;">All responses</h2>
+	<h3 style="font-weight: bold;">All responses</h3>
 </div>
 
 <div id="comment-section">

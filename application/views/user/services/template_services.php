@@ -1,11 +1,7 @@
-<div>
-	<h1>Services</h1>
-</div>
 
 <?php 
 	if($servicesformat == "no") {
 ?>
-		<hr>
 			<h5> <a href="<?php echo base_url();?>">HOME</a> / <span style="color: #FF65AE;">SERVICES</span> </span></a></h5>
 		<hr>
 		<div class="row">
@@ -37,7 +33,6 @@
 <?php 
 	} elseif ($servicesformat == "yes") { 
 ?>
-		<hr>
 			<?php foreach ($services_content_db as $cont) { ?>
 			<h5> <a href="<?php echo base_url();?>">HOME</a> / <span>SERVICES / </span><span style="color: #FF65AE;"> <?php echo $cont->FORMAT; ?> </span></a></h5>
 			<?php } ?>

@@ -1,7 +1,4 @@
-<div>
-	<h1>Categories</h1>
-</div>
-<hr>
+
 	<h5> <a href="<?php echo base_url();?>">HOME</a> / <span style="color: #FF65AE;">CATEGORIES</span> <span> / <?php echo $this->uri->segment(3);?></span></a></h5>
 <hr>
 <div class="row">

@@ -1,7 +1,3 @@
-<div>
-	<h1>Contacts</h1>
-</div>
-<hr>
 	<h5> <a href="<?php echo base_url();?>">HOME</a> / <span style="color: #FF65AE;">CONTACTS</span> </span></a></h5>
 <hr>
 

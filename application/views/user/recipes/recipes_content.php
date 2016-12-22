@@ -1,7 +1,4 @@
-<div>
-    <h1>Recipes</h1>
-</div>
-<hr>
+
     <h5> <a href="<?php echo base_url();?>">HOME</a> / RECIPES / <span style="color: #FF65AE;">RECIPE DETAIL</span> </span></a></h5>
 <hr>
 <!-- <?php //print_r($recipe_detail); ?> -->

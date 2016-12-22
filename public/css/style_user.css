@@ -8,6 +8,11 @@ body{
 a {
     color: black;
 }
+
+h4 {
+    color : #676a6c;
+}
+
 .file {
   visibility: hidden;
   position: absolute;
@@ -99,6 +104,11 @@ a:hover {
 .no-padding-top-bottom {
 	padding-top: 0px;
 	padding-bottom: 0px;
+}
+
+.padding-top-bottom {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .no-margin-top-bottom {
