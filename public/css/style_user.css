@@ -2,6 +2,7 @@
 body{
 	background-color: #ffffff;
     background-image: url('/design2/public/img/wooden.jpg');
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 }
 
 a {

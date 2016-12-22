@@ -4,7 +4,7 @@
 	</div>
 	<div class="col-md-8" style="padding-top: 15px;">
 		<div>
-			<nav class="nav2 navbar navbar-default" style="background-color: #ffffff;font-size: 13px; font-family: PT Serif;">
+			<nav class="nav2 navbar navbar-default" style="background-color: #ffffff;font-size: 13px;">
 				<div class="">
 				  	<div class="text-center">
 				        <ul class="nav navbar-nav" style="display: inline-block;">

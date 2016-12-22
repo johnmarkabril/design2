@@ -44,7 +44,7 @@
     	<div class="row">
 		    <div class="col-md-12">
 		       	<div class="col-sm-2">
-		       		<img class="img-responsive text-center full-width" src="<?php echo base_url(); ?>public/img/prof4.png"/>
+		       		<img class="img-responsive text-center full-width" src="<?php echo base_url(); ?>public/img/prof4.jpg"/>
 		       	</div>
 		       	<div class="col-md-10">
 		       		<div>WRITTEN BY <span style="color: #FF4785;"><?php print_r($x->NAME); ?><span></div>
@@ -71,7 +71,7 @@
 		            <div class="row">
 		                <div class="col-md-12">
 		                    <div class="col-sm-2">
-		                        <div><img class="img-responsive  full-width text-center" src="<?php echo base_url(); ?>public/img/prof4.png"/></div>
+		                        <div><img class="img-responsive  full-width text-center" src="<?php echo base_url(); ?>public/img/prof4.jpg"/></div>
 		                        <div class="text-center"><?php echo $y->NAME; ?></div>
 		                    </div>
 		                    <div class="col-md-10"><div class="justify-text"><?php echo $y->COMMENTHERE; ?></div></div>
