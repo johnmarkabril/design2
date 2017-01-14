@@ -73,8 +73,14 @@
             toastr.error("ATTEMPTING TO OPEN A PAGE. PLEASE LOGIN!");
     <?php } ?>
 
+    $(window).on('load', function() {
+        $('.spiner-example').remove();
+        $('img.examplesspin').show();
+    });
     $(document).ready(function(){
-
+        
+        
+        
         var options = {
           valueNames: [ 'title' ]
         };

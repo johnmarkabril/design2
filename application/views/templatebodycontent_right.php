@@ -1,6 +1,6 @@
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default no-border no-mar-bot" >
-        <div class="panel-heading no-border"  style="background-color: #9DE0D0;">
+    <div class="panel-heading no-border" style="background-color: #FF426F;">
             <div class="font-seventen color-white text-center">
                 <span class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     CATEGORIES
@@ -49,7 +49,7 @@
 <?php if (!empty($get_content_active)) { ?>
     <?php foreach ($get_content_active as $gca) : ?>
         <div class="panel panel-default no-border">
-            <div class="panel-heading no-border" style="background-color: #919191;">
+            <div class="panel-heading no-border" style="background-color: #FF426F;">
                 <div class="font-seventen color-white text-center">ABOUT OUR BLOG</div>
             </div>
             <div class="panel-body">

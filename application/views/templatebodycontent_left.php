@@ -6,7 +6,20 @@
 			<div><a href="<?php echo base_url(); ?>post/link/<?php echo $pst_cntn->NO; ?>"><div style="font-size: 15px;" class="mar-top-ten"><?php echo $pst_cntn->TITLE; ?></div></a></div>
 			<div class="row">
 				<div class="col-md-6">
-					<a href="<?php echo base_url(); ?>post/link/<?php echo $pst_cntn->NO; ?>"><img src="<?php echo base_url(); ?>public/img/<?php echo $pst_cntn->IMAGEURL; ?>" class="img-responsive" /></a>
+                    <div class="spiner-example">
+						<div class="sk-spinner sk-spinner-cube-grid">
+	                        <div class="sk-cube"></div>
+	                        <div class="sk-cube"></div>
+	                        <div class="sk-cube"></div>
+	                        <div class="sk-cube"></div>
+	                        <div class="sk-cube"></div>
+	                        <div class="sk-cube"></div>
+	                        <div class="sk-cube"></div>
+	                        <div class="sk-cube"></div>
+	                        <div class="sk-cube"></div>
+	                    </div>
+					</div>
+					<a href="<?php echo base_url(); ?>post/link/<?php echo $pst_cntn->NO; ?>"><img src="<?php echo base_url(); ?>public/img/<?php echo $pst_cntn->IMAGEURL; ?>" class="img-responsive examplesspin" style="display: none;"/></a>
 				</div>
 				<div class="col-md-6">
 					<div class="pad-ten">
