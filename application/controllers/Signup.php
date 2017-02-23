@@ -15,15 +15,16 @@ class Signup extends CI_Controller
 
 	public function index()
 	{
+		$arrayEmail = array();
+		foreach ( $this->Users_model->get_all_email() as $gae ) :
+			array_push($arrayEmail, $gae->EMAIL);
+		endforeach;
 		$details = array (
-			// 'posted_content'	=>	$this->Postcontent_model->get_content(),
-			// 'recipes_content'	=>	$this->Recipes_model->get_content(),
 			'curpage'			=>	'',
-			'title'				=>	''
+			'title'				=>	'',
+			'get_all_email'		=>	json_encode($arrayEmail)
 		);
 
-		// $data['content'] = $this->load->view('carouselimagescontent.php', $details, TRUE);
-		// $this->load->view('template.php', $details);
 		$data['content'] = $this->load->view('signup.php',$details,TRUE);
 		$data['curpage']	=	"signup";
 		$data['title']		=	"Sign-up";
@@ -41,6 +42,7 @@ class Signup extends CI_Controller
 		$su_email		= 	$_POST['su_email'];
 		$su_pword		= 	md5($_POST['su_pword']);
 
+		
 		$params = array (
 			'USER_ID'			=>		'',
 			'NAME'				=>		$fullname,
@@ -61,24 +63,47 @@ class Signup extends CI_Controller
     		'LATITUDE'			=>		"",
     		'LONGHITUDE'		=>		""
 		);
+		$this->Users_model->insert_new_user($params);
 
 		$params_loc = array (
 			'NO'			=>		'',
 			'USERNAME'		=>		$su_uname,
 			'PLACE'			=>		'Philippines'
 		);
+		$this->Location_model->insert_user_location($params_loc);
 
 		$params_aboutuser = array (
 			'NO'	 	=>	'',
-			'USERNAME'	=> 	$uname,
-			'ABOUTUS'	=> 	""
+			'USERNAME'	=> 	$su_uname,
+			'ABOUTUS'	=> 	''
 		);
-
-		$this->Users_model->insert_new_user($params);
-		$this->Location_model->insert_user_location($params_loc);
 		$this->Aboutus_model->insert_user_about($params_aboutuser);
 
+		require_once('public/swiftmailer/lib/swift_required.php');
+		// Create the Transport
+		$transport = Swift_SmtpTransport::newInstance('mx1.hostinger.ph', 2525)
+		  ->setUsername('jmaeprovider@jmaeprovider.xyz')
+		  ->setPassword('111517jmae')
+		  ;
+
+		$mailer = Swift_Mailer::newInstance($transport);
+
+		$message = Swift_Message::newInstance('JMAE SITE PROVIDER - VERIFICATION CODE')
+		  ->setFrom(array('jmaeprovider@jmaeprovider.xyz' => 'JMAE Provider'))
+		  ->setTo(array($su_email))
+		  ->setBody('This is your verification code: ' . $random_code);	
+		  ;
+
+		$result = $mailer->send($message);
+
 		// print_r($params);
+	}
+
+	public function check_email()
+	{
+		$su_email		= 	$_POST['su_email'];
+		$row = $this->Users_model->check_email($email);
+		echo $row;
 	}
 
 	public function check_verification()

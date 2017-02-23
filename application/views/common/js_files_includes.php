@@ -408,7 +408,7 @@
         $($image).cropper({
             aspectRatio: 1.618,
             preview: ".img-preview",
-            done: function(data) {
+            success: function(data) {
                     // Output the result data for cropping image.
             }
         });
@@ -663,90 +663,49 @@
                 }
 
                 if (newIndex === 2) {
-                    var emailCheck = /^([\w-]+(?:\.[\w-]+)*)@gmail([\.])com$/.test(su_email);
-                    var CLIENT_ID = '339402906046-k4mgsekkicr7ubb6f4jgh34k0e7klrle.apps.googleusercontent.com';
-                    var SCOPES = "https://www.googleapis.com/auth/gmail.send";
-        
-                    
+                    var emailCheck = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(su_email);
                     if ( emailCheck ) {
+                        $("#su_email").keypress(function() {
+                            alert("Asdf");
+                        });
                         if (su_email && su_pword && su_conpword){
-                            handleAuthClick(event);
+                            <?php
+                                if ( !empty($get_all_email) ) {
+                            ?>
+                                    if ( jQuery.inArray( su_email, <?php echo $get_all_email; ?> ) ) {
+                                        toastr.error("Email address is already registered!");
+                                        return false;
+                                    } else {
+                                        $.ajax({
+                                            url: "<?php echo base_url(); ?>signup/insert_verify_no",
+                                            method:"POST",
+                                            data:{
+                                                random_code     :   random_code,
+                                                su_fname        :   su_fname,
+                                                su_lname        :   su_lname,
+                                                su_uname        :   su_uname,
+                                                su_cpnum        :   su_cpnum,
+                                                su_email        :   su_email,
+                                                su_pword        :   su_pword
+                                            },
+                                            success:function(data)
+                                            {
+                                                toastr.success("We sent you an email verification code on your mail account");
+                                            },error:function(){
+                                                toastr.error("ERROR");
+                                                return false;
+                                            }
+                                        });
+                                    }
+                            <?php
+                                }
+                            ?>
                             
-                            function checkAuth() {
-                                gapi.auth.authorize(
-                                {
-                                    'client_id': CLIENT_ID,
-                                    'scope': SCOPES.join(' '),
-                                    'immediate': true
-                                }, handleAuthResult);
-                            }
-
-                            function handleAuthResult(authResult) {
-                                var authorizeDiv = document.getElementById('authorize-div');
-                                if (authResult && !authResult.error) {
-                                    loadGmailApi();
-                                }
-                            }
-
-                            function handleAuthClick(event) {
-                                gapi.auth.authorize(
-                                    {   
-                                        client_id: CLIENT_ID, scope: SCOPES, immediate: false    
-                                    },
-                                    handleAuthResult
-                                );
-                                return false;
-                            }
-
-                            function loadGmailApi() {
-                                gapi.client.load('gmail','v1', sendMessage);
-                            }
-
-                            function sendMessage() {
-                                var encode = "";
-                                // encode  +=  "From: ";
-                                encode  +=  "To: " + "<" + su_email + ">\n\n\n";
-                                encode  +=  "EMAIL VERIFICATION CODE:" + random_code + "\n\n\n";
-
-                                
-                                var base64EncodedEmail = btoa(encode);
-                                base64EncodedEmail = base64EncodedEmail.replace('+','-');
-                                base64EncodedEmail = base64EncodedEmail.replace('/','_');
-                                    
-                                var request = gapi.client.gmail.users.messages.send({
-                                    'userId': 'me',
-                                    'raw' : base64EncodedEmail,
-                                });
-                                request.execute(function(resp) {
-                                    // toastr.success('MAIL SENT');
-                                });
-                            }
-                            $.ajax({
-                                url: "<?php //echo base_url(); ?>signup/insert_verify_no",
-                                method:"POST",
-                                data:{
-                                    random_code     :   random_code,
-                                    su_fname        :   su_fname,
-                                    su_lname        :   su_lname,
-                                    su_uname        :   su_uname,
-                                    su_cpnum        :   su_cpnum,
-                                    su_email        :   su_email,
-                                    su_pword        :   su_pword
-                                },
-                                async: true,
-                                done:function(data)
-                                {
-                                    toastr.success("We sent you an email verification code on your mail account");
-                                },error:function(){
-                                    toastr.error("ERROR");
-                                    return false;
-                                }
-                            });
                         }else{
                             return false;
                         }
                     } else {
-                        toastr.error("Google Account only!");
+                        toastr.error("Invalid email address!");
                         return false;
                     }
                 }
@@ -765,7 +724,7 @@
                                 su_emailcode    :   su_emailcode
                             },
                             async: true,
-                            done:function(data)
+                            success:function(data)
                             {
                                 // alert(data);
                                 if(data == 'TRUE'){

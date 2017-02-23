@@ -131,6 +131,13 @@ class Users_model extends CI_Model
 		return $row->num_rows();
 	}
 
+	function get_all_email()
+	{
+		$row = $this->db->get($this->table);
+
+		return $row->result();
+	}
+
 	function updateVerificationforgot($params, $email){
 		$this->db->where($this->email, $email)
 				 ->update($this->table, $params);
@@ -150,4 +157,5 @@ class Users_model extends CI_Model
 						->get($this->table);
 		return $row->result();
 	}
+
 }

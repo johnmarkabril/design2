@@ -75,13 +75,19 @@
                             <div class="form-group no-mar pad-top-ten">
                             	<div class="row">
                             		<div class="col-md-6">
-										<form action="<?php echo $paypal_url; ?>" method="post">
+
+                            			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 											<input type="hidden" name="cmd" value="_xclick">
 											<input type="hidden" name="business" value="<?php echo $paypal_id;?>">
+											<input type="hidden" name="custom" value="<?=$rd->TITLE;?>">
 											<input type="hidden" name="item_name" value="<?php echo $rd->TITLE;?>">
 											<input type="hidden" name="currency_code" value="PHP">
+											<input type="hidden" name="item_number" value="<?php echo $rd->NO; ?>">
 											<input type="hidden" name="amount" value="<?php echo $rd->PRICE;?>">
-											<button type="sumbit" class="btn btn-primary btn-lg full-width" >Buy Now</button>
+											<button type="submit" class="btn btn-primary btn-lg full-width" >Buy Now</button>
+											<input type="hidden" name="return" value="http://template1.jmaeprovider.xyz/recipes/success">
+											<input type='hidden' name='notify_url' value='http://www.template1.jmaeprovider.xyz/success'>
+											<input type="hidden" name="cancel_return" value="http://template1.jmaeprovider.xyz/recipes">
 										</form>
                             		</div>
                             		<div class="col-md-6">

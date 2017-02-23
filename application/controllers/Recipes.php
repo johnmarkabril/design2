@@ -8,6 +8,7 @@ class Recipes extends CI_Controller
         parent::__construct();
         $this->load->model('Users_model');
         $this->load->model('Postcontent_model');    
+        $this->load->model('Purchaseproduct_model');  
         $this->load->model('Recipes_model');      
         $this->load->model('Paypal_model');  
     }
@@ -68,7 +69,6 @@ class Recipes extends CI_Controller
 				'curpage'			=> 	'recipedetail',
 				'title'				=> 	'Recipe Detail',
 				'recipe_detail'		=> 	$this->Recipes_model->get_specific_prod_sell($no),
-				'paypal_url'		=> 	'https://www.paypal.com/cgi-bin/webscr',
 				'paypal_id'			=> 	$paypal_email
 			);
 
@@ -79,5 +79,9 @@ class Recipes extends CI_Controller
 		}else{
 			redirect('/');
 		}
+	}
+
+	public function success()
+	{
 	}
 }

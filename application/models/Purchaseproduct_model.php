@@ -81,4 +81,9 @@ class Purchaseproduct_model extends CI_Model
 						->get($this->table);
         return $row->result();
 	}
+
+	function insert($params)
+	{
+		$this->db->insert($this->table, $params);
+	}
 }
